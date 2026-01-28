@@ -109,6 +109,15 @@ export function translateMarker(
   data: TranslationData,
   storyId: string
 ): MarkerTranslation {
+  // Special case: If country is Iran, return original values without translation
+  if (data.country === 'IR') {
+    const original = getOriginalValue(marker);
+    return {
+      translated: original,
+      original: null, // No strikethrough needed when showing original
+    };
+  }
+
   const seed = `${storyId}-${markerKey}-${data.country}`;
 
   switch (marker.type) {
