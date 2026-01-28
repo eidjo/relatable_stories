@@ -190,3 +190,59 @@ BR:
     ]
   neutral:
     ['Alex', 'Ariel', 'Morgan', 'Luan', 'René', 'Dominique', 'Angel', 'Yuri', 'Sidney', 'Darcy']
+
+PT:
+  female:
+    [
+      'Maria',
+      'Leonor',
+      'Matilde',
+      'Beatriz',
+      'Carolina',
+      'Ana',
+      'Mariana',
+      'Sofia',
+      'Inês',
+      'Rita',
+    ]
+  male:
+    [
+      'João',
+      'Francisco',
+      'Santiago',
+      'Afonso',
+      'Tomás',
+      'Rodrigo',
+      'Miguel',
+      'Pedro',
+      'Martim',
+      'Duarte',
+    ]
+  neutral:
+    ['Alex', 'Ariel', 'Morgan', 'René', 'Dominique', 'Angel', 'Yuri', 'Sidney', 'Darcy', 'Sam']
+
+NO:
+  female: ['Emma', 'Nora', 'Sofie', 'Ella', 'Maja', 'Emilie', 'Olivia', 'Ingrid', 'Lea', 'Frida']
+  male: ['Noah', 'William', 'Oliver', 'Jakob', 'Lucas', 'Filip', 'Emil', 'Aksel', 'Oskar', 'Magnus']
+  neutral: ['Alex', 'Kim', 'Andrea', 'Magne', 'Robin', 'Charlie', 'Storm', 'Eide', 'Lund', 'Bakke']
+
+DK:
+  female: ['Emma', 'Ida', 'Clara', 'Laura', 'Alma', 'Isabella', 'Sofia', 'Freja', 'Anna', 'Ella']
+  male:
+    ['Noah', 'Oscar', 'William', 'Lucas', 'Oliver', 'Victor', 'Emil', 'Magnus', 'Alfred', 'Carl']
+  neutral: ['Alex', 'Andrea', 'Kim', 'Mika', 'Charlie', 'Storm', 'Robin', 'Sasha', 'Noa', 'Lou']
+
+FI:
+  female: ['Aino', 'Aada', 'Elsa', 'Sofia', 'Emilia', 'Helmi', 'Lilja', 'Ella', 'Linnea', 'Isla']
+  male:
+    ['Onni', 'Eino', 'Leo', 'Väinö', 'Oliver', 'Elias', 'Eeli', 'Aatos', 'Mikael', 'Aleksi']
+  neutral:
+    ['Alex', 'Kimi', 'Aino', 'Mika', 'Kim', 'Robin', 'Samu', 'Jesse', 'Miro', 'Sasha']
+
+PL:
+  female:
+    ['Julia', 'Zuzanna', 'Maja', 'Zofia', 'Hanna', 'Lena', 'Alicja', 'Amelia', 'Maria', 'Oliwia']
+  male:
+    ['Antoni', 'Jan', 'Jakub', 'Szymon', 'Franciszek', 'Aleksander', 'Michał', 'Wojciech', 'Kacper', 'Filip']
+  neutral:
+    ['Alex', 'Sasha', 'Andrea', 'Dominik', 'Niki', 'Kuba', 'Mika', 'Charlie', 'Adrian', 'Robin']

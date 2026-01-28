@@ -150,3 +150,48 @@ countries:
       - 'America/Sao_Paulo'
       - 'America/Rio_Branco'
       - 'America/Manaus'
+
+  - code: 'PT'
+    name: 'Portugal'
+    population: 10350000
+    currency: 'EUR'
+    currency-symbol: '€'
+    rial-to-local: 0.000020
+    timezones:
+      - 'Europe/Lisbon'
+
+  - code: 'NO'
+    name: 'Norway'
+    population: 5470000
+    currency: 'NOK'
+    currency-symbol: 'kr'
+    rial-to-local: 0.00023
+    timezones:
+      - 'Europe/Oslo'
+
+  - code: 'DK'
+    name: 'Denmark'
+    population: 5930000
+    currency: 'DKK'
+    currency-symbol: 'kr'
+    rial-to-local: 0.00015
+    timezones:
+      - 'Europe/Copenhagen'
+
+  - code: 'FI'
+    name: 'Finland'
+    population: 5540000
+    currency: 'EUR'
+    currency-symbol: '€'
+    rial-to-local: 0.000020
+    timezones:
+      - 'Europe/Helsinki'
+
+  - code: 'PL'
+    name: 'Poland'
+    population: 38000000
+    currency: 'PLN'
+    currency-symbol: 'zł'
+    rial-to-local: 0.000090
+    timezones:
+      - 'Europe/Warsaw'

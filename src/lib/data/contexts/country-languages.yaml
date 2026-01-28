@@ -50,6 +50,12 @@ countries:
   PL:
     languages: ['pl']
 
+  BR:
+    languages: ['pt']
+
+  PT:
+    languages: ['pt']
+
   IR:
     languages: ['fa', 'en']
 
