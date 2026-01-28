@@ -252,3 +252,13 @@ PL:
   government-facility: ['Komisariat Policji', 'Sąd', 'Areszt Śledczy', 'Urząd Miasta']
   university:
     ['Uniwersytet Warszawski', 'Uniwersytet Jagielloński', 'Politechnika Warszawska', 'Uniwersytet Wrocławski']
+
+GR:
+  city-small: ['Ioannina', 'Chania', 'Kavala', 'Volos', 'Rhodes', 'Kalamata']
+  city-medium: ['Patras', 'Heraklion', 'Larissa', 'Thessaloniki', 'Piraeus']
+  city-large: ['Athens', 'Thessaloniki', 'Patras', 'Heraklion']
+  landmark-protest:
+    ['Syntagma Square', 'Aristotelous Square', 'Plateia Eleftherias', 'Omonia Square', 'Monastiraki Square']
+  government-facility: ['Astynomiko Tmima', 'Dikastirio', 'Kratitiko Katastima', 'Dimarcheio']
+  university:
+    ['National and Kapodistrian University of Athens', 'Aristotle University of Thessaloniki', 'University of Crete', 'National Technical University of Athens']

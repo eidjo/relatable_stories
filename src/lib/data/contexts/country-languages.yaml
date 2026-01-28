@@ -56,6 +56,9 @@ countries:
   PT:
     languages: ['pt']
 
+  GR:
+    languages: ['el']
+
   IR:
     languages: ['fa', 'en']
 
@@ -75,3 +78,4 @@ language_names:
   cs: 'Čeština'
   pl: 'Polski'
   pt: 'Português'
+  el: 'Ελληνικά'

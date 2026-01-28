@@ -246,3 +246,11 @@ PL:
     ['Antoni', 'Jan', 'Jakub', 'Szymon', 'Franciszek', 'Aleksander', 'Michał', 'Wojciech', 'Kacper', 'Filip']
   neutral:
     ['Alex', 'Sasha', 'Andrea', 'Dominik', 'Niki', 'Kuba', 'Mika', 'Charlie', 'Adrian', 'Robin']
+
+GR:
+  female:
+    ['Maria', 'Eleni', 'Sofia', 'Katerina', 'Dimitra', 'Vasiliki', 'Georgia', 'Aikaterini', 'Anna', 'Christina']
+  male:
+    ['Giorgos', 'Dimitris', 'Nikos', 'Konstantinos', 'Ioannis', 'Christos', 'Panagiotis', 'Vasilis', 'Andreas', 'Alexandros']
+  neutral:
+    ['Alex', 'Andrea', 'Niki', 'Sasha', 'Chris', 'Dimi', 'Stav', 'Theo', 'Panos', 'Ari']
