@@ -9,7 +9,8 @@ export type MarkerType =
   | 'occupation'
   | 'subject'
   | 'source'
-  | 'image';
+  | 'image'
+  | 'paragraph-break';
 
 export type Gender = 'male' | 'female' | 'neutral';
 
@@ -38,11 +39,13 @@ export interface PlaceMarker {
 export interface DateMarker {
   type: 'date';
   value: string;
+  translation?: string;
 }
 
 export interface TimeMarker {
   type: 'time';
   value: string;
+  translation?: string;
 }
 
 export interface NumberMarker {
@@ -99,6 +102,10 @@ export interface ImageMarker {
   creditUrl?: string; // Optional URL for photo credit
 }
 
+export interface ParagraphBreakMarker {
+  type: 'paragraph-break';
+}
+
 export type Marker =
   | PersonMarker
   | PlaceMarker
@@ -110,7 +117,8 @@ export type Marker =
   | OccupationMarker
   | SubjectMarker
   | SourceMarker
-  | ImageMarker;
+  | ImageMarker
+  | ParagraphBreakMarker;
 
 export interface StoryMeta {
   'og-title'?: string;

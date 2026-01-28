@@ -4,6 +4,7 @@
   import ShareButtons from '../shared/ShareButtons.svelte';
   import LanguageSelector from '../shared/LanguageSelector.svelte';
   import ContextualizationToggle from '../shared/ContextualizationToggle.svelte';
+  import ErrorBoundary from '../shared/ErrorBoundary.svelte';
   import { selectedCountry } from '$lib/stores/country';
   import { selectedLanguage } from '$lib/stores/language';
   import { contextualizationEnabled } from '$lib/stores/contextualization';
@@ -106,9 +107,11 @@
 <article class="space-y-8">
   <!-- Header -->
   <div class="space-y-4">
-    <h1 class="text-4xl font-bold leading-tight">
-      <TranslatedText segments={story.title} inline animate animationStartIndex={0} />
-    </h1>
+    <ErrorBoundary>
+      <h1 class="text-4xl font-bold leading-tight">
+        <TranslatedText segments={story.title} inline animate animationStartIndex={0} />
+      </h1>
+    </ErrorBoundary>
 
     <!-- Metadata & Controls -->
     {#if !minimal}
@@ -176,23 +179,27 @@
   </div>
 
   <!-- Summary -->
-  <div class="text-xl leading-relaxed opacity-90">
-    <TranslatedText segments={story.summary} inline animate animationStartIndex={summaryStartIndex} />
-  </div>
+  <ErrorBoundary>
+    <div class="text-xl leading-relaxed opacity-90">
+      <TranslatedText segments={story.summary} inline animate animationStartIndex={summaryStartIndex} />
+    </div>
+  </ErrorBoundary>
 
   <!-- Content -->
-  <div class="leading-relaxed opacity-80 space-y-6">
-    {#each contentParagraphs as paragraph, pIdx}
-      <p>
-        <TranslatedText
-          segments={paragraph}
-          inline
-          animate
-          animationStartIndex={getContentParagraphStartIndex(pIdx)}
-        />
-      </p>
-    {/each}
-  </div>
+  <ErrorBoundary>
+    <div class="leading-relaxed opacity-80 space-y-6">
+      {#each contentParagraphs as paragraph, pIdx}
+        <p>
+          <TranslatedText
+            segments={paragraph}
+            inline
+            animate
+            animationStartIndex={getContentParagraphStartIndex(pIdx)}
+          />
+        </p>
+      {/each}
+    </div>
+  </ErrorBoundary>
 
   <!-- Sources List -->
   {#if sources.length > 0}

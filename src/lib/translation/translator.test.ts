@@ -11,6 +11,7 @@ const mockContext: TranslationContext = {
     currency: 'USD',
     'currency-symbol': '$',
     'rial-to-local': 0.000024,
+    timezones: ['America/New_York', 'America/Chicago', 'America/Denver', 'America/Los_Angeles'],
   },
   names: {
     male: ['John', 'Michael', 'James'],

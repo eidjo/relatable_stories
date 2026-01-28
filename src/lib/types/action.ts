@@ -1,4 +1,4 @@
-export type ActionType = 'social' | 'education' | 'political' | 'donation' | 'awareness';
+export type ActionType = 'social' | 'education' | 'political' | 'donate' | 'advocacy' | 'local';
 
 export interface ActionLink {
   title?: string;

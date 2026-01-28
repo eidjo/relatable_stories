@@ -12,7 +12,7 @@
   import { translateStory } from '$lib/translation/translator';
   import { parsePreTranslatedWithParagraphs } from '$lib/translation/pretranslated-parser';
   import { countryLanguages } from '$lib/data/contexts';
-  import type { CountryCode, Story, TranslatedStory } from '$lib/types';
+  import type { CountryCode, Story, TranslatedStory, TranslatedSegment } from '$lib/types';
 
   $: slug = $page.params.slug || '';
 

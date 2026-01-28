@@ -6,6 +6,7 @@
   import { selectedLanguage } from '$lib/stores/language';
   import { countries, countryLanguages, languageNames } from '$lib/data/contexts';
   import { sortCountriesForDisplay } from '$lib/utils/sortCountries';
+  import { selectBestLanguageForCountry } from '$lib/utils/languageSelection';
   import type { CountryCode } from '$lib/types';
   import type { LanguageCode } from '$lib/stores/language';
 
@@ -25,19 +26,14 @@
   $: additionalLanguages = countrySpecificLanguages.filter(lang => lang !== 'en');
   $: showLanguageSelector = additionalLanguages.length > 0;
 
-  // Default to first additional language, or 'en' if none available
-  $: defaultLanguage = additionalLanguages.length > 0 ? additionalLanguages[0] : 'en';
-
   onMount(async () => {
     // Run IP-based detection
     console.log('Starting location detection...');
     detectedCountry = await detectCountry();
     selectedOption = detectedCountry;
 
-    // Set default language for detected country
-    const countryLangs = countryLanguages.countries[detectedCountry]?.languages || [];
-    const additionalLangs = countryLangs.filter(lang => lang !== 'en');
-    selectedLang = additionalLangs.length > 0 ? additionalLangs[0] : 'en';
+    // Set best language for detected country
+    selectedLang = selectBestLanguageForCountry(detectedCountry);
 
     // Log detection result for debugging
     console.log(`Detected country: ${detectedCountry}, default language: ${selectedLang}`);
@@ -59,14 +55,8 @@
     selectedOption = code;
     showDropdown = false;
 
-    // Set default language for new country
-    const newCountryLanguages = countryLanguages.countries[code]?.languages || [];
-    const newAdditionalLangs = newCountryLanguages.filter(lang => lang !== 'en');
-
-    // If current language not available in new country, reset to default
-    if (selectedLang !== 'en' && !newCountryLanguages.includes(selectedLang)) {
-      selectedLang = newAdditionalLangs.length > 0 ? newAdditionalLangs[0] : 'en';
-    }
+    // Select best language for new country (keeps current if available)
+    selectedLang = selectBestLanguageForCountry(code, selectedLang);
   }
 
   function toggleDropdown() {

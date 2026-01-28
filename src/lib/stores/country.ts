@@ -1,8 +1,10 @@
-import { writable, derived } from 'svelte/store';
+import { writable, derived, get } from 'svelte/store';
 import { browser } from '$app/environment';
 import type { CountryCode, TranslationContext } from '$lib/types';
 import { getCountryByCode, getCountryNames, getCountryPlaces } from '$lib/data/contexts';
 import { detectCountry, detectCountrySync } from '$lib/geolocation/detector';
+import { selectedLanguage } from './language';
+import { selectBestLanguageForCountry } from '$lib/utils/languageSelection';
 
 const STORAGE_KEY = 'selected-country';
 const DEFAULT_COUNTRY: CountryCode = 'US';
@@ -44,6 +46,15 @@ export const selectedCountry = writable<CountryCode>(initialCountry);
 if (browser) {
   selectedCountry.subscribe((country) => {
     storeCountry(country);
+
+    // Auto-select best language for new country
+    const currentLang = get(selectedLanguage);
+    const bestLang = selectBestLanguageForCountry(country, currentLang);
+
+    // Only update language if it changed
+    if (bestLang !== currentLang) {
+      selectedLanguage.set(bestLang);
+    }
   });
 
   // Note: IP-based geolocation is now handled by LocationConfirmationModal

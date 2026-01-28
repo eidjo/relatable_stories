@@ -7,12 +7,13 @@ import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'fs';
 import { load } from 'js-yaml';
 import { join } from 'path';
+import type { Country } from '$lib/types';
 
 const DATA_DIR = join(process.cwd(), 'src/lib/data/contexts');
 
 // Load all configuration files
 const countriesData = load(readFileSync(join(DATA_DIR, 'countries.yaml'), 'utf-8')) as {
-  countries: Array<{ code: string; name: string }>;
+  countries: Country[];
 };
 const countryLanguagesData = load(readFileSync(join(DATA_DIR, 'country-languages.yaml'), 'utf-8')) as {
   countries: Record<string, { languages: string[] }>;

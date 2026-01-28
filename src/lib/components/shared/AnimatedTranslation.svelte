@@ -16,6 +16,7 @@
   let elementRef: HTMLElement;
   let observer: IntersectionObserver | null = null;
   let currentCountry = '';
+  let currentContextualization = true;
   let showTooltip = false;
 
   // Determine what to display and what to show in tooltip based on contextualization setting
@@ -30,14 +31,15 @@
   // Calculate total delay based on sequence index
   $: sequenceDelay = sequenceIndex * DELAY_BETWEEN_ANIMATIONS;
 
-  // Watch for country changes or contextualization changes to re-trigger animation
+  // Watch for country changes to re-trigger animation
   $: if ($translationContext?.country && $translationContext.country !== currentCountry) {
     currentCountry = $translationContext.country;
     resetAnimation();
   }
 
-  // Watch for contextualization toggle
-  $: if ($contextualizationEnabled !== undefined) {
+  // Watch for contextualization toggle (only reset when it actually changes)
+  $: if ($contextualizationEnabled !== currentContextualization) {
+    currentContextualization = $contextualizationEnabled;
     resetAnimation();
   }
 
@@ -82,6 +84,7 @@
 
   onMount(() => {
     currentCountry = $translationContext?.country || '';
+    currentContextualization = $contextualizationEnabled;
     setupObserver();
 
     return () => {
