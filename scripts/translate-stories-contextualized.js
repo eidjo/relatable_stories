@@ -20,6 +20,8 @@
  *   npm run translate-contextualized
  *   npm run translate-contextualized -- --country=CZ
  *   npm run translate-contextualized -- --story=mahsa-arrest
+ *   npm run translate-contextualized -- --country=CZ --force    # Overwrite existing files
+ *   npm run translate-contextualized -- --story=mahsa-arrest -f  # Short form
  */
 
 import Anthropic from '@anthropic-ai/sdk';
@@ -33,6 +35,7 @@ import yaml from 'js-yaml';
 const args = process.argv.slice(2);
 const targetCountry = args.find(arg => arg.startsWith('--country='))?.split('=')[1];
 const targetStory = args.find(arg => arg.startsWith('--story='))?.split('=')[1];
+const forceOverwrite = args.includes('--force') || args.includes('-f');
 
 // Check for API key
 if (!process.env.ANTHROPIC_API_KEY) {
@@ -284,6 +287,10 @@ Return ONLY valid YAML with proper escaping, no explanations.`
 async function main() {
   console.log('🌍 Contextualized Story Translation Tool\n');
 
+  if (forceOverwrite) {
+    console.log('⚠️  Force mode enabled - will overwrite existing files\n');
+  }
+
   // Load configuration
   const countryLanguages = await loadCountryLanguages();
   const countries = await loadCountries();
@@ -357,11 +364,16 @@ async function main() {
         const outputFilename = `story.${langCode}-${countryCode.toLowerCase()}.yaml`;
         const outputPath = path.join(storyDir, outputFilename);
 
-        // Skip if already exists
-        if (existsSync(outputPath)) {
-          console.log(`   ⏭️  ${langName} (${countryName}) - already exists`);
+        // Skip if already exists (unless --force flag is set)
+        if (existsSync(outputPath) && !forceOverwrite) {
+          console.log(`   ⏭️  ${langName} (${countryName}) - already exists (use --force to overwrite)`);
           totalSkipped++;
           continue;
+        }
+
+        // Log if overwriting
+        if (existsSync(outputPath) && forceOverwrite) {
+          console.log(`   🔄 ${langName} (${countryName}) - overwriting existing file`);
         }
 
         // Translate to target language
