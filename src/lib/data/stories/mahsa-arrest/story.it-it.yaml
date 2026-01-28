@@ -1,0 +1,26 @@
+id: mahsa-arrest
+title: Detenzione di [[MARKER:person:person1:Zahra|Giulia]]
+slug: mahsa-arrest
+date: "2022-09-20"
+summary: L'esperienza di una studentessa di [[MARKER:number:age:23|22]] anni durante le proteste seguite alla morte di Mahsa Amini.
+content: |-
+  La sera del {{date:arrest-date}}, [[MARKER:person:person1:Zahra|Giulia]], una studentessa di [[MARKER:number:age:23|22]] anni di [[MARKER:place:hometown:Mashhad|Torino]], si è unita a una veglia pacifica in [[MARKER:place:main-square:Azadi Square|Piazza del Comune]].
+  La manifestazione era una delle tante dimostrazioni spontanee scoppiate in tutto l'Iran dopo la morte di Mahsa Amini in custodia della polizia il {{date:mahsa-death}}{{source:mahsa-death-source}}. [[MARKER:person:person1:Zahra|Giulia]] teneva una candela e scandiva "{{event:chant}}" insieme a circa [[MARKER:number:protesters:200|67]] altre persone.
+  Alle {{time:raid-time}}, le forze di sicurezza sono arrivate e hanno iniziato a effettuare arresti. [[MARKER:person:person1:Zahra|Giulia]] era tra le [[MARKER:number:arrested:47|16]] persone fermate quella notte e portate alla [[MARKER:place:detention-center:Evin Prison|Casa Circondariale]].
+  Per [[MARKER:number:detention-days:18|18]] giorni, la famiglia di [[MARKER:person:person1:Zahra|Giulia]] non ha avuto nessuna informazione sulla sua ubicazione. Le telefonate alle autorità sono rimaste senza risposta. L'[[MARKER:number:first-contact-day:11|11]]º giorno, hanno finalmente ricevuto una breve chiamata che confermava che [[MARKER:person:person1:Zahra|Giulia]] era viva ma senza fornire altri dettagli.
+  La famiglia di [[MARKER:person:person1:Zahra|Giulia]] ha racimolato [[MARKER:currency:bail-amount:80,000,000 Rial|€1.680]] per la cauzione. Questo importo rappresentava circa [[MARKER:number:months-salary:8|8]] mesi di stipendio di [[MARKER:person:parent:Hassan|Alessandro]], [[MARKER:occupation:parent-job:construction worker|operaio edile]].
+  Dopo [[MARKER:number:detention-days:18|18]] giorni in custodia, [[MARKER:person:person1:Zahra|Giulia]] è stata rilasciata con condizioni rigorose: niente social media, niente partecipazione a manifestazioni e controlli regolari con le autorità. Le accuse rimangono pendenti.
+  "Volevo solo accendere una candela per Mahsa," ha detto [[MARKER:person:person1:Zahra|Giulia]]. "Non avrei mai immaginato che sarebbe successo questo."
+tags:
+  - protesta
+  - detenzione
+  - studentessa
+  - mahsa-amini
+hashtags: "#Iran #MahsaAmini #DirittiUmani #DonnaVitaLibertà"
+severity: high
+verified: true
+source: Testimonianze raccolte da organizzazioni per i diritti umani
+content-warning: Detenzione, separazione familiare
+meta:
+  og-title: La storia di una studentessa dalle proteste iraniane del 2022
+  og-description: Scopri il costo umano della protesta pacifica attraverso la detenzione di una studentessa.

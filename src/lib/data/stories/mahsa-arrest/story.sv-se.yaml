@@ -1,0 +1,26 @@
+id: mahsa-arrest
+title: "[[MARKER:person:person1:Zahra|Wilmas]] anhållande"
+slug: mahsa-arrest
+date: "2022-09-20"
+summary: En [[MARKER:number:age:23|23]]-årig students upplevelse under protesterna efter Mahsa Aminis död.
+content: |-
+  På kvällen den {{date:arrest-date}} gick [[MARKER:person:person1:Zahra|Wilma]], en [[MARKER:number:age:23|23]]-årig student från [[MARKER:place:hometown:Mashhad|Göteborg]], med i en fredlig vaka på [[MARKER:place:main-square:Azadi Square|Stortorget]].
+  Sammankomsten var en av många spontana demonstrationer som bröt ut över Iran efter Mahsa Aminis död i polisförvar den {{date:mahsa-death}}{{source:mahsa-death-source}}. [[MARKER:person:person1:Zahra|Wilma]] höll ett ljus och skanderade "{{event:chant}}" tillsammans med ungefär [[MARKER:number:protesters:200|12]] andra.
+  Klockan {{time:raid-time}} anlände säkerhetsstyrkor och började göra arresteringar. [[MARKER:person:person1:Zahra|Wilma]] var bland [[MARKER:number:arrested:47|3]] personer som greps den kvällen och fördes till [[MARKER:place:detention-center:Evin Prison|Polisstationen]].
+  I [[MARKER:number:detention-days:18|18]] dagar hade [[MARKER:person:person1:Zahra|Wilmas]] familj ingen information om var hon befann sig. Telefonsamtal till myndigheterna förblev obesvarade. På dag [[MARKER:number:first-contact-day:11|11]] fick de äntligen ett kort samtal som bekräftade att [[MARKER:person:person1:Zahra|Wilma]] var vid liv men som inte gav några andra detaljer.
+  [[MARKER:person:person1:Zahra|Wilmas]] familj skrapade ihop [[MARKER:currency:bail-amount:80,000,000 Rial|19 200 kr]] för borgen. Detta belopp motsvarade ungefär [[MARKER:number:months-salary:8|8]] månaders lön för [[MARKER:person:parent:Hassan|Matteo]] som [[MARKER:occupation:parent-job:construction worker|rörmokare]].
+  Efter [[MARKER:number:detention-days:18|18]] dagar i förvar släpptes [[MARKER:person:person1:Zahra|Wilma]] med strikta villkor: inga sociala medier, inga sammankomster och regelbundna kontroller hos myndigheterna. Anklagelserna är fortfarande anhängiga.
+  "Jag ville bara tända ett ljus för Mahsa," sa [[MARKER:person:person1:Zahra|Wilma]]. "Jag föreställde mig aldrig att detta skulle hända."
+tags:
+  - protest
+  - anhållande
+  - student
+  - mahsa-amini
+hashtags: "#Iran #MahsaAmini #Mänskligarättigheter #KvinnaLivFrihet"
+severity: high
+verified: true
+source: Vittnesmål sammanställda av människorättsorganisationer
+content-warning: Anhållande, familjeseparation
+meta:
+  og-title: En students berättelse från Irans protester 2022
+  og-description: Upplev den mänskliga kostnaden av fredlig protest genom en students anhållande.

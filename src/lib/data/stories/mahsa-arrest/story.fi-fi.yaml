@@ -1,0 +1,26 @@
+id: mahsa-arrest
+title: "[[MARKER:person:person1:Zahra|Ainon]] pidätys"
+slug: mahsa-arrest
+date: "2022-09-20"
+summary: "[[MARKER:number:age:23|22]]-vuotiaan opiskelijan kokemus mielenosoitusten aikana Mahsa Aminin kuoleman jälkeen."
+content: |-
+  Iltana {{date:arrest-date}} [[MARKER:person:person1:Zahra|Aino]], [[MARKER:number:age:23|22]]-vuotias opiskelija [[MARKER:place:hometown:Mashhad|Oulusta]], liittyi rauhalliseen kynttilähartauteen [[MARKER:place:main-square:Azadi Square|Kansalaistorilla]].
+  Kokoontuminen oli yksi monista spontaaneista mielenosoituksista, jotka puhkesivat ympäri Irania Mahsa Aminin kuoleman jälkeen poliisin pidätyksessä {{date:mahsa-death}}{{source:mahsa-death-source}}. [[MARKER:person:person1:Zahra|Aino]] piti kynttilää ja huusi "{{event:chant}}" yhdessä noin [[MARKER:number:protesters:200|6]] muun kanssa.
+  Kello {{time:raid-time}} turvallisuusjoukot saapuivat ja alkoivat tehdä pidätyksiä. [[MARKER:person:person1:Zahra|Aino]] oli yksi [[MARKER:number:arrested:47|1]] sinä iltana pidätetystä henkilöstä ja vietiin [[MARKER:place:detention-center:Evin Prison|Vankilaan]].
+  [[MARKER:number:detention-days:18|18]] päivän ajan [[MARKER:person:person1:Zahra|Ainon]] perheellä ei ollut mitään tietoa heidän olinpaikastaan. Puhelut viranomaisille jäivät vastaamatta. Päivänä [[MARKER:number:first-contact-day:11|11]] he lopulta saivat lyhyen puhelun, joka vahvisti [[MARKER:person:person1:Zahra|Ainon]] olevan elossa, mutta ei antanut muita yksityiskohtia.
+  [[MARKER:person:person1:Zahra|Ainon]] perhe raapi kokoon [[MARKER:currency:bail-amount:80,000,000 Rial|1 600 €]] takuita varten. Tämä summa vastasi noin [[MARKER:number:months-salary:8|8]] kuukauden palkkaa [[MARKER:person:parent:Hassan|Väinölle]], joka työskenteli [[MARKER:occupation:parent-job:construction worker|rakennustyöläisenä]].
+  [[MARKER:number:detention-days:18|18]] päivän säilöönoton jälkeen [[MARKER:person:person1:Zahra|Aino]] vapautettiin tiukoin ehdoin: ei sosiaalista mediaa, ei kokoontumisiin osallistumista ja säännölliset ilmoittautumiset viranomaisille. Syytteet ovat edelleen vireillä.
+  "Halusin vain sytyttää kynttilän Mahsalle", [[MARKER:person:person1:Zahra|Aino]] sanoi. "En koskaan kuvitellut, että näin kävisi."
+tags:
+  - mielenosoitus
+  - pidätys
+  - opiskelija
+  - mahsa-amini
+hashtags: "#Iran #MahsaAmini #Ihmisoikeudet #NaisaElämäVapaus"
+severity: high
+verified: true
+source: Ihmisoikeusjärjestöjen kokoamat silminnäkijälausunnot
+content-warning: Pidätys, perheen erottaminen
+meta:
+  og-title: Opiskelijan tarina Iranin vuoden 2022 mielenosoituksista
+  og-description: Koe rauhanomaisen mielenosoituksen inhimillinen hinta yhden opiskelijan pidätyksen kautta.

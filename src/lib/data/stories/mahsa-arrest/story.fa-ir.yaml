@@ -1,0 +1,26 @@
+id: mahsa-arrest
+title: بازداشت [[MARKER:person:person1:Zahra|فاطمه]]
+slug: mahsa-arrest
+date: "2022-09-20"
+summary: تجربه یک دانشجوی [[MARKER:number:age:23|22]] ساله در جریان اعتراضات پس از مرگ مهسا امینی.
+content: |-
+  در عصر روز {{date:arrest-date}}، [[MARKER:person:person1:Zahra|فاطمه]]، دانشجوی [[MARKER:number:age:23|22]] ساله‌ای از [[MARKER:place:hometown:Mashhad|یزد]]، به یک مراسم شمع‌افروزی مسالمت‌آمیز در [[MARKER:place:main-square:Azadi Square|میدان امام حسین]] پیوست.
+  این گردهمایی یکی از بسیاری از تظاهرات خودجوش بود که پس از مرگ مهسا امینی در بازداشت پلیس در تاریخ {{date:mahsa-death}}{{source:mahsa-death-source}} در سراسر ایران رخ داد. [[MARKER:person:person1:Zahra|فاطمه]] شمعی در دست داشت و همراه با تقریباً [[MARKER:number:protesters:200|96]] نفر دیگر شعار «{{event:chant}}» سر می‌داد.
+  در ساعت {{time:raid-time}}، نیروهای امنیتی وارد شدند و شروع به دستگیری کردند. [[MARKER:person:person1:Zahra|فاطمه]] در میان [[MARKER:number:arrested:47|23]] نفری بود که آن شب بازداشت شدند و به [[MARKER:place:detention-center:Evin Prison|زندان فشافویه]] منتقل شدند.
+  به مدت [[MARKER:number:detention-days:18|18]] روز، خانواده [[MARKER:person:person1:Zahra|فاطمه]] هیچ اطلاعی از محل نگهداری او نداشتند. تماس‌های تلفنی با مقامات بی‌پاسخ ماند. در روز [[MARKER:number:first-contact-day:11|11]]، سرانجام یک تماس کوتاه دریافت کردند که تأیید می‌کرد [[MARKER:person:person1:Zahra|فاطمه]] زنده است اما جزئیات دیگری ارائه نمی‌شد.
+  خانواده [[MARKER:person:person1:Zahra|فاطمه]] مبلغ [[MARKER:currency:bail-amount:80,000,000 Rial|﷼۸۰،۰۰۰،۰۰۰]] را برای وثیقه جمع‌آوری کردند. این مبلغ تقریباً معادل [[MARKER:number:months-salary:8|8]] ماه حقوق [[MARKER:person:parent:Hassan|علی]]، پدر او که [[MARKER:occupation:parent-job:construction worker|کارگر ساختمانی]] است، بود.
+  پس از [[MARKER:number:detention-days:18|18]] روز بازداشت، [[MARKER:person:person1:Zahra|فاطمه]] با شرایط سختگیرانه آزاد شد: ممنوعیت استفاده از شبکه‌های اجتماعی، ممنوعیت شرکت در تجمعات، و معرفی منظم به مقامات. اتهامات همچنان در حال بررسی است.
+  [[MARKER:person:person1:Zahra|فاطمه]] گفت: «من فقط می‌خواستم برای مهسا شمعی روشن کنم. هرگز تصور نمی‌کردم چنین اتفاقی بیفتد.»
+tags:
+  - اعتراض
+  - بازداشت
+  - دانشجو
+  - مهسا-امینی
+hashtags: "#ایران #مهسا_امینی #حقوق_بشر #زن_زندگی_آزادی"
+severity: high
+verified: true
+source: شهادت‌های شاهدان عینی جمع‌آوری‌شده توسط سازمان‌های حقوق بشری
+content-warning: بازداشت، جدایی از خانواده
+meta:
+  og-title: داستان یک دانشجو از اعتراضات ۱۴۰۱ ایران
+  og-description: هزینه انسانی اعتراض مسالمت‌آمیز را از طریق بازداشت یک دانشجو تجربه کنید.

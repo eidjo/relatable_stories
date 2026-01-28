@@ -1,0 +1,26 @@
+id: mahsa-arrest
+title: Zadržení [[MARKER:person:person1:Zahry|Emy]]
+slug: mahsa-arrest
+date: "2022-09-20"
+summary: Zkušenost [[MARKER:number:age:23|22]]leté studentky během protestů po smrti Mahsy Aminiové.
+content: |-
+  Večer {{date:arrest-date}} se [[MARKER:person:person1:Zahra|Ema]], [[MARKER:number:age:23|22]]letá studentka z [[MARKER:place:hometown:Mašhadu|Plzně]], připojila k mírovému shromáždění na [[MARKER:place:main-square:náměstí Azadi|náměstí Republiky]].
+  Shromáždění bylo jednou z mnoha spontánních demonstrací, které vypukly po celém Íránu po smrti Mahsy Aminiové v policejní vazbě dne {{date:mahsa-death}}{{source:mahsa-death-source}}. [[MARKER:person:person1:Zahra|Ema]] držela svíčku a skandovala "{{event:chant}}" spolu s přibližně [[MARKER:number:protesters:200|12]] dalšími lidmi.
+  V {{time:raid-time}} přijely bezpečnostní síly a začaly zatýkat. [[MARKER:person:person1:Zahra|Ema]] byla mezi [[MARKER:number:arrested:47|3]] lidmi zadrženými té noci a odvezenými do [[MARKER:place:detention-center:věznice Evin|Věznice]].
+  Po dobu [[MARKER:number:detention-days:18|18]] dní neměla rodina [[MARKER:person:person1:Zahry|Emy]] žádné informace o tom, kde se nachází. Telefonáty na úřady zůstaly nezodpovězeny. [[MARKER:number:first-contact-day:11.|11.]] den konečně dostali krátký hovor potvrzující, že [[MARKER:person:person1:Zahra|Ema]] je naživu, ale bez dalších podrobností.
+  Rodina [[MARKER:person:person1:Zahry|Emy]] seškrábala [[MARKER:currency:bail-amount:80 000 000 rijálů|42 400 Kč]] na kauci. Tato částka představovala přibližně [[MARKER:number:months-salary:8|8]] měsíců platu [[MARKER:person:parent:Hassana|Adama]] jako [[MARKER:occupation:parent-job:stavebního dělníka|továrního dělníka]].
+  Po [[MARKER:number:detention-days:18|18]] dnech ve vazbě byla [[MARKER:person:person1:Zahra|Ema]] propuštěna s přísnými podmínkami: žádné sociální sítě, žádná účast na shromážděních a pravidelné hlášení se úřadům. Obvinění zůstávají nevyřízená.
+  "Chtěla jsem jen zapálit svíčku za Mahsu," řekla [[MARKER:person:person1:Zahra|Ema]]. "Nikdy by mě nenapadlo, že se tohle stane."
+tags:
+  - protest
+  - zadržení
+  - studentka
+  - mahsa-amini
+hashtags: "#Írán #MahsaAmini #LidskáPráva #ŽenaŽivotSvoboda"
+severity: high
+verified: true
+source: Svědectví očitých svědků shromážděná organizacemi na ochranu lidských práv
+content-warning: Zadržení, odloučení od rodiny
+meta:
+  og-title: Příběh studentky z íránských protestů v roce 2022
+  og-description: Poznejte lidskou cenu mírumilovného protestu prostřednictvím zadržení jedné studentky.

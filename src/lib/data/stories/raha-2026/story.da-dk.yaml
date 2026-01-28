@@ -1,0 +1,29 @@
+id: raha-2026
+title: "[[MARKER:person:student:Raha|Sofias]] sidste dag"
+slug: raha-2026
+date: "2026-01-08"
+summary: En [[MARKER:number:age:22|22]]-årig universitetsstuderende, der elskede kunst og musik, blev dræbt af sikkerhedsstyrker under opstanden i 2026.
+content: |-
+  [[MARKER:person:student:Raha|Sofia]], en [[MARKER:number:age:22|22]]-årig universitetsstuderende fra [[MARKER:place:hometown:Tehran|København]], var interesseret i kunst og musik. Hun førte en online dagbog, hvor hun skrev om at trække vejret, fortsætte og i morgen. Hun registrerede navne på tilbageholdte venner og klassekammerater og forstod, at undertrykkelse begynder med udsletning.
+  Om morgenen den {{date:protest-date}} brød protester ud over hele Iran. Inden for timer spredte demonstrationerne sig til mere end [[MARKER:number:cities:400|8]] byer og småbyer. [[MARKER:person:student:Raha|Sofia]] sluttede sig til demonstranter nær [[MARKER:place:square:Fatemi Square|Nytorv]] i [[MARKER:place:capital:Tehran|København]].
+  Protesterne blev mødt med overvældende magt. Sikkerhedsstyrker, herunder IRGC-enheder og agenter i civil, åbnede ild mod folkemængderne. Ifølge klassificerede dokumenter{{source:death-toll}} blev mere end [[MARKER:number:killed:36500|1222]] mennesker dræbt over to dage, hvilket gør det til det dødeligste protestmassakre i historien.
+  [[MARKER:person:student:Raha|Sofia]] blev skudt nær [[MARKER:place:square:Fatemi Square|Nytorv]] den {{date:protest-date}}. Hun var [[MARKER:number:age:22|22]] år gammel. Hendes familie fandt senere hendes lig på [[MARKER:place:morgue:Kahrizak morgue|Fængslet]], et af tusindvis leveret til faciliteter, der var overvældede af tab.
+  {{image:morgue-scene}}
+  Medicinsk personale rapporterede, at nogle sårede demonstranter blev skudt i hovedet, mens de var indlagt{{source:hospital-executions}}. Billeder fra lighuse viste kroppe med hjerteovervågningsudstyr stadig fastgjort, hvilket tyder på, at patienter under medicinsk pleje blev henrettet. Læger og sygeplejersker beskrev sikkerhedsstyrker, der kom ind på hospitaler og tog sårede patienter med sig, hvoraf nogle senere blev fundet døde.
+  Regeringen afbrød internetadgang i hele landet i [[MARKER:number:blackout-days:16|16]] dage, hvilket forhindrede familier i at dele information og gjorde det næsten umuligt at dokumentere omfanget af drabene. Sørgende familier blev tvunget til at betale gebyrer beskrevet som "kugleomkostninger" for at modtage lig. I nogle tilfælde begravede myndighederne ofre uden familiens samtykke.
+  [[MARKER:person:student:Raha|Sofia]] efterlod intet manifest. Det, der er tilbage, er fragmenter - korte refleksioner omhyggeligt udvalgt. Hendes skrivning vendte igen og igen tilbage til elementære bekymringer: at trække vejret, fortsætte, i morgen. Hun forstod, at det at være i live ikke er til forhandling.
+  Før hun døde, skrev [[MARKER:person:student:Raha|Sofia]] navne. Hun navngav tilbageholdte og de forsvundne. Hun registrerede mennesker som mennesker, ikke som abstraktioner. Hun vidste, hvordan undertrykkelse begynder - ikke med kugler, men med udsletning.
+tags:
+  - 2026-uprising
+  - student
+  - massacre
+  - internet-blackout
+  - raha-bohlouli
+hashtags: "#Iran #GlemAldrig #Menneskerettigheder #RahaBohlouli #IranOpstand"
+severity: critical
+verified: true
+source: Iran International investigativ rapportering, vidneudsagn, klassificerede dokumenter
+content-warning: Massedrab, udenretslige henrettelser, statsvold
+meta:
+  og-title: "Rahas historie: En studerende dræbt under Irans opstand i 2026"
+  og-description: En universitetsstuderende, der registrerede navne på tilbageholdte, blev dræbt under det dødeligste protestmassakre i historien.

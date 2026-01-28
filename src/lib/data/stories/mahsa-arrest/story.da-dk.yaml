@@ -1,0 +1,26 @@
+id: mahsa-arrest
+title: "[[MARKER:person:person1:Zahra|Ellas]] anholdelse"
+slug: mahsa-arrest
+date: "2022-09-20"
+summary: En [[MARKER:number:age:23|22]]-årig studerendes oplevelse under protesterne efter Mahsa Aminis død.
+content: |-
+  Om aftenen den {{date:arrest-date}} sluttede [[MARKER:person:person1:Zahra|Ella]], en [[MARKER:number:age:23|22]]-årig studerende fra [[MARKER:place:hometown:Mashhad|Esbjerg]], sig til en fredelig vågevagt på [[MARKER:place:main-square:Azadi Square|Blågårds Plads]].
+  Forsamlingen var en af mange spontane demonstrationer, der brød ud over hele Iran efter Mahsa Aminis død i politiets varetægt den {{date:mahsa-death}}{{source:mahsa-death-source}}. [[MARKER:person:person1:Zahra|Ella]] holdt et lys og råbte "{{event:chant}}" sammen med cirka [[MARKER:number:protesters:200|7]] andre.
+  Klokken {{time:raid-time}} ankom sikkerhedsstyrker og begyndte at foretage anholdelser. [[MARKER:person:person1:Zahra|Ella]] var blandt [[MARKER:number:arrested:47|2]] personer, der blev tilbageholdt den nat og ført til [[MARKER:place:detention-center:Evin Prison|Fængslet]].
+  I [[MARKER:number:detention-days:18|18]] dage havde [[MARKER:person:person1:Zahra|Ellas]] familie ingen oplysninger om deres opholdssted. Telefonopkald til myndighederne blev ikke besvaret. På dag [[MARKER:number:first-contact-day:11|11]] modtog de endelig et kort opkald, der bekræftede, at [[MARKER:person:person1:Zahra|Ella]] var i live, men uden andre detaljer.
+  [[MARKER:person:person1:Zahra|Ellas]] familie skrabede [[MARKER:currency:bail-amount:80,000,000 Rial|kr12.000]] sammen til kaution. Dette beløb repræsenterede cirka [[MARKER:number:months-salary:8|8]] måneders løn for [[MARKER:person:parent:Hassan|Lucas]] som [[MARKER:occupation:parent-job:construction worker|fabriksarbejder]].
+  Efter [[MARKER:number:detention-days:18|18]] dage i varetægt blev [[MARKER:person:person1:Zahra|Ella]] løsladt med strenge betingelser: ingen sociale medier, ingen deltagelse i forsamlinger og regelmæssige tjek-ind hos myndighederne. Anklagerne verserer stadig.
+  "Jeg ville bare tænde et lys for Mahsa," sagde [[MARKER:person:person1:Zahra|Ella]]. "Jeg havde aldrig forestillet mig, at dette ville ske."
+tags:
+  - protest
+  - anholdelse
+  - studerende
+  - mahsa-amini
+hashtags: "#Iran #MahsaAmini #Menneskerettigheder #KvindeLivFrihed"
+severity: high
+verified: true
+source: Vidneudsagn samlet af menneskerettighedsorganisationer
+content-warning: Anholdelse, familieadskillelse
+meta:
+  og-title: En studerendes historie fra Irans 2022-protester
+  og-description: Oplev den menneskelige pris for fredelig protest gennem en studerendes anholdelse.
