@@ -98,12 +98,45 @@
     transition:scale={{ duration: 200, start: 0.95 }}
   >
     <!-- Header -->
-    <div class="space-y-2">
-      <h2 id="modal-title" class="text-2xl font-bold text-white">Welcome to Relatable Stories</h2>
-      <p class="text-stone-400 text-sm leading-relaxed">
-        We'll translate Iranian stories into your local context to help you connect with the human
-        experiences behind the headlines.
-      </p>
+    <div class="space-y-4">
+      <h2 id="modal-title" class="text-2xl font-bold text-white">Stories from Iran</h2>
+
+      <!-- Visual Example of Substitution -->
+      <div class="bg-gradient-to-br from-stone-800/80 to-stone-800/40 border-2 border-stone-700/80 rounded-lg p-5 space-y-3">
+        <p class="text-stone-300 text-xs font-medium uppercase tracking-wide">How it works</p>
+        <div class="space-y-3">
+          <div class="flex items-center gap-3">
+            <span class="text-stone-500 line-through text-base">Mahsa in Tehran</span>
+            <svg class="w-5 h-5 text-primary-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+            </svg>
+            <span class="text-primary-400 font-semibold text-base">
+              {#if selectedOption === 'US'}Emily in New York
+              {:else if selectedOption === 'UK'}Olivia in London
+              {:else if selectedOption === 'FR'}Emma in Paris
+              {:else if selectedOption === 'DE'}Emma in Berlin
+              {:else if selectedOption === 'ES'}Lucía in Madrid
+              {:else if selectedOption === 'IT'}Sofia in Rome
+              {:else if selectedOption === 'NL'}Emma in Amsterdam
+              {:else if selectedOption === 'SE'}Alice in Stockholm
+              {:else if selectedOption === 'BE'}Emma in Brussels
+              {:else if selectedOption === 'CZ'}Anna in Prague
+              {:else if selectedOption === 'CA'}Emma in Toronto
+              {:else if selectedOption === 'AU'}Charlotte in Sydney
+              {:else if selectedOption === 'BR'}Alice in São Paulo
+              {:else if selectedOption === 'GR'}Maria in Athens
+              {:else if selectedOption === 'PT'}Maria in Lisbon
+              {:else if selectedOption === 'NO'}Emma in Oslo
+              {:else if selectedOption === 'DK'}Emma in Copenhagen
+              {:else if selectedOption === 'FI'}Aino in Helsinki
+              {:else if selectedOption === 'PL'}Julia in Warsaw
+              {:else}Emma in your city
+              {/if}
+            </span>
+          </div>
+          <p class="text-stone-400 text-xs italic">Names, places, and numbers adapt to your context</p>
+        </div>
+      </div>
     </div>
 
     <!-- Detection Status -->
@@ -111,16 +144,13 @@
       <div class="flex items-center gap-3 p-4 bg-stone-800/50 rounded border border-stone-700">
         <!-- Spinner -->
         <div class="animate-spin h-5 w-5 border-2 border-primary-500 border-t-transparent rounded-full"></div>
-        <div>
-          <p class="text-white font-medium">Detecting your location...</p>
-          <p class="text-stone-500 text-xs">This helps us personalize the stories for you</p>
-        </div>
+        <p class="text-white font-medium">Detecting location...</p>
       </div>
     {:else}
       <!-- Country Selection -->
-      <div class="space-y-3">
+      <div class="space-y-2">
         <label for="country-selector" class="block text-sm font-medium text-stone-300">
-          Your Location
+          Translate for
         </label>
 
         <div class="relative">
@@ -132,7 +162,6 @@
           >
             <div class="flex-1">
               <div class="text-white font-medium">{currentCountry?.name}</div>
-              <div class="text-stone-500 text-xs">Stories will be translated for this location</div>
             </div>
             <svg
               class="w-5 h-5 text-stone-400 transition-transform {showDropdown ? 'rotate-180' : ''}"
@@ -162,19 +191,11 @@
           {/if}
         </div>
 
-        {#if detectedCountry}
-          <p class="text-xs text-stone-500">
-            Detected from your timezone
-            {#if selectedOption !== detectedCountry}
-              <span class="text-stone-400">(changed to {currentCountry?.name})</span>
-            {/if}
-          </p>
-        {/if}
       </div>
 
       <!-- Language Selection (only show if additional languages available) -->
       {#if showLanguageSelector}
-        <div class="space-y-3">
+        <div class="space-y-2">
           <label for="language-selector" class="block text-sm font-medium text-stone-300">
             Language
           </label>
@@ -207,10 +228,6 @@
               </button>
             {/each}
           </div>
-
-          <p class="text-xs text-stone-500">
-            Stories will be shown in this language with {currentCountry?.name} context
-          </p>
         </div>
       {/if}
 
@@ -220,12 +237,12 @@
         on:click={handleConfirm}
         class="w-full px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white font-medium rounded transition-colors"
       >
-        Continue with {currentCountry?.name}
+        Continue
       </button>
 
       <!-- Privacy Note -->
       <p class="text-xs text-stone-500 text-center">
-        We detect location from your timezone (no tracking). Your choice is saved in the URL for easy sharing.
+        No tracking • Settings saved in URL
       </p>
     {/if}
   </div>

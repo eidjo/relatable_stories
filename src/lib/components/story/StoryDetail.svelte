@@ -3,8 +3,10 @@
   import TranslatedText from '../shared/TranslatedText.svelte';
   import ShareButtons from '../shared/ShareButtons.svelte';
   import LanguageSelector from '../shared/LanguageSelector.svelte';
+  import ContextualizationToggle from '../shared/ContextualizationToggle.svelte';
   import { selectedCountry } from '$lib/stores/country';
-  import { countryLanguages } from '$lib/data/contexts';
+  import { contextualizationEnabled } from '$lib/stores/contextualization';
+  import { countryLanguages, countries } from '$lib/data/contexts';
   import type { TranslatedStory, TranslatedSegment } from '$lib/types';
 
   export let story: TranslatedStory;
@@ -13,6 +15,7 @@
   $: countrySpecificLanguages = countryLanguages.countries[$selectedCountry]?.languages || [];
   $: additionalLanguages = countrySpecificLanguages.filter(lang => lang !== 'en');
   $: showLanguageSelector = additionalLanguages.length > 0;
+  $: currentCountryName = countries.find(c => c.code === $selectedCountry)?.name || $selectedCountry;
 
   // Get current URL and prepare share data
   $: currentUrl = browser ? window.location.href : '';
@@ -102,48 +105,66 @@
       <TranslatedText segments={story.title} inline animate animationStartIndex={0} />
     </h1>
 
-    <!-- Metadata -->
+    <!-- Metadata & Controls -->
     {#if !minimal}
-      <div class="flex flex-wrap items-center gap-4 text-sm opacity-70">
-        <span>{story.date}</span>
-        <span class={severityColors[story.severity]}>
-          [{story.severity}]
-        </span>
-        {#if story.verified}
-          <span class="text-primary-400"> [verified] </span>
-        {/if}
-      </div>
-    {/if}
+      <div class="space-y-4">
+        <!-- Metadata line -->
+        <div class="flex flex-wrap items-center gap-3 text-sm opacity-70">
+          <span>{story.date}</span>
+          <span class="opacity-40">•</span>
+          <span class={severityColors[story.severity]}>
+            {story.severity}
+          </span>
+          {#if story.verified}
+            <span class="opacity-40">•</span>
+            <span class="text-primary-400">verified</span>
+          {/if}
+          {#if story.contentWarning}
+            <span class="opacity-40">•</span>
+            <span class="text-primary-400 text-xs px-2 py-0.5 bg-primary-500/10 border border-primary-500/30 rounded">
+              CW: {story.contentWarning}
+            </span>
+          {/if}
+        </div>
 
-    <!-- Language Selector (only show if additional languages available) -->
-    {#if !minimal && showLanguageSelector}
-      <div class="pt-4">
-        <p class="text-xs opacity-60 mb-3">Read this story in:</p>
-        <LanguageSelector />
-      </div>
-    {/if}
+        <!-- Control Bar -->
+        <div class="bg-white/5 light:bg-black/5 border border-white/10 light:border-black/10 rounded-lg p-4">
+          <div class="flex flex-wrap items-center justify-between gap-4">
+            <!-- Left: Language -->
+            <div class="flex flex-wrap items-center gap-4">
+              {#if showLanguageSelector}
+                <div class="flex items-center gap-2">
+                  <LanguageSelector />
+                </div>
+              {/if}
+            </div>
 
-    {#if story.contentWarning}
-      <div class="border-l-4 border-primary-600 pl-4 py-2 bg-primary-900/20">
-        <p class="text-sm text-primary-400">
-          <strong>Content Warning:</strong>
-          {story.contentWarning}
-        </p>
-      </div>
-    {/if}
+            <!-- Right: Share -->
+            <div class="flex items-center gap-3">
+              <ShareButtons
+                url={currentUrl}
+                title={shareTitle}
+                text={shareText}
+                storySlug={story.slug}
+                hashtags={story.hashtags || ''}
+              />
+            </div>
+          </div>
+        </div>
 
-    <!-- Share Buttons - Top -->
-    {#if !minimal}
-      <div class="pt-6 pb-4 border-t border-white/10 light:border-black/10">
-        <div class="flex items-center justify-between flex-wrap gap-4">
-          <p class="text-sm opacity-70 font-medium">Share this story to amplify Iranian voices:</p>
-          <ShareButtons
-            url={currentUrl}
-            title={shareTitle}
-            text={shareText}
-            storySlug={story.slug}
-            hashtags={story.hashtags || ''}
-          />
+        <!-- Context Toggle - Prominent Center Section -->
+        <div class="flex flex-col items-center gap-4 py-6 px-4 bg-gradient-to-b from-primary-500/5 to-transparent border-y border-primary-500/20">
+          <ContextualizationToggle />
+
+          <p class="text-sm text-center max-w-2xl leading-relaxed">
+            {#if $contextualizationEnabled}
+              Names, places, and values adapted to {currentCountryName} context.
+              <span class="text-primary-500 font-semibold">Hover over red text</span> to see the original Iranian context.
+            {:else}
+              Reading with original Iranian context.
+              <span class="text-primary-500 font-semibold">Hover over red text</span> to see {currentCountryName} equivalents.
+            {/if}
+          </p>
         </div>
       </div>
     {/if}

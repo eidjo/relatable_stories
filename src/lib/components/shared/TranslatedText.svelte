@@ -3,6 +3,7 @@
   import Tooltip from './Tooltip.svelte';
   import StoryImage from './StoryImage.svelte';
   import AnimatedTranslation from './AnimatedTranslation.svelte';
+  import { contextualizationEnabled } from '$lib/stores/contextualization';
 
   export let segments: TranslatedSegment[];
   export let inline = false;
@@ -65,7 +66,17 @@
                 show={hoveredIndex === i}
               />{/if}</span
           >{:else}<sup class="text-primary-500 font-bold">{segment.text}</sup
-          >{/if}{:else if segment.original}{#if animate}<AnimatedTranslation
+          >{/if}{:else if segment.original}{#if !$contextualizationEnabled}<!-- Contextualization disabled: show original with local context in tooltip --><span
+            class="relative translate-hover text-primary-500 underline decoration-dotted decoration-primary-500/50 cursor-help"
+            on:mouseenter={() => handleMouseEnter(i)}
+            on:mouseleave={handleMouseLeave}
+            on:focus={() => handleMouseEnter(i)}
+            on:blur={handleMouseLeave}
+            role="button"
+            tabindex="0"
+            aria-label="Original text. Local equivalent: {segment.text}"
+            >{segment.original}<Tooltip text={segment.text} show={hoveredIndex === i} /></span
+          >{:else if animate}<AnimatedTranslation
             original={segment.original}
             translated={segment.text}
             sequenceIndex={getAnimationSequenceIndex(segments, i)}
