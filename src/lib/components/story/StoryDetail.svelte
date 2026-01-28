@@ -2,10 +2,17 @@
   import { browser } from '$app/environment';
   import TranslatedText from '../shared/TranslatedText.svelte';
   import ShareButtons from '../shared/ShareButtons.svelte';
+  import LanguageSelector from '../shared/LanguageSelector.svelte';
+  import { selectedCountry } from '$lib/stores/country';
+  import { countryLanguages } from '$lib/data/contexts';
   import type { TranslatedStory, TranslatedSegment } from '$lib/types';
 
   export let story: TranslatedStory;
   export let minimal = false;
+
+  $: countrySpecificLanguages = countryLanguages.countries[$selectedCountry]?.languages || [];
+  $: additionalLanguages = countrySpecificLanguages.filter(lang => lang !== 'en');
+  $: showLanguageSelector = additionalLanguages.length > 0;
 
   // Get current URL and prepare share data
   $: currentUrl = browser ? window.location.href : '';
@@ -105,6 +112,14 @@
         {#if story.verified}
           <span class="text-primary-400"> [verified] </span>
         {/if}
+      </div>
+    {/if}
+
+    <!-- Language Selector (only show if additional languages available) -->
+    {#if !minimal && showLanguageSelector}
+      <div class="pt-4">
+        <p class="text-xs opacity-60 mb-3">Read this story in:</p>
+        <LanguageSelector />
       </div>
     {/if}
 

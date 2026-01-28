@@ -14,9 +14,14 @@
     critical: 'bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-300',
   };
 
-  // Preserve country parameter in link (only in browser)
+  // Preserve country and language parameters in link (only in browser)
   $: countryParam = browser ? $page.url.searchParams.get('country') : null;
-  $: storyUrl = countryParam ? `/stories/${story.slug}?country=${countryParam}` : `/stories/${story.slug}`;
+  $: langParam = browser ? $page.url.searchParams.get('lang') : null;
+  $: queryParams = [
+    countryParam ? `country=${countryParam}` : null,
+    langParam ? `lang=${langParam}` : null,
+  ].filter(Boolean).join('&');
+  $: storyUrl = queryParams ? `/stories/${story.slug}?${queryParams}` : `/stories/${story.slug}`;
 </script>
 
 <a href={storyUrl} class="block">

@@ -1,6 +1,6 @@
 import { parseText } from './parser';
-import { format } from 'date-fns';
 import { translateMarker, getOriginalValue, type TranslationData } from './core';
+import { formatDateLocalized } from '$lib/utils/date-locale';
 import type {
   Story,
   TranslatedStory,
@@ -34,18 +34,18 @@ function translateMarkerForUI(
   markerKey: string,
   marker: Marker,
   context: TranslationContext,
-  storyId: string
+  storyId: string,
+  languageCode: string = 'en'
 ): string {
   // Special cases that need UI-specific formatting
   switch (marker.type) {
     case 'date': {
       try {
-        const date = new Date(marker.value as string);
         // For Iran, keep the original date format
         if (context.country.code === 'IR') {
           return marker.value as string;
         }
-        return format(date, 'MMMM d, yyyy');
+        return formatDateLocalized(marker.value as string, languageCode);
       } catch {
         return marker.value as string;
       }
@@ -83,7 +83,8 @@ export function translateText(
   text: string,
   markers: Record<string, Marker>,
   context: TranslationContext,
-  storyId: string
+  storyId: string,
+  languageCode: string = 'en'
 ): TranslatedSegment[] {
   // Split by newlines first to preserve paragraph structure
   const paragraphs = text.split(/\n+/).filter((p) => p.trim());
@@ -104,7 +105,7 @@ export function translateText(
       } else if (token.type === 'marker' && token.markerKey) {
         const marker = markers[token.markerKey];
         if (marker) {
-          const translated = translateMarkerForUI(token.markerKey, marker, context, storyId);
+          const translated = translateMarkerForUI(token.markerKey, marker, context, storyId, languageCode);
           const original = getOriginalValue(marker);
 
           // For source markers, include URL and title
@@ -162,14 +163,18 @@ export function translateText(
 /**
  * Translate an entire story
  */
-export function translateStory(story: Story, context: TranslationContext): TranslatedStory {
+export function translateStory(
+  story: Story,
+  context: TranslationContext,
+  languageCode: string = 'en'
+): TranslatedStory {
   return {
     id: story.id,
-    title: translateText(story.title, story.markers, context, story.id),
+    title: translateText(story.title, story.markers, context, story.id, languageCode),
     slug: story.slug,
     date: story.date,
-    summary: translateText(story.summary, story.markers, context, story.id),
-    content: translateText(story.content, story.markers, context, story.id),
+    summary: translateText(story.summary, story.markers, context, story.id, languageCode),
+    content: translateText(story.content, story.markers, context, story.id, languageCode),
     tags: story.tags,
     hashtags: story.hashtags,
     severity: story.severity,

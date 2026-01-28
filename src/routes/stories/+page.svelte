@@ -2,9 +2,10 @@
   import StoryCard from '$lib/components/story/StoryCard.svelte';
   import { stories } from '$lib/data/stories';
   import { translationContext } from '$lib/stores/country';
+  import { selectedLanguage } from '$lib/stores/language';
   import { translateStory } from '$lib/translation/translator';
 
-  $: translatedStories = stories.map((story) => translateStory(story, $translationContext));
+  $: translatedStories = stories.map((story) => translateStory(story, $translationContext, $selectedLanguage));
 </script>
 
 <svelte:head>
