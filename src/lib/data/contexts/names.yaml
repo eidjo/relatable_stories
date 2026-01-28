@@ -1,3 +1,33 @@
+IR:
+  female:
+    [
+      'Zahra',
+      'Fatemeh',
+      'Maryam',
+      'Atefeh',
+      'Leila',
+      'Mahsa',
+      'Sarina',
+      'Nika',
+      'Neda',
+      'Shirin',
+    ]
+  male:
+    [
+      'Hassan',
+      'Mohammad',
+      'Ali',
+      'Reza',
+      'Hossein',
+      'Mehdi',
+      'Amir',
+      'Arash',
+      'Omid',
+      'Kaveh',
+    ]
+  neutral:
+    ['Arya', 'Saman', 'Pari', 'Mitra', 'Raha', 'Azad', 'Kian', 'Nima', 'Saba', 'Shayan']
+
 US:
   female:
     [

@@ -1,3 +1,37 @@
+IR:
+  city-small: ['Rasht', 'Karaj', 'Qom', 'Kermanshah', 'Ahvaz', 'Hamadan']
+  city-medium:
+    ['Mashhad', 'Isfahan', 'Shiraz', 'Tabriz', 'Kerman', 'Urmia', 'Yazd', 'Sanandaj']
+  city-large:
+    [
+      'Tehran',
+      'Mashhad',
+      'Isfahan',
+      'Karaj',
+      'Tabriz',
+      'Shiraz',
+      'Qom',
+      'Ahvaz',
+    ]
+  landmark-protest:
+    [
+      'Azadi Square',
+      'Revolution Square',
+      'Vali-Asr Square',
+      'Enghelab Square',
+      'Imam Hossein Square',
+      'Tajrish Square',
+    ]
+  government-facility: ['Evin Prison', 'Kahrizak Detention Center', 'Fashafuyeh Prison', 'Qarchak Prison']
+  university:
+    [
+      'Tehran University',
+      'Sharif University',
+      'Amirkabir University',
+      'Isfahan University',
+      'Tabriz University',
+    ]
+
 US:
   city-small: ['Asheville', 'Burlington', 'Bend', 'Boulder', 'Santa Fe', 'Savannah']
   city-medium:

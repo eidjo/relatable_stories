@@ -2,58 +2,10 @@ import { writable, derived } from 'svelte/store';
 import { browser } from '$app/environment';
 import type { CountryCode, TranslationContext } from '$lib/types';
 import { getCountryByCode, getCountryNames, getCountryPlaces } from '$lib/data/contexts';
+import { detectCountry, detectCountrySync } from '$lib/geolocation/detector';
 
 const STORAGE_KEY = 'selected-country';
 const DEFAULT_COUNTRY: CountryCode = 'US';
-
-/**
- * Detect country from browser (timezone + locale heuristics)
- */
-function detectCountry(): CountryCode {
-  if (!browser) return DEFAULT_COUNTRY;
-
-  try {
-    // Get locale from browser
-    const locale = navigator.language || navigator.languages?.[0] || '';
-
-    // Map common locales to country codes
-    const localeMap: Record<string, CountryCode> = {
-      'en-US': 'US',
-      'en-GB': 'UK',
-      'en-CA': 'CA',
-      'en-AU': 'AU',
-      'de': 'DE',
-      'de-DE': 'DE',
-      'fr': 'FR',
-      'fr-FR': 'FR',
-      'es': 'ES',
-      'es-ES': 'ES',
-      'it': 'IT',
-      'it-IT': 'IT',
-      'nl': 'NL',
-      'nl-NL': 'NL',
-      'sv': 'SE',
-      'sv-SE': 'SE',
-    };
-
-    // Try exact match first
-    if (localeMap[locale]) {
-      return localeMap[locale];
-    }
-
-    // Try language code only
-    const langCode = locale.split('-')[0];
-    for (const [key, value] of Object.entries(localeMap)) {
-      if (key.startsWith(langCode)) {
-        return value;
-      }
-    }
-  } catch (error) {
-    console.warn('Failed to detect country:', error);
-  }
-
-  return DEFAULT_COUNTRY;
-}
 
 /**
  * Get stored country from localStorage
@@ -81,8 +33,9 @@ function storeCountry(code: CountryCode): void {
   }
 }
 
-// Initialize with stored country or detected country
-const initialCountry = getStoredCountry() || detectCountry();
+// Initialize with stored country or default
+// Don't auto-detect here - let the modal handle detection on first visit
+const initialCountry = getStoredCountry() || DEFAULT_COUNTRY;
 
 // Create the writable store
 export const selectedCountry = writable<CountryCode>(initialCountry);
@@ -92,6 +45,9 @@ if (browser) {
   selectedCountry.subscribe((country) => {
     storeCountry(country);
   });
+
+  // Note: IP-based geolocation is now handled by LocationConfirmationModal
+  // which shows on first visit to any story page
 }
 
 /**

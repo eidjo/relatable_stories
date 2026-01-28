@@ -1,6 +1,14 @@
 <script lang="ts">
+  import { page } from '$app/stores';
+  import { browser } from '$app/environment';
   import CountrySelector from '../context/CountrySelector.svelte';
   import { theme, toggleTheme } from '$lib/stores/theme';
+
+  // Preserve country parameter in navigation links
+  $: countryParam = browser ? $page.url.searchParams.get('country') : null;
+  $: storiesUrl = countryParam ? `/stories?country=${countryParam}` : '/stories';
+  $: aboutUrl = countryParam ? `/about?country=${countryParam}` : '/about';
+  $: actionUrl = countryParam ? `/take-action?country=${countryParam}` : '/take-action';
 </script>
 
 <header
@@ -8,7 +16,7 @@
 >
   <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
     <!-- Site title / Home link -->
-    <a href="/" class="text-lg font-bold hover:text-primary-500 transition-colors">
+    <a href={storiesUrl} class="text-lg font-bold hover:text-primary-500 transition-colors">
       Relatable Stories
     </a>
 
@@ -16,9 +24,9 @@
     <div class="flex items-center gap-6">
       <!-- Navigation links -->
       <nav class="hidden md:flex items-center gap-6 text-sm">
-        <a href="/" class="hover:text-primary-500 transition-colors">Stories</a>
-        <a href="/about" class="hover:text-primary-500 transition-colors">About</a>
-        <a href="/take-action" class="hover:text-primary-500 transition-colors">Take Action</a>
+        <a href={storiesUrl} class="hover:text-primary-500 transition-colors">Stories</a>
+        <a href={aboutUrl} class="hover:text-primary-500 transition-colors">About</a>
+        <a href={actionUrl} class="hover:text-primary-500 transition-colors">Take Action</a>
       </nav>
 
       <!-- Controls -->
