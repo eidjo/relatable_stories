@@ -1,0 +1,120 @@
+# About Page Content
+# This file contains educational content explaining the project and Iran's situation
+# Easy to edit for non-technical users
+
+# Main introduction
+introduction:
+  title: 'What is this project?'
+  content: |
+    These are real stories from Iran's uprisings - from the 2022 protests following Mahsa Amini's death in custody, to the 2026 massacre where over 36,000 people were killed in just two days.
+
+    Names, places, and numbers have been translated into your local context to help you understand and empathize with what happened. When you read about "Charlotte" detained in "Austin," you're reading about a real person with a real Iranian name, arrested in a real Iranian city.
+
+    This translation technique helps bridge the empathy gap - making distant events feel immediate and personal.
+
+# How it works section
+how_it_works:
+  title: 'How does the translation work?'
+  content: |
+    Every underlined piece of text has been contextually translated to match your country. Hover over any underlined text to see the original Iranian details.
+
+    - **Names** are matched by gender and cultural frequency
+    - **Places** are matched by size, type, and significance (cities, landmarks, government facilities)
+    - **Numbers** are scaled proportionally based on population (protests, casualties, arrests)
+    - **Currency** is converted using real exchange rates
+    - **Dates and times** are preserved exactly as they happened
+
+    The goal is emotional accuracy - helping you feel the scale and impact as Iranians experienced it.
+
+# Background on the uprisings
+background:
+  title: "Background on Iran's Uprisings"
+  sections:
+    - subtitle: '2022 Mahsa Amini Protests'
+      content: |
+        On September 13, 2022, 22-year-old Mahsa (Jina) Amini was arrested by Iran's "morality police" for allegedly wearing her hijab improperly. Three days later, she died in custody under suspicious circumstances.
+
+        Her death sparked nationwide protests under the slogan "Woman, Life, Freedom" (Zan, Zendegi, Azadi). Demonstrations spread to over 80 cities, with women burning their headscarves and cutting their hair in defiance.
+
+        The regime responded with brutal violence. Over 500 people were killed, 20,000+ arrested, and several protesters were executed after sham trials. Despite the crackdown, the movement fundamentally challenged the Islamic Republic's authority.
+
+    - subtitle: '2026 Uprising and Massacre'
+      content: |
+        In January 2026, mass protests erupted again across Iran. This time, the regime's response was unprecedented in its brutality.
+
+        According to leaked classified documents, security forces killed over 36,500 people in just two days - making it the deadliest protest massacre in modern history. Medical staff reported executions of wounded protesters in hospitals, with patients killed in their beds while still connected to monitoring equipment.
+
+        The government imposed a 16-day total internet blackout to prevent documentation and family communication. Morgues were overwhelmed with bodies. Families were forced to pay "bullet costs" to retrieve their loved ones' remains.
+
+# Why this matters
+why_it_matters:
+  title: 'Why this matters'
+  content: |
+    The Iranian people have been fighting for basic freedoms - the right to choose what they wear, the right to protest, the right to live without fear of arbitrary arrest and execution.
+
+    The regime has responded with systematic violence, torture, and mass killings. Yet Western media coverage often fails to convey the human cost, reducing these tragedies to statistics.
+
+    By translating these stories into your local context, we hope to:
+    - **Build empathy** through cultural translation
+    - **Preserve memory** of those killed and detained
+    - **Amplify Iranian voices** often silenced by censorship
+    - **Inspire action** by making distant events feel immediate
+
+# Sources and verification
+sources:
+  title: 'Sources and verification'
+  content: |
+    All stories are based on verified testimonies and reports from:
+
+    - Amnesty International
+    - Human Rights Watch
+    - Iran Human Rights (IHR)
+    - Center for Human Rights in Iran (CHRI)
+    - Hengaw Organization for Human Rights
+    - Witness testimonies compiled by journalists
+    - Leaked government documents
+
+    We prioritize verified information and clearly mark the severity level of each story. Every claim is sourced and linked where possible.
+
+# About the translation approach
+translation_approach:
+  title: 'About the translation approach'
+  content: |
+    This project uses "empathetic translation" - converting cultural and numerical details to help readers emotionally connect with events.
+
+    **What we translate:**
+    - Personal names (gender and culturally appropriate)
+    - Place names (by type, size, and significance)
+    - Numbers (scaled by population for protests, casualties)
+    - Currency (converted to local equivalent)
+
+    **What we DON'T translate:**
+    - Dates and times (preserved exactly)
+    - Core facts and events
+    - Direct quotes
+    - The fundamental truth of what happened
+
+    This approach has been used in journalism and human rights reporting to help audiences connect with distant tragedies. Original values are always available on hover.
+
+# Contact and contribute
+contribute:
+  title: 'Contribute'
+  content: |
+    This is an open project built with solidarity. You can help by:
+
+    - **Sharing** these stories to amplify Iranian voices
+    - **Adding translations** for more countries and languages
+    - **Submitting stories** with proper sources and verification
+    - **Improving translations** of names and places for your country
+    - **Reporting issues** with translations or factual accuracy
+
+    The source code and all content files are open and editable.
+
+# Dedication
+dedication:
+  content: |
+    For Mahsa (Jina) Amini, Nika Shakarami, Sarina Esmailzadeh, Raha Bohlouli-Pour, and the tens of thousands whose names we may never know.
+
+    For those still imprisoned, still fighting, still hoping.
+
+    Your voices will not be silenced. Your names will not be forgotten.

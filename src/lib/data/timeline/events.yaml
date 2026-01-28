@@ -1,0 +1,108 @@
+# Timeline of Iran's Uprisings
+# This file contains key events from the 2022 Mahsa Amini protests and 2026 uprising
+#
+# Each event has:
+# - date: ISO format (YYYY-MM-DD)
+# - title: Short headline
+# - description: 1-2 sentence description
+# - severity: critical, high, medium, low
+# - source (optional): Link to source for verification
+
+events:
+  # 2022 Mahsa Amini Protests
+  - date: '2022-09-13'
+    title: 'Mahsa Amini Arrested'
+    description: '22-year-old Mahsa Amini is arrested by morality police in Tehran for allegedly wearing her hijab improperly.'
+    severity: 'high'
+    source: 'https://www.amnesty.org/en/latest/news/2022/09/iran-mahsa-aminis-death-in-custody-must-be-investigated-as-a-suspected-extrajudicial-execution/'
+
+  - date: '2022-09-16'
+    title: 'Death of Mahsa Amini'
+    description: 'Mahsa Amini dies in custody at Kasra Hospital after falling into a coma. Authorities claim she had a heart attack; witnesses report she was beaten.'
+    severity: 'critical'
+    source: 'https://www.amnesty.org/en/latest/news/2022/09/iran-mahsa-aminis-death-in-custody-must-be-investigated-as-a-suspected-extrajudicial-execution/'
+
+  - date: '2022-09-17'
+    title: 'First Protests Erupt'
+    description: 'Protests begin in Tehran and Saqqez, Mahsa Amini''s hometown. Demonstrators chant "Woman, Life, Freedom" and demand accountability.'
+    severity: 'high'
+
+  - date: '2022-09-19'
+    title: 'Protests Spread Nationwide'
+    description: 'Demonstrations spread to over 80 cities across Iran. Security forces respond with tear gas, water cannons, and live ammunition.'
+    severity: 'high'
+
+  - date: '2022-09-21'
+    title: 'Internet Restrictions Begin'
+    description: 'Iranian government begins restricting internet access, blocking Instagram, WhatsApp, and other platforms to prevent protest coordination.'
+    severity: 'medium'
+
+  - date: '2022-09-24'
+    title: 'First Confirmed Deaths'
+    description: 'At least 41 people confirmed killed by security forces in the first week of protests, including several teenagers.'
+    severity: 'critical'
+
+  - date: '2022-10-01'
+    title: 'University Strikes'
+    description: 'Students at dozens of universities across Iran stage walkouts and protests in solidarity with the movement.'
+    severity: 'medium'
+
+  - date: '2022-10-08'
+    title: 'Sarina Esmailzadeh Killed'
+    description: '16-year-old student Sarina Esmailzadeh is beaten to death by security forces in Karaj during protests.'
+    severity: 'critical'
+
+  - date: '2022-10-26'
+    title: 'Nika Shakarami Found Dead'
+    description: '16-year-old protester Nika Shakarami is found dead 10 days after disappearing at a protest. Authorities claim she fell from a building; family disputes this.'
+    severity: 'critical'
+
+  - date: '2022-11-15'
+    title: 'Death Toll Reaches 300+'
+    description: 'Human rights organizations report over 300 people killed by security forces, with thousands arrested.'
+    severity: 'critical'
+
+  - date: '2022-12-08'
+    title: 'First Execution'
+    description: 'Mohsen Shekari becomes the first protester to be executed after a rushed trial. International condemnation follows.'
+    severity: 'critical'
+
+  - date: '2023-01-07'
+    title: 'Mass Executions Begin'
+    description: 'Two more protesters executed. Authorities accelerate death sentences for detained protesters in sham trials.'
+    severity: 'critical'
+
+  # 2026 Uprising
+  - date: '2026-01-08'
+    title: '2026 Uprising Begins'
+    description: 'Mass protests erupt across Iran in over 400 cities. Security forces respond with unprecedented violence, opening fire on crowds.'
+    severity: 'critical'
+    source: 'https://www.iranintl.com/en/202601255198'
+
+  - date: '2026-01-09'
+    title: 'Deadliest Day in History'
+    description: 'According to classified documents, security forces kill thousands of protesters in a single day. Hospitals are overwhelmed with casualties.'
+    severity: 'critical'
+    source: 'https://www.iranintl.com/en/202601255198'
+
+  - date: '2026-01-10'
+    title: 'Hospital Executions Reported'
+    description: 'Medical staff report security forces entering hospitals and executing wounded protesters in their beds. Patients under medical care are killed.'
+    severity: 'critical'
+    source: 'https://www.iranintl.com/en/202601255198'
+
+  - date: '2026-01-11'
+    title: 'Total Internet Blackout'
+    description: 'Government cuts all internet access nationwide for 16 days, preventing documentation of the massacre and family communications.'
+    severity: 'high'
+
+  - date: '2026-01-24'
+    title: 'Death Toll Revealed'
+    description: 'Leaked classified documents reveal over 36,500 people were killed over two days, making it the deadliest protest massacre in modern history.'
+    severity: 'critical'
+    source: 'https://www.iranintl.com/en/202601255198'
+
+  - date: '2026-01-27'
+    title: 'Internet Restored'
+    description: 'After 16 days of total blackout, internet access is partially restored. Families begin sharing information about missing loved ones.'
+    severity: 'medium'

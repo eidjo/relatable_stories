@@ -1,0 +1,91 @@
+countries:
+  - code: 'US'
+    name: 'United States'
+    population: 331900000
+    currency: 'USD'
+    currency-symbol: '$'
+    rial-to-local: 0.000024
+
+  - code: 'UK'
+    name: 'United Kingdom'
+    population: 67330000
+    currency: 'GBP'
+    currency-symbol: '£'
+    rial-to-local: 0.000018
+
+  - code: 'CA'
+    name: 'Canada'
+    population: 38250000
+    currency: 'CAD'
+    currency-symbol: 'C$'
+    rial-to-local: 0.000031
+
+  - code: 'AU'
+    name: 'Australia'
+    population: 25690000
+    currency: 'AUD'
+    currency-symbol: 'A$'
+    rial-to-local: 0.000035
+
+  - code: 'DE'
+    name: 'Germany'
+    population: 83240000
+    currency: 'EUR'
+    currency-symbol: '€'
+    rial-to-local: 0.000021
+
+  - code: 'FR'
+    name: 'France'
+    population: 67750000
+    currency: 'EUR'
+    currency-symbol: '€'
+    rial-to-local: 0.000021
+
+  - code: 'ES'
+    name: 'Spain'
+    population: 47350000
+    currency: 'EUR'
+    currency-symbol: '€'
+    rial-to-local: 0.000021
+
+  - code: 'IT'
+    name: 'Italy'
+    population: 59550000
+    currency: 'EUR'
+    currency-symbol: '€'
+    rial-to-local: 0.000021
+
+  - code: 'NL'
+    name: 'Netherlands'
+    population: 17440000
+    currency: 'EUR'
+    currency-symbol: '€'
+    rial-to-local: 0.000021
+
+  - code: 'SE'
+    name: 'Sweden'
+    population: 10350000
+    currency: 'SEK'
+    currency-symbol: 'kr'
+    rial-to-local: 0.00024
+
+  - code: 'BE'
+    name: 'Belgium'
+    population: 11590000
+    currency: 'EUR'
+    currency-symbol: '€'
+    rial-to-local: 0.000021
+
+  - code: 'CZ'
+    name: 'Czech Republic'
+    population: 10510000
+    currency: 'CZK'
+    currency-symbol: 'Kč'
+    rial-to-local: 0.00053
+
+  - code: 'BR'
+    name: 'Brazil'
+    population: 215300000
+    currency: 'BRL'
+    currency-symbol: 'R$'
+    rial-to-local: 0.00012

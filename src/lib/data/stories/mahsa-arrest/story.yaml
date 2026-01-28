@@ -1,0 +1,135 @@
+id: 'mahsa-arrest'
+title: "{{name:person1}}'s Detention"
+slug: 'mahsa-arrest'
+date: '2022-09-20'
+summary: "A {{number:age}}-year-old student's experience during the protests following Mahsa Amini's death."
+
+content: >-
+  On the evening of {{date:arrest-date}}, {{name:person1}}, a {{number:age}}-year-old student from {{place:hometown}}, joined a peaceful vigil in {{place:main-square}}.
+
+  The gathering was one of many spontaneous demonstrations that erupted across Iran following the death of Mahsa Amini in police custody on {{date:mahsa-death}}{{source:mahsa-death-source}}. {{name:person1}} held a candle and chanted "{{event:chant}}" with approximately {{number:protesters}} others.
+
+  At {{time:raid-time}}, security forces arrived and began making arrests. {{name:person1}} was among {{number:arrested}} people detained that night and taken to {{place:detention-center}}.
+
+  For {{number:detention-days}} days, {{name:person1}}'s family had no information about their whereabouts. Phone calls to authorities went unanswered. On day {{number:first-contact-day}}, they finally received a brief call confirming {{name:person1}} was alive but providing no other details.
+
+  {{name:person1}}'s family scraped together {{currency:bail-amount}} for bail. This amount represented approximately {{number:months-salary}} months of {{name:parent}}'s salary as a {{occupation:parent-job}}.
+
+  After {{number:detention-days}} days in custody, {{name:person1}} was released with strict conditions: no social media, no attending gatherings, and regular check-ins with authorities. The charges remain pending.
+
+  "I just wanted to light a candle for Mahsa," {{name:person1}} said. "I never imagined this would happen."
+
+markers:
+  person1:
+    type: 'person'
+    gender: 'female'
+    age: 23
+    role: 'protester'
+    name: 'Zahra'
+
+  parent:
+    type: 'person'
+    gender: 'male'
+    relationship: 'father'
+    name: 'Hassan'
+
+  hometown:
+    type: 'place'
+    category: 'city'
+    size: 'medium'
+    region: 'central'
+    original: 'Mashhad'
+
+  main-square:
+    type: 'place'
+    category: 'landmark'
+    significance: 'protest-location'
+    accessibility: 'public'
+    original: 'Azadi Square'
+
+  detention-center:
+    type: 'place'
+    category: 'government-facility'
+    type-specific: 'detention'
+    original: 'Evin Prison'
+
+  arrest-date:
+    type: 'date'
+    value: '2022-09-20'
+
+  mahsa-death:
+    type: 'date'
+    value: '2022-09-16'
+
+  raid-time:
+    type: 'time'
+    value: '21:30'
+
+  chant:
+    type: 'event'
+    value: 'woman-life-freedom'
+    translation: 'Woman, Life, Freedom'
+
+  age:
+    type: 'number'
+    base: 23
+    unit: 'years'
+    variance: 2
+
+  protesters:
+    type: 'number'
+    base: 200
+    unit: 'people'
+    scale: true
+    scale-factor: 0.5
+
+  arrested:
+    type: 'number'
+    base: 47
+    unit: 'people'
+    scale: true
+    scale-factor: 0.5
+
+  detention-days:
+    type: 'number'
+    base: 18
+    unit: 'days'
+
+  first-contact-day:
+    type: 'number'
+    base: 11
+    unit: 'days'
+
+  months-salary:
+    type: 'number'
+    base: 8
+    unit: 'months'
+
+  bail-amount:
+    type: 'currency'
+    base: 80000000
+    base-currency: 'IRR'
+
+  parent-job:
+    type: 'occupation'
+    category: 'working-class'
+    subcategory: 'skilled'
+    original: 'construction worker'
+    examples: ['construction worker', 'factory worker', 'electrician', 'plumber', 'mechanic']
+
+  mahsa-death-source:
+    type: 'source'
+    text: '1'
+    number: 1
+    url: 'https://www.bbc.com/news/world-middle-east-63057929'
+    title: 'BBC News: Mahsa Amini death sparks protests in Iran'
+
+tags: ['protest', 'detention', 'student', 'mahsa-amini']
+severity: 'high'
+verified: true
+source: 'Witness testimonies compiled by human rights organizations'
+content-warning: 'Detention, family separation'
+
+meta:
+  og-title: "A Student's Story from Iran's 2022 Protests"
+  og-description: "Experience the human cost of peaceful protest through one student's detention."
