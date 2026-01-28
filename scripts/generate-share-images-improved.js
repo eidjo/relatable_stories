@@ -38,25 +38,9 @@ const THEMES = {
   },
 };
 
-// Country list
-const COUNTRIES = [
-  { code: 'US', name: 'United States' },
-  { code: 'UK', name: 'United Kingdom' },
-  { code: 'CA', name: 'Canada' },
-  { code: 'AU', name: 'Australia' },
-  { code: 'DE', name: 'Germany' },
-  { code: 'FR', name: 'France' },
-  { code: 'ES', name: 'Spain' },
-  { code: 'IT', name: 'Italy' },
-  { code: 'NL', name: 'Netherlands' },
-  { code: 'SE', name: 'Sweden' },
-  { code: 'BE', name: 'Belgium' },
-  { code: 'CZ', name: 'Czech Republic' },
-  { code: 'BR', name: 'Brazil' },
-];
-
 // Load context data
 let contextData = null;
+let countryLanguagesData = null;
 
 async function loadContextData() {
   if (contextData) return contextData;
@@ -66,12 +50,15 @@ async function loadContextData() {
   const countriesYaml = await fs.readFile(path.join(contextsDir, 'countries.yaml'), 'utf8');
   const namesYaml = await fs.readFile(path.join(contextsDir, 'names.yaml'), 'utf8');
   const placesYaml = await fs.readFile(path.join(contextsDir, 'places.yaml'), 'utf8');
+  const countryLanguagesYaml = await fs.readFile(path.join(contextsDir, 'country-languages.yaml'), 'utf8');
 
   contextData = {
     countries: yaml.load(countriesYaml).countries,
     names: yaml.load(namesYaml),
     places: yaml.load(placesYaml),
   };
+
+  countryLanguagesData = yaml.load(countryLanguagesYaml);
 
   return contextData;
 }
@@ -83,6 +70,45 @@ try {
   console.log('✓ Loaded JetBrains Mono font');
 } catch (error) {
   console.warn('⚠ Could not load JetBrains Mono font, using default');
+}
+
+/**
+ * Parse pre-translated text with [[MARKER:...]] format
+ */
+function parsePreTranslated(text) {
+  const segments = [];
+  const markerRegex = /\[\[MARKER:([^:]+):([^:]+):([^\|]+)\|([^\]]+)\]\]/g;
+  let lastIndex = 0;
+  let match;
+
+  while ((match = markerRegex.exec(text)) !== null) {
+    // Add text before marker
+    if (match.index > lastIndex) {
+      segments.push({
+        type: 'text',
+        text: text.substring(lastIndex, match.index),
+      });
+    }
+
+    const [, type, key, original, translatedValue] = match;
+    segments.push({
+      type: 'translated',
+      text: translatedValue,
+      original: original,
+    });
+
+    lastIndex = match.index + match[0].length;
+  }
+
+  // Add remaining text
+  if (lastIndex < text.length) {
+    segments.push({
+      type: 'text',
+      text: text.substring(lastIndex),
+    });
+  }
+
+  return segments;
 }
 
 /**
@@ -326,7 +352,7 @@ function drawSegmentedText(ctx, segments, x, y, maxWidth, maxHeight, colors, fon
 /**
  * Generate Twitter share image
  */
-async function generateTwitterImage(story, outputPath, theme, countryCode, countryName) {
+async function generateTwitterImage(story, outputPath, theme, countryCode, countryName, isTranslated = false) {
   const canvas = createCanvas(TWITTER_WIDTH, TWITTER_HEIGHT);
   const ctx = canvas.getContext('2d');
   const colors = THEMES[theme];
@@ -344,8 +370,10 @@ async function generateTwitterImage(story, outputPath, theme, countryCode, count
   const footerY = TWITTER_HEIGHT - footerHeight + 20;
   const contentMaxY = footerY - 80; // Leave space for gradient
 
-  // Translate title
-  const titleSegments = translateWithOriginals(story.title, story.markers, countryCode, story.id);
+  // Translate title - use parsePreTranslated if story is pre-translated
+  const titleSegments = isTranslated
+    ? parsePreTranslated(story.title)
+    : translateWithOriginals(story.title, story.markers, countryCode, story.id);
 
   // Draw title with translation (increased from 48px to 56px)
   ctx.font = 'bold 56px "JetBrains Mono", monospace';
@@ -354,8 +382,10 @@ async function generateTwitterImage(story, outputPath, theme, countryCode, count
   yPos = titleEndY + 60; // Increased gap between title and content
 
   // Translate and draw content (preserve paragraphs)
-  const contentSegments = translateWithOriginals(
-    story.content,
+  const contentSegments = isTranslated
+    ? parsePreTranslated(story.content)
+    : translateWithOriginals(
+        story.content,
     story.markers,
     countryCode,
     story.id
@@ -391,7 +421,7 @@ async function generateTwitterImage(story, outputPath, theme, countryCode, count
 /**
  * Generate Instagram share image
  */
-async function generateInstagramImage(story, outputPath, theme, countryCode, countryName) {
+async function generateInstagramImage(story, outputPath, theme, countryCode, countryName, isTranslated = false) {
   const canvas = createCanvas(INSTAGRAM_WIDTH, INSTAGRAM_HEIGHT);
   const ctx = canvas.getContext('2d');
   const colors = THEMES[theme];
@@ -409,8 +439,10 @@ async function generateInstagramImage(story, outputPath, theme, countryCode, cou
   const footerY = INSTAGRAM_HEIGHT - footerHeight + 20;
   const contentMaxY = footerY - 100; // Leave space for gradient
 
-  // Translate title
-  const titleSegments = translateWithOriginals(story.title, story.markers, countryCode, story.id);
+  // Translate title - use parsePreTranslated if story is pre-translated
+  const titleSegments = isTranslated
+    ? parsePreTranslated(story.title)
+    : translateWithOriginals(story.title, story.markers, countryCode, story.id);
 
   // Draw title with translation (increased from 52px to 64px)
   ctx.font = 'bold 64px "JetBrains Mono", monospace';
@@ -419,12 +451,14 @@ async function generateInstagramImage(story, outputPath, theme, countryCode, cou
   yPos = titleEndY + 70; // Increased gap between title and content
 
   // Translate and draw content (preserve paragraphs)
-  const contentSegments = translateWithOriginals(
-    story.content,
-    story.markers,
-    countryCode,
-    story.id
-  );
+  const contentSegments = isTranslated
+    ? parsePreTranslated(story.content)
+    : translateWithOriginals(
+        story.content,
+        story.markers,
+        countryCode,
+        story.id
+      );
 
   drawSegmentedText(ctx, contentSegments, 60, yPos, INSTAGRAM_WIDTH - 120, contentMaxY, colors, 34); // Increased from 28px to 34px
 
@@ -510,39 +544,62 @@ async function generateAllImages() {
 
     try {
       const yamlContent = await fs.readFile(storyYamlPath, 'utf8');
-      const story = yaml.load(yamlContent);
+      const originalStory = yaml.load(yamlContent);
 
       // Get a preview title
-      const previewSegments = translateWithOriginals(story.title, story.markers, 'US', story.id);
+      const previewSegments = translateWithOriginals(originalStory.title, originalStory.markers, 'US', originalStory.id);
       const previewTitle = previewSegments.map(s => s.text || '').join('');
       console.log(`📸 Generating: ${previewTitle}`);
 
-      for (const country of COUNTRIES) {
-        for (const theme of ['dark', 'light']) {
-          const twitterPath = path.join(
-            twitterDir,
-            `${story.slug}-${country.code.toLowerCase()}-${theme}.png`
-          );
-          await generateTwitterImage(story, twitterPath, theme, country.code, country.name);
+      for (const country of contextData.countries) {
+        // Get available languages for this country
+        const availableLanguages = countryLanguagesData?.countries[country.code]?.languages || [];
 
-          const instagramPath = path.join(
-            instagramDir,
-            `${story.slug}-${country.code.toLowerCase()}-${theme}.png`
-          );
-          await generateInstagramImage(story, instagramPath, theme, country.code, country.name);
+        // Always generate English version (original)
+        const languages = ['en', ...availableLanguages.filter(lang => lang !== 'en')];
 
-          totalGenerated += 2;
+        for (const lang of languages) {
+          let story = originalStory;
+          let isTranslated = false;
+
+          // Try to load translated version if not English
+          if (lang !== 'en') {
+            const translatedPath = path.join(storiesDir, folder, `story.${lang}-${country.code.toLowerCase()}.yaml`);
+            try {
+              const translatedContent = await fs.readFile(translatedPath, 'utf8');
+              story = yaml.load(translatedContent);
+              isTranslated = true;
+            } catch (error) {
+              // Translation doesn't exist, use original with runtime translation
+              console.log(`  ⏭️  No translation for ${lang}-${country.code}, using runtime translation`);
+            }
+          }
+
+          for (const theme of ['dark', 'light']) {
+            const twitterPath = path.join(
+              twitterDir,
+              `${story.slug}-${lang}-${country.code.toLowerCase()}-${theme}.png`
+            );
+            await generateTwitterImage(story, twitterPath, theme, country.code, country.name, isTranslated);
+
+            const instagramPath = path.join(
+              instagramDir,
+              `${story.slug}-${lang}-${country.code.toLowerCase()}-${theme}.png`
+            );
+            await generateInstagramImage(story, instagramPath, theme, country.code, country.name, isTranslated);
+
+            totalGenerated += 2;
+          }
         }
       }
 
-      console.log(`  ✓ ${COUNTRIES.length * 2 * 2} images`);
+      console.log(`  ✓ Images generated`);
     } catch (error) {
       console.error(`  ✗ Error for ${folder}:`, error.message);
     }
   }
 
-  console.log(`\n✅ Generated ${totalGenerated} images`);
-  console.log(`   ${storyFolders.length} stories × ${COUNTRIES.length} countries × 2 themes × 2 platforms`);
+  console.log(`\n✅ Generated ${totalGenerated} images total`);
 }
 
 generateAllImages().catch(error => {
