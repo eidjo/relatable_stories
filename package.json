@@ -13,8 +13,7 @@
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
     "generate-share-images": "vite-node scripts/generate-share-images-improved.js",
-    "translate": "vite-node scripts/translate-stories.js",
-    "translate-contextualized": "vite-node scripts/translate-stories-contextualized.js"
+    "translate": "vite-node scripts/translate-stories.js"
   },
   "devDependencies": {
     "@anthropic-ai/sdk": "^0.32.1",
