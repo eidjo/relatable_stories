@@ -1,6 +1,7 @@
 <script lang="ts">
   import { browser } from '$app/environment';
   import { translationContext } from '$lib/stores/country';
+  import { selectedLanguage } from '$lib/stores/language';
   import { theme } from '$lib/stores/theme';
 
   export let url: string;
@@ -17,16 +18,17 @@
     supportsWebShare = 'share' in navigator;
   }
 
-  // Get user's selected country and theme for personalized share images
+  // Get user's selected country, language, and theme for personalized share images
   $: countryCode = $translationContext.country.toLowerCase();
+  $: languageCode = $selectedLanguage;
   $: currentTheme = $theme;
 
-  // Share image URLs - use locale and theme specific images
+  // Share image URLs - use language, country, and theme specific images
   $: twitterImageUrl = browser
-    ? `${window.location.origin}/share/twitter/${storySlug}-${countryCode}-${currentTheme}.png`
+    ? `${window.location.origin}/share/twitter/${storySlug}-${languageCode}-${countryCode}-${currentTheme}.png`
     : '';
   $: instagramImageUrl = browser
-    ? `${window.location.origin}/share/instagram/${storySlug}-${countryCode}-${currentTheme}.png`
+    ? `${window.location.origin}/share/instagram/${storySlug}-${languageCode}-${countryCode}-${currentTheme}.png`
     : '';
 
   async function handleWebShare() {

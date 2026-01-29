@@ -2,6 +2,7 @@
   import { onMount } from 'svelte';
   import { fade } from 'svelte/transition';
   import { translationContext } from '$lib/stores/country';
+  import { contextualizationEnabled } from '$lib/stores/contextualization';
   import Tooltip from './Tooltip.svelte';
 
   export let original: string;
@@ -17,6 +18,11 @@
   let currentCountry = '';
   let showTooltip = false;
 
+  // Determine what to display and what to show in tooltip based on contextualization setting
+  $: displayText = $contextualizationEnabled ? translated : original;
+  $: tooltipText = $contextualizationEnabled ? original : translated;
+  $: strikethroughText = $contextualizationEnabled ? original : translated;
+
   const TYPING_SPEED = 80; // ms per character
   const PAUSE_BEFORE_REPLACE = 600; // ms to pause on strikethrough before replacing
   const DELAY_BETWEEN_ANIMATIONS = 200; // ms delay between sequential animations
@@ -24,9 +30,14 @@
   // Calculate total delay based on sequence index
   $: sequenceDelay = sequenceIndex * DELAY_BETWEEN_ANIMATIONS;
 
-  // Watch for country changes to re-trigger animation
+  // Watch for country changes or contextualization changes to re-trigger animation
   $: if ($translationContext?.country && $translationContext.country !== currentCountry) {
     currentCountry = $translationContext.country;
+    resetAnimation();
+  }
+
+  // Watch for contextualization toggle
+  $: if ($contextualizationEnabled !== undefined) {
     resetAnimation();
   }
 
@@ -87,9 +98,9 @@
     // Hide original, start typing translated
     showOriginal = false;
 
-    // Type out the translated text character by character
-    for (let i = 0; i <= translated.length; i++) {
-      displayedText = translated.substring(0, i);
+    // Type out the display text character by character
+    for (let i = 0; i <= displayText.length; i++) {
+      displayedText = displayText.substring(0, i);
       await sleep(TYPING_SPEED);
     }
 
@@ -117,7 +128,7 @@
       class="text-muted opacity-50 line-through decoration-2"
       in:fade={{ duration: 200 }}
     >
-      {original}
+      {strikethroughText}
     </span>
   {:else}
     <span
@@ -129,12 +140,12 @@
       on:blur={handleMouseLeave}
       role="button"
       tabindex="0"
-      aria-label="Translated text. Original: {original}"
+      aria-label="{$contextualizationEnabled ? 'Translated' : 'Original'} text. {$contextualizationEnabled ? 'Original' : 'Local equivalent'}: {tooltipText}"
     >
       {displayedText}<span class="animate-pulse"
         >{#if !animationComplete}|{/if}</span
       >
-      <Tooltip text={original} show={showTooltip} />
+      <Tooltip text={tooltipText} show={showTooltip} />
     </span>
   {/if}
 </span>
