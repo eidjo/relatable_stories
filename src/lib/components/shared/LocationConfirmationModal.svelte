@@ -86,7 +86,7 @@
 
 <!-- Backdrop -->
 <div
-  class="location-modal fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+  class="location-modal fixed inset-0 bg-black/80 backdrop-blur-sm z-50 overflow-y-auto p-4"
   transition:fade={{ duration: 200 }}
   role="dialog"
   aria-modal="true"
@@ -94,11 +94,13 @@
   on:click={(e) => e.target === e.currentTarget && !isDetecting && handleConfirm()}
   on:keydown={(e) => e.key === 'Escape' && !isDetecting && handleConfirm()}
 >
-  <!-- Modal -->
-  <div
-    class="bg-stone-900 border border-stone-700 rounded-lg shadow-2xl max-w-md w-full p-6 space-y-6"
-    transition:scale={{ duration: 200, start: 0.95 }}
-  >
+  <!-- Modal Container - centers on large screens, starts from top on small screens -->
+  <div class="min-h-full flex items-start sm:items-center justify-center py-4 sm:py-8">
+    <!-- Modal -->
+    <div
+      class="bg-stone-900 border border-stone-700 rounded-lg shadow-2xl max-w-md w-full p-6 space-y-6"
+      transition:scale={{ duration: 200, start: 0.95 }}
+    >
     <!-- Header -->
     <div class="space-y-4">
       <div class="space-y-2">
@@ -252,6 +254,7 @@
         No tracking • Settings saved in URL
       </p>
     {/if}
+    </div>
   </div>
 </div>
 
