@@ -23,14 +23,14 @@ import comparableEventsYaml from '$lib/data/contexts/comparable-events.yaml?raw'
 const storyFiles = import.meta.glob('$lib/data/stories/*/story.yaml', {
   query: '?raw',
   eager: true,
-  import: 'default'
+  import: 'default',
 }) as Record<string, string>;
 
 // Dynamically import all pre-translated stories
 const preTranslatedFiles = import.meta.glob('$lib/data/stories/*/story.*.yaml', {
   query: '?raw',
   eager: true,
-  import: 'default'
+  import: 'default',
 }) as Record<string, string>;
 
 // Parse YAML once at module load (not on every function call!)
@@ -77,20 +77,30 @@ export interface TranslationInput {
 
 export interface NormalizedSegment {
   text: string;
-  original: string | null;  // Match TranslatedSegment type
+  original: string | null; // Match TranslatedSegment type
   tooltip?: string;
-  type: 'text' | 'person' | 'place' | 'number' | 'date' | 'source' | 'image' | 'comparison' | 'paragraph-break' | 'casualties';
-  key: string | null;       // Match TranslatedSegment type
+  type:
+    | 'text'
+    | 'person'
+    | 'place'
+    | 'number'
+    | 'date'
+    | 'source'
+    | 'image'
+    | 'comparison'
+    | 'paragraph-break'
+    | 'casualties';
+  key: string | null; // Match TranslatedSegment type
   style?: 'strikethrough-muted' | 'bold-primary' | 'italic-comparison';
   metadata?: {
-    url?: string;           // For sources
-    src?: string;           // For images
-    alt?: string;           // For images
-    caption?: string;       // For images
+    url?: string; // For sources
+    src?: string; // For images
+    alt?: string; // For images
+    caption?: string; // For images
     contentWarning?: string; // For images
-    credit?: string;        // For images
-    creditUrl?: string;     // For images
-    explanation?: string;   // For tooltips
+    credit?: string; // For images
+    creditUrl?: string; // For images
+    explanation?: string; // For tooltips
     [key: string]: any;
   };
 }
@@ -133,19 +143,19 @@ export function translateStory(input: TranslationInput): TranslatedStoryOutput {
   const originalStory = loadOriginalStory(input.storySlug);
 
   // 2. Try to load pre-translated version
-  const preTranslatedStory = loadPreTranslatedStory(
-    input.storySlug,
-    input.language,
-    input.country
-  );
+  const preTranslatedStory = loadPreTranslatedStory(input.storySlug, input.language, input.country);
 
   // 3. Load context data (needed for runtime translation fallback)
-  const context = loadContextForCountry(input.country, input.language, originalStory.id, originalStory.markers || {});
+  const context = loadContextForCountry(
+    input.country,
+    input.language,
+    originalStory.id,
+    originalStory.markers || {}
+  );
 
   // 4. Decide which path to use
   const usePreTranslated =
-    preTranslatedStory !== null &&
-    (input.preferredTranslationSource !== 'runtime');
+    preTranslatedStory !== null && input.preferredTranslationSource !== 'runtime';
 
   const isPreTranslated = usePreTranslated;
 
@@ -243,7 +253,15 @@ function parsePreTranslatedText(
   context: Context,
   input: TranslationInput,
   sources?: Array<{ id: string; url: string; title: string; number: number }>,
-  images?: Array<{ id: string; src: string; alt: string; caption?: string; contentWarning?: string; credit?: string; creditUrl?: string }>
+  images?: Array<{
+    id: string;
+    src: string;
+    alt: string;
+    caption?: string;
+    contentWarning?: string;
+    credit?: string;
+    creditUrl?: string;
+  }>
 ): NormalizedSegment[] {
   const segments: NormalizedSegment[] = [];
 
@@ -256,7 +274,8 @@ function parsePreTranslatedText(
     // 2. [[COMPARISON:original|translated|explanation]]
     // 3. {{{{key:suffix}}:type}} (escaped format from translation)
     // 4. {{key}} or {{key:suffix}} (placeholders)
-    const regex = /(\[\[MARKER:([^:]+):([^:]+):([^|]+)\|([^|\]]+)(?:\|([^\]]+))?\]\])|(\[\[COMPARISON:([^|]+)\|([^|]+)\|([^\]]+)\]\])|(\{\{\{\{([^:}]+):([^}]+)\}\}:([^}]+)\}\})|(\{\{([^:}]+)(?::([^}]+))?\}\})/g;
+    const regex =
+      /(\[\[MARKER:([^:]+):([^:]+):([^|]+)\|([^|\]]+)(?:\|([^\]]+))?\]\])|(\[\[COMPARISON:([^|]+)\|([^|]+)\|([^\]]+)\]\])|(\{\{\{\{([^:}]+):([^}]+)\}\}:([^}]+)\}\})|(\{\{([^:}]+)(?::([^}]+))?\}\})/g;
 
     let lastIndex = 0;
     let match;
@@ -282,12 +301,12 @@ function parsePreTranslatedText(
         segments.push({
           text: value,
           original: original,
-          tooltip: explanation || (input.contextualizationEnabled ? `Original: ${original}` : undefined),
+          tooltip:
+            explanation || (input.contextualizationEnabled ? `Original: ${original}` : undefined),
           type: type as any,
           key: key,
           style: 'strikethrough-muted',
         });
-
       } else if (match[7]) {
         // [[COMPARISON:original|translated|explanation]]
         const [, , , , , , , , original, translated, explanation] = match;
@@ -301,7 +320,6 @@ function parsePreTranslatedText(
           style: 'italic-comparison',
           metadata: { original },
         });
-
       } else if (match[11]) {
         // {{{{key:suffix}}:type}} - escaped format from translation
         const key = match[12];
@@ -310,7 +328,7 @@ function parsePreTranslatedText(
 
         // Handle special keys (source and image)
         if (type === 'source' && sources) {
-          const source = sources.find(s => s.id === suffix);
+          const source = sources.find((s) => s.id === suffix);
           if (source) {
             segments.push({
               text: `[${source.number}]`,
@@ -325,7 +343,7 @@ function parsePreTranslatedText(
             });
           }
         } else if (type === 'image' && images) {
-          const image = images.find(img => img.id === suffix);
+          const image = images.find((img) => img.id === suffix);
           if (image) {
             segments.push({
               text: '',
@@ -343,7 +361,6 @@ function parsePreTranslatedText(
             });
           }
         }
-
       } else if (match[15]) {
         // {{key}} or {{key:suffix}} - placeholder that needs runtime translation
         const key = match[16];
@@ -351,7 +368,7 @@ function parsePreTranslatedText(
 
         // Handle special keys
         if (key === 'source' && suffix && sources) {
-          const source = sources.find(s => s.id === suffix);
+          const source = sources.find((s) => s.id === suffix);
           if (source) {
             segments.push({
               text: `[${source.number}]`,
@@ -366,7 +383,7 @@ function parsePreTranslatedText(
             });
           }
         } else if (key === 'image' && suffix && images) {
-          const image = images.find(img => img.id === suffix);
+          const image = images.find((img) => img.id === suffix);
           if (image) {
             segments.push({
               text: '',
@@ -445,7 +462,15 @@ function translateRuntimeText(
   context: Context,
   input: TranslationInput,
   sources?: Array<{ id: string; url: string; title: string; number: number }>,
-  images?: Array<{ id: string; src: string; alt: string; caption?: string; contentWarning?: string; credit?: string; creditUrl?: string }>
+  images?: Array<{
+    id: string;
+    src: string;
+    alt: string;
+    caption?: string;
+    contentWarning?: string;
+    credit?: string;
+    creditUrl?: string;
+  }>
 ): NormalizedSegment[] {
   const segments: NormalizedSegment[] = [];
 
@@ -463,11 +488,10 @@ function translateRuntimeText(
           original: null,
           key: null,
         });
-
       } else if (token.type === 'marker' && token.markerKey) {
         // Handle special marker references
         if (token.markerKey === 'source' && token.suffix && sources) {
-          const source = sources.find(s => s.id === token.suffix);
+          const source = sources.find((s) => s.id === token.suffix);
           if (source) {
             segments.push({
               text: `[${source.number}]`,
@@ -485,7 +509,7 @@ function translateRuntimeText(
         }
 
         if (token.markerKey === 'image' && token.suffix && images) {
-          const image = images.find(img => img.id === token.suffix);
+          const image = images.find((img) => img.id === token.suffix);
           if (image) {
             segments.push({
               text: '',
@@ -664,7 +688,11 @@ function translateSingleMarker(
   return {
     text: result.value,
     original: result.original || null,
-    tooltip: result.explanation || (result.original && input.contextualizationEnabled ? `Original: ${result.original}` : undefined),
+    tooltip:
+      result.explanation ||
+      (result.original && input.contextualizationEnabled
+        ? `Original: ${result.original}`
+        : undefined),
     type: markerType as any,
     key: key,
     style: result.original ? 'strikethrough-muted' : undefined,

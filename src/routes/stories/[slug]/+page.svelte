@@ -35,7 +35,11 @@
   function doTranslation() {
     if (!ready || !slug) return;
 
-    console.log('🔄 Translating story:', { slug, country: $selectedCountry, lang: $selectedLanguage });
+    console.log('🔄 Translating story:', {
+      slug,
+      country: $selectedCountry,
+      lang: $selectedLanguage,
+    });
     try {
       translatedStory = translateStory({
         storySlug: slug,
@@ -59,12 +63,13 @@
   }
 
   // Watch for changes and re-translate
-  $: if (ready && (
-    slug !== currentSlug ||
-    $selectedCountry !== currentCountry ||
-    $selectedLanguage !== currentLanguage ||
-    $contextualizationEnabled !== currentContext
-  )) {
+  $: if (
+    ready &&
+    (slug !== currentSlug ||
+      $selectedCountry !== currentCountry ||
+      $selectedLanguage !== currentLanguage ||
+      $contextualizationEnabled !== currentContext)
+  ) {
     doTranslation();
   }
 
@@ -115,7 +120,9 @@
     });
 
     // Mark initial load complete
-    setTimeout(() => { isInitialLoad = false; }, 100);
+    setTimeout(() => {
+      isInitialLoad = false;
+    }, 100);
 
     // Cleanup subscriptions
     return () => {

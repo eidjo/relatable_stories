@@ -6,17 +6,19 @@
   import { theme, toggleTheme } from '$lib/stores/theme';
 
   // Preserve query parameters in navigation links
-  $: queryParams = browser ? (() => {
-    const params = new URLSearchParams();
-    const country = $page.url.searchParams.get('country');
-    const lang = $page.url.searchParams.get('lang');
-    const themeParam = $page.url.searchParams.get('theme');
-    if (country) params.set('country', country);
-    if (lang) params.set('lang', lang);
-    if (themeParam) params.set('theme', themeParam);
-    const str = params.toString();
-    return str ? `?${str}` : '';
-  })() : '';
+  $: queryParams = browser
+    ? (() => {
+        const params = new URLSearchParams();
+        const country = $page.url.searchParams.get('country');
+        const lang = $page.url.searchParams.get('lang');
+        const themeParam = $page.url.searchParams.get('theme');
+        if (country) params.set('country', country);
+        if (lang) params.set('lang', lang);
+        if (themeParam) params.set('theme', themeParam);
+        const str = params.toString();
+        return str ? `?${str}` : '';
+      })()
+    : '';
   $: storiesUrl = `${base}/stories${queryParams}`;
   $: aboutUrl = `${base}/about${queryParams}`;
   $: actionUrl = `${base}/take-action${queryParams}`;

@@ -14,19 +14,21 @@
   $: additionalLanguages = countrySpecificLanguages.filter((lang) => lang !== 'en');
   $: showLanguageSelector = additionalLanguages.length > 0;
 
-  $: translatedStories = stories.map((story) => {
-    try {
-      return translateStory({
-        storySlug: story.slug,
-        country: $selectedCountry,
-        language: $selectedLanguage,
-        contextualizationEnabled: $contextualizationEnabled,
-      });
-    } catch (error) {
-      console.error(`Failed to translate story ${story.slug}:`, error);
-      return null;
-    }
-  }).filter((story): story is NonNullable<typeof story> => story !== null);
+  $: translatedStories = stories
+    .map((story) => {
+      try {
+        return translateStory({
+          storySlug: story.slug,
+          country: $selectedCountry,
+          language: $selectedLanguage,
+          contextualizationEnabled: $contextualizationEnabled,
+        });
+      } catch (error) {
+        console.error(`Failed to translate story ${story.slug}:`, error);
+        return null;
+      }
+    })
+    .filter((story): story is NonNullable<typeof story> => story !== null);
 </script>
 
 <SocialMeta

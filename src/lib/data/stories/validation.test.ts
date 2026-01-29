@@ -235,8 +235,11 @@ describe('Story Translation Validation', () => {
       // This test verifies that WHEN a marker is translated, it has an original value
       // Not all markers will be translated (e.g., some Iranian names may stay as-is)
       // So we check that at least some segments have original values
-      const segmentsWithOriginal = [...translated.title, ...translated.summary, ...translated.content]
-        .filter((seg) => seg.original !== undefined);
+      const segmentsWithOriginal = [
+        ...translated.title,
+        ...translated.summary,
+        ...translated.content,
+      ].filter((seg) => seg.original !== undefined);
 
       // If there are markers in the story, at least some should have originals
       if (story.markers && Object.keys(story.markers).length > 0) {

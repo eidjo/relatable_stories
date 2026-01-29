@@ -267,7 +267,8 @@ function generateComparisonText(
   const text = `(${comparisonText})`;
 
   // Generate explanation (always in English for consistency)
-  const ratioText = exactRatio >= 1 ? `${exactRatio.toFixed(2)}x more` : `${(exactRatio * 100).toFixed(0)}% of`;
+  const ratioText =
+    exactRatio >= 1 ? `${exactRatio.toFixed(2)}x more` : `${(exactRatio * 100).toFixed(0)}% of`;
   const explanation = `Comparison: ${scaledCasualties.toLocaleString()} casualties vs. ${event.name} (${event.casualties.toLocaleString()} casualties in ${event.year}) = ${ratioText}`;
 
   return { text, explanation };
