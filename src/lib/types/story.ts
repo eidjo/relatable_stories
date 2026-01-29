@@ -1,128 +1,27 @@
-export type MarkerType =
-  | 'person'
-  | 'place'
-  | 'date'
-  | 'time'
-  | 'number'
-  | 'currency'
-  | 'event'
-  | 'occupation'
-  | 'subject'
-  | 'source'
-  | 'image'
-  | 'paragraph-break';
+// Re-export V2 marker types
+export * from './markers-v2';
 
-export type Gender = 'male' | 'female' | 'neutral';
-
-export interface PersonMarker {
-  type: 'person';
-  gender: Gender;
-  age?: number;
-  role?: string;
-  relationship?: string;
-  name?: string; // Original Iranian name
-  original?: string; // Explicit original value for tooltip
-}
-
-export interface PlaceMarker {
-  type: 'place';
-  category: 'city' | 'landmark' | 'government-facility' | 'university';
-  size?: 'small' | 'medium' | 'large';
-  region?: string;
-  significance?: string;
-  accessibility?: string;
-  'type-specific'?: string;
-  prestige?: string;
-  original?: string; // Original Iranian place name
-}
-
-export interface DateMarker {
-  type: 'date';
-  value: string;
-  translation?: string;
-}
-
-export interface TimeMarker {
-  type: 'time';
-  value: string;
-  translation?: string;
-}
-
-export interface NumberMarker {
-  type: 'number';
-  base: number;
-  unit: string;
-  scale?: boolean;
-  'scale-factor'?: number;
-  variance?: number;
-}
-
-export interface CurrencyMarker {
-  type: 'currency';
-  base: number;
-  'base-currency': string;
-  period?: 'monthly' | 'yearly' | 'one-time';
-}
-
-export interface EventMarker {
-  type: 'event';
-  value: string;
-  translation?: string;
-}
-
-export interface OccupationMarker {
-  type: 'occupation';
-  category: string;
-  subcategory?: string;
-  original?: string; // Original Iranian occupation
-  examples?: string[]; // List of equivalent occupations for translation
-}
-
-export interface SubjectMarker {
-  type: 'subject';
-  category: string;
-  examples?: string[];
-}
-
-export interface SourceMarker {
-  type: 'source';
-  text: string; // The citation text to display
-  url?: string; // Optional link to source
-  title?: string; // Title/description for tooltip
-  number?: number; // Optional reference number like [1]
-}
-
-export interface ImageMarker {
-  type: 'image';
-  src: string; // Image path or URL
-  alt: string; // Alt text for accessibility
-  caption?: string; // Optional caption
-  contentWarning?: string; // Optional content warning
-  credit?: string; // Photo credit
-  creditUrl?: string; // Optional URL for photo credit
-}
-
-export interface ParagraphBreakMarker {
-  type: 'paragraph-break';
-}
-
-export type Marker =
-  | PersonMarker
-  | PlaceMarker
-  | DateMarker
-  | TimeMarker
-  | NumberMarker
-  | CurrencyMarker
-  | EventMarker
-  | OccupationMarker
-  | SubjectMarker
-  | SourceMarker
-  | ImageMarker
-  | ParagraphBreakMarker;
-
+// Story-specific types
 export interface StoryMeta {
   'og-title'?: string;
   'og-description'?: string;
+}
+
+export interface SourceReference {
+  id: string; // Key used in {{source:id}} markers
+  number: number; // Display number [1], [2], etc.
+  title: string;
+  url: string;
+}
+
+export interface ImageReference {
+  id: string; // Key used in {{image:id}} markers
+  src: string;
+  alt: string;
+  caption?: string;
+  contentWarning?: string;
+  credit?: string;
+  creditUrl?: string;
 }
 
 export interface Story {
@@ -132,16 +31,20 @@ export interface Story {
   date: string;
   summary: string;
   content: string;
-  markers: Record<string, Marker>;
+  markers: Record<string, import('./markers-v2').Marker>;
+  sources?: SourceReference[]; // New: dedicated sources array
+  images?: ImageReference[]; // New: dedicated images array
   tags: string[];
   hashtags?: string;
   severity: 'low' | 'medium' | 'high' | 'critical';
   verified: boolean;
-  source?: string;
+  source?: string; // Attribution text
   'content-warning'?: string;
-  image?: string;
+  image?: string; // Cover image URL
   meta?: StoryMeta;
 }
+
+export type MarkerType = string; // For backward compatibility
 
 export interface TranslatedSegment {
   text: string;

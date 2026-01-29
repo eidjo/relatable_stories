@@ -1,107 +1,100 @@
 id: 'raha-2026'
-title: "{{name:student}}'s Last Day"
+title: "{{student}}'s Last Day"
 slug: 'raha-2026'
 date: '2026-01-08'
-summary: 'A {{number:age}}-year-old university student who loved art and music was killed by security forces during the 2026 uprising.'
+summary: 'A {{student:age}}-year-old university student who loved art and music was killed by security forces during the 2026 uprising.'
 
 content: >-
   !!! DISCLAIMER: THIS STORY IS NOT VERIFIED AND IS PURELY FOR DEMONSTRATION PURPOSES !!!
 
-  {{name:student}}, a {{number:age}}-year-old university student from {{place:hometown}}, was interested in art and music. She kept an online journal where she wrote about breathing, continuing, and tomorrow. She recorded names of detained friends and classmates, understanding that repression begins with erasure.
+  {{student}}, a {{student:age}}-year-old university student from {{tehran}}, was interested in art and music. She kept an online journal where she wrote about breathing, continuing, and tomorrow. She recorded names of detained friends and classmates, understanding that repression begins with erasure.
 
-  On the morning of {{date:protest-date}}, protests erupted across Iran. Within hours, demonstrations spread to more than {{number:cities}} cities and towns. {{name:student}} joined protesters near {{place:square}} in {{place:capital}}.
+  On the morning of {{protest-date}}, protests erupted across Iran. Within hours, demonstrations spread to more than {{cities}} cities and towns. {{student}} joined protesters near {{square}} in {{capital}}.
 
-  The protests were met with overwhelming force. Security forces, including IRGC units and plainclothes agents, opened fire on crowds. According to classified documents{{source:death-toll}}, more than {{number:killed}} people were killed over two days, making it the deadliest protest massacre in history.
+  The protests were met with overwhelming force. Security forces, including IRGC units and plainclothes agents, opened fire on crowds. According to classified documents{{source:death-toll}}, more than {{killed}} people were killed over two days {{killed:comparable}}, making it the deadliest protest massacre in history.
 
-  {{name:student}} was shot near {{place:square}} on {{date:protest-date}}. She was {{number:age}} years old. Her family later found her body at {{place:morgue}}, one of thousands delivered to facilities overwhelmed by casualties.
+  {{student}} was shot near {{square}} on {{protest-date}}. She was {{student:age}} years old. Her family later found her body at {{morgue}}, one of thousands delivered to facilities overwhelmed by casualties.
 
   {{image:morgue-scene}}
 
   Medical staff reported that some wounded protesters were shot in the head while hospitalized{{source:hospital-executions}}. Images from morgues showed bodies with cardiac monitoring equipment still attached, suggesting patients under medical care were executed. Doctors and nurses described security forces entering hospitals and taking away wounded patients, some of whom were later found dead.
 
-  The government cut internet access nationwide for {{number:blackout-days}} days, preventing families from sharing information and making it nearly impossible to document the scale of the killings. Bereaved families were forced to pay fees described as "bullet costs" to receive bodies. In some cases, authorities buried victims without family consent.
+  The government cut internet access nationwide for {{blackout-days}} days, preventing families from sharing information and making it nearly impossible to document the scale of the killings. Bereaved families were forced to pay fees described as "bullet costs" to receive bodies. In some cases, authorities buried victims without family consent.
 
-  {{name:student}} left behind no manifesto. What remains are fragments - short reflections carefully chosen. Her writing returned again and again to elemental concerns: breathing, continuing, tomorrow. She understood that being alive is not negotiable.
+  {{student}} left behind no manifesto. What remains are fragments - short reflections carefully chosen. Her writing returned again and again to elemental concerns: breathing, continuing, tomorrow. She understood that being alive is not negotiable.
 
-  Before she died, {{name:student}} wrote names. She named detainees and the missing. She recorded people as people, not as abstractions. She knew how repression begins - not with bullets, but with erasure.
+  Before she died, {{student}} wrote names. She named detainees and the missing. She recorded people as people, not as abstractions. She knew how repression begins - not with bullets, but with erasure.
 
 markers:
+  # People
   student:
-    type: 'person'
-    gender: 'female'
+    person: 'Raha Bohlouli'
+    gender: f
     age: 22
-    role: 'student'
-    name: 'Raha'
 
-  hometown:
-    type: 'place'
-    category: 'city'
-    size: 'large'
-    region: 'central'
-    original: 'Tehran'
+  # Places - hierarchical
+  tehran:
+    place: 'Tehran'
+    city-large: true
+    capital: true
+    population: 9500000
 
   square:
-    type: 'place'
-    category: 'landmark'
-    significance: 'protest-location'
-    original: 'Fatemi Square'
-
-  capital:
-    type: 'place'
-    category: 'city'
-    size: 'large'
-    original: 'Tehran'
+    place: 'Fatemi Square'
+    landmark-protest: true
+    within: tehran # ✅ Landmark is IN this city
 
   morgue:
-    type: 'place'
-    category: 'government-facility'
-    type-specific: 'morgue'
-    original: 'Kahrizak morgue'
+    place: 'Kahrizak morgue'
+    government-facility: true
+    within: tehran # ✅ Same city
 
+  # Aliases - reuse translations
+  hometown:
+    sameAs: tehran
+
+  capital:
+    sameAs: tehran
+
+  # Dates
   protest-date:
-    type: 'date'
-    value: '2026-01-08'
+    date: '2026-01-08'
 
-  age:
-    type: 'number'
-    base: 22
-    unit: 'years'
-
+  # Numbers
   cities:
-    type: 'number'
-    base: 400
-    unit: 'cities'
-    scale: true
-    scale-factor: 0.3
-
-  killed:
-    type: 'number'
-    base: 36500
-    unit: 'people'
-    scale: true
-    scale-factor: 0.5
+    number: 400
+    cities: true
+    scaled: true
+    scaleFactor: 0.3 # Dampen the pure scaling
 
   blackout-days:
-    type: 'number'
-    base: 16
-    unit: 'days'
+    number: 16
+    days: true
 
-  death-toll:
-    type: 'source'
-    text: '1'
+  # Casualties - with city scope
+  killed:
+    casualties: 36500
+    killed: true
+    scope: city # ✅ Scale against city population, not country
+    scopeCity: tehran # ✅ Use Tehran's population for scaling
+    comparable: massacre
+    timeframe: 'over two days'
+
+# Sources - now in dedicated array
+sources:
+  - id: death-toll
     number: 1
-    url: 'https://www.iranintl.com/en/202601255198'
     title: "Iran International: Over 36,500 killed in Iran's deadliest massacre"
-
-  hospital-executions:
-    type: 'source'
-    text: '2'
-    number: 2
     url: 'https://www.iranintl.com/en/202601255198'
-    title: 'Iran International: Horrifying details of extrajudicial executions in hospitals'
 
-  morgue-scene:
-    type: 'image'
+  - id: hospital-executions
+    number: 2
+    title: 'Iran International: Horrifying details of extrajudicial executions in hospitals'
+    url: 'https://www.iranintl.com/en/202601255198'
+
+# Images - now in dedicated array
+images:
+  - id: morgue-scene
     src: '/raha-protest-2026.jpg'
     alt: 'Morgue facilities overwhelmed with bodies during the January 2026 massacre'
     caption: 'Morgue facilities across Iran were overwhelmed by the scale of casualties during the January 2026 uprising, with thousands of bodies delivered in a matter of days.'

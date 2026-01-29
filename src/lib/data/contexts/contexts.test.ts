@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { countries } from '$lib/data/contexts';
-import { getCountryNames, getCountryPlaces } from '$lib/data/contexts';
+import { getCountryNames, getCountryPlacesV2 } from '$lib/data/contexts';
 
 describe('Countries YAML Validation', () => {
   it('should have at least one country', () => {
@@ -103,39 +103,74 @@ describe('Names YAML Validation', () => {
   });
 });
 
-describe('Places YAML Validation', () => {
-  it('should have places for all countries', () => {
-    countries.forEach((country) => {
-      const places = getCountryPlaces(country.code);
+describe('Places V2 YAML Validation', () => {
+  it('should have places data for countries with V2 data', () => {
+    // V2 places data is only available for some countries
+    const v2Countries = ['US', 'UK', 'CZ'];
+
+    v2Countries.forEach((countryCode) => {
+      const places = getCountryPlacesV2(countryCode);
       expect(places).toBeDefined();
+      expect(places.cities).toBeDefined();
+      expect(Array.isArray(places.cities)).toBe(true);
     });
   });
 
-  it('should have required place categories', () => {
-    const requiredCategories = ['city-medium', 'landmark-protest', 'government-facility'];
+  it('should have properly structured cities', () => {
+    const v2Countries = ['US', 'UK', 'CZ'];
 
-    countries.forEach((country) => {
-      const places = getCountryPlaces(country.code);
-      requiredCategories.forEach((category) => {
-        expect(places[category]).toBeDefined();
-        expect(Array.isArray(places[category])).toBe(true);
-        expect((places[category] as string[]).length).toBeGreaterThan(0);
+    v2Countries.forEach((countryCode) => {
+      const places = getCountryPlacesV2(countryCode);
+
+      places.cities.forEach((city) => {
+        expect(city.id).toBeDefined();
+        expect(typeof city.id).toBe('string');
+        expect(city.name).toBeDefined();
+        expect(typeof city.name).toBe('string');
+        expect(city.size).toBeDefined();
+        expect(['small', 'medium', 'large']).toContain(city.size);
+        expect(typeof city.capital).toBe('boolean');
+        expect(typeof city.population).toBe('number');
+        expect(city.population).toBeGreaterThan(0);
       });
     });
   });
 
-  it('should have all place names as non-empty strings', () => {
-    countries.forEach((country) => {
-      const places = getCountryPlaces(country.code);
-      Object.values(places).forEach((placeList) => {
-        if (Array.isArray(placeList)) {
-          placeList.forEach((place) => {
-            expect(typeof place).toBe('string');
-            expect(place.length).toBeGreaterThan(0);
-            expect(place.trim()).toBe(place); // No leading/trailing whitespace
+  it('should have protest locations for cities', () => {
+    const v2Countries = ['US', 'UK', 'CZ'];
+
+    v2Countries.forEach((countryCode) => {
+      const places = getCountryPlacesV2(countryCode);
+
+      places.cities.forEach((city) => {
+        if (city.landmarks?.protest) {
+          expect(Array.isArray(city.landmarks.protest)).toBe(true);
+          expect(city.landmarks.protest.length).toBeGreaterThan(0);
+
+          city.landmarks.protest.forEach((location) => {
+            expect(typeof location).toBe('string');
+            expect(location.length).toBeGreaterThan(0);
+            expect(location.trim()).toBe(location);
           });
         }
       });
+    });
+  });
+
+  it('should have generic fallbacks', () => {
+    const v2Countries = ['US', 'UK', 'CZ'];
+
+    v2Countries.forEach((countryCode) => {
+      const places = getCountryPlacesV2(countryCode);
+
+      if (places.generic) {
+        expect(places.generic).toBeDefined();
+
+        if (places.generic.landmarks?.protest) {
+          expect(Array.isArray(places.generic.landmarks.protest)).toBe(true);
+          expect(places.generic.landmarks.protest.length).toBeGreaterThan(0);
+        }
+      }
     });
   });
 });

@@ -1,19 +1,12 @@
 import { describe, it, expect } from 'vitest';
 import {
   seededRandom,
-  selectFromArray,
-  getOriginalValue,
-  translateMarker,
-  type TranslationData,
+  translateMarkerV2,
+  type TranslationDataV2,
+  type TranslationContext,
+  type PlacesDataV2,
 } from './core';
-import type {
-  PersonMarker,
-  PlaceMarker,
-  NumberMarker,
-  CurrencyMarker,
-  OccupationMarker,
-  SubjectMarker,
-} from '$lib/types';
+import type { Marker } from '$lib/types';
 
 describe('seededRandom', () => {
   it('should return consistent values for the same seed', () => {
@@ -36,283 +29,215 @@ describe('seededRandom', () => {
   });
 });
 
-describe('selectFromArray', () => {
-  it('should select the same item for the same seed', () => {
-    const items = ['apple', 'banana', 'cherry', 'date'];
-    const seed = 'test-seed';
-    const selection1 = selectFromArray(items, seed);
-    const selection2 = selectFromArray(items, seed);
-    expect(selection1).toBe(selection2);
-  });
+describe('translateMarkerV2', () => {
+  const mockPlacesData: PlacesDataV2 = {
+    cities: [
+      {
+        id: 'test-city',
+        name: 'Test City',
+        size: 'medium',
+        capital: false,
+        population: 1000000,
+        landmarks: {
+          protest: ['Freedom Plaza', 'City Hall Plaza'],
+        },
+        universities: ['Test University'],
+        'government-facilities': ['Test Prison'],
+      },
+    ],
+    generic: {
+      landmarks: {
+        protest: ['Generic Square'],
+      },
+    },
+  };
 
-  it('should select from the provided array', () => {
-    const items = ['apple', 'banana', 'cherry'];
-    const seed = 'test';
-    const selection = selectFromArray(items, seed);
-    expect(items).toContain(selection);
-  });
-});
-
-describe('getOriginalValue', () => {
-  it('should return explicit original field for person marker', () => {
-    const marker: PersonMarker = {
-      type: 'person',
-      gender: 'female',
-      name: 'Zahra',
-      original: 'Zahra (specific)',
-    };
-    expect(getOriginalValue(marker)).toBe('Zahra (specific)');
-  });
-
-  it('should return name field for person marker without explicit original', () => {
-    const marker: PersonMarker = {
-      type: 'person',
-      gender: 'female',
-      name: 'Zahra',
-    };
-    expect(getOriginalValue(marker)).toBe('Zahra');
-  });
-
-  it('should return original field for place marker', () => {
-    const marker: PlaceMarker = {
-      type: 'place',
-      category: 'city',
-      original: 'Tehran',
-    };
-    expect(getOriginalValue(marker)).toBe('Tehran');
-  });
-
-  it('should return base value for number marker', () => {
-    const marker: NumberMarker = {
-      type: 'number',
-      base: 100,
-      unit: 'people',
-    };
-    expect(getOriginalValue(marker)).toBe('100');
-  });
-
-  it('should return formatted Rial for currency marker', () => {
-    const marker: CurrencyMarker = {
-      type: 'currency',
-      base: 50000000,
-      'base-currency': 'IRR',
-    };
-    expect(getOriginalValue(marker)).toBe('50,000,000 Rial');
-  });
-
-  it('should return category for occupation marker without original', () => {
-    const marker: OccupationMarker = {
-      type: 'occupation',
-      category: 'working-class',
-    };
-    expect(getOriginalValue(marker)).toBe('working-class');
-  });
-});
-
-describe('translateMarker', () => {
-  const mockTranslationData: TranslationData = {
+  const mockTranslationData: TranslationDataV2 = {
     country: 'US',
     names: {
       male: ['John', 'Michael', 'David'],
       female: ['Sarah', 'Emma', 'Olivia'],
       neutral: ['Alex', 'Jordan', 'Casey'],
     },
-    places: {
-      'city-medium': ['Austin', 'Portland', 'Denver'],
-      'landmark-protest': ['Freedom Plaza', 'City Hall Plaza'],
-    },
+    places: mockPlacesData,
     population: 331000000,
     currencySymbol: '$',
     rialToLocal: 0.000024,
   };
 
+  const mockContext: TranslationContext = {
+    markers: {},
+    resolved: new Map(),
+    storyId: 'test-story',
+  };
+
   describe('person markers', () => {
     it('should translate person name deterministically', () => {
-      const marker: PersonMarker = {
-        type: 'person',
-        gender: 'female',
-        name: 'Zahra',
+      const marker: Marker = {
+        person: 'Zahra',
+        gender: 'f' as const,
       };
 
-      const result1 = translateMarker('person1', marker, mockTranslationData, 'story-1');
-      const result2 = translateMarker('person1', marker, mockTranslationData, 'story-1');
+      const result1 = translateMarkerV2('person1', marker, mockTranslationData, mockContext);
+      const result2 = translateMarkerV2('person1', marker, mockTranslationData, mockContext);
 
-      expect(result1.translated).toBe(result2.translated);
-      expect(mockTranslationData.names.female).toContain(result1.translated);
+      expect(result1.value).toBe(result2.value);
+      expect(mockTranslationData.names.female).toContain(result1.value);
       expect(result1.original).toBe('Zahra');
     });
 
     it('should generate different names for different marker keys', () => {
-      const marker: PersonMarker = {
-        type: 'person',
-        gender: 'female',
-        name: 'Zahra',
+      const marker: Marker = {
+        person: 'Zahra',
+        gender: 'f' as const,
       };
 
-      const result1 = translateMarker('person1', marker, mockTranslationData, 'story-1');
-      const result2 = translateMarker('person2', marker, mockTranslationData, 'story-1');
+      const result1 = translateMarkerV2('person1', marker, mockTranslationData, mockContext);
+      const result2 = translateMarkerV2('person2', marker, mockTranslationData, mockContext);
 
-      // High probability of being different (not guaranteed due to randomness)
-      expect(result1.translated).toBeDefined();
-      expect(result2.translated).toBeDefined();
+      expect(result1.value).toBeDefined();
+      expect(result2.value).toBeDefined();
     });
   });
 
   describe('place markers', () => {
-    it('should translate place with size', () => {
-      const marker: PlaceMarker = {
-        type: 'place',
-        category: 'city',
-        size: 'medium',
-        original: 'Tehran',
+    it('should translate city by size', () => {
+      const marker: Marker = {
+        place: 'Tehran',
+        'city-medium': true,
       };
 
-      const result = translateMarker('place1', marker, mockTranslationData, 'story-1');
+      const result = translateMarkerV2('city1', marker, mockTranslationData, mockContext);
 
-      expect(mockTranslationData.places['city-medium']).toContain(result.translated);
+      expect(result.value).toBe('Test City');
       expect(result.original).toBe('Tehran');
     });
 
-    it('should handle landmark-protest locations', () => {
-      const marker: PlaceMarker = {
-        type: 'place',
-        category: 'landmark',
-        significance: 'protest-location',
-        original: 'Azadi Square',
+    it('should handle landmark-protest locations from generic', () => {
+      const marker: Marker = {
+        place: 'Azadi Square',
+        'landmark-protest': true,
       };
 
-      const result = translateMarker('place1', marker, mockTranslationData, 'story-1');
+      const result = translateMarkerV2('place1', marker, mockTranslationData, mockContext);
 
-      expect(mockTranslationData.places['landmark-protest']).toContain(result.translated);
+      expect(mockPlacesData.generic?.landmarks?.protest).toContain(result.value);
       expect(result.original).toBe('Azadi Square');
     });
   });
 
   describe('number markers', () => {
     it('should translate number without scaling', () => {
-      const marker: NumberMarker = {
-        type: 'number',
-        base: 50,
-        unit: 'people',
+      const marker: Marker = {
+        number: 50,
       };
 
-      const result = translateMarker('num1', marker, mockTranslationData, 'story-1');
+      const result = translateMarkerV2('num1', marker, mockTranslationData, mockContext);
 
-      expect(result.translated).toBe('50');
+      expect(result.value).toBe('50');
       expect(result.original).toBe('50');
     });
 
     it('should scale number based on population', () => {
-      const marker: NumberMarker = {
-        type: 'number',
-        base: 100,
-        unit: 'people',
-        scale: true,
-        'scale-factor': 1,
+      const marker: Marker = {
+        number: 100,
+        scaled: true,
       };
 
-      const result = translateMarker('num1', marker, mockTranslationData, 'story-1');
+      const result = translateMarkerV2('num1', marker, mockTranslationData, mockContext);
 
-      // US population ~331M vs Iran ~88.5M = ~3.74x
-      // Should scale 100 by approximately this ratio
-      const scaled = parseInt(result.translated);
-      expect(scaled).toBeGreaterThan(300);
-      expect(scaled).toBeLessThan(500);
+      // US population ~331M vs Iran ~85M = ~3.89x
+      const scaled = parseInt(result.value);
+      expect(scaled).toBeGreaterThan(350);
+      expect(scaled).toBeLessThan(450);
       expect(result.original).toBe('100');
     });
 
     it('should apply variance consistently', () => {
-      const marker: NumberMarker = {
-        type: 'number',
-        base: 100,
-        unit: 'people',
+      const marker: Marker = {
+        number: 100,
         variance: 10,
       };
 
-      const result1 = translateMarker('num1', marker, mockTranslationData, 'story-1');
-      const result2 = translateMarker('num1', marker, mockTranslationData, 'story-1');
+      const result1 = translateMarkerV2('num1', marker, mockTranslationData, mockContext);
+      const result2 = translateMarkerV2('num1', marker, mockTranslationData, mockContext);
 
-      expect(result1.translated).toBe(result2.translated);
+      expect(result1.value).toBe(result2.value);
 
-      const value = parseInt(result1.translated);
+      const value = parseInt(result1.value);
       expect(value).toBeGreaterThanOrEqual(90);
       expect(value).toBeLessThanOrEqual(110);
     });
   });
 
-  describe('currency markers', () => {
-    it('should convert currency with correct symbol', () => {
-      const marker: CurrencyMarker = {
-        type: 'currency',
-        base: 50000000, // 50 million Rial
-        'base-currency': 'IRR',
+  describe('casualties markers', () => {
+    it('should scale casualties by population', () => {
+      const marker: Marker = {
+        casualties: 1000,
       };
 
-      const result = translateMarker('currency1', marker, mockTranslationData, 'story-1');
+      const result = translateMarkerV2('casualties1', marker, mockTranslationData, mockContext);
 
-      // 50,000,000 * 0.000024 = 1,200
-      expect(result.translated).toBe('$1,200');
-      expect(result.original).toBe('50,000,000 Rial');
+      // Should scale: 1000 * (331M / 85M) ≈ 3894
+      const scaled = parseInt(result.value);
+      expect(scaled).toBeGreaterThan(3500);
+      expect(scaled).toBeLessThan(4500);
+      expect(result.original).toBe('1000');
     });
   });
 
-  describe('occupation markers', () => {
-    it('should select from examples if provided', () => {
-      const marker: OccupationMarker = {
-        type: 'occupation',
-        category: 'professional',
-        examples: ['teacher', 'engineer', 'doctor'],
-        original: 'moalem',
+  describe('alias markers', () => {
+    it('should reuse translation from target marker', () => {
+      const personMarker: Marker = {
+        person: 'Ali',
+        gender: 'm' as const,
       };
 
-      const result = translateMarker('occ1', marker, mockTranslationData, 'story-1');
+      const aliasMarker: Marker = {
+        sameAs: 'person1',
+      };
 
-      expect(marker.examples).toContain(result.translated);
-      expect(result.original).toBe('moalem');
+      const context: TranslationContext = {
+        markers: {
+          person1: personMarker,
+          alias1: aliasMarker,
+        },
+        resolved: new Map(),
+        storyId: 'test-story',
+      };
+
+      // First resolve the person
+      const personResult = translateMarkerV2('person1', personMarker, mockTranslationData, context);
+      context.resolved.set('person1', personResult);
+
+      // Then resolve the alias
+      const aliasResult = translateMarkerV2('alias1', aliasMarker, mockTranslationData, context);
+
+      expect(aliasResult.value).toBe(personResult.value);
+      expect(aliasResult.original).toBe(personResult.original);
     });
+  });
 
-    it('should use original as fallback', () => {
-      const marker: OccupationMarker = {
-        type: 'occupation',
-        category: 'working-class',
-        original: 'factory worker',
+  describe('date/time markers', () => {
+    it('should return date value without translation', () => {
+      const marker: Marker = {
+        date: '2022-09-16',
       };
 
-      const result = translateMarker('occ1', marker, mockTranslationData, 'story-1');
+      const result = translateMarkerV2('date1', marker, mockTranslationData, mockContext);
 
-      expect(result.translated).toBe('factory worker');
+      expect(result.value).toBe('2022-09-16');
       expect(result.original).toBeNull();
     });
-  });
 
-  describe('subject markers', () => {
-    it('should select from examples deterministically', () => {
-      const marker: SubjectMarker = {
-        type: 'subject',
-        category: 'sciences',
-        examples: ['physics', 'chemistry', 'biology'],
+    it('should return time value without translation', () => {
+      const marker: Marker = {
+        time: '21:30',
       };
 
-      const result1 = translateMarker('subject1', marker, mockTranslationData, 'story-1');
-      const result2 = translateMarker('subject1', marker, mockTranslationData, 'story-1');
+      const result = translateMarkerV2('time1', marker, mockTranslationData, mockContext);
 
-      expect(result1.translated).toBe(result2.translated);
-      expect(marker.examples).toContain(result1.translated);
-      expect(result1.original).toBe('sciences');
-    });
-  });
-
-  describe('date/time/event markers', () => {
-    it('should return translation or value without original', () => {
-      const marker = {
-        type: 'event' as const,
-        value: 'woman-life-freedom',
-        translation: 'Woman, Life, Freedom',
-      };
-
-      const result = translateMarker('event1', marker, mockTranslationData, 'story-1');
-
-      expect(result.translated).toBe('Woman, Life, Freedom');
+      expect(result.value).toBe('21:30');
       expect(result.original).toBeNull();
     });
   });

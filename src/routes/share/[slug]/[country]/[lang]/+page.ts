@@ -1,11 +1,11 @@
 import type { PageLoad, EntryGenerator } from './$types';
 import { getStoryBySlug, getStoryBySlugTranslated } from '$lib/data/stories';
 import { getShareRouteEntries } from '$lib/utils/share-routes';
-import { translateStory } from '$lib/translation/translator';
+import { translateStory, type UITranslationContext } from '$lib/translation/translator';
 import { parsePreTranslatedWithParagraphs } from '$lib/translation/pretranslated-parser';
-import { getCountryByCode, getCountryNames, getCountryPlaces } from '$lib/data/contexts';
+import { getCountryByCode, getCountryNames, getCountryPlacesV2, getCountryComparableEvents } from '$lib/data/contexts';
 import { error as throwError } from '@sveltejs/kit';
-import type { CountryCode, TranslationContext, TranslatedSegment } from '$lib/types';
+import type { CountryCode, TranslatedSegment } from '$lib/types';
 
 export const prerender = true;
 
@@ -75,11 +75,16 @@ export const load: PageLoad = async ({ params }) => {
     };
   }
 
-  const translationContext: TranslationContext = {
+  const translationContext: UITranslationContext = {
     country: countryCode,
-    countryData,
+    countryData: {
+      population: countryData.population,
+      'currency-symbol': countryData['currency-symbol'],
+      'rial-to-local': countryData['rial-to-local'],
+    },
     names: getCountryNames(countryCode),
-    places: getCountryPlaces(countryCode),
+    places: getCountryPlacesV2(countryCode),
+    comparableEvents: getCountryComparableEvents(countryCode),
   };
 
   // Try to load pre-translated version (for non-English languages)

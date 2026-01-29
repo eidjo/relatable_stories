@@ -1,0 +1,252 @@
+# Comparable Events Database
+#
+# Used for providing emotional context to casualty numbers
+# Each country has historically significant disasters/tragedies
+# that readers can relate to
+#
+# Format:
+# - id: unique identifier
+# - name: short name for comparison text
+# - fullName: full descriptive name
+# - casualties: number of deaths
+# - category: type of event
+# - year: when it occurred
+# - significance: cultural/historical weight (optional)
+
+US:
+  - id: 9-11
+    name: '9/11 attacks'
+    fullName: 'September 11 attacks'
+    casualties: 2977
+    category: terrorist-attack
+    year: 2001
+    significance: critical
+
+  - id: pearl-harbor
+    name: 'Pearl Harbor'
+    fullName: 'Attack on Pearl Harbor'
+    casualties: 2403
+    category: military-attack
+    year: 1941
+    significance: critical
+
+  - id: oklahoma-city
+    name: 'Oklahoma City bombing'
+    fullName: 'Oklahoma City bombing'
+    casualties: 168
+    category: terrorist-attack
+    year: 1995
+    significance: major
+
+  - id: katrina
+    name: 'Hurricane Katrina'
+    fullName: 'Hurricane Katrina disaster'
+    casualties: 1833
+    category: natural-disaster
+    year: 2005
+    significance: major
+
+  - id: las-vegas
+    name: 'Las Vegas shooting'
+    fullName: 'Las Vegas mass shooting'
+    casualties: 60
+    category: massacre
+    year: 2017
+    significance: major
+
+UK:
+  - id: 7-7
+    name: '7/7 bombings'
+    fullName: 'July 7 London bombings'
+    casualties: 56
+    category: terrorist-attack
+    year: 2005
+    significance: critical
+
+  - id: lockerbie
+    name: 'Lockerbie bombing'
+    fullName: 'Pan Am Flight 103 bombing'
+    casualties: 270
+    category: terrorist-attack
+    year: 1988
+    significance: major
+
+  - id: hillsborough
+    name: 'Hillsborough disaster'
+    fullName: 'Hillsborough stadium disaster'
+    casualties: 97
+    category: public-disaster
+    year: 1989
+    significance: major
+
+  - id: manchester-arena
+    name: 'Manchester Arena bombing'
+    fullName: 'Manchester Arena bombing'
+    casualties: 23
+    category: terrorist-attack
+    year: 2017
+    significance: major
+
+CZ:
+  - id: lidice
+    name: 'Lidice massacre'
+    fullName: 'Nazi massacre at Lidice'
+    casualties: 340
+    category: massacre
+    year: 1942
+    significance: critical
+
+  - id: prague-uprising
+    name: 'Prague uprising'
+    fullName: '1945 Prague uprising'
+    casualties: 1694
+    category: war-casualties
+    year: 1945
+    significance: critical
+
+  - id: ostrava-mining
+    name: 'Ostrava mining disaster'
+    fullName: 'Ostrava mining disaster'
+    casualties: 108
+    category: industrial-disaster
+    year: 1961
+    significance: medium
+
+FR:
+  - id: bataclan
+    name: 'Bataclan massacre'
+    fullName: 'November 2015 Paris attacks'
+    casualties: 137
+    category: terrorist-attack
+    year: 2015
+    significance: critical
+
+  - id: nice-truck
+    name: 'Nice truck attack'
+    fullName: 'Nice Bastille Day truck attack'
+    casualties: 86
+    category: terrorist-attack
+    year: 2016
+    significance: major
+
+  - id: charlie-hebdo
+    name: 'Charlie Hebdo attack'
+    fullName: 'Charlie Hebdo shooting'
+    casualties: 12
+    category: terrorist-attack
+    year: 2015
+    significance: major
+
+DE:
+  - id: berlin-christmas
+    name: 'Berlin Christmas market attack'
+    fullName: 'Berlin Christmas market attack'
+    casualties: 13
+    category: terrorist-attack
+    year: 2016
+    significance: major
+
+  - id: munich-oktoberfest
+    name: 'Munich Oktoberfest bombing'
+    fullName: 'Oktoberfest bombing'
+    casualties: 13
+    category: terrorist-attack
+    year: 1980
+    significance: major
+
+CA:
+  - id: air-india
+    name: 'Air India bombing'
+    fullName: 'Air India Flight 182 bombing'
+    casualties: 329
+    category: terrorist-attack
+    year: 1985
+    significance: critical
+
+  - id: ecole-polytechnique
+    name: 'École Polytechnique massacre'
+    fullName: 'Montreal massacre'
+    casualties: 14
+    category: massacre
+    year: 1989
+    significance: critical
+
+  - id: quebec-city-mosque
+    name: 'Quebec City mosque shooting'
+    fullName: 'Quebec City mosque shooting'
+    casualties: 6
+    category: terrorist-attack
+    year: 2017
+    significance: major
+
+AU:
+  - id: port-arthur
+    name: 'Port Arthur massacre'
+    fullName: 'Port Arthur massacre'
+    casualties: 35
+    category: massacre
+    year: 1996
+    significance: critical
+
+  - id: bali-bombing
+    name: 'Bali bombings'
+    fullName: 'Bali bombings'
+    casualties: 88
+    category: terrorist-attack
+    year: 2002
+    significance: critical
+
+ES:
+  - id: madrid-train
+    name: 'Madrid train bombings'
+    fullName: 'Madrid train bombings'
+    casualties: 193
+    category: terrorist-attack
+    year: 2004
+    significance: critical
+
+  - id: barcelona-attack
+    name: 'Barcelona attack'
+    fullName: 'Barcelona van attack'
+    casualties: 16
+    category: terrorist-attack
+    year: 2017
+    significance: major
+
+IT:
+  - id: bologna-bombing
+    name: 'Bologna station bombing'
+    fullName: 'Bologna station bombing'
+    casualties: 85
+    category: terrorist-attack
+    year: 1980
+    significance: critical
+
+NL:
+  - id: mh17
+    name: 'MH17 downing'
+    fullName: 'Malaysia Airlines Flight 17'
+    casualties: 196
+    category: military-attack
+    year: 2014
+    significance: critical
+
+SE:
+  - id: stockholm-truck
+    name: 'Stockholm truck attack'
+    fullName: 'Stockholm truck attack'
+    casualties: 5
+    category: terrorist-attack
+    year: 2017
+    significance: major
+
+NO:
+  - id: utoya
+    name: 'Utøya massacre'
+    fullName: 'Norway attacks'
+    casualties: 77
+    category: massacre
+    year: 2011
+    significance: critical
+
+# Add more countries and events as needed

@@ -1,20 +1,25 @@
 /**
- * Parser for template strings with markers like {{type:key}}
+ * V2 Parser for template strings with markers
+ *
+ * Supports:
+ * - {{marker}} - Standard reference
+ * - {{marker:suffix}} - With modifier (comparable, age, original, translated, etc.)
  */
 
 export interface ParsedToken {
   type: 'text' | 'marker';
   value: string;
-  markerType?: string;
   markerKey?: string;
+  suffix?: string;  // Optional modifier: 'comparable', 'age', 'original', 'translated'
 }
 
-const MARKER_REGEX = /\{\{([^:]+):([^}]+)\}\}/g;
+// V2 regex: matches {{key}} or {{key:suffix}}
+const MARKER_REGEX = /\{\{([^:}]+)(?::([^}]+))?\}\}/g;
 
 /**
- * Parse a string containing markers into tokens
- * @param text - Text with markers like "{{name:person1}} went to {{place:city}}"
- * @returns Array of tokens representing text and markers
+ * Parse V2 marker syntax
+ * @param text - Text with markers like "{{student}} went to {{city}}" or "{{killed:comparable}}"
+ * @returns Array of tokens
  */
 export function parseText(text: string): ParsedToken[] {
   const tokens: ParsedToken[] = [];
@@ -24,7 +29,7 @@ export function parseText(text: string): ParsedToken[] {
   const matches = text.matchAll(MARKER_REGEX);
 
   for (const match of matches) {
-    const [fullMatch, markerType, markerKey] = match;
+    const [fullMatch, markerKey, suffix] = match;
     const matchIndex = match.index!;
 
     // Add any text before this marker
@@ -39,8 +44,8 @@ export function parseText(text: string): ParsedToken[] {
     tokens.push({
       type: 'marker',
       value: fullMatch,
-      markerType,
       markerKey,
+      suffix: suffix || undefined,
     });
 
     lastIndex = matchIndex + fullMatch.length;
@@ -66,7 +71,7 @@ export function parseText(text: string): ParsedToken[] {
 }
 
 /**
- * Check if a string contains any markers
+ * Check if a string contains any V2 markers
  */
 export function hasMarkers(text: string): boolean {
   return MARKER_REGEX.test(text);

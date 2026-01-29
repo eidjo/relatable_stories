@@ -1,7 +1,8 @@
 import { writable, derived, get } from 'svelte/store';
 import { browser } from '$app/environment';
-import type { CountryCode, TranslationContext } from '$lib/types';
-import { getCountryByCode, getCountryNames, getCountryPlaces } from '$lib/data/contexts';
+import type { CountryCode } from '$lib/types';
+import type { UITranslationContext } from '$lib/translation/translator';
+import { getCountryByCode, getCountryNames, getCountryPlacesV2, getCountryComparableEvents } from '$lib/data/contexts';
 import { detectCountry, detectCountrySync } from '$lib/geolocation/detector';
 import { selectedLanguage } from './language';
 import { selectBestLanguageForCountry } from '$lib/utils/languageSelection';
@@ -62,8 +63,8 @@ if (browser) {
 }
 
 /**
- * Derived store for translation context
- * This combines all the data needed for translation
+ * Derived store for translation context (V2)
+ * This combines all the data needed for translation with V2 marker system
  */
 export const translationContext = derived(selectedCountry, ($country) => {
   const countryData = getCountryByCode($country);
@@ -73,16 +74,26 @@ export const translationContext = derived(selectedCountry, ($country) => {
     const fallbackData = getCountryByCode(DEFAULT_COUNTRY)!;
     return {
       country: DEFAULT_COUNTRY,
-      countryData: fallbackData,
+      countryData: {
+        population: fallbackData.population,
+        'currency-symbol': fallbackData['currency-symbol'],
+        'rial-to-local': fallbackData['rial-to-local'],
+      },
       names: getCountryNames(DEFAULT_COUNTRY),
-      places: getCountryPlaces(DEFAULT_COUNTRY),
-    } as TranslationContext;
+      places: getCountryPlacesV2(DEFAULT_COUNTRY),
+      comparableEvents: getCountryComparableEvents(DEFAULT_COUNTRY),
+    } as UITranslationContext;
   }
 
   return {
     country: $country,
-    countryData,
+    countryData: {
+      population: countryData.population,
+      'currency-symbol': countryData['currency-symbol'],
+      'rial-to-local': countryData['rial-to-local'],
+    },
     names: getCountryNames($country),
-    places: getCountryPlaces($country),
-  } as TranslationContext;
+    places: getCountryPlacesV2($country),
+    comparableEvents: getCountryComparableEvents($country),
+  } as UITranslationContext;
 });

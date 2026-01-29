@@ -1,18 +1,24 @@
 import { describe, it, expect } from 'vitest';
 import { translateStory } from '$lib/translation/translator';
 import { stories } from '$lib/data/stories';
-import { countries, names, places } from '$lib/data/contexts';
+import { getCountryByCode, getCountryNames, getCountryPlacesV2, getCountryComparableEvents } from '$lib/data/contexts';
 
 describe('Story Rendering', () => {
   it('should check spacing in rendered story content', () => {
     const story = stories[0];
-    const country = countries[0];
+    const countryCode = 'US';
+    const country = getCountryByCode(countryCode)!;
 
     const context = {
-      country: country.code,
-      countryData: country,
-      names: names[country.code],
-      places: places[country.code],
+      country: countryCode,
+      countryData: {
+        population: country.population,
+        'currency-symbol': country['currency-symbol'],
+        'rial-to-local': country['rial-to-local'],
+      },
+      names: getCountryNames(countryCode),
+      places: getCountryPlacesV2(countryCode),
+      comparableEvents: getCountryComparableEvents(countryCode),
     };
 
     const translated = translateStory(story, context);

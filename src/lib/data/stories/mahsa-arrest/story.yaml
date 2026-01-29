@@ -1,130 +1,94 @@
 id: 'mahsa-arrest'
-title: "{{name:person1}}'s Detention"
+title: "{{person1}}'s Detention"
 slug: 'mahsa-arrest'
 date: '2022-09-20'
-summary: "A {{number:age}}-year-old student's experience during the protests following Mahsa Amini's death."
+summary: "A {{person1:age}}-year-old student's experience during the protests following Mahsa Amini's death."
 
 content: >-
   !!! DISCLAIMER: THIS STORY IS NOT VERIFIED AND IS PURELY FOR DEMONSTRATION PURPOSES !!!
 
-  On the evening of {{date:arrest-date}}, {{name:person1}}, a {{number:age}}-year-old student from {{place:hometown}}, joined a peaceful vigil in {{place:main-square}}.
+  On the evening of {{arrest-date}}, {{person1}}, a {{person1:age}}-year-old student from {{hometown}}, joined a peaceful vigil in {{main-square}}.
 
-  The gathering was one of many spontaneous demonstrations that erupted across Iran following the death of Mahsa Amini in police custody on {{date:mahsa-death}}{{source:mahsa-death-source}}. {{name:person1}} held a candle and chanted "{{event:chant}}" with approximately {{number:protesters}} others.
+  The gathering was one of many spontaneous demonstrations that erupted across Iran following the death of Mahsa Amini in police custody on {{mahsa-death}}{{source:mahsa-death-source}}. {{person1}} held a candle and chanted "{{chant}}" with approximately {{protesters}} others.
 
-  At {{time:raid-time}}, security forces arrived and began making arrests. {{name:person1}} was among {{number:arrested}} people detained that night and taken to {{place:detention-center}}.
+  At {{raid-time}}, security forces arrived and began making arrests. {{person1}} was among {{arrested}} people detained that night and taken to {{detention-center}}.
 
-  For {{number:detention-days}} days, {{name:person1}}'s family had no information about their whereabouts. Phone calls to authorities went unanswered. On day {{number:first-contact-day}}, they finally received a brief call confirming {{name:person1}} was alive but providing no other details.
+  For {{detention-days}} days, {{person1}}'s family had no information about their whereabouts. Phone calls to authorities went unanswered. On day {{first-contact-day}}, they finally received a brief call confirming {{person1}} was alive but providing no other details.
 
-  {{name:person1}}'s family scraped together {{currency:bail-amount}} for bail. This amount represented approximately {{number:months-salary}} months of {{name:parent}}'s salary as a {{occupation:parent-job}}.
+  {{person1}}'s family scraped together {{bail-amount}} for bail. This amount represented approximately {{months-salary}} months of {{parent}}'s salary as a {{parent-job}}.
 
-  After {{number:detention-days}} days in custody, {{name:person1}} was released with strict conditions: no social media, no attending gatherings, and regular check-ins with authorities. The charges remain pending.
+  After {{detention-days}} days in custody, {{person1}} was released with strict conditions: no social media, no attending gatherings, and regular check-ins with authorities. The charges remain pending.
 
-  "I just wanted to light a candle for Mahsa," {{name:person1}} said. "I never imagined this would happen."
+  "I just wanted to light a candle for Mahsa," {{person1}} said. "I never imagined this would happen."
 
 markers:
   person1:
-    type: 'person'
-    gender: 'female'
+    person: 'Zahra'
+    gender: f
     age: 23
-    role: 'protester'
-    name: 'Zahra'
 
   parent:
-    type: 'person'
-    gender: 'male'
-    relationship: 'father'
-    name: 'Hassan'
+    person: 'Hassan'
+    gender: m
 
   hometown:
-    type: 'place'
-    category: 'city'
-    size: 'medium'
-    region: 'central'
-    original: 'Mashhad'
+    place: 'Mashhad'
+    city-medium: true
 
   main-square:
-    type: 'place'
-    category: 'landmark'
-    significance: 'protest-location'
-    accessibility: 'public'
-    original: 'Azadi Square'
+    place: 'Azadi Square'
+    landmark-protest: true
+    within: hometown
 
   detention-center:
-    type: 'place'
-    category: 'government-facility'
-    type-specific: 'detention'
-    original: 'Evin Prison'
+    place: 'Evin Prison'
+    government-facility: true
 
   arrest-date:
-    type: 'date'
-    value: '2022-09-20'
+    date: '2022-09-20'
 
   mahsa-death:
-    type: 'date'
-    value: '2022-09-16'
+    date: '2022-09-16'
 
   raid-time:
-    type: 'time'
-    value: '21:30'
+    time: '21:30'
 
   chant:
-    type: 'event'
-    value: 'woman-life-freedom'
-    translation: 'Woman, Life, Freedom'
+    text: 'Woman, Life, Freedom'
 
   age:
-    type: 'number'
-    base: 23
-    unit: 'years'
+    number: 23
     variance: 2
 
   protesters:
-    type: 'number'
-    base: 200
-    unit: 'people'
-    scale: true
-    scale-factor: 0.5
+    number: 200
+    scaled: true
 
   arrested:
-    type: 'number'
-    base: 47
-    unit: 'people'
-    scale: true
-    scale-factor: 0.5
+    number: 47
+    scaled: true
 
   detention-days:
-    type: 'number'
-    base: 18
-    unit: 'days'
+    number: 18
 
   first-contact-day:
-    type: 'number'
-    base: 11
-    unit: 'days'
+    number: 11
 
   months-salary:
-    type: 'number'
-    base: 8
-    unit: 'months'
+    number: 8
 
   bail-amount:
-    type: 'currency'
-    base: 80000000
-    base-currency: 'IRR'
+    currency: 80000000
 
   parent-job:
-    type: 'occupation'
-    category: 'working-class'
-    subcategory: 'skilled'
-    original: 'construction worker'
-    examples: ['construction worker', 'factory worker', 'electrician', 'plumber', 'mechanic']
+    occupation: 'construction worker'
 
-  mahsa-death-source:
-    type: 'source'
-    text: '1'
+# Sources - now in dedicated array
+sources:
+  - id: mahsa-death-source
     number: 1
-    url: 'https://www.bbc.com/news/world-middle-east-63057929'
     title: 'BBC News: Mahsa Amini death sparks protests in Iran'
+    url: 'https://www.bbc.com/news/world-middle-east-63057929'
 
 tags: ['protest', 'detention', 'student', 'mahsa-amini']
 hashtags: '#Iran #MahsaAmini #HumanRights #WomanLifeFreedom'

@@ -31,21 +31,36 @@ describe('Story Data Loading', () => {
 
   it('should have valid marker definitions for all markers used in content', () => {
     stories.forEach((story) => {
-      // Extract all markers from content, title, and summary
-      const markerRegex = /\{\{([^:]+):([^}]+)\}\}/g;
+      // V2 format: {{key}} or {{key:suffix}} or {{source:id}} or {{image:id}}
+      const markerRegex = /\{\{([a-z0-9-]+)(?::([a-z0-9-]+))?\}\}/g;
       const allText = `${story.title} ${story.summary} ${story.content}`;
       const matches = allText.matchAll(markerRegex);
 
       for (const match of matches) {
-        const markerKey = match[2];
-        expect(
-          story.markers[markerKey],
-          `Marker ${markerKey} used in story ${story.id} but not defined in markers`
-        ).toBeDefined();
+        const [fullMatch, firstPart, secondPart] = match;
 
-        const marker = story.markers[markerKey];
-        expect(marker).toHaveProperty('type');
-        expect(typeof marker.type).toBe('string');
+        // Handle special cases: {{source:id}} and {{image:id}}
+        if (firstPart === 'source' && secondPart) {
+          // Check in story.sources array
+          const source = story.sources?.find(s => s.id === secondPart);
+          expect(
+            source,
+            `Source ${secondPart} used in story ${story.id} but not defined in sources array`
+          ).toBeDefined();
+        } else if (firstPart === 'image' && secondPart) {
+          // Check in story.images array
+          const image = story.images?.find(img => img.id === secondPart);
+          expect(
+            image,
+            `Image ${secondPart} used in story ${story.id} but not defined in images array`
+          ).toBeDefined();
+        } else {
+          // Regular marker: {{key}} or {{key:suffix}}
+          expect(
+            story.markers[firstPart],
+            `Marker ${firstPart} used in story ${story.id} but not defined in markers`
+          ).toBeDefined();
+        }
       }
     });
   });
@@ -89,23 +104,31 @@ describe('Story Data Loading', () => {
   });
 
   it('should have valid marker types', () => {
-    const validMarkerTypes = [
-      'person',
-      'place',
-      'date',
-      'time',
-      'number',
-      'currency',
-      'event',
-      'occupation',
-      'subject',
-      'source',
-      'image',
-    ];
-
     stories.forEach((story) => {
       Object.entries(story.markers).forEach(([key, marker]) => {
-        expect(validMarkerTypes).toContain(marker.type);
+        // V2 markers don't have an explicit 'type' field
+        // They are identified by their fields
+        expect(typeof marker).toBe('object');
+        expect(marker).not.toBeNull();
+
+        // Check that marker has at least one identifying field
+        const hasIdentifyingField =
+          'person' in marker ||
+          'place' in marker ||
+          'number' in marker ||
+          'casualties' in marker ||
+          'currency' in marker ||
+          'occupation' in marker ||
+          'date' in marker ||
+          'time' in marker ||
+          'text' in marker ||
+          'sameAs' in marker ||
+          ('type' in marker && typeof (marker as any).type === 'string');
+
+        expect(
+          hasIdentifyingField,
+          `Marker ${key} in story ${story.id} has no identifying field`
+        ).toBe(true);
       });
     });
   });
@@ -113,9 +136,16 @@ describe('Story Data Loading', () => {
   it('should have properly formatted person markers', () => {
     stories.forEach((story) => {
       Object.entries(story.markers).forEach(([key, marker]) => {
-        if (marker.type === 'person') {
+        if ('person' in marker) {
           expect(marker).toHaveProperty('gender');
-          expect(['male', 'female', 'neutral']).toContain(marker.gender);
+          expect(['m', 'f', 'x']).toContain(marker.gender);
+          expect(typeof marker.person).toBe('string');
+
+          if ('age' in marker) {
+            expect(typeof marker.age).toBe('number');
+            expect(marker.age).toBeGreaterThan(0);
+            expect(marker.age).toBeLessThan(150);
+          }
         }
       });
     });
@@ -124,11 +154,9 @@ describe('Story Data Loading', () => {
   it('should have properly formatted number markers', () => {
     stories.forEach((story) => {
       Object.entries(story.markers).forEach(([key, marker]) => {
-        if (marker.type === 'number') {
-          expect(marker).toHaveProperty('base');
-          expect(marker).toHaveProperty('unit');
-          expect(typeof marker.base).toBe('number');
-          expect(typeof marker.unit).toBe('string');
+        if ('number' in marker) {
+          expect(typeof marker.number).toBe('number');
+          expect(marker.number).toBeGreaterThanOrEqual(0);
         }
       });
     });
@@ -137,11 +165,9 @@ describe('Story Data Loading', () => {
   it('should have properly formatted currency markers', () => {
     stories.forEach((story) => {
       Object.entries(story.markers).forEach(([key, marker]) => {
-        if (marker.type === 'currency') {
-          expect(marker).toHaveProperty('base');
-          expect(marker).toHaveProperty('base-currency');
-          expect(typeof marker.base).toBe('number');
-          expect(typeof marker['base-currency']).toBe('string');
+        if ('currency' in marker) {
+          expect(typeof marker.currency).toBe('number');
+          expect(marker.currency).toBeGreaterThan(0);
         }
       });
     });
