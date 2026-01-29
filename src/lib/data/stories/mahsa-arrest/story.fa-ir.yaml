@@ -4,6 +4,8 @@ slug: mahsa-arrest
 date: "2022-09-20"
 summary: تجربه یک دانشجوی [[MARKER:number:age:23|22]] ساله در جریان اعتراضات پس از مرگ مهسا امینی.
 content: |-
+  !!! هشدار: این داستان تأیید نشده و صرفاً برای اهداف نمایشی است !!!
+
   در عصر روز {{date:arrest-date}}، [[MARKER:person:person1:Zahra|فاطمه]]، دانشجوی [[MARKER:number:age:23|22]] ساله‌ای از [[MARKER:place:hometown:Mashhad|یزد]]، به یک مراسم شمع‌افروزی مسالمت‌آمیز در [[MARKER:place:main-square:Azadi Square|میدان امام حسین]] پیوست.
   این گردهمایی یکی از بسیاری از تظاهرات خودجوش بود که پس از مرگ مهسا امینی در بازداشت پلیس در تاریخ {{date:mahsa-death}}{{source:mahsa-death-source}} در سراسر ایران رخ داد. [[MARKER:person:person1:Zahra|فاطمه]] شمعی در دست داشت و همراه با تقریباً [[MARKER:number:protesters:200|96]] نفر دیگر شعار «{{event:chant}}» سر می‌داد.
   در ساعت {{time:raid-time}}، نیروهای امنیتی وارد شدند و شروع به دستگیری کردند. [[MARKER:person:person1:Zahra|فاطمه]] در میان [[MARKER:number:arrested:47|23]] نفری بود که آن شب بازداشت شدند و به [[MARKER:place:detention-center:Evin Prison|زندان فشافویه]] منتقل شدند.

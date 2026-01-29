@@ -4,6 +4,8 @@ slug: mahsa-arrest
 date: "2022-09-20"
 summary: La experiencia de una estudiante de [[MARKER:number:age:23|22]] años durante las protestas tras la muerte de Mahsa Amini.
 content: |-
+  !!! DESCARGO DE RESPONSABILIDAD: ESTA HISTORIA NO ESTÁ VERIFICADA Y ES SOLO PARA FINES DEMOSTRATIVOS !!!
+
   En la noche del {{date:arrest-date}}, [[MARKER:person:person1:Zahra|Lucía]], una estudiante de [[MARKER:number:age:23|22]] años de [[MARKER:place:hometown:Mashhad|Málaga]], se unió a una vigilia pacífica en [[MARKER:place:main-square:Azadi Square|Plaza de España]].
   La reunión fue una de las muchas manifestaciones espontáneas que estallaron en todo Irán tras la muerte de Mahsa Amini bajo custodia policial el {{date:mahsa-death}}{{source:mahsa-death-source}}. [[MARKER:person:person1:Zahra|Lucía]] sostenía una vela y coreaba "{{event:chant}}" junto con aproximadamente [[MARKER:number:protesters:200|53]] personas más.
   A las {{time:raid-time}}, las fuerzas de seguridad llegaron y comenzaron a realizar arrestos. [[MARKER:person:person1:Zahra|Lucía]] estuvo entre las [[MARKER:number:arrested:47|13]] personas detenidas esa noche y llevadas al [[MARKER:place:detention-center:Evin Prison|Centro de Detención]].

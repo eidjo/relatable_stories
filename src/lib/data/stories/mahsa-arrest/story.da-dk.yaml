@@ -4,6 +4,8 @@ slug: mahsa-arrest
 date: "2022-09-20"
 summary: En [[MARKER:number:age:23|22]]-årig studerendes oplevelse under protesterne efter Mahsa Aminis død.
 content: |-
+  !!! ANSVARSFRASKRIVELSE: DENNE HISTORIE ER IKKE VERIFICERET OG ER KUN TIL DEMONSTRATIONSFORMÅL !!!
+
   Om aftenen den {{date:arrest-date}} sluttede [[MARKER:person:person1:Zahra|Ella]], en [[MARKER:number:age:23|22]]-årig studerende fra [[MARKER:place:hometown:Mashhad|Esbjerg]], sig til en fredelig vågevagt på [[MARKER:place:main-square:Azadi Square|Blågårds Plads]].
   Forsamlingen var en af mange spontane demonstrationer, der brød ud over hele Iran efter Mahsa Aminis død i politiets varetægt den {{date:mahsa-death}}{{source:mahsa-death-source}}. [[MARKER:person:person1:Zahra|Ella]] holdt et lys og råbte "{{event:chant}}" sammen med cirka [[MARKER:number:protesters:200|7]] andre.
   Klokken {{time:raid-time}} ankom sikkerhedsstyrker og begyndte at foretage anholdelser. [[MARKER:person:person1:Zahra|Ella]] var blandt [[MARKER:number:arrested:47|2]] personer, der blev tilbageholdt den nat og ført til [[MARKER:place:detention-center:Evin Prison|Fængslet]].

@@ -5,6 +5,8 @@ date: '2022-09-20'
 summary: "A {{number:age}}-year-old student's experience during the protests following Mahsa Amini's death."
 
 content: >-
+  !!! DISCLAIMER: THIS STORY IS NOT VERIFIED AND IS PURELY FOR DEMONSTRATION PURPOSES !!!
+
   On the evening of {{date:arrest-date}}, {{name:person1}}, a {{number:age}}-year-old student from {{place:hometown}}, joined a peaceful vigil in {{place:main-square}}.
 
   The gathering was one of many spontaneous demonstrations that erupted across Iran following the death of Mahsa Amini in police custody on {{date:mahsa-death}}{{source:mahsa-death-source}}. {{name:person1}} held a candle and chanted "{{event:chant}}" with approximately {{number:protesters}} others.

@@ -4,6 +4,8 @@ slug: mahsa-arrest
 date: "2022-09-20"
 summary: En [[MARKER:number:age:23|23]] år gammel students opplevelse under protestene etter Mahsa Aminis død.
 content: |-
+  !!! ANSVARSFRASKRIVELSE: DENNE HISTORIEN ER IKKE BEKREFTET OG ER KUN FOR DEMONSTRASJONSFORMÅL !!!
+
   Om kvelden {{date:arrest-date}} sluttet [[MARKER:person:person1:Zahra|Ella]], en [[MARKER:number:age:23|23]] år gammel student fra [[MARKER:place:hometown:Mashhad|Ålesund]], seg til en fredelig vake på [[MARKER:place:main-square:Azadi Square|Stortorget]].
   Samlingen var en av mange spontane demonstrasjoner som brøt ut over hele Iran etter Mahsa Aminis død i politiets varetekt den {{date:mahsa-death}}{{source:mahsa-death-source}}. [[MARKER:person:person1:Zahra|Ella]] holdt et stearinlys og ropte "{{event:chant}}" sammen med omtrent [[MARKER:number:protesters:200|6]] andre.
   Klokken {{time:raid-time}} ankom sikkerhetsstyrker og begynte å foreta arrestasjoner. [[MARKER:person:person1:Zahra|Ella]] var blant [[MARKER:number:arrested:47|1]] personer som ble pågrepet den kvelden og fraktet til [[MARKER:place:detention-center:Evin Prison|Rådhuset]].

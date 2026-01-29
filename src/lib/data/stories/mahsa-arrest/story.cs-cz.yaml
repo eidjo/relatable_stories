@@ -4,6 +4,8 @@ slug: mahsa-arrest
 date: "2022-09-20"
 summary: Zkušenost [[MARKER:number:age:23|22]]leté studentky během protestů po smrti Mahsy Aminiové.
 content: |-
+  !!! VAROVÁNÍ: TENTO PŘÍBĚH NENÍ OVĚŘENÝ A SLOUŽÍ POUZE PRO DEMONSTRAČNÍ ÚČELY !!!
+
   Večer {{date:arrest-date}} se [[MARKER:person:person1:Zahra|Ema]], [[MARKER:number:age:23|22]]letá studentka z [[MARKER:place:hometown:Mašhadu|Plzně]], připojila k mírovému shromáždění na [[MARKER:place:main-square:náměstí Azadi|náměstí Republiky]].
   Shromáždění bylo jednou z mnoha spontánních demonstrací, které vypukly po celém Íránu po smrti Mahsy Aminiové v policejní vazbě dne {{date:mahsa-death}}{{source:mahsa-death-source}}. [[MARKER:person:person1:Zahra|Ema]] držela svíčku a skandovala "{{event:chant}}" spolu s přibližně [[MARKER:number:protesters:200|12]] dalšími lidmi.
   V {{time:raid-time}} přijely bezpečnostní síly a začaly zatýkat. [[MARKER:person:person1:Zahra|Ema]] byla mezi [[MARKER:number:arrested:47|3]] lidmi zadrženými té noci a odvezenými do [[MARKER:place:detention-center:věznice Evin|Věznice]].

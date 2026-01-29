@@ -4,6 +4,8 @@ slug: mahsa-arrest
 date: "2022-09-20"
 summary: Die Erfahrung einer [[MARKER:number:age:23|22]]-jährigen Studentin während der Proteste nach dem Tod von Mahsa Amini.
 content: |-
+  !!! HAFTUNGSAUSSCHLUSS: DIESE GESCHICHTE IST NICHT VERIFIZIERT UND DIENT NUR ZU DEMONSTRATIONSZWECKEN !!!
+
   Am Abend des {{date:arrest-date}} schloss sich [[MARKER:person:person1:Zahra|Lena]], eine [[MARKER:number:age:23|22]]-jährige Studentin aus [[MARKER:place:hometown:Mashhad|Münster]], einer friedlichen Mahnwache am [[MARKER:place:main-square:Azadi Square|Bahnhofsvorplatz]] an.
   Die Versammlung war eine von vielen spontanen Demonstrationen, die im ganzen Iran nach dem Tod von Mahsa Amini in Polizeigewahrsam am {{date:mahsa-death}}{{source:mahsa-death-source}} ausbrachen. [[MARKER:person:person1:Zahra|Lena]] hielt eine Kerze und skandierte "{{event:chant}}" zusammen mit ungefähr [[MARKER:number:protesters:200|94]] anderen.
   Um {{time:raid-time}} trafen Sicherheitskräfte ein und begannen mit Festnahmen. [[MARKER:person:person1:Zahra|Lena]] war unter den [[MARKER:number:arrested:47|22]] Personen, die in dieser Nacht festgenommen und zur [[MARKER:place:detention-center:Evin Prison|Justizvollzugsanstalt]] gebracht wurden.

@@ -4,6 +4,8 @@ slug: mahsa-arrest
 date: "2022-09-20"
 summary: De ervaring van een [[MARKER:number:age:23|23]]-jarige student tijdens de protesten na de dood van Mahsa Amini.
 content: |-
+  !!! DISCLAIMER: DIT VERHAAL IS NIET GEVERIFIEERD EN IS ALLEEN VOOR DEMONSTRATIEDOELEINDEN !!!
+
   Op de avond van {{date:arrest-date}} sloot [[MARKER:person:person1:Zahra|Mila]], een [[MARKER:number:age:23|23]]-jarige student uit [[MARKER:place:hometown:Mashhad|Groningen]], zich aan bij een vreedzame wake op [[MARKER:place:main-square:Azadi Square|Stadhuisplein]].
   De bijeenkomst was een van de vele spontane demonstraties die door heel Iran uitbraken na de dood van Mahsa Amini in politiehechtenis op {{date:mahsa-death}}{{source:mahsa-death-source}}. [[MARKER:person:person1:Zahra|Mila]] hield een kaars vast en scandeerde "{{event:chant}}" met ongeveer [[MARKER:number:protesters:200|20]] anderen.
   Om {{time:raid-time}} arriveerden veiligheidstroepen en begonnen arrestaties te verrichten. [[MARKER:person:person1:Zahra|Mila]] was een van de [[MARKER:number:arrested:47|5]] mensen die die nacht werden gearresteerd en naar [[MARKER:place:detention-center:Evin Prison|Gemeentehuis]] werden gebracht.

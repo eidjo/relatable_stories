@@ -4,6 +4,8 @@ slug: mahsa-arrest
 date: "2022-09-20"
 summary: Doświadczenie [[MARKER:number:age:23|23]]-letniej studentki podczas protestów po śmierci Mahsy Amini.
 content: |-
+  !!! ZASTRZEŻENIE: TA HISTORIA NIE JEST ZWERYFIKOWANA I SŁUŻY WYŁĄCZNIE DO CELÓW DEMONSTRACYJNYCH !!!
+
   Wieczorem {{date:arrest-date}} [[MARKER:person:person1:Zahra|Zofia]], [[MARKER:number:age:23|23]]-letnia studentka z [[MARKER:place:hometown:Mashhad|Szczecina]], dołączyła do pokojowego czuwania na [[MARKER:place:main-square:Azadi Square|Rynku Głównym]].
   Zgromadzenie było jedną z wielu spontanicznych demonstracji, które wybuchły w całym Iranie po śmierci Mahsy Amini w areszcie policyjnym {{date:mahsa-death}}{{source:mahsa-death-source}}. [[MARKER:person:person1:Zahra|Zofia]] trzymała świecę i skandowała "{{event:chant}}" razem z około [[MARKER:number:protesters:200|43]] innymi osobami.
   O godzinie {{time:raid-time}} przybyły siły bezpieczeństwa i rozpoczęły aresztowania. [[MARKER:person:person1:Zahra|Zofia]] była wśród [[MARKER:number:arrested:47|10]] osób zatrzymanych tej nocy i zabranych do [[MARKER:place:detention-center:Evin Prison|Urzędu Miasta]].

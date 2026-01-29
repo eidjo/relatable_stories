@@ -4,6 +4,8 @@ slug: mahsa-arrest
 date: "2022-09-20"
 summary: "[[MARKER:number:age:23|22]]-vuotiaan opiskelijan kokemus mielenosoitusten aikana Mahsa Aminin kuoleman jälkeen."
 content: |-
+  !!! VASTUUVAPAUSLAUSEKE: TÄMÄ TARINA EI OLE VAHVISTETTU JA ON TARKOITETTU VAIN ESITTELYTARKOITUKSIIN !!!
+
   Iltana {{date:arrest-date}} [[MARKER:person:person1:Zahra|Aino]], [[MARKER:number:age:23|22]]-vuotias opiskelija [[MARKER:place:hometown:Mashhad|Oulusta]], liittyi rauhalliseen kynttilähartauteen [[MARKER:place:main-square:Azadi Square|Kansalaistorilla]].
   Kokoontuminen oli yksi monista spontaaneista mielenosoituksista, jotka puhkesivat ympäri Irania Mahsa Aminin kuoleman jälkeen poliisin pidätyksessä {{date:mahsa-death}}{{source:mahsa-death-source}}. [[MARKER:person:person1:Zahra|Aino]] piti kynttilää ja huusi "{{event:chant}}" yhdessä noin [[MARKER:number:protesters:200|6]] muun kanssa.
   Kello {{time:raid-time}} turvallisuusjoukot saapuivat ja alkoivat tehdä pidätyksiä. [[MARKER:person:person1:Zahra|Aino]] oli yksi [[MARKER:number:arrested:47|1]] sinä iltana pidätetystä henkilöstä ja vietiin [[MARKER:place:detention-center:Evin Prison|Vankilaan]].

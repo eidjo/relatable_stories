@@ -4,6 +4,8 @@ slug: mahsa-arrest
 date: "2022-09-20"
 summary: L'expérience d'une étudiante de [[MARKER:number:age:23|21]] ans lors des manifestations suivant la mort de Mahsa Amini.
 content: |-
+  !!! AVERTISSEMENT : CETTE HISTOIRE N'EST PAS VÉRIFIÉE ET EST UNIQUEMENT À DES FINS DE DÉMONSTRATION !!!
+
   Le soir du {{date:arrest-date}}, [[MARKER:person:person1:Zahra|Emily]], une étudiante de [[MARKER:number:age:23|21]] ans originaire de [[MARKER:place:hometown:Mashhad|Regina]], a rejoint une veillée pacifique sur la [[MARKER:place:main-square:Azadi Square|Place Centrale]].
   Le rassemblement était l'une des nombreuses manifestations spontanées qui ont éclaté à travers l'Iran suite à la mort de Mahsa Amini en garde à vue le {{date:mahsa-death}}{{source:mahsa-death-source}}. [[MARKER:person:person1:Zahra|Emily]] tenait une bougie et scandait "{{event:chant}}" avec environ [[MARKER:number:protesters:200|43]] autres personnes.
   À {{time:raid-time}}, les forces de sécurité sont arrivées et ont commencé à procéder à des arrestations. [[MARKER:person:person1:Zahra|Emily]] faisait partie des [[MARKER:number:arrested:47|10]] personnes détenues cette nuit-là et emmenées au [[MARKER:place:detention-center:Evin Prison|Bâtiment Fédéral]].

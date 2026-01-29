@@ -4,6 +4,8 @@ slug: mahsa-arrest
 date: "2022-09-20"
 summary: A experiência de uma estudante de [[MARKER:number:age:23|23]] anos durante os protestos após a morte de Mahsa Amini.
 content: |-
+  !!! AVISO: ESTA HISTÓRIA NÃO ESTÁ VERIFICADA E É APENAS PARA FINS DEMONSTRATIVOS !!!
+
   Na noite de {{date:arrest-date}}, [[MARKER:person:person1:Zahra|Beatriz]], uma estudante de [[MARKER:number:age:23|23]] anos de [[MARKER:place:hometown:Mashhad|Funchal]], juntou-se a uma vigília pacífica em [[MARKER:place:main-square:Azadi Square|Rossio]].
   A reunião foi uma das muitas manifestações espontâneas que eclodiram por todo o Irão após a morte de Mahsa Amini sob custódia policial em {{date:mahsa-death}}{{source:mahsa-death-source}}. [[MARKER:person:person1:Zahra|Beatriz]] segurava uma vela e cantava "{{event:chant}}" com aproximadamente [[MARKER:number:protesters:200|12]] outras pessoas.
   Às {{time:raid-time}}, as forças de segurança chegaram e começaram a fazer detenções. [[MARKER:person:person1:Zahra|Beatriz]] estava entre as [[MARKER:number:arrested:47|3]] pessoas detidas naquela noite e levadas para a [[MARKER:place:detention-center:Evin Prison|Câmara Municipal]].
