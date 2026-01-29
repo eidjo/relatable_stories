@@ -1,14 +1,15 @@
 <script lang="ts">
   import { page } from '$app/stores';
   import { browser } from '$app/environment';
+  import { base } from '$app/paths';
   import CountrySelector from '../context/CountrySelector.svelte';
   import { theme, toggleTheme } from '$lib/stores/theme';
 
   // Preserve country parameter in navigation links
   $: countryParam = browser ? $page.url.searchParams.get('country') : null;
-  $: storiesUrl = countryParam ? `/stories?country=${countryParam}` : '/stories';
-  $: aboutUrl = countryParam ? `/about?country=${countryParam}` : '/about';
-  $: actionUrl = countryParam ? `/take-action?country=${countryParam}` : '/take-action';
+  $: storiesUrl = countryParam ? `${base}/stories?country=${countryParam}` : `${base}/stories`;
+  $: aboutUrl = countryParam ? `${base}/about?country=${countryParam}` : `${base}/about`;
+  $: actionUrl = countryParam ? `${base}/take-action?country=${countryParam}` : `${base}/take-action`;
 </script>
 
 <header

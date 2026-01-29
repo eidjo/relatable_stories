@@ -46,6 +46,8 @@ jobs:
 
       - name: Build project
         run: npm run build
+        env:
+          NODE_ENV: production
 
       - name: Upload build artifact
         if: github.ref == 'refs/heads/main'

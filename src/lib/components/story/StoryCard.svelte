@@ -1,6 +1,7 @@
 <script lang="ts">
   import { page } from '$app/stores';
   import { browser } from '$app/environment';
+  import { base } from '$app/paths';
   import Card from '../shared/Card.svelte';
   import TranslatedText from '../shared/TranslatedText.svelte';
   import { selectedLanguage } from '$lib/stores/language';
@@ -26,7 +27,7 @@
     countryParam ? `country=${countryParam}` : null,
     langParam ? `lang=${langParam}` : null,
   ].filter(Boolean).join('&');
-  $: storyUrl = queryParams ? `/stories/${story.slug}?${queryParams}` : `/stories/${story.slug}`;
+  $: storyUrl = queryParams ? `${base}/stories/${story.slug}?${queryParams}` : `${base}/stories/${story.slug}`;
 </script>
 
 <a href={storyUrl} class="block">

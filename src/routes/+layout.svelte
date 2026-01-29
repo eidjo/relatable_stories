@@ -3,6 +3,7 @@
   import { goto } from '$app/navigation';
   import { browser } from '$app/environment';
   import { page } from '$app/stores';
+  import { base } from '$app/paths';
   import { selectedCountry } from '$lib/stores/country';
   import '../app.css';
   import Header from '$lib/components/layout/Header.svelte';
@@ -11,7 +12,7 @@
   onMount(() => {
     if (browser) {
       const urlCountry = $page.url.searchParams.get('country');
-      const isStoryDetailPage = $page.url.pathname.startsWith('/stories/') && $page.url.pathname.split('/').length > 2;
+      const isStoryDetailPage = $page.url.pathname.startsWith(`${base}/stories/`) && $page.url.pathname.split('/').length > (base ? 3 : 2);
 
       // Story detail pages handle their own country logic (modal on first visit)
       if (isStoryDetailPage) {

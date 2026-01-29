@@ -1,6 +1,7 @@
 <script lang="ts">
   import { page } from '$app/stores';
   import { browser } from '$app/environment';
+  import { base } from '$app/paths';
   import CallToAction from '$lib/components/action/CallToAction.svelte';
   import { getActionsForCountry } from '$lib/data/actions';
   import { translationContext } from '$lib/stores/country';
@@ -11,8 +12,8 @@
 
   // Preserve country parameter in links
   $: countryParam = browser ? $page.url.searchParams.get('country') : null;
-  $: aboutUrl = countryParam ? `/about?country=${countryParam}` : '/about';
-  $: storiesUrl = countryParam ? `/stories?country=${countryParam}` : '/stories';
+  $: aboutUrl = countryParam ? `${base}/about?country=${countryParam}` : `${base}/about`;
+  $: storiesUrl = countryParam ? `${base}/stories?country=${countryParam}` : `${base}/stories`;
 </script>
 
 <svelte:head>
