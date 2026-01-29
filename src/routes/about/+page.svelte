@@ -17,7 +17,7 @@
   title="About - Relatable Stories from Iran"
   description="Learn about Iran's uprisings and how these stories are translated to build empathy and understanding."
   type="website"
-  image="/raha-protest-2026.jpg"
+  image="/share/twitter/raha-2026-en-us-dark.png"
   imageAlt="About Relatable Stories from Iran"
   url="/about"
 />

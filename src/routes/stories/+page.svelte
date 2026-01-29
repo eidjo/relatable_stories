@@ -14,7 +14,7 @@
   title="Stories - Relatable Stories"
   description="Read stories from Iran's uprisings, translated into your local context. Each story adapts names, places, and numbers to help you understand and empathize."
   type="website"
-  image="/raha-protest-2026.jpg"
+  image="/share/twitter/raha-2026-en-us-dark.png"
   imageAlt="Stories from Iran"
   url="/stories"
 />

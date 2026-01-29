@@ -21,7 +21,7 @@
   title="Take Action - Relatable Stories from Iran"
   description="Learn how you can help support Iranian protesters and human rights. Contact representatives, share stories, and support organizations."
   type="website"
-  image="/raha-protest-2026.jpg"
+  image="/share/twitter/raha-2026-en-us-dark.png"
   imageAlt="Take Action for Iran"
   url="/take-action"
 />

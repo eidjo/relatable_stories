@@ -14,7 +14,7 @@
     title,
     description,
     type = 'website',
-    image = '/raha-protest-2026.jpg',
+    image = '/share/twitter/raha-2026-en-us-dark.png',
     imageAlt = 'Relatable Stories from Iran',
     url = '',
   }: Props = $props();

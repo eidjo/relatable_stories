@@ -33,13 +33,7 @@
   });
 </script>
 
-<SocialMeta
-  title="Relatable Stories - Iran Uprising Stories in Your Context"
-  description="Real stories from Iran's 2022 fight for freedom, translated into your local context. Names, places, and numbers adapt to help you understand and empathize."
-  type="website"
-  image="/raha-protest-2026.jpg"
-  imageAlt="Relatable Stories - Stories from Iran"
-/>
+<!-- Note: Individual pages provide their own SocialMeta tags -->
 
 <svelte:head>
   <!-- Additional Meta Tags -->
