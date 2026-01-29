@@ -26,7 +26,7 @@
       console.error(`Failed to translate story ${story.slug}:`, error);
       return null;
     }
-  }).filter(Boolean);
+  }).filter((story): story is NonNullable<typeof story> => story !== null);
 </script>
 
 <SocialMeta

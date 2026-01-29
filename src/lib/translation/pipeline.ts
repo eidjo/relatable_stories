@@ -77,9 +77,10 @@ export interface TranslationInput {
 
 export interface NormalizedSegment {
   text: string;
-  original?: string;
+  original: string | null;  // Match TranslatedSegment type
   tooltip?: string;
   type: 'text' | 'person' | 'place' | 'number' | 'date' | 'source' | 'image' | 'comparison' | 'paragraph-break' | 'casualties';
+  key: string | null;       // Match TranslatedSegment type
   style?: 'strikethrough-muted' | 'bold-primary' | 'italic-comparison';
   metadata?: {
     url?: string;           // For sources
@@ -110,10 +111,12 @@ export interface TranslatedStoryOutput {
   date: string;
   tags: string[];
   hashtags?: string; // String format (e.g., "#tag1 #tag2"), not array
-  severity?: string;
-  verified?: boolean;
+  severity: 'low' | 'medium' | 'high' | 'critical';
+  verified: boolean;
   source?: string;
   contentWarning?: string;
+  image?: string;
+  meta?: any;
 }
 
 interface Context {
@@ -221,6 +224,8 @@ export function translateStory(input: TranslationInput): TranslatedStoryOutput {
     verified: originalStory.verified,
     source: originalStory.source,
     contentWarning: originalStory['content-warning'],
+    image: originalStory.image,
+    meta: originalStory.meta,
   };
 }
 
@@ -264,6 +269,8 @@ function parsePreTranslatedText(
           segments.push({
             text: plainText,
             type: 'text',
+            original: null,
+            key: null,
           });
         }
       }
@@ -277,6 +284,7 @@ function parsePreTranslatedText(
           original: original,
           tooltip: explanation || (input.contextualizationEnabled ? `Original: ${original}` : undefined),
           type: type as any,
+          key: key,
           style: 'strikethrough-muted',
         });
 
@@ -288,6 +296,8 @@ function parsePreTranslatedText(
           text: translated,
           tooltip: explanation,
           type: 'comparison',
+          key: null,
+          original: null,
           style: 'italic-comparison',
           metadata: { original },
         });
@@ -305,6 +315,8 @@ function parsePreTranslatedText(
             segments.push({
               text: `[${source.number}]`,
               type: 'source',
+              key: suffix,
+              original: null,
               style: 'bold-primary',
               metadata: {
                 url: source.url,
@@ -318,6 +330,8 @@ function parsePreTranslatedText(
             segments.push({
               text: '',
               type: 'image',
+              key: suffix,
+              original: null,
               metadata: {
                 src: image.src,
                 alt: image.alt,
@@ -342,6 +356,8 @@ function parsePreTranslatedText(
             segments.push({
               text: `[${source.number}]`,
               type: 'source',
+              key: suffix,
+              original: null,
               style: 'bold-primary',
               metadata: {
                 url: source.url,
@@ -355,6 +371,8 @@ function parsePreTranslatedText(
             segments.push({
               text: '',
               type: 'image',
+              key: suffix,
+              original: null,
               metadata: {
                 src: image.src,
                 alt: image.alt,
@@ -376,6 +394,8 @@ function parsePreTranslatedText(
             segments.push({
               text: `{{${key}${suffix ? ':' + suffix : ''}}}`,
               type: 'text',
+              original: null,
+              key: null,
             });
           }
         }
@@ -391,6 +411,8 @@ function parsePreTranslatedText(
         segments.push({
           text: remaining,
           type: 'text',
+          original: null,
+          key: null,
         });
       }
     }
@@ -400,6 +422,8 @@ function parsePreTranslatedText(
       segments.push({
         text: '\n\n',
         type: 'paragraph-break',
+        original: null,
+        key: null,
       });
     }
   });
@@ -436,6 +460,8 @@ function translateRuntimeText(
         segments.push({
           text: token.value,
           type: 'text',
+          original: null,
+          key: null,
         });
 
       } else if (token.type === 'marker' && token.markerKey) {
@@ -447,6 +473,8 @@ function translateRuntimeText(
               text: `[${source.number}]`,
               tooltip: source.title,
               type: 'source',
+              key: token.suffix,
+              original: null,
               style: 'bold-primary',
               metadata: {
                 url: source.url,
@@ -462,6 +490,8 @@ function translateRuntimeText(
             segments.push({
               text: '',
               type: 'image',
+              key: token.suffix,
+              original: null,
               metadata: {
                 src: image.src,
                 alt: image.alt,
@@ -481,6 +511,8 @@ function translateRuntimeText(
           segments.push({
             text: `{{${token.markerKey}}}`,
             type: 'text',
+            original: null,
+            key: null,
           });
           continue;
         }
@@ -502,6 +534,8 @@ function translateRuntimeText(
       segments.push({
         text: '\n\n',
         type: 'paragraph-break',
+        original: null,
+        key: null,
       });
     }
   });
@@ -526,6 +560,8 @@ function translateSingleMarker(
     return {
       text: (marker as any).age.toString(),
       type: 'text',
+      key: key,
+      original: null,
     };
   }
 
@@ -537,6 +573,8 @@ function translateSingleMarker(
         text: result.comparison,
         tooltip: result.comparisonExplanation,
         type: 'comparison',
+        key: key,
+        original: null,
         style: 'italic-comparison',
       };
     }
@@ -544,6 +582,8 @@ function translateSingleMarker(
     return {
       text: '',
       type: 'text',
+      key: key,
+      original: null,
     };
   }
 
@@ -552,6 +592,8 @@ function translateSingleMarker(
     return {
       text: result.original || result.value,
       type: 'text',
+      key: key,
+      original: null,
     };
   }
 
@@ -560,6 +602,8 @@ function translateSingleMarker(
     return {
       text: result.value,
       type: 'text',
+      key: key,
+      original: null,
     };
   }
 
@@ -575,6 +619,8 @@ function translateSingleMarker(
     return {
       text: formatted,
       type: 'date',
+      key: key,
+      original: null,
     };
   }
 
@@ -585,6 +631,8 @@ function translateSingleMarker(
       text: sourceMarker.number ? `[${sourceMarker.number}]` : `[${sourceMarker.text}]`,
       tooltip: sourceMarker.title,
       type: 'source',
+      key: key,
+      original: null,
       style: 'bold-primary',
       metadata: {
         url: sourceMarker.url,
@@ -597,6 +645,8 @@ function translateSingleMarker(
     return {
       text: '',
       type: 'image',
+      key: key,
+      original: null,
       metadata: {
         src: imageMarker.src,
         alt: imageMarker.alt,
@@ -613,9 +663,10 @@ function translateSingleMarker(
 
   return {
     text: result.value,
-    original: result.original || undefined, // Convert null to undefined
+    original: result.original || null,
     tooltip: result.explanation || (result.original && input.contextualizationEnabled ? `Original: ${result.original}` : undefined),
     type: markerType as any,
+    key: key,
     style: result.original ? 'strikethrough-muted' : undefined,
   };
 }

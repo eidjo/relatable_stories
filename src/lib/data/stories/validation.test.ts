@@ -232,22 +232,9 @@ describe('Story Translation Validation', () => {
         contextualizationEnabled: true,
       });
 
-      // Only marker segments (person, place, number, currency, etc.) should have original values
-      // IF they were actually translated (have different values from Iranian context)
-      // Some markers may not be translated if there's no mapping, so original may be undefined
-      const markerTypes = ['person', 'place', 'number', 'currency', 'event', 'organization'];
-
-      [...translated.title, ...translated.summary, ...translated.content].forEach((segment, idx) => {
-        if (segment.type && markerTypes.includes(segment.type as string) && !segment.original) {
-          // Log segments that don't have original - this is OK for untranslated markers
-          // Just checking they exist in the structure
-          console.log(`Segment ${idx}: type=${segment.type}, text="${segment.text}", has original: ${!!segment.original}`);
-        }
-      });
-
-      // This test should verify that WHEN a marker is translated, it has an original
-      // Not that ALL markers must be translated
-      // So let's just check that at least some segments have original values
+      // This test verifies that WHEN a marker is translated, it has an original value
+      // Not all markers will be translated (e.g., some Iranian names may stay as-is)
+      // So we check that at least some segments have original values
       const segmentsWithOriginal = [...translated.title, ...translated.summary, ...translated.content]
         .filter((seg) => seg.original !== undefined);
 
