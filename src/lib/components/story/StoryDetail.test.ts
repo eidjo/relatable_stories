@@ -1,32 +1,17 @@
 import { describe, it } from 'vitest';
-import { translateStory } from '$lib/translation/translator';
+import { translateStory } from '$lib/translation/pipeline';
 import { stories } from '$lib/data/stories';
-import {
-  getCountryByCode,
-  getCountryNames,
-  getCountryPlacesV2,
-  getCountryComparableEvents,
-} from '$lib/data/contexts';
 
 describe('Story Rendering', () => {
   it('should check spacing in rendered story content', () => {
     const story = stories[0];
-    const countryCode = 'US';
-    const country = getCountryByCode(countryCode)!;
 
-    const context = {
-      country: countryCode,
-      countryData: {
-        population: country.population,
-        'currency-symbol': country['currency-symbol'],
-        'rial-to-local': country['rial-to-local'],
-      },
-      names: getCountryNames(countryCode),
-      places: getCountryPlacesV2(countryCode),
-      comparableEvents: getCountryComparableEvents(countryCode),
-    };
-
-    const translated = translateStory(story, context);
+    const translated = translateStory({
+      storySlug: story.slug,
+      country: 'US',
+      language: 'en',
+      contextualizationEnabled: true,
+    });
 
     // Log the first few segments to inspect spacing
     console.log('\n=== First 20 content segments ===');
