@@ -2,11 +2,25 @@
   import type { TranslatedSegment } from '$lib/types';
   import Tooltip from './Tooltip.svelte';
   import StoryImage from './StoryImage.svelte';
+  import AnimatedTranslation from './AnimatedTranslation.svelte';
 
   export let segments: TranslatedSegment[];
   export let inline = false;
+  export let animate = false; // Enable character-by-character animation on scroll
+  export let animationStartIndex = 0; // Starting index for animation sequencing
 
   let hoveredIndex: number | null = null;
+
+  // Calculate animation sequence index for each segment with an original
+  function getAnimationSequenceIndex(segments: TranslatedSegment[], index: number): number {
+    let sequenceIndex = animationStartIndex;
+    for (let i = 0; i < index; i++) {
+      if (segments[i].original) {
+        sequenceIndex++;
+      }
+    }
+    return sequenceIndex;
+  }
 
   function handleMouseEnter(index: number) {
     if (segments[index].original) {
@@ -51,17 +65,21 @@
                 show={hoveredIndex === i}
               />{/if}</span
           >{:else}<sup class="text-primary-500 font-bold">{segment.text}</sup
-          >{/if}{:else if segment.original}<span
-          class="relative translate-hover text-primary-500 underline decoration-dotted decoration-primary-500/50 cursor-help"
-          on:mouseenter={() => handleMouseEnter(i)}
-          on:mouseleave={handleMouseLeave}
-          on:focus={() => handleMouseEnter(i)}
-          on:blur={handleMouseLeave}
-          role="button"
-          tabindex="0"
-          aria-label="Translated text. Original: {segment.original}"
-          >{segment.text}<Tooltip text={segment.original} show={hoveredIndex === i} /></span
-        >{:else}{segment.text}{/if}</span
+          >{/if}{:else if segment.original}{#if animate}<AnimatedTranslation
+            original={segment.original}
+            translated={segment.text}
+            sequenceIndex={getAnimationSequenceIndex(segments, i)}
+          />{:else}<span
+            class="relative translate-hover text-primary-500 underline decoration-dotted decoration-primary-500/50 cursor-help"
+            on:mouseenter={() => handleMouseEnter(i)}
+            on:mouseleave={handleMouseLeave}
+            on:focus={() => handleMouseEnter(i)}
+            on:blur={handleMouseLeave}
+            role="button"
+            tabindex="0"
+            aria-label="Translated text. Original: {segment.original}"
+            >{segment.text}<Tooltip text={segment.original} show={hoveredIndex === i} /></span
+          >{/if}{:else}{segment.text}{/if}</span
     >
   {/if}
 {/each}

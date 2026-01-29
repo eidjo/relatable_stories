@@ -126,6 +126,7 @@ export interface Story {
   content: string;
   markers: Record<string, Marker>;
   tags: string[];
+  hashtags?: string;
   severity: 'low' | 'medium' | 'high' | 'critical';
   verified: boolean;
   source?: string;
@@ -158,6 +159,7 @@ export interface TranslatedStory {
   summary: TranslatedSegment[];
   content: TranslatedSegment[];
   tags: string[];
+  hashtags?: string;
   severity: 'low' | 'medium' | 'high' | 'critical';
   verified: boolean;
   source?: string;

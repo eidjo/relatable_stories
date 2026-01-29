@@ -54,4 +54,72 @@
   .country-option-selected {
     @apply bg-primary-600 text-white;
   }
+
+  /* Card styles */
+  .card-base {
+    @apply bg-gray-800 border border-gray-700;
+  }
+
+  .light .card-base {
+    @apply bg-white border-gray-200;
+  }
+
+  /* Card shadow - needs to be visible in dark mode */
+  .card-shadow {
+    box-shadow: 0 4px 6px -1px rgba(255, 255, 255, 0.05), 0 2px 4px -1px rgba(255, 255, 255, 0.03);
+  }
+
+  .light .card-shadow {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+
+  /* Story card text colors */
+  .card-title {
+    @apply text-gray-100;
+  }
+
+  .light .card-title {
+    @apply text-gray-900;
+  }
+
+  .card-text {
+    @apply text-gray-300;
+  }
+
+  .light .card-text {
+    @apply text-gray-600;
+  }
+
+  .card-text-muted {
+    @apply text-gray-400;
+  }
+
+  .light .card-text-muted {
+    @apply text-gray-500;
+  }
+
+  /* Modal dropdown */
+  .modal-dropdown {
+    @apply bg-gray-900 border-gray-600;
+  }
+
+  .light .modal-dropdown {
+    @apply bg-white border-gray-300;
+  }
+
+  .modal-dropdown-option {
+    @apply text-gray-200 hover:bg-gray-700 border-gray-800;
+  }
+
+  .light .modal-dropdown-option {
+    @apply text-black hover:bg-gray-100 border-gray-200;
+  }
+
+  .modal-dropdown-option-selected {
+    @apply bg-gray-700 text-primary-400;
+  }
+
+  .light .modal-dropdown-option-selected {
+    @apply bg-gray-100 text-primary-600;
+  }
 }

@@ -1,12 +1,36 @@
 <script lang="ts">
+  import { goto } from '$app/navigation';
+  import { browser } from '$app/environment';
+  import { page } from '$app/stores';
   import { selectedCountry } from '$lib/stores/country';
   import { countries } from '$lib/data/contexts';
+  import { sortCountriesForDisplay } from '$lib/utils/sortCountries';
+  import type { CountryCode } from '$lib/types';
 
   let isOpen = false;
+
+  // Sort countries with currently selected at top, then Iran, then alphabetical
+  $: sortedCountries = sortCountriesForDisplay(countries, $selectedCountry);
 
   function selectCountry(code: string) {
     $selectedCountry = code;
     isOpen = false;
+
+    // Update URL with new country parameter
+    updateUrlWithCountry(code);
+  }
+
+  function updateUrlWithCountry(country: CountryCode) {
+    if (!browser || !$page.url) return;
+
+    const newUrl = new URL($page.url);
+    newUrl.searchParams.set('country', country);
+
+    goto(newUrl.toString(), {
+      replaceState: true,
+      noScroll: true,
+      keepFocus: true
+    });
   }
 
   function toggleDropdown() {
@@ -46,7 +70,7 @@
       class="country-dropdown absolute right-0 z-10 w-64 mt-2 rounded shadow-xl max-h-96 overflow-y-auto"
     >
       <div class="py-1" role="menu">
-        {#each countries as country}
+        {#each sortedCountries as country}
           <button
             on:click={() => selectCountry(country.code)}
             class="country-option block w-full px-4 py-2 text-left text-sm {country.code ===

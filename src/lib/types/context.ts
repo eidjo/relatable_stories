@@ -7,6 +7,7 @@ export interface Country {
   currency: string;
   'currency-symbol': string;
   'rial-to-local': number;
+  timezones: string[];
 }
 
 export interface NameMappings {

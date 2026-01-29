@@ -7,6 +7,7 @@
   export let title: string;
   export let text: string = '';
   export let storySlug: string;
+  export let hashtags: string = '';
 
   let showCopied = false;
   let supportsWebShare = false;
@@ -61,7 +62,8 @@
   }
 
   function shareToTwitter() {
-    const twitterText = encodeURIComponent(`${text}\n\n${url}`);
+    const hashtagsPart = hashtags ? `\n\n${hashtags}` : '';
+    const twitterText = encodeURIComponent(`${text}\n\n${url}${hashtagsPart}`);
     const twitterUrl = `https://twitter.com/intent/tweet?text=${twitterText}`;
     window.open(twitterUrl, '_blank', 'noopener,noreferrer');
   }

@@ -1,10 +1,31 @@
 countries:
+  - code: 'IR'
+    name: 'Original (Iran)'
+    population: 85000000
+    currency: 'IRR'
+    currency-symbol: '﷼'
+    rial-to-local: 1.0
+    timezones:
+      - 'Asia/Tehran'
+
   - code: 'US'
     name: 'United States'
     population: 331900000
     currency: 'USD'
     currency-symbol: '$'
     rial-to-local: 0.000024
+    timezones:
+      - 'America/New_York'
+      - 'America/Chicago'
+      - 'America/Denver'
+      - 'America/Los_Angeles'
+      - 'America/Phoenix'
+      - 'America/Anchorage'
+      - 'America/Honolulu'
+      - 'America/Detroit'
+      - 'America/Indiana/Indianapolis'
+      - 'America/Kentucky/Louisville'
+      - 'America/Boise'
 
   - code: 'UK'
     name: 'United Kingdom'
@@ -12,6 +33,8 @@ countries:
     currency: 'GBP'
     currency-symbol: '£'
     rial-to-local: 0.000018
+    timezones:
+      - 'Europe/London'
 
   - code: 'CA'
     name: 'Canada'
@@ -19,6 +42,15 @@ countries:
     currency: 'CAD'
     currency-symbol: 'C$'
     rial-to-local: 0.000031
+    timezones:
+      - 'America/Toronto'
+      - 'America/Vancouver'
+      - 'America/Montreal'
+      - 'America/Halifax'
+      - 'America/Winnipeg'
+      - 'America/Edmonton'
+      - 'America/Regina'
+      - 'America/St_Johns'
 
   - code: 'AU'
     name: 'Australia'
@@ -26,6 +58,14 @@ countries:
     currency: 'AUD'
     currency-symbol: 'A$'
     rial-to-local: 0.000035
+    timezones:
+      - 'Australia/Sydney'
+      - 'Australia/Melbourne'
+      - 'Australia/Brisbane'
+      - 'Australia/Perth'
+      - 'Australia/Adelaide'
+      - 'Australia/Hobart'
+      - 'Australia/Darwin'
 
   - code: 'DE'
     name: 'Germany'
@@ -33,6 +73,9 @@ countries:
     currency: 'EUR'
     currency-symbol: '€'
     rial-to-local: 0.000021
+    timezones:
+      - 'Europe/Berlin'
+      - 'Europe/Zurich'
 
   - code: 'FR'
     name: 'France'
@@ -40,6 +83,8 @@ countries:
     currency: 'EUR'
     currency-symbol: '€'
     rial-to-local: 0.000021
+    timezones:
+      - 'Europe/Paris'
 
   - code: 'ES'
     name: 'Spain'
@@ -47,6 +92,8 @@ countries:
     currency: 'EUR'
     currency-symbol: '€'
     rial-to-local: 0.000021
+    timezones:
+      - 'Europe/Madrid'
 
   - code: 'IT'
     name: 'Italy'
@@ -54,6 +101,8 @@ countries:
     currency: 'EUR'
     currency-symbol: '€'
     rial-to-local: 0.000021
+    timezones:
+      - 'Europe/Rome'
 
   - code: 'NL'
     name: 'Netherlands'
@@ -61,6 +110,8 @@ countries:
     currency: 'EUR'
     currency-symbol: '€'
     rial-to-local: 0.000021
+    timezones:
+      - 'Europe/Amsterdam'
 
   - code: 'SE'
     name: 'Sweden'
@@ -68,6 +119,8 @@ countries:
     currency: 'SEK'
     currency-symbol: 'kr'
     rial-to-local: 0.00024
+    timezones:
+      - 'Europe/Stockholm'
 
   - code: 'BE'
     name: 'Belgium'
@@ -75,6 +128,8 @@ countries:
     currency: 'EUR'
     currency-symbol: '€'
     rial-to-local: 0.000021
+    timezones:
+      - 'Europe/Brussels'
 
   - code: 'CZ'
     name: 'Czech Republic'
@@ -82,6 +137,8 @@ countries:
     currency: 'CZK'
     currency-symbol: 'Kč'
     rial-to-local: 0.00053
+    timezones:
+      - 'Europe/Prague'
 
   - code: 'BR'
     name: 'Brazil'
@@ -89,3 +146,7 @@ countries:
     currency: 'BRL'
     currency-symbol: 'R$'
     rial-to-local: 0.00012
+    timezones:
+      - 'America/Sao_Paulo'
+      - 'America/Rio_Branco'
+      - 'America/Manaus'

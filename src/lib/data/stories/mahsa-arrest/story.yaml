@@ -125,6 +125,7 @@ markers:
     title: 'BBC News: Mahsa Amini death sparks protests in Iran'
 
 tags: ['protest', 'detention', 'student', 'mahsa-amini']
+hashtags: '#Iran #MahsaAmini #HumanRights #WomanLifeFreedom'
 severity: 'high'
 verified: true
 source: 'Witness testimonies compiled by human rights organizations'

@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { page } from '$app/stores';
+  import { browser } from '$app/environment';
   import CallToAction from '$lib/components/action/CallToAction.svelte';
   import { getActionsForCountry } from '$lib/data/actions';
   import { translationContext } from '$lib/stores/country';
@@ -6,6 +8,11 @@
 
   $: actions = getActionsForCountry($translationContext.country);
   $: currentCountry = countries.find((c) => c.code === $translationContext.country);
+
+  // Preserve country parameter in links
+  $: countryParam = browser ? $page.url.searchParams.get('country') : null;
+  $: aboutUrl = countryParam ? `/about?country=${countryParam}` : '/about';
+  $: storiesUrl = countryParam ? `/stories?country=${countryParam}` : '/stories';
 </script>
 
 <svelte:head>
@@ -63,7 +70,7 @@
     <div class="space-y-3 text-sm opacity-80">
       <p>
         → <strong>Educate yourself:</strong> Visit the
-        <a href="/about" class="text-primary-500 hover:text-primary-600 underline">about page</a>
+        <a href={aboutUrl} class="text-primary-500 hover:text-primary-600 underline">about page</a>
         to learn more about Iran's uprisings and timeline of events
       </p>
       <p>

@@ -1,7 +1,14 @@
 <script lang="ts">
+  import { page } from '$app/stores';
+  import { browser } from '$app/environment';
   import Timeline from '$lib/components/timeline/Timeline.svelte';
   import { events } from '$lib/data/timeline';
   import { aboutContent } from '$lib/data/content';
+
+  // Preserve country parameter in links
+  $: countryParam = browser ? $page.url.searchParams.get('country') : null;
+  $: storiesUrl = countryParam ? `/stories?country=${countryParam}` : '/stories';
+  $: actionUrl = countryParam ? `/take-action?country=${countryParam}` : '/take-action';
 </script>
 
 <svelte:head>

@@ -67,13 +67,32 @@
 
   $: contentParagraphs = splitIntoParagraphs(story.content);
   $: sources = extractSources(story.content);
+
+  // Calculate cumulative animation indices for sequencing
+  function countOriginals(segments: TranslatedSegment[]): number {
+    return segments.filter(s => s.original).length;
+  }
+
+  $: titleOriginalsCount = countOriginals(story.title);
+  $: summaryOriginalsCount = countOriginals(story.summary);
+  $: summaryStartIndex = titleOriginalsCount;
+  $: contentStartIndex = titleOriginalsCount + summaryOriginalsCount;
+
+  // Calculate start index for each content paragraph
+  function getContentParagraphStartIndex(paragraphIndex: number): number {
+    let count = contentStartIndex;
+    for (let i = 0; i < paragraphIndex; i++) {
+      count += countOriginals(contentParagraphs[i]);
+    }
+    return count;
+  }
 </script>
 
 <article class="space-y-8">
   <!-- Header -->
   <div class="space-y-4">
     <h1 class="text-4xl font-bold leading-tight">
-      <TranslatedText segments={story.title} inline />
+      <TranslatedText segments={story.title} inline animate animationStartIndex={0} />
     </h1>
 
     <!-- Metadata -->
@@ -108,6 +127,7 @@
             title={shareTitle}
             text={shareText}
             storySlug={story.slug}
+            hashtags={story.hashtags || ''}
           />
         </div>
       </div>
@@ -116,14 +136,19 @@
 
   <!-- Summary -->
   <div class="text-xl leading-relaxed opacity-90">
-    <TranslatedText segments={story.summary} inline />
+    <TranslatedText segments={story.summary} inline animate animationStartIndex={summaryStartIndex} />
   </div>
 
   <!-- Content -->
   <div class="leading-relaxed opacity-80 space-y-6">
-    {#each contentParagraphs as paragraph}
+    {#each contentParagraphs as paragraph, pIdx}
       <p>
-        <TranslatedText segments={paragraph} inline />
+        <TranslatedText
+          segments={paragraph}
+          inline
+          animate
+          animationStartIndex={getContentParagraphStartIndex(pIdx)}
+        />
       </p>
     {/each}
   </div>
@@ -174,6 +199,7 @@
           title={shareTitle}
           text={shareText}
           storySlug={story.slug}
+          hashtags={story.hashtags || ''}
         />
       </div>
     </div>

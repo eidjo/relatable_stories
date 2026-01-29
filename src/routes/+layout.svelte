@@ -1,6 +1,32 @@
 <script lang="ts">
+  import { onMount } from 'svelte';
+  import { goto } from '$app/navigation';
+  import { browser } from '$app/environment';
+  import { page } from '$app/stores';
+  import { selectedCountry } from '$lib/stores/country';
   import '../app.css';
   import Header from '$lib/components/layout/Header.svelte';
+
+  // Ensure URL has country parameter for non-story pages
+  onMount(() => {
+    if (browser) {
+      const urlCountry = $page.url.searchParams.get('country');
+      const isStoryDetailPage = $page.url.pathname.startsWith('/stories/') && $page.url.pathname.split('/').length > 2;
+
+      // Story detail pages handle their own country logic (modal on first visit)
+      if (isStoryDetailPage) {
+        return;
+      }
+
+      // For other pages, only add country if we have one in localStorage
+      const storedCountry = localStorage.getItem('selected-country');
+      if (!urlCountry && storedCountry) {
+        const newUrl = new URL($page.url);
+        newUrl.searchParams.set('country', storedCountry);
+        goto(newUrl.toString(), { replaceState: true, noScroll: true, keepFocus: true });
+      }
+    }
+  });
 </script>
 
 <svelte:head>

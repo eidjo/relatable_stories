@@ -17,19 +17,19 @@
   {#if contentWarning}
     <!-- Content Warning - Toggleable -->
     <div class="relative max-w-3xl mx-auto">
-      <img
-        {src}
-        {alt}
-        class="w-full rounded cursor-pointer transition-all duration-300 {isRevealed
-          ? ''
-          : 'blur-xl opacity-50'}"
-        loading="lazy"
+      <button
+        type="button"
+        class="w-full block text-left cursor-pointer appearance-none border-none bg-transparent p-0"
         on:click={toggleReveal}
-        on:keydown={(e) => e.key === 'Enter' && toggleReveal()}
-        tabindex="0"
-        role="button"
         aria-label={isRevealed ? 'Click to hide image' : 'Click to reveal image'}
-      />
+      >
+        <img
+          {src}
+          {alt}
+          class="w-full rounded transition-all duration-300 {isRevealed ? '' : 'blur-xl opacity-50'}"
+          loading="lazy"
+        />
+      </button>
       {#if !isRevealed}
         <!-- Warning Overlay (shown when blurred) -->
         <div
