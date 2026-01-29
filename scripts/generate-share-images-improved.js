@@ -18,7 +18,7 @@ const rootDir = path.resolve(__dirname, '..');
 
 // Image dimensions
 const TWITTER_WIDTH = 1200;
-const TWITTER_HEIGHT = 675;
+const TWITTER_HEIGHT = 630;
 const INSTAGRAM_WIDTH = 1080;
 const INSTAGRAM_HEIGHT = 1920;
 
