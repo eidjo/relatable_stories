@@ -4,12 +4,12 @@
   import { base } from '$app/paths';
   import CallToAction from '$lib/components/action/CallToAction.svelte';
   import { getActionsForCountry } from '$lib/data/actions';
-  import { translationContext } from '$lib/stores/country';
+  import { selectedCountry } from '$lib/stores/country';
   import { countries } from '$lib/data/contexts';
   import SocialMeta from '$lib/components/shared/SocialMeta.svelte';
 
-  $: actions = getActionsForCountry($translationContext.country);
-  $: currentCountry = countries.find((c) => c.code === $translationContext.country);
+  $: actions = getActionsForCountry($selectedCountry);
+  $: currentCountry = countries.find((c) => c.code === $selectedCountry);
 
   // Preserve country parameter in links
   $: countryParam = browser ? $page.url.searchParams.get('country') : null;

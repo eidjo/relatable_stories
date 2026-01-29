@@ -1,13 +1,6 @@
-import { writable, derived, get } from 'svelte/store';
+import { writable, get } from 'svelte/store';
 import { browser } from '$app/environment';
 import type { CountryCode } from '$lib/types';
-import type { UITranslationContext } from '$lib/translation/translator';
-import {
-  getCountryByCode,
-  getCountryNames,
-  getCountryPlacesV2,
-  getCountryComparableEvents,
-} from '$lib/data/contexts';
 import { selectedLanguage } from './language';
 import { selectBestLanguageForCountry } from '$lib/utils/languageSelection';
 
@@ -65,39 +58,3 @@ if (browser) {
   // Note: IP-based geolocation is now handled by LocationConfirmationModal
   // which shows on first visit to any story page
 }
-
-/**
- * Derived store for translation context (V2)
- * This combines all the data needed for translation with V2 marker system
- */
-export const translationContext = derived(selectedCountry, ($country) => {
-  const countryData = getCountryByCode($country);
-
-  if (!countryData) {
-    // Fallback to US if country not found
-    const fallbackData = getCountryByCode(DEFAULT_COUNTRY)!;
-    return {
-      country: DEFAULT_COUNTRY,
-      countryData: {
-        population: fallbackData.population,
-        'currency-symbol': fallbackData['currency-symbol'],
-        'rial-to-local': fallbackData['rial-to-local'],
-      },
-      names: getCountryNames(DEFAULT_COUNTRY),
-      places: getCountryPlacesV2(DEFAULT_COUNTRY),
-      comparableEvents: getCountryComparableEvents(DEFAULT_COUNTRY),
-    } as UITranslationContext;
-  }
-
-  return {
-    country: $country,
-    countryData: {
-      population: countryData.population,
-      'currency-symbol': countryData['currency-symbol'],
-      'rial-to-local': countryData['rial-to-local'],
-    },
-    names: getCountryNames($country),
-    places: getCountryPlacesV2($country),
-    comparableEvents: getCountryComparableEvents($country),
-  } as UITranslationContext;
-});

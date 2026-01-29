@@ -1,15 +1,32 @@
 <script lang="ts">
   import { base } from '$app/paths';
   import StoryCard from '$lib/components/story/StoryCard.svelte';
+  import LanguageSelector from '$lib/components/shared/LanguageSelector.svelte';
   import { stories } from '$lib/data/stories';
-  import { translationContext } from '$lib/stores/country';
+  import { selectedCountry } from '$lib/stores/country';
   import { selectedLanguage } from '$lib/stores/language';
-  import { translateStory } from '$lib/translation/translator';
+  import { contextualizationEnabled } from '$lib/stores/contextualization';
+  import { translateStory } from '$lib/translation/pipeline';
+  import { countryLanguages } from '$lib/data/contexts';
   import SocialMeta from '$lib/components/shared/SocialMeta.svelte';
 
-  $: translatedStories = stories.map((story) =>
-    translateStory(story, $translationContext, $selectedLanguage)
-  );
+  $: countrySpecificLanguages = countryLanguages.countries[$selectedCountry]?.languages || [];
+  $: additionalLanguages = countrySpecificLanguages.filter((lang) => lang !== 'en');
+  $: showLanguageSelector = additionalLanguages.length > 0;
+
+  $: translatedStories = stories.map((story) => {
+    try {
+      return translateStory({
+        storySlug: story.slug,
+        country: $selectedCountry,
+        language: $selectedLanguage,
+        contextualizationEnabled: $contextualizationEnabled,
+      });
+    } catch (error) {
+      console.error(`Failed to translate story ${story.slug}:`, error);
+      return null;
+    }
+  }).filter(Boolean);
 </script>
 
 <SocialMeta
@@ -24,7 +41,12 @@
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
   <!-- Header -->
   <div class="mb-12">
-    <h1 class="text-4xl font-bold text-stone-900 dark:text-stone-100 mb-4">Stories from Iran</h1>
+    <div class="flex items-center justify-between mb-4">
+      <h1 class="text-4xl font-bold text-stone-900 dark:text-stone-100">Stories from Iran</h1>
+      {#if showLanguageSelector}
+        <LanguageSelector />
+      {/if}
+    </div>
     <p class="text-lg text-stone-600 dark:text-stone-300 max-w-3xl">
       Each story is translated into your local context. Hover over any underlined text to see the
       original Iranian details.

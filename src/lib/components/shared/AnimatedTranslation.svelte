@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import { fade } from 'svelte/transition';
-  import { translationContext } from '$lib/stores/country';
+  import { selectedCountry } from '$lib/stores/country';
   import { contextualizationEnabled } from '$lib/stores/contextualization';
   import Tooltip from './Tooltip.svelte';
 
@@ -33,8 +33,8 @@
   $: sequenceDelay = sequenceIndex * DELAY_BETWEEN_ANIMATIONS;
 
   // Watch for country changes to re-trigger animation
-  $: if ($translationContext?.country && $translationContext.country !== currentCountry) {
-    currentCountry = $translationContext.country;
+  $: if ($selectedCountry && $selectedCountry !== currentCountry) {
+    currentCountry = $selectedCountry;
     resetAnimation();
   }
 
@@ -84,7 +84,7 @@
   }
 
   onMount(() => {
-    currentCountry = $translationContext?.country || '';
+    currentCountry = $selectedCountry || '';
     currentContextualization = $contextualizationEnabled;
     setupObserver();
 

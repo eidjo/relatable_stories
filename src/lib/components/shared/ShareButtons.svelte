@@ -1,7 +1,7 @@
 <script lang="ts">
   import { browser } from '$app/environment';
   import { base } from '$app/paths';
-  import { translationContext } from '$lib/stores/country';
+  import { selectedCountry } from '$lib/stores/country';
   import { selectedLanguage } from '$lib/stores/language';
   import { theme } from '$lib/stores/theme';
 
@@ -20,7 +20,7 @@
   }
 
   // Get user's selected country and language for personalized share images
-  $: countryCode = $translationContext.country.toLowerCase();
+  $: countryCode = $selectedCountry.toLowerCase();
   $: languageCode = $selectedLanguage;
 
   // Share URL - points to /share/{slug}/{country}/{lang} for perfect social meta tags
