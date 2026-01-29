@@ -11,7 +11,7 @@
 import { readFile, readdir } from 'fs/promises';
 import { join } from 'path';
 import { load } from 'js-yaml';
-import type { PlacesDataV2, ComparableEvent } from '../src/lib/translation/core-v2';
+import type { PlacesDataV2, ComparableEvent } from '../src/lib/translation/core';
 import type { Story } from '../src/lib/types';
 import { isPlaceMarker } from '../src/lib/types/markers-v2';
 
