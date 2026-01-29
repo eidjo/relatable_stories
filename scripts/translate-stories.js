@@ -250,18 +250,42 @@ function substituteMarkers(text, markers, context, resolvedMarkers, storyId) {
             return currentDiff < bestDiff ? current : best;
           });
 
-          const multiplier = Math.round(scaledValue / closestEvent.casualties);
+          const exactRatio = scaledValue / closestEvent.casualties;
           const eventName = closestEvent.name.trim();
 
-          if (multiplier <= 1) {
-            comparisonText = `(${closestEvent.fullName || eventName})`;
-          } else {
-            const times = multiplier === 2 ? 'twice' : multiplier === 3 ? 'three times' : `${multiplier} times`;
+          // Within 15% margin (0.85-1.15x) - say "approximately"
+          if (exactRatio >= 0.85 && exactRatio <= 1.15) {
+            comparisonText = `(approximately ${closestEvent.fullName || eventName})`;
+          }
+          // Fractional comparisons (less than the event)
+          else if (exactRatio < 0.85) {
+            let fractionPhrase;
+            if (exactRatio <= 0.35) {
+              fractionPhrase = 'a third of';
+            } else if (exactRatio <= 0.55) {
+              fractionPhrase = 'half of';
+            } else {
+              fractionPhrase = 'two-thirds of';
+            }
+            comparisonText = `(${fractionPhrase} ${closestEvent.fullName || eventName})`;
+          }
+          // Multiple times more (greater than the event)
+          else {
+            const multiplier = Math.round(exactRatio);
+            let times;
+            if (multiplier === 2) {
+              times = 'twice';
+            } else if (multiplier === 3) {
+              times = 'three times';
+            } else {
+              times = `${multiplier} times`;
+            }
             comparisonText = `(${times} the ${eventName})`;
           }
 
           // Generate comparison explanation
-          comparisonExplanation = `Comparison: ${scaledValue.toLocaleString()} casualties vs. ${eventName} (${closestEvent.casualties.toLocaleString()} casualties in ${closestEvent.year}) = ${multiplier > 1 ? `${multiplier}x more` : 'comparable scale'}`;
+          const ratioText = exactRatio >= 1 ? `${exactRatio.toFixed(2)}x more` : `${(exactRatio * 100).toFixed(0)}% of`;
+          comparisonExplanation = `Comparison: ${scaledValue.toLocaleString()} casualties vs. ${eventName} (${closestEvent.casualties.toLocaleString()} casualties in ${closestEvent.year}) = ${ratioText}`;
         }
       }
 
