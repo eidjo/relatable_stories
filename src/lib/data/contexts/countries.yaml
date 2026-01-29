@@ -1,6 +1,6 @@
 countries:
   - code: 'IR'
-    name: 'Original (Iran)'
+    name: 'Iran'
     population: 85000000
     currency: 'IRR'
     currency-symbol: '﷼'

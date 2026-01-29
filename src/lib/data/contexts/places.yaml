@@ -1,18 +1,7 @@
 IR:
   city-small: ['Rasht', 'Karaj', 'Qom', 'Kermanshah', 'Ahvaz', 'Hamadan']
-  city-medium:
-    ['Mashhad', 'Isfahan', 'Shiraz', 'Tabriz', 'Kerman', 'Urmia', 'Yazd', 'Sanandaj']
-  city-large:
-    [
-      'Tehran',
-      'Mashhad',
-      'Isfahan',
-      'Karaj',
-      'Tabriz',
-      'Shiraz',
-      'Qom',
-      'Ahvaz',
-    ]
+  city-medium: ['Mashhad', 'Isfahan', 'Shiraz', 'Tabriz', 'Kerman', 'Urmia', 'Yazd', 'Sanandaj']
+  city-large: ['Tehran', 'Mashhad', 'Isfahan', 'Karaj', 'Tabriz', 'Shiraz', 'Qom', 'Ahvaz']
   landmark-protest:
     [
       'Azadi Square',
@@ -22,7 +11,8 @@ IR:
       'Imam Hossein Square',
       'Tajrish Square',
     ]
-  government-facility: ['Evin Prison', 'Kahrizak Detention Center', 'Fashafuyeh Prison', 'Qarchak Prison']
+  government-facility:
+    ['Evin Prison', 'Kahrizak Detention Center', 'Fashafuyeh Prison', 'Qarchak Prison']
   university:
     [
       'Tehran University',
@@ -212,17 +202,20 @@ PT:
     ]
   government-facility: ['Esquadra da Polícia', 'Tribunal', 'Prisão', 'Câmara Municipal']
   university:
-    ['Universidade de Lisboa', 'Universidade do Porto', 'Universidade de Coimbra', 'Instituto Politécnico']
+    [
+      'Universidade de Lisboa',
+      'Universidade do Porto',
+      'Universidade de Coimbra',
+      'Instituto Politécnico',
+    ]
 
 NO:
   city-small: ['Drammen', 'Kristiansand', 'Fredrikstad', 'Tromsø', 'Ålesund', 'Bodø']
   city-medium: ['Bergen', 'Trondheim', 'Stavanger', 'Drammen', 'Tromsø', 'Ålesund']
   city-large: ['Oslo', 'Bergen', 'Trondheim', 'Stavanger']
-  landmark-protest:
-    ['Youngstorget', 'Eidsvolls plass', 'Stortorget', 'Torget', 'Rådhusplassen']
+  landmark-protest: ['Youngstorget', 'Eidsvolls plass', 'Stortorget', 'Torget', 'Rådhusplassen']
   government-facility: ['Politistasjon', 'Tingrett', 'Fengsel', 'Rådhus']
-  university:
-    ['Universitetet i Oslo', 'Universitetet i Bergen', 'NTNU', 'Universitetet i Tromsø']
+  university: ['Universitetet i Oslo', 'Universitetet i Bergen', 'NTNU', 'Universitetet i Tromsø']
 
 DK:
   city-small: ['Roskilde', 'Næstved', 'Helsingør', 'Silkeborg', 'Horsens', 'Slagelse']
@@ -231,17 +224,20 @@ DK:
   landmark-protest: ['Rådhuspladsen', 'Kongens Nytorv', 'Nytorv', 'Stortorvet', 'Blågårds Plads']
   government-facility: ['Politistation', 'Byret', 'Fængsel', 'Rådhus']
   university:
-    ['Københavns Universitet', 'Aarhus Universitet', 'Danmarks Tekniske Universitet', 'Syddansk Universitet']
+    [
+      'Københavns Universitet',
+      'Aarhus Universitet',
+      'Danmarks Tekniske Universitet',
+      'Syddansk Universitet',
+    ]
 
 FI:
   city-small: ['Pori', 'Lappeenranta', 'Vaasa', 'Joensuu', 'Kotka', 'Seinäjoki']
   city-medium: ['Espoo', 'Tampere', 'Vantaa', 'Oulu', 'Turku', 'Lahti']
   city-large: ['Helsinki', 'Espoo', 'Tampere', 'Vantaa']
-  landmark-protest:
-    ['Senaatintori', 'Rautatientori', 'Keskustori', 'Kauppatori', 'Kansalaistori']
+  landmark-protest: ['Senaatintori', 'Rautatientori', 'Keskustori', 'Kauppatori', 'Kansalaistori']
   government-facility: ['Poliisiasema', 'Käräjäoikeus', 'Vankila', 'Kaupungintalo']
-  university:
-    ['Helsingin yliopisto', 'Aalto-yliopisto', 'Tampereen yliopisto', 'Turun yliopisto']
+  university: ['Helsingin yliopisto', 'Aalto-yliopisto', 'Tampereen yliopisto', 'Turun yliopisto']
 
 PL:
   city-small: ['Lublin', 'Bydgoszcz', 'Białystok', 'Gdynia', 'Rzeszów', 'Toruń']
@@ -251,14 +247,30 @@ PL:
     ['Plac Zamkowy', 'Plac Piłsudskiego', 'Rynek Główny', 'Plac Konstytucji', 'Plac Wolności']
   government-facility: ['Komisariat Policji', 'Sąd', 'Areszt Śledczy', 'Urząd Miasta']
   university:
-    ['Uniwersytet Warszawski', 'Uniwersytet Jagielloński', 'Politechnika Warszawska', 'Uniwersytet Wrocławski']
+    [
+      'Uniwersytet Warszawski',
+      'Uniwersytet Jagielloński',
+      'Politechnika Warszawska',
+      'Uniwersytet Wrocławski',
+    ]
 
 GR:
   city-small: ['Ioannina', 'Chania', 'Kavala', 'Volos', 'Rhodes', 'Kalamata']
   city-medium: ['Patras', 'Heraklion', 'Larissa', 'Thessaloniki', 'Piraeus']
   city-large: ['Athens', 'Thessaloniki', 'Patras', 'Heraklion']
   landmark-protest:
-    ['Syntagma Square', 'Aristotelous Square', 'Plateia Eleftherias', 'Omonia Square', 'Monastiraki Square']
+    [
+      'Syntagma Square',
+      'Aristotelous Square',
+      'Plateia Eleftherias',
+      'Omonia Square',
+      'Monastiraki Square',
+    ]
   government-facility: ['Astynomiko Tmima', 'Dikastirio', 'Kratitiko Katastima', 'Dimarcheio']
   university:
-    ['National and Kapodistrian University of Athens', 'Aristotle University of Thessaloniki', 'University of Crete', 'National Technical University of Athens']
+    [
+      'National and Kapodistrian University of Athens',
+      'Aristotle University of Thessaloniki',
+      'University of Crete',
+      'National Technical University of Athens',
+    ]
