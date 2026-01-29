@@ -10,9 +10,6 @@ import raha2026Yaml from './raha-2026/story.yaml?raw';
 // Import translated versions (dynamically imported later)
 const storyModules = import.meta.glob('./*/story.*.yaml', { query: '?raw', import: 'default' });
 
-// Debug: Log available translations
-console.log('Available story translations:', Object.keys(storyModules));
-
 // Parse stories
 const storyFiles = [mahsaArrestYaml, raha2026Yaml];
 
