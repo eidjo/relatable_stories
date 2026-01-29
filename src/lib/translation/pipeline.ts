@@ -5,8 +5,6 @@
  * Produces normalized segment structure that can be rendered to any target.
  */
 
-import { readFileSync } from 'fs';
-import { join } from 'path';
 import { load as yamlLoad } from 'js-yaml';
 import { translateMarkerV2 } from './core';
 import type { TranslationDataV2, TranslationContext } from './core';
@@ -14,6 +12,56 @@ import type { Story, Marker } from '$lib/types';
 import { getMarkerType, isSourceMarker, isImageMarker } from '$lib/types';
 import { parseText } from './parser';
 import { formatDateLocalized } from '$lib/utils/date-locale';
+
+// Import YAML files directly (works in browser via Vite)
+import countriesYaml from '$lib/data/contexts/countries.yaml?raw';
+import namesYaml from '$lib/data/contexts/names.yaml?raw';
+import placesYaml from '$lib/data/contexts/places.yaml?raw';
+import comparableEventsYaml from '$lib/data/contexts/comparable-events.yaml?raw';
+
+// Dynamically import all story files
+const storyFiles = import.meta.glob('$lib/data/stories/*/story.yaml', {
+  query: '?raw',
+  eager: true,
+  import: 'default'
+}) as Record<string, string>;
+
+// Dynamically import all pre-translated stories
+const preTranslatedFiles = import.meta.glob('$lib/data/stories/*/story.*.yaml', {
+  query: '?raw',
+  eager: true,
+  import: 'default'
+}) as Record<string, string>;
+
+// Parse YAML once at module load (not on every function call!)
+const PARSED_COUNTRIES = (yamlLoad(countriesYaml) as any).countries;
+const PARSED_NAMES = yamlLoad(namesYaml) as any;
+const PARSED_PLACES = yamlLoad(placesYaml) as any;
+const PARSED_COMPARABLE_EVENTS = yamlLoad(comparableEventsYaml) as any;
+
+// Build story map from imported files
+const STORY_DATA: Record<string, string> = {};
+for (const [path, content] of Object.entries(storyFiles)) {
+  // Extract slug from path: /src/lib/data/stories/mahsa-arrest/story.yaml -> mahsa-arrest
+  const match = path.match(/stories\/([^/]+)\/story\.yaml$/);
+  if (match) {
+    STORY_DATA[match[1]] = content;
+  }
+}
+
+// Build pre-translated story map
+const PRETRANSLATED_STORIES: Record<string, string> = {};
+for (const [path, content] of Object.entries(preTranslatedFiles)) {
+  // Extract slug and locale: /src/lib/data/stories/mahsa-arrest/story.fr-be.yaml -> mahsa-arrest:fr-be
+  const match = path.match(/stories\/([^/]+)\/story\.([a-z]{2}-[a-z]{2})\.yaml$/);
+  if (match) {
+    PRETRANSLATED_STORIES[`${match[1]}:${match[2]}`] = content;
+  }
+}
+
+// Cache parsed stories
+const PARSED_STORIES: Record<string, Story> = {};
+const PARSED_PRETRANSLATED: Record<string, Story> = {};
 
 // ============================================================================
 // Type Definitions
@@ -77,7 +125,7 @@ interface Context {
 // Main Pipeline Function
 // ============================================================================
 
-export async function translateStory(input: TranslationInput): Promise<TranslatedStoryOutput> {
+export function translateStory(input: TranslationInput): TranslatedStoryOutput {
   // 1. Load original story (always needed for markers)
   const originalStory = loadOriginalStory(input.storySlug);
 
@@ -201,8 +249,9 @@ function parsePreTranslatedText(
     // Combined regex for:
     // 1. [[MARKER:type:key:original|value|explanation]]
     // 2. [[COMPARISON:original|translated|explanation]]
-    // 3. {{key}} or {{key:suffix}} (placeholders)
-    const regex = /(\[\[MARKER:([^:]+):([^:]+):([^|]+)\|([^|\]]+)(?:\|([^\]]+))?\]\])|(\[\[COMPARISON:([^|]+)\|([^|]+)\|([^\]]+)\]\])|(\{\{([^:}]+)(?::([^}]+))?\}\})/g;
+    // 3. {{{{key:suffix}}:type}} (escaped format from translation)
+    // 4. {{key}} or {{key:suffix}} (placeholders)
+    const regex = /(\[\[MARKER:([^:]+):([^:]+):([^|]+)\|([^|\]]+)(?:\|([^\]]+))?\]\])|(\[\[COMPARISON:([^|]+)\|([^|]+)\|([^\]]+)\]\])|(\{\{\{\{([^:}]+):([^}]+)\}\}:([^}]+)\}\})|(\{\{([^:}]+)(?::([^}]+))?\}\})/g;
 
     let lastIndex = 0;
     let match;
@@ -244,8 +293,47 @@ function parsePreTranslatedText(
         });
 
       } else if (match[11]) {
+        // {{{{key:suffix}}:type}} - escaped format from translation
+        const key = match[12];
+        const suffix = match[13];
+        const type = match[14];
+
+        // Handle special keys (source and image)
+        if (type === 'source' && sources) {
+          const source = sources.find(s => s.id === suffix);
+          if (source) {
+            segments.push({
+              text: `[${source.number}]`,
+              type: 'source',
+              style: 'bold-primary',
+              metadata: {
+                url: source.url,
+                title: source.title,
+              },
+            });
+          }
+        } else if (type === 'image' && images) {
+          const image = images.find(img => img.id === suffix);
+          if (image) {
+            segments.push({
+              text: '',
+              type: 'image',
+              metadata: {
+                src: image.src,
+                alt: image.alt,
+                caption: image.caption,
+                contentWarning: image.contentWarning,
+                credit: image.credit,
+                creditUrl: image.creditUrl,
+              },
+            });
+          }
+        }
+
+      } else if (match[15]) {
         // {{key}} or {{key:suffix}} - placeholder that needs runtime translation
-        const [, , , , , , , , , , , key, suffix] = match;
+        const key = match[16];
+        const suffix = match[17];
 
         // Handle special keys
         if (key === 'source' && suffix && sources) {
@@ -538,11 +626,22 @@ function translateSingleMarker(
 
 /**
  * Load original story from story.yaml
+ * Uses cache to avoid re-parsing YAML on every call
  */
 function loadOriginalStory(storySlug: string): Story {
-  const storyPath = join(process.cwd(), 'src/lib/data/stories', storySlug, 'story.yaml');
-  const content = readFileSync(storyPath, 'utf8');
-  return yamlLoad(content) as Story;
+  // Check cache first
+  if (PARSED_STORIES[storySlug]) {
+    return PARSED_STORIES[storySlug];
+  }
+
+  // Parse and cache
+  const storyYaml = STORY_DATA[storySlug];
+  if (!storyYaml) {
+    throw new Error(`Story not found: ${storySlug}`);
+  }
+  const parsed = yamlLoad(storyYaml) as Story;
+  PARSED_STORIES[storySlug] = parsed;
+  return parsed;
 }
 
 /**
@@ -553,19 +652,29 @@ function loadPreTranslatedStory(
   language: string,
   country: string
 ): Story | null {
-  const filename = `story.${language}-${country.toLowerCase()}.yaml`;
-  const storyPath = join(process.cwd(), 'src/lib/data/stories', storySlug, filename);
+  // Construct key: story-slug:lang-country (e.g., "mahsa-arrest:fr-be")
+  const key = `${storySlug}:${language}-${country.toLowerCase()}`;
 
-  try {
-    const content = readFileSync(storyPath, 'utf8');
-    return yamlLoad(content) as Story;
-  } catch {
+  // Check cache first
+  if (PARSED_PRETRANSLATED[key]) {
+    return PARSED_PRETRANSLATED[key];
+  }
+
+  // Check if pre-translated version exists
+  const yamlContent = PRETRANSLATED_STORIES[key];
+  if (!yamlContent) {
     return null;
   }
+
+  // Parse and cache
+  const parsed = yamlLoad(yamlContent) as Story;
+  PARSED_PRETRANSLATED[key] = parsed;
+  return parsed;
 }
 
 /**
  * Load context data for country and prepare translation context
+ * Uses pre-parsed YAML data for performance
  */
 function loadContextForCountry(
   countryCode: string,
@@ -573,22 +682,11 @@ function loadContextForCountry(
   storyId: string,
   storyMarkers: Record<string, any> = {}
 ): Context {
-  const contextsDir = join(process.cwd(), 'src/lib/data/contexts');
-
-  const countriesYaml = readFileSync(join(contextsDir, 'countries.yaml'), 'utf8');
-  const namesYaml = readFileSync(join(contextsDir, 'names.yaml'), 'utf8');
-  const placesYaml = readFileSync(join(contextsDir, 'places.yaml'), 'utf8');
-  const comparableEventsYaml = readFileSync(join(contextsDir, 'comparable-events.yaml'), 'utf8');
-
-  const countries = (yamlLoad(countriesYaml) as any).countries;
-  const names = yamlLoad(namesYaml) as any;
-  const places = yamlLoad(placesYaml) as any;
-  const comparableEvents = yamlLoad(comparableEventsYaml) as any;
-
-  const targetCountry = countries.find((c: any) => c.code === countryCode);
-  const countryNames = names[countryCode] || names['US'];
-  const countryPlaces = places[countryCode] || places['US'];
-  const countryEvents = comparableEvents[countryCode] || [];
+  // Use pre-parsed data (parsed once at module load)
+  const targetCountry = PARSED_COUNTRIES.find((c: any) => c.code === countryCode);
+  const countryNames = PARSED_NAMES[countryCode] || PARSED_NAMES['US'];
+  const countryPlaces = PARSED_PLACES[countryCode] || PARSED_PLACES['US'];
+  const countryEvents = PARSED_COMPARABLE_EVENTS[countryCode] || [];
 
   const translationData: TranslationDataV2 = {
     country: countryCode,

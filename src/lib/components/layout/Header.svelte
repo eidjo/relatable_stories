@@ -5,13 +5,21 @@
   import CountrySelector from '../context/CountrySelector.svelte';
   import { theme, toggleTheme } from '$lib/stores/theme';
 
-  // Preserve country parameter in navigation links
-  $: countryParam = browser ? $page.url.searchParams.get('country') : null;
-  $: storiesUrl = countryParam ? `${base}/stories?country=${countryParam}` : `${base}/stories`;
-  $: aboutUrl = countryParam ? `${base}/about?country=${countryParam}` : `${base}/about`;
-  $: actionUrl = countryParam
-    ? `${base}/take-action?country=${countryParam}`
-    : `${base}/take-action`;
+  // Preserve query parameters in navigation links
+  $: queryParams = browser ? (() => {
+    const params = new URLSearchParams();
+    const country = $page.url.searchParams.get('country');
+    const lang = $page.url.searchParams.get('lang');
+    const themeParam = $page.url.searchParams.get('theme');
+    if (country) params.set('country', country);
+    if (lang) params.set('lang', lang);
+    if (themeParam) params.set('theme', themeParam);
+    const str = params.toString();
+    return str ? `?${str}` : '';
+  })() : '';
+  $: storiesUrl = `${base}/stories${queryParams}`;
+  $: aboutUrl = `${base}/about${queryParams}`;
+  $: actionUrl = `${base}/take-action${queryParams}`;
 </script>
 
 <header

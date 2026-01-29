@@ -1,264 +1,146 @@
 <script lang="ts">
   import { onMount } from 'svelte';
-  import { goto } from '$app/navigation';
   import { browser } from '$app/environment';
-  import { base } from '$app/paths';
-  import StoryDetail from '$lib/components/story/StoryDetail.svelte';
+  import StoryDetailPipeline from '$lib/components/story/StoryDetailPipeline.svelte';
   import Button from '$lib/components/shared/Button.svelte';
   import LocationConfirmationModal from '$lib/components/shared/LocationConfirmationModal.svelte';
   import { page } from '$app/stores';
-  import { getStoryBySlug, getStoryBySlugTranslated } from '$lib/data/stories';
-  import { translationContext, selectedCountry } from '$lib/stores/country';
+  import { selectedCountry } from '$lib/stores/country';
   import { selectedLanguage } from '$lib/stores/language';
-  import { translateStory } from '$lib/translation/translator';
-  import { parsePreTranslatedWithParagraphs } from '$lib/translation/pretranslated-parser';
-  import { countryLanguages } from '$lib/data/contexts';
+  import { contextualizationEnabled } from '$lib/stores/contextualization';
+  import { translateStory, type TranslatedStoryOutput } from '$lib/translation/pipeline';
   import { theme } from '$lib/stores/theme';
-  import type { CountryCode, Story, TranslatedStory, TranslatedSegment } from '$lib/types';
+  import type { CountryCode } from '$lib/types';
   import SocialMeta from '$lib/components/shared/SocialMeta.svelte';
 
   $: slug = $page.params.slug || '';
 
-  let story: Story | undefined = undefined;
-  let translatedStory: TranslatedStory | null = null;
-  let isLoading = false;
-
-  // Reload story when language or country changes
-  $: if (slug && $selectedLanguage && $selectedCountry && locationConfirmed) {
-    console.log('🔄 Reactive: Triggering loadStory', {
-      slug,
-      lang: $selectedLanguage,
-      country: $selectedCountry,
-    });
-    loadStory(slug, $selectedLanguage, $selectedCountry);
-  }
-
-  // Helper to fill {{marker}} placeholders with values from translated original
-  // Only fills dates, sources, and images - leaves person/place markers alone to preserve grammar
-  function fillPlaceholders(
-    parsedSegments: TranslatedSegment[],
-    originalSegments: TranslatedSegment[]
-  ): TranslatedSegment[] {
-    const result: TranslatedSegment[] = [];
-    const fillableTypes = ['date', 'source', 'image'];
-
-    for (const segment of parsedSegments) {
-      if (segment.isPlaceholder && segment.type && segment.key) {
-        // Only fill specific types (dates, sources, images)
-        // Leave person/place markers as-is to preserve grammatical inflection
-        if (fillableTypes.includes(segment.type)) {
-          // Find matching segment from original translation
-          const match = originalSegments.find(
-            (orig) => orig.type === segment.type && orig.key === segment.key
-          );
-          if (match) {
-            result.push(match);
-          } else {
-            // Keep placeholder if no match found
-            result.push(segment);
-          }
-        } else {
-          // For person/place markers, keep as-is (grammar is already correct in pre-translation)
-          result.push(segment);
-        }
-      } else {
-        result.push(segment);
-      }
-    }
-
-    return result;
-  }
-
-  async function loadStory(slug: string, language: string, country: CountryCode) {
-    console.log('📖 loadStory called', { slug, language, country });
-    isLoading = true;
-
-    // Clear previous translation to force re-render
-    translatedStory = null;
-    console.log('🧹 Cleared translatedStory');
-
-    try {
-      // Load story in requested language/country
-      const loadedStory = await getStoryBySlugTranslated(slug, language, country);
-      console.log('📥 Loaded story:', loadedStory?.id);
-
-      if (!loadedStory) {
-        console.log('❌ No story found');
-        story = undefined;
-        translatedStory = null;
-        isLoading = false;
-        return;
-      }
-
-      story = loadedStory;
-
-      // Check if story has [[MARKER:...]] format (pre-translated)
-      const hasPreTranslatedMarkers =
-        loadedStory.title?.includes('[[MARKER:') || loadedStory.content?.includes('[[MARKER:');
-      console.log('🔍 Has pre-translated markers:', hasPreTranslatedMarkers);
-
-      if (hasPreTranslatedMarkers) {
-        // Parse pre-translated story, but also load original to fill in remaining {{markers}}
-        const originalStory = getStoryBySlug(slug);
-
-        // Parse with both [[MARKER:...]] and {{marker}} support
-        const parsedTitle = parsePreTranslatedWithParagraphs(loadedStory.title);
-        const parsedSummary = parsePreTranslatedWithParagraphs(loadedStory.summary);
-        const parsedContent = parsePreTranslatedWithParagraphs(loadedStory.content);
-
-        // Fill in {{marker}} placeholders from original story using translator with target language
-        const originalTranslated = originalStory
-          ? translateStory(originalStory, $translationContext, language)
-          : null;
-
-        translatedStory = {
-          id: loadedStory.id,
-          title: fillPlaceholders(parsedTitle, originalTranslated?.title || []),
-          slug: loadedStory.slug,
-          date: loadedStory.date,
-          summary: fillPlaceholders(parsedSummary, originalTranslated?.summary || []),
-          content: fillPlaceholders(parsedContent, originalTranslated?.content || []),
-          tags: loadedStory.tags,
-          hashtags: loadedStory.hashtags,
-          severity: loadedStory.severity,
-          verified: loadedStory.verified,
-          source: loadedStory.source,
-          contentWarning: loadedStory['content-warning'],
-          image: loadedStory.image,
-          meta: loadedStory.meta,
-        };
-        console.log('✅ Set translatedStory (pre-translated)', {
-          id: translatedStory.id,
-          titleLength: translatedStory.title.length,
-        });
-      } else {
-        // Regular translation with {{markers}}
-        translatedStory = translateStory(loadedStory, $translationContext, language);
-        console.log('✅ Set translatedStory (runtime)', {
-          id: translatedStory.id,
-          titleLength: translatedStory.title.length,
-        });
-      }
-    } catch (error) {
-      console.error('Failed to load story:', error);
-      // Fallback to original
-      story = getStoryBySlug(slug);
-      translatedStory = story ? translateStory(story, $translationContext, language) : null;
-      console.log('⚠️ Set translatedStory (fallback)');
-    } finally {
-      isLoading = false;
-      console.log('🏁 loadStory completed');
-    }
-  }
-
-  let initialCountrySet = false;
+  let translatedStory: TranslatedStoryOutput | null = null;
+  let storyKey = 0;
   let showLocationModal = false;
-  let locationConfirmed = false;
+  let ready = false;
 
-  // Preserve country and language parameters in navigation links (only in browser)
-  $: countryParam = browser ? $page.url.searchParams.get('country') : null;
-  $: langParam = browser ? $page.url.searchParams.get('lang') : null;
-  $: queryParams = [
-    countryParam ? `country=${countryParam}` : null,
-    langParam ? `lang=${langParam}` : null,
-  ]
-    .filter(Boolean)
-    .join('&');
-  $: storiesUrl = queryParams ? `/stories?${queryParams}` : '/stories';
-  $: actionUrl = queryParams ? `/take-action?${queryParams}` : '/take-action';
+  // Store current values to detect changes
+  let currentCountry = '';
+  let currentLanguage = '';
+  let currentSlug = '';
+  let currentContext = false;
 
-  // Check if URL has country and language parameters
+  // Build query params for navigation
+  $: queryParams = `country=${$selectedCountry}&lang=${$selectedLanguage}`;
+  $: storiesUrl = `/stories?${queryParams}`;
+  $: actionUrl = `/take-action?${queryParams}`;
+
+  // Function to translate story
+  function doTranslation() {
+    if (!ready || !slug) return;
+
+    console.log('🔄 Translating story:', { slug, country: $selectedCountry, lang: $selectedLanguage });
+    try {
+      translatedStory = translateStory({
+        storySlug: slug,
+        country: $selectedCountry,
+        language: $selectedLanguage,
+        contextualizationEnabled: $contextualizationEnabled,
+      });
+      storyKey++;
+
+      // Update tracked values
+      currentCountry = $selectedCountry;
+      currentLanguage = $selectedLanguage;
+      currentSlug = slug;
+      currentContext = $contextualizationEnabled;
+
+      console.log('✅ Translation complete');
+    } catch (error) {
+      console.error('❌ Translation failed:', error);
+      translatedStory = null;
+    }
+  }
+
+  // Watch for changes and re-translate
+  $: if (ready && (
+    slug !== currentSlug ||
+    $selectedCountry !== currentCountry ||
+    $selectedLanguage !== currentLanguage ||
+    $contextualizationEnabled !== currentContext
+  )) {
+    doTranslation();
+  }
+
   onMount(() => {
     if (!browser) return;
 
-    const urlCountry = $page.url.searchParams.get('country');
+    // Read URL params
+    const urlCountry = $page.url.searchParams.get('country') as CountryCode | null;
     const urlLang = $page.url.searchParams.get('lang');
+    const urlTheme = $page.url.searchParams.get('theme');
 
-    if (urlCountry) {
-      // URL has country parameter - skip modal, use that country and language
-      locationConfirmed = true;
-      handleUrlSync();
-    } else {
-      // No country in URL - show location modal
+    // Set stores from URL if present
+    if (urlCountry) selectedCountry.set(urlCountry);
+    if (urlLang) selectedLanguage.set(urlLang);
+    if (urlTheme) theme.set(urlTheme as 'light' | 'dark');
+
+    // Show modal only if no country in URL
+    if (!urlCountry) {
       showLocationModal = true;
-      locationConfirmed = false;
+    } else {
+      ready = true;
+      // Ensure URL has all parameters
+      setTimeout(() => {
+        const country = urlCountry;
+        const lang = urlLang || 'en';
+        const themeValue = (urlTheme as 'light' | 'dark') || 'dark';
+        updateUrl(country, lang, themeValue);
+      }, 100);
     }
+
+    // Subscribe to store changes and update URL (after initial load)
+    let isInitialLoad = true;
+    let currentCountry: CountryCode;
+    let currentLang: string;
+    let currentTheme: string;
+
+    const unsubscribeCountry = selectedCountry.subscribe((value) => {
+      currentCountry = value;
+      if (!isInitialLoad && ready) updateUrl(currentCountry, currentLang, currentTheme);
+    });
+    const unsubscribeLang = selectedLanguage.subscribe((value) => {
+      currentLang = value;
+      if (!isInitialLoad && ready) updateUrl(currentCountry, currentLang, currentTheme);
+    });
+    const unsubscribeTheme = theme.subscribe((value) => {
+      currentTheme = value;
+      if (!isInitialLoad && ready) updateUrl(currentCountry, currentLang, currentTheme);
+    });
+
+    // Mark initial load complete
+    setTimeout(() => { isInitialLoad = false; }, 100);
+
+    // Cleanup subscriptions
+    return () => {
+      unsubscribeCountry();
+      unsubscribeLang();
+      unsubscribeTheme();
+    };
   });
 
-  async function handleLocationConfirmed() {
+  function updateUrl(country: CountryCode, lang: string, themeValue: string) {
+    if (!browser || !country || !lang || !themeValue) return;
+    const url = new URL(window.location.href);
+    url.searchParams.set('country', country);
+    url.searchParams.set('lang', lang);
+    url.searchParams.set('theme', themeValue);
+    window.history.replaceState({}, '', url.toString());
+  }
+
+  function handleLocationConfirmed() {
     showLocationModal = false;
-    handleUrlSync();
-
-    // Now set confirmed, which will trigger story loading with correct language
-    locationConfirmed = true;
-  }
-
-  function handleUrlSync() {
-    const urlCountry = $page.url.searchParams.get('country') as CountryCode | null;
-    const urlLang = $page.url.searchParams.get('lang') as string | null;
-    const urlTheme = $page.url.searchParams.get('theme') as string | null;
-
-    if (urlCountry && urlCountry !== $selectedCountry) {
-      // Valid country code in URL, update store
-      selectedCountry.set(urlCountry);
-      initialCountrySet = true;
-    } else if (!urlCountry) {
-      // No country in URL, add current selection to URL
+    ready = true;
+    // Update URL with selected settings
+    setTimeout(() => {
       updateUrl($selectedCountry, $selectedLanguage, $theme);
-      initialCountrySet = true;
-    } else {
-      initialCountrySet = true;
-    }
-
-    if (urlLang && urlLang !== $selectedLanguage) {
-      // Language in URL, update store
-      selectedLanguage.set(urlLang);
-    } else if (!urlLang) {
-      // No language in URL, default to first additional language or 'en'
-      const currentCountry = urlCountry || $selectedCountry;
-      const countryLangs = countryLanguages.countries[currentCountry]?.languages || [];
-      const additionalLangs = countryLangs.filter((lang) => lang !== 'en');
-      const defaultLang = additionalLangs.length > 0 ? additionalLangs[0] : 'en';
-      selectedLanguage.set(defaultLang);
-      updateUrl($selectedCountry, defaultLang, $theme);
-    }
-
-    if (urlTheme && urlTheme !== $theme) {
-      // Theme in URL, update store
-      theme.set(urlTheme as 'light' | 'dark');
-    } else if (!urlTheme) {
-      // No theme in URL, add current theme to URL
-      updateUrl($selectedCountry, $selectedLanguage, $theme);
-    }
-  }
-
-  // Sync URL when country, language, or theme changes (browser only, after location confirmed)
-  $: if (
-    browser &&
-    initialCountrySet &&
-    locationConfirmed &&
-    $selectedCountry &&
-    $selectedLanguage &&
-    $theme
-  ) {
-    updateUrl($selectedCountry, $selectedLanguage, $theme);
-  }
-
-  function updateUrl(country: CountryCode, language: string, themeValue: string) {
-    if (!browser || !$page.url) return;
-
-    const newUrl = new URL($page.url);
-    const currentCountry = newUrl.searchParams.get('country');
-    const currentLang = newUrl.searchParams.get('lang');
-    const currentTheme = newUrl.searchParams.get('theme');
-
-    // Only update if different to avoid infinite loops
-    if (currentCountry !== country || currentLang !== language || currentTheme !== themeValue) {
-      newUrl.searchParams.set('country', country);
-      newUrl.searchParams.set('lang', language);
-      newUrl.searchParams.set('theme', themeValue);
-      goto(newUrl.toString(), { replaceState: true, noScroll: true, keepFocus: true });
-    }
+    }, 100);
   }
 </script>
 
@@ -286,8 +168,10 @@
 {/if}
 
 <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-  {#if locationConfirmed && translatedStory}
-    <StoryDetail story={translatedStory} />
+  {#if ready && translatedStory}
+    {#key storyKey}
+      <StoryDetailPipeline story={translatedStory} />
+    {/key}
 
     <!-- Context Sections -->
     <div class="mt-16 pt-12 border-t border-stone-200 space-y-8">
@@ -350,7 +234,7 @@
       <Button href={storiesUrl} variant="ghost">← Back to Stories</Button>
       <Button href={actionUrl} variant="primary">Take Action →</Button>
     </div>
-  {:else if locationConfirmed}
+  {:else if ready}
     <div class="text-center py-12">
       <h1 class="text-3xl font-bold text-stone-900 mb-4">Story Not Found</h1>
       <p class="text-stone-600 mb-8">The story you're looking for doesn't exist.</p>

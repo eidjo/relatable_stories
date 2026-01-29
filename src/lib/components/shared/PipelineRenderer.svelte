@@ -18,10 +18,15 @@
     hoveredIndex = null;
   }
 
-  // Track segments that need animation (have original text)
-  let animationSequence = 0;
-  $: {
-    animationSequence = 0;
+  // Calculate animation sequence indices (non-reactive)
+  function getAnimationSequenceIndex(segmentIndex: number): number {
+    let count = 0;
+    for (let i = 0; i < segmentIndex; i++) {
+      if (segments[i].original && animate) {
+        count++;
+      }
+    }
+    return animationStartIndex + count;
   }
 </script>
 
@@ -75,12 +80,11 @@
     </span>
   {:else if segment.original && animate}
     <!-- Animated translation (strikethrough → typed text) -->
-    {@const currentSequence = animationSequence++}
     <AnimatedTranslation
       original={segment.original}
       translated={segment.text}
       explanation={segment.tooltip}
-      sequenceIndex={animationStartIndex + currentSequence}
+      sequenceIndex={getAnimationSequenceIndex(i)}
     />
   {:else if segment.original}
     <!-- Static translated text with tooltip -->
