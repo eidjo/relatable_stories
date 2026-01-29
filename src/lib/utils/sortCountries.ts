@@ -4,7 +4,7 @@ import type { CountryCode } from '$lib/types';
 /**
  * Sort countries for display in dropdowns
  * - Auto-detected country first
- * - "Original (Iran)" second
+ * - Iran second
  * - All others alphabetically
  */
 export function sortCountriesForDisplay(

@@ -129,7 +129,7 @@ describe('Story Translation Validation', () => {
         ...translated.title,
         ...translated.summary,
         ...translated.content,
-      ].some((seg) => seg.type !== 'text');
+      ].some((seg) => seg.type !== null);
 
       expect(hasTranslatedSegments).toBe(true);
     }
@@ -147,7 +147,7 @@ describe('Story Translation Validation', () => {
       const translated = translateStory(story, usContext);
 
       [...translated.title, ...translated.summary, ...translated.content].forEach((segment) => {
-        if (segment.type !== 'text' && segment.type !== 'paragraph-break' && segment.type !== 'source') {
+        if (segment.type !== null && segment.type !== 'paragraph-break' && segment.type !== 'source') {
           // Translated segments should have original value (except sources which are added, not translated)
           expect(segment.original).toBeDefined();
         }

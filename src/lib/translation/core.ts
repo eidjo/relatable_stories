@@ -11,6 +11,9 @@ import type {
   CurrencyMarker,
   OccupationMarker,
   SubjectMarker,
+  DateMarker,
+  TimeMarker,
+  EventMarker,
 } from '$lib/types';
 
 /**
@@ -45,7 +48,7 @@ export interface TranslationData {
     female: string[];
     neutral: string[];
   };
-  places: Record<string, string[]>;
+  places: Partial<Record<string, string[]>>;
   population: number;
   currencySymbol: string;
   rialToLocal: number;
@@ -195,7 +198,9 @@ export function translateMarker(
     case 'date':
     case 'time':
     case 'event': {
-      const value = marker.translation || marker.value;
+      // Type narrow to DateMarker | TimeMarker | EventMarker
+      const dateTimeEventMarker = marker as DateMarker | TimeMarker | EventMarker;
+      const value = dateTimeEventMarker.translation || dateTimeEventMarker.value;
       return {
         translated: value as string,
         original: null, // Don't show strikethrough for dates/events
@@ -241,6 +246,14 @@ export function translateMarker(
 
     case 'image': {
       // Images are handled specially in the UI
+      return {
+        translated: '',
+        original: null,
+      };
+    }
+
+    case 'paragraph-break': {
+      // Paragraph breaks are handled specially in the UI
       return {
         translated: '',
         original: null,

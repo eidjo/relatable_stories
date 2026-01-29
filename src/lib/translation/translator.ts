@@ -42,7 +42,7 @@ function translateMarkerForUI(
     case 'date': {
       try {
         // For Iran, keep the original date format
-        if (context.country.code === 'IR') {
+        if (context.country === 'IR') {
           return marker.value as string;
         }
         return formatDateLocalized(marker.value as string, languageCode);
