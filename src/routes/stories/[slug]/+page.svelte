@@ -255,15 +255,16 @@
     <meta property="og:description" content={storySummary} />
     <meta property="og:image" content={shareImageUrl} />
     <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
+    <meta property="og:image:height" content="675" />
     <meta property="og:image:alt" content={storyTitle} />
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content={storyUrl} />
-    <meta property="twitter:title" content={`${storyTitle} - Relatable Stories`} />
-    <meta property="twitter:description" content={storySummary} />
-    <meta property="twitter:image" content={shareImageUrl} />
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={storyUrl} />
+    <meta name="twitter:title" content={`${storyTitle} - Relatable Stories`} />
+    <meta name="twitter:description" content={storySummary} />
+    <meta name="twitter:image" content={shareImageUrl} />
+    <meta name="twitter:image:alt" content={storyTitle} />
   {/if}
 </svelte:head>
 

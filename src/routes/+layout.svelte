@@ -50,15 +50,16 @@
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="Relatable Stories - Stories from Iran" />
 
-  <!-- Twitter -->
-  <meta property="twitter:card" content="summary_large_image" />
-  <meta property="twitter:url" content="https://eidjo.github.io{base}/" />
-  <meta property="twitter:title" content="Relatable Stories - Iran Uprising Stories in Your Context" />
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://eidjo.github.io{base}/" />
+  <meta name="twitter:title" content="Relatable Stories - Iran Uprising Stories in Your Context" />
   <meta
-    property="twitter:description"
+    name="twitter:description"
     content="Real stories from Iran's 2022 fight for freedom, translated into your local context. Names, places, and numbers adapt to help you understand and empathize."
   />
-  <meta property="twitter:image" content="https://eidjo.github.io{base}/raha-protest-2026.jpg" />
+  <meta name="twitter:image" content="https://eidjo.github.io{base}/raha-protest-2026.jpg" />
+  <meta name="twitter:image:alt" content="Relatable Stories - Stories from Iran" />
 
   <!-- Additional Meta Tags -->
   <meta name="theme-color" content="#0a0a0a" />
