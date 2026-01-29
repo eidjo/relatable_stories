@@ -1,0 +1,162 @@
+US:
+  female:
+    [
+      'Emma',
+      'Olivia',
+      'Ava',
+      'Sophia',
+      'Isabella',
+      'Charlotte',
+      'Amelia',
+      'Mia',
+      'Harper',
+      'Evelyn',
+    ]
+  male:
+    [
+      'Liam',
+      'Noah',
+      'Oliver',
+      'James',
+      'Elijah',
+      'William',
+      'Henry',
+      'Lucas',
+      'Benjamin',
+      'Theodore',
+    ]
+  neutral:
+    ['Alex', 'Jordan', 'Casey', 'Riley', 'Taylor', 'Morgan', 'Avery', 'Quinn', 'Sage', 'River']
+
+UK:
+  female: ['Olivia', 'Amelia', 'Isla', 'Ava', 'Emily', 'Freya', 'Lily', 'Ella', 'Mia', 'Grace']
+  male: ['Oliver', 'George', 'Harry', 'Noah', 'Jack', 'Leo', 'Oscar', 'Charlie', 'Henry', 'Theo']
+  neutral: ['Alex', 'Sam', 'Jamie', 'Riley', 'Finley', 'Rowan', 'Quinn', 'Blake', 'Morgan', 'Reese']
+
+CA:
+  female:
+    ['Olivia', 'Emma', 'Charlotte', 'Amelia', 'Sophia', 'Ava', 'Chloe', 'Mia', 'Lily', 'Emily']
+  male: ['Noah', 'Liam', 'Jack', 'Oliver', 'Lucas', 'Leo', 'William', 'Benjamin', 'Ethan', 'James']
+  neutral:
+    ['Alex', 'Jordan', 'Charlie', 'Riley', 'Sage', 'Avery', 'Quinn', 'River', 'Cameron', 'Blake']
+
+AU:
+  female:
+    ['Charlotte', 'Olivia', 'Amelia', 'Isla', 'Mia', 'Ava', 'Grace', 'Willow', 'Ella', 'Harper']
+  male:
+    ['Oliver', 'Noah', 'Jack', 'William', 'Leo', 'Henry', 'Charlie', 'Lucas', 'Theodore', 'Hudson']
+  neutral:
+    ['Alex', 'Charlie', 'Riley', 'Quinn', 'Jordan', 'Bailey', 'Sage', 'Harper', 'River', 'Cameron']
+
+DE:
+  female: ['Emma', 'Hannah', 'Mia', 'Sophia', 'Emilia', 'Lina', 'Mila', 'Lea', 'Marie', 'Lena']
+  male: ['Noah', 'Ben', 'Leon', 'Finn', 'Paul', 'Elias', 'Jonas', 'Louis', 'Felix', 'Henry']
+  neutral: ['Alex', 'Kim', 'Robin', 'Sam', 'Charlie', 'Noa', 'Finn', 'Lou', 'Mika', 'Jona']
+
+FR:
+  female: ['Emma', 'Jade', 'Louise', 'Alice', 'Chloé', 'Lina', 'Mila', 'Léa', 'Manon', 'Rose']
+  male: ['Gabriel', 'Raphaël', 'Léo', 'Louis', 'Lucas', 'Adam', 'Arthur', 'Hugo', 'Jules', 'Maël']
+  neutral:
+    ['Alex', 'Charlie', 'Sacha', 'Lou', 'Camille', 'Dominique', 'Morgan', 'Eden', 'Jules', 'Noa']
+
+ES:
+  female:
+    ['Lucía', 'María', 'Martina', 'Sofía', 'Julia', 'Paula', 'Emma', 'Valeria', 'Daniela', 'Alba']
+  male:
+    ['Hugo', 'Martín', 'Lucas', 'Mateo', 'Leo', 'Daniel', 'Alejandro', 'Pablo', 'Manuel', 'Álvaro']
+  neutral: ['Alex', 'Ariel', 'Andrea', 'Pau', 'Izan', 'Dylan', 'Aimar', 'Unai', 'Eden', 'Nil']
+
+IT:
+  female:
+    [
+      'Sofia',
+      'Giulia',
+      'Aurora',
+      'Alice',
+      'Ginevra',
+      'Emma',
+      'Giorgia',
+      'Greta',
+      'Beatrice',
+      'Anna',
+    ]
+  male:
+    [
+      'Leonardo',
+      'Francesco',
+      'Alessandro',
+      'Lorenzo',
+      'Mattia',
+      'Andrea',
+      'Gabriele',
+      'Riccardo',
+      'Tommaso',
+      'Edoardo',
+    ]
+  neutral:
+    ['Andrea', 'Alex', 'Sasha', 'Gioele', 'Elia', 'Nicola', 'Luca', 'Daniele', 'Simone', 'Michele']
+
+NL:
+  female: ['Emma', 'Julia', 'Sophie', 'Mila', 'Tess', 'Zoey', 'Sara', 'Eva', 'Nora', 'Lynn']
+  male: ['Noah', 'Lucas', 'Sem', 'Liam', 'Finn', 'Daan', 'Levi', 'Mees', 'Sam', 'Bram']
+  neutral: ['Alex', 'Sam', 'Robin', 'Jesse', 'Charlie', 'Finn', 'Quinn', 'Riley', 'Sasha', 'Lynn']
+
+SE:
+  female: ['Alice', 'Maja', 'Elsa', 'Ella', 'Wilma', 'Alma', 'Olivia', 'Linnea', 'Ebba', 'Stella']
+  male: ['Noah', 'William', 'Liam', 'Lucas', 'Oliver', 'Oscar', 'Hugo', 'Elias', 'Adam', 'Matteo']
+  neutral: ['Alex', 'Charlie', 'Sam', 'Robin', 'Kim', 'Love', 'Mio', 'Elliot', 'Nova', 'Lio']
+
+BE:
+  female:
+    ['Emma', 'Louise', 'Mila', 'Alice', 'Olivia', 'Lina', 'Nora', 'Ella', 'Juliette', 'Camille']
+  male: ['Arthur', 'Louis', 'Noah', 'Gabriel', 'Lucas', 'Adam', 'Jules', 'Léon', 'Victor', 'Oscar']
+  neutral:
+    ['Alex', 'Charlie', 'Lou', 'Noa', 'Sacha', 'Robin', 'Camille', 'Maxime', 'Eden', 'Morgan']
+
+CZ:
+  female:
+    [
+      'Anna',
+      'Tereza',
+      'Eliška',
+      'Natálie',
+      'Sofie',
+      'Adéla',
+      'Karolína',
+      'Viktorie',
+      'Barbora',
+      'Ema',
+    ]
+  male: ['Jan', 'Tomáš', 'Jakub', 'Matěj', 'Adam', 'Filip', 'Lukáš', 'David', 'Martin', 'Petr']
+  neutral:
+    ['Alex', 'Niki', 'Saša', 'Andrea', 'Robin', 'Charlie', 'Sam', 'René', 'Dominik', 'Nikola']
+
+BR:
+  female:
+    [
+      'Alice',
+      'Helena',
+      'Laura',
+      'Maria',
+      'Sophia',
+      'Valentina',
+      'Heloísa',
+      'Isabella',
+      'Manuela',
+      'Júlia',
+    ]
+  male:
+    [
+      'Miguel',
+      'Arthur',
+      'Heitor',
+      'Bernardo',
+      'Théo',
+      'Davi',
+      'Gabriel',
+      'Pedro',
+      'Samuel',
+      'Lucas',
+    ]
+  neutral:
+    ['Alex', 'Ariel', 'Morgan', 'Luan', 'René', 'Dominique', 'Angel', 'Yuri', 'Sidney', 'Darcy']

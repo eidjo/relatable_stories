@@ -1,0 +1,176 @@
+# Country-Specific Call-to-Action Items
+# These actions are shown based on the user's selected country
+# Add actions for each country code (US, UK, CA, etc.)
+#
+# Each country has an array of actions with:
+# - id: unique identifier
+# - title: Action headline
+# - description: What this action accomplishes
+# - type: political, legal, advocacy, local
+# - links: Array of related links
+
+# United States
+US:
+  - id: 'contact-congress'
+    title: 'Contact Your Representatives'
+    description: 'Urge Congress to support Iranian protesters and impose targeted sanctions on officials responsible for human rights abuses.'
+    type: 'political'
+    links:
+      - title: 'Find Your Representative'
+        url: 'https://www.house.gov/representatives/find-your-representative'
+      - title: 'Find Your Senators'
+        url: 'https://www.senate.gov/senators/senators-contact.htm'
+
+  - id: 'support-magnitsky'
+    title: 'Support Global Magnitsky Sanctions'
+    description: 'Contact officials to support sanctions under the Global Magnitsky Act targeting Iranian officials involved in repression.'
+    type: 'advocacy'
+    links:
+      - title: 'Global Magnitsky Act Information'
+        url: 'https://www.state.gov/global-magnitsky-act/'
+
+# United Kingdom
+UK:
+  - id: 'contact-mp'
+    title: 'Contact Your MP'
+    description: 'Ask your Member of Parliament to raise Iran in Parliament and support sanctions against regime officials.'
+    type: 'political'
+    links:
+      - title: 'Find Your MP'
+        url: 'https://www.parliament.uk/get-involved/contact-an-mp-or-lord/contact-your-mp/'
+      - title: 'Write to Your MP (Template)'
+        url: 'https://www.writetothem.com/'
+
+  - id: 'support-uk-sanctions'
+    title: 'Support UK Sanctions Regime'
+    description: 'Advocate for expanding UK sanctions targeting Iranian officials responsible for human rights violations.'
+    type: 'advocacy'
+    links:
+      - title: 'UK Sanctions on Iran'
+        url: 'https://www.gov.uk/government/collections/uk-sanctions-on-iran'
+
+# Canada
+CA:
+  - id: 'contact-mp-canada'
+    title: 'Contact Your MP'
+    description: 'Ask your Member of Parliament to support Iranian protesters and advocate for stronger sanctions.'
+    type: 'political'
+    links:
+      - title: 'Find Your MP'
+        url: 'https://www.ourcommons.ca/members/en'
+
+  - id: 'support-irgc-listing'
+    title: 'Support Listing IRGC as Terrorist Entity'
+    description: "Contact officials to support listing Iran's Revolutionary Guard Corps as a terrorist organization."
+    type: 'advocacy'
+    links:
+      - title: 'Contact the Prime Minister'
+        url: 'https://www.pm.gc.ca/en/connect/contact'
+
+# Australia
+AU:
+  - id: 'contact-mp-australia'
+    title: 'Contact Your MP'
+    description: "Urge your Member of Parliament to raise Iran's human rights record and support targeted sanctions."
+    type: 'political'
+    links:
+      - title: 'Find Your MP'
+        url: 'https://www.aph.gov.au/Senators_and_Members'
+
+# Germany
+DE:
+  - id: 'contact-bundestag'
+    title: 'Contact Your Bundestag Representative'
+    description: "Ask your representative to support EU sanctions and raise awareness about Iran's human rights violations."
+    type: 'political'
+    links:
+      - title: 'Find Your Representative'
+        url: 'https://www.bundestag.de/en/members'
+
+  - id: 'support-eu-sanctions'
+    title: 'Support EU Sanctions'
+    description: 'Advocate for stronger EU sanctions targeting Iranian officials responsible for repression.'
+    type: 'advocacy'
+    links:
+      - title: 'EU Sanctions on Iran'
+        url: 'https://www.consilium.europa.eu/en/policies/sanctions/iran/'
+
+# France
+FR:
+  - id: 'contact-depute'
+    title: 'Contact Your Député'
+    description: "Demandez à votre député de soutenir les manifestants iraniens et de renforcer les sanctions de l'UE."
+    type: 'political'
+    links:
+      - title: 'Find Your Député'
+        url: 'https://www.assemblee-nationale.fr/dyn/vos-deputes'
+
+# Spain
+ES:
+  - id: 'contact-congreso'
+    title: 'Contact Your Representative'
+    description: 'Pide a tu representante que apoye las sanciones de la UE contra funcionarios iraníes responsables de violaciones de derechos humanos.'
+    type: 'political'
+    links:
+      - title: 'Congress of Deputies'
+        url: 'https://www.congreso.es/'
+
+# Italy
+IT:
+  - id: 'contact-parlamento'
+    title: 'Contact Your Representative'
+    description: 'Chiedi al tuo rappresentante di sostenere le sanzioni UE contro i funzionari iraniani responsabili di violazioni dei diritti umani.'
+    type: 'political'
+    links:
+      - title: 'Chamber of Deputies'
+        url: 'https://www.camera.it/'
+
+# Netherlands
+NL:
+  - id: 'contact-tweede-kamer'
+    title: 'Contact Your Representative'
+    description: 'Vraag je Tweede Kamerlid om EU-sancties tegen Iraanse functionarissen verantwoordelijk voor mensenrechtenschendingen te steunen.'
+    type: 'political'
+    links:
+      - title: 'Tweede Kamer'
+        url: 'https://www.tweedekamer.nl/'
+
+# Sweden
+SE:
+  - id: 'contact-riksdag'
+    title: 'Contact Your Representative'
+    description: 'Be din riksdagsledamot att stödja EU-sanktioner mot iranska tjänstemän ansvariga för kränkningar av mänskliga rättigheter.'
+    type: 'political'
+    links:
+      - title: 'Riksdag Members'
+        url: 'https://www.riksdagen.se/en/members-and-parties/'
+
+# Belgium
+BE:
+  - id: 'contact-parlement'
+    title: 'Contact Your Representative'
+    description: "Demandez à votre représentant de soutenir les sanctions de l'UE contre les responsables iraniens impliqués dans des violations des droits humains."
+    type: 'political'
+    links:
+      - title: 'Belgian Federal Parliament'
+        url: 'https://www.dekamer.be/kvvcr/index.cfm?language=en'
+
+# Czech Republic
+CZ:
+  - id: 'contact-poslanecka'
+    title: 'Contact Your Representative'
+    description: 'Požádejte svého poslance, aby podpořil sankce EU proti íránským úředníkům odpovědným za porušování lidských práv.'
+    type: 'political'
+    links:
+      - title: 'Chamber of Deputies'
+        url: 'https://www.psp.cz/sqw/hp.sqw?k=82'
+
+# Brazil
+BR:
+  - id: 'raise-awareness'
+    title: 'Raise Awareness'
+    description: "Share information about Iran's human rights situation with Brazilian media and civil society organizations."
+    type: 'advocacy'
+    links:
+      - title: 'Anistia Internacional Brasil'
+        url: 'https://anistia.org.br/'

@@ -1,0 +1,70 @@
+# Global Call-to-Action Items
+# These actions are shown to all visitors regardless of country
+#
+# Each action has:
+# - id: unique identifier (lowercase-with-dashes)
+# - title: Action headline
+# - description: What this action accomplishes
+# - type: social, education, donate, advocacy
+# - links: Array of related links with title and url
+
+actions:
+  - id: 'share-stories'
+    title: 'Share These Stories'
+    description: 'Help amplify Iranian voices by sharing these stories with your network. Every share helps break through the silence.'
+    type: 'social'
+    links:
+      - title: 'Share on Twitter'
+        url: 'https://twitter.com/intent/tweet?text=Read%20stories%20from%20Iran%27s%20uprisings%2C%20translated%20into%20your%20local%20context%20to%20build%20empathy%20and%20understanding.&url=https://relatable-stories.example.com'
+      - title: 'Share on Facebook'
+        url: 'https://www.facebook.com/sharer/sharer.php?u=https://relatable-stories.example.com'
+      - title: 'Share via Email'
+        url: 'mailto:?subject=Stories%20from%20Iran%27s%20Uprisings&body=I%20found%20these%20powerful%20stories%20from%20Iran%27s%20uprisings%3A%20https://relatable-stories.example.com'
+
+  - id: 'learn-more'
+    title: 'Learn More About Iran'
+    description: 'Educate yourself about the ongoing struggle for freedom in Iran through reports from human rights organizations.'
+    type: 'education'
+    links:
+      - title: 'Amnesty International Iran Reports'
+        url: 'https://www.amnesty.org/en/location/middle-east-and-north-africa/iran/'
+      - title: 'Human Rights Watch Iran Coverage'
+        url: 'https://www.hrw.org/middle-east/north-africa/iran'
+      - title: 'Iran Human Rights Documentation'
+        url: 'https://iranhr.net/en/'
+      - title: 'Center for Human Rights in Iran'
+        url: 'https://www.iranhumanrights.org/'
+
+  - id: 'support-organizations'
+    title: 'Support Human Rights Organizations'
+    description: 'Donate to organizations documenting abuses and supporting Iranian activists and their families.'
+    type: 'donate'
+    links:
+      - title: 'Iran Human Rights'
+        url: 'https://iranhr.net/en/donate/'
+      - title: 'Center for Human Rights in Iran'
+        url: 'https://www.iranhumanrights.org/donate/'
+      - title: 'Amnesty International'
+        url: 'https://www.amnesty.org/en/donate/'
+
+  - id: 'follow-news'
+    title: 'Follow Independent Iranian News'
+    description: 'Stay informed through independent Iranian journalists and news outlets reporting the truth.'
+    type: 'education'
+    links:
+      - title: 'Iran International'
+        url: 'https://www.iranintl.com/en'
+      - title: 'IranWire'
+        url: 'https://iranwire.com/en/'
+      - title: 'Radio Farda'
+        url: 'https://www.radiofarda.com/a/iran-home/iran.html'
+
+  - id: 'document-names'
+    title: 'Remember Their Names'
+    description: 'Visit memorials and databases documenting those killed, detained, or disappeared. Their names must not be forgotten.'
+    type: 'education'
+    links:
+      - title: '1500tasvir - Victims Archive'
+        url: 'https://1500tasvir.com/'
+      - title: 'United4Iran Political Prisoners Database'
+        url: 'https://www.united4iran.org/en/prisoners-database'
