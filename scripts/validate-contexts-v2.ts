@@ -11,9 +11,9 @@
 import { readFile, readdir } from 'fs/promises';
 import { join } from 'path';
 import { load } from 'js-yaml';
-import type { PlacesDataV2, CityData, ComparableEvent } from '../src/lib/translation/core-v2';
+import type { PlacesDataV2, ComparableEvent } from '../src/lib/translation/core-v2';
 import type { Story } from '../src/lib/types';
-import { getMarkerType, isPlaceMarker } from '../src/lib/types/markers-v2';
+import { isPlaceMarker } from '../src/lib/types/markers-v2';
 
 interface ValidationError {
   file: string;
@@ -59,38 +59,31 @@ async function validatePlaces() {
           addError('places-v2.yaml', `${countryCode}/${city.name}: Invalid 'population'`, 'warning');
         }
 
-        // Check for protest locations (critical for stories)
-        const protestLocations = city.landmarks?.protest || [];
-        if (protestLocations.length === 0) {
-          addError(
-            'places-v2.yaml',
-            `${countryCode}/${city.name}: No protest locations - stories won't work`,
-            'error'
-          );
-        }
-
-        // Check for at least one university
-        if (!city.universities || city.universities.length === 0) {
-          addError('places-v2.yaml', `${countryCode}/${city.name}: No universities defined`, 'warning');
-        }
-
-        // Check for government facilities
-        if (!city['government-facilities'] || city['government-facilities'].length === 0) {
-          addError(
-            'places-v2.yaml',
-            `${countryCode}/${city.name}: No government facilities defined`,
-            'warning'
-          );
-        }
+        // Individual city validation removed - we now validate at country level
+        // to ensure at least ONE city has each required facility type
       }
 
-      // Check generic fallbacks exist
-      if (!countryPlaces.generic) {
-        addError('places-v2.yaml', `${countryCode}: Missing 'generic' fallbacks`, 'warning');
-      } else {
-        if (!countryPlaces.generic.landmarks?.protest || countryPlaces.generic.landmarks.protest.length === 0) {
-          addError('places-v2.yaml', `${countryCode}: No generic protest locations`, 'warning');
-        }
+      // Ensure at least one city has each required landmark/facility type
+      const hasProtestLandmark = countryPlaces.cities.some(
+        (c) => c.landmarks?.protest && c.landmarks.protest.length > 0
+      );
+      const hasUniversities = countryPlaces.cities.some((c) => c.universities && c.universities.length > 0);
+      const hasGovFacilities = countryPlaces.cities.some(
+        (c) => c['government-facilities'] && c['government-facilities'].length > 0
+      );
+      const hasCapital = countryPlaces.cities.some((c) => c.capital);
+
+      if (!hasProtestLandmark) {
+        addError('places-v2.yaml', `${countryCode}: No city has protest landmarks`, 'error');
+      }
+      if (!hasUniversities) {
+        addError('places-v2.yaml', `${countryCode}: No city has universities`, 'error');
+      }
+      if (!hasGovFacilities) {
+        addError('places-v2.yaml', `${countryCode}: No city has government facilities`, 'error');
+      }
+      if (!hasCapital) {
+        addError('places-v2.yaml', `${countryCode}: No capital city marked`, 'error');
       }
     }
 

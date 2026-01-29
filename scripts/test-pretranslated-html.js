@@ -7,7 +7,7 @@ import { promises as fs } from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import yaml from 'js-yaml';
-import { translateMarker, getOriginalValue } from '../src/lib/translation/core.ts';
+import { translateMarker } from '../src/lib/translation/core.ts';
 import { format } from 'date-fns';
 import { cs, nl } from 'date-fns/locale';
 
@@ -22,7 +22,7 @@ function formatDateLocalized(dateString, languageCode = 'en') {
     const date = new Date(dateString);
     const locale = localeMap[languageCode];
     return locale ? format(date, 'PPP', { locale }) : dateString;
-  } catch (error) {
+  } catch (_error) {
     return dateString;
   }
 }
@@ -56,7 +56,7 @@ function parsePreTranslated(text, markers, storyId, languageCode = 'en') {
   let sourceCounter = 1;
 
   paragraphs.forEach((paragraph, pIdx) => {
-    const combinedRegex = /(\[\[MARKER:([^:]+):([^:]+):([^\|]+)\|([^\]]+)\]\])|(\{\{([^:}]+):([^}]+)\}\})/g;
+    const combinedRegex = /(\[\[MARKER:([^:]+):([^:]+):([^|]+)\|([^\]]+)\]\])|(\{\{([^:}]+):([^}]+)\}\})/g;
     let lastIndex = 0;
     let match;
 
@@ -69,7 +69,7 @@ function parsePreTranslated(text, markers, storyId, languageCode = 'en') {
       }
 
       if (match[1]) {
-        const [, , type, key, original, translatedValue] = match;
+        const [, , _type, _key, original, translatedValue] = match;
         allSegments.push({
           type: 'translated',
           text: translatedValue,

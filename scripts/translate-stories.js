@@ -459,7 +459,7 @@ function substituteMarkers(text, markers, context, resolvedMarkers, storyId) {
     // For scaled numbers, add scaling explanation
     if (isNumberMarker(marker) && marker.scaled) {
       const iranPop = 85000000;
-      const ratio = population / iranPop;
+      const _ratio = population / iranPop;
       const scaleFactor = marker.scaleFactor || 1.0;
       explanation = `Scaled from Iran (${marker.number.toLocaleString()}) to ${countryCode} by population ratio: ${marker.number.toLocaleString()} × (${(population / 1000000).toFixed(1)}M / ${(iranPop / 1000000).toFixed(1)}M)${scaleFactor !== 1.0 ? ` × ${scaleFactor}` : ''} = ${value}`;
     }

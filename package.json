@@ -5,15 +5,20 @@
   "type": "module",
   "scripts": {
     "dev": "vite dev",
-    "build": "npm run generate-share-images && vite build",
+    "build": "npm run validate && npm run generate-share-images && vite build",
     "preview": "vite preview",
     "test": "vitest run",
     "test:watch": "vitest",
     "prepare": "svelte-kit sync || echo ''",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write \"src/**/*.{ts,js,svelte,json,yaml,yml,md}\"",
+    "format:check": "prettier --check \"src/**/*.{ts,js,svelte,json,yaml,yml,md}\"",
     "generate-share-images": "vite-node scripts/generate-share-images-improved.js",
-    "translate": "vite-node scripts/translate-stories.js"
+    "translate": "vite-node scripts/translate-stories.js",
+    "validate": "vite-node scripts/validate-contexts-v2.ts"
   },
   "devDependencies": {
     "@anthropic-ai/sdk": "^0.32.1",

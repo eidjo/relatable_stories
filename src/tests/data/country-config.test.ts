@@ -215,15 +215,6 @@ describe('Country Configuration Validation', () => {
   });
 
   describe('places.yaml', () => {
-    const requiredPlaceCategories = [
-      'city-small',
-      'city-medium',
-      'city-large',
-      'landmark-protest',
-      'government-facility',
-      'university',
-    ];
-
     it('should have place mappings for all countries', () => {
       const missingCountries: string[] = [];
 
