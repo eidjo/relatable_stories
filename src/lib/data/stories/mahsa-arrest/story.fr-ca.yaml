@@ -1,0 +1,27 @@
+id: mahsa-arrest
+title: Détention de [[MARKER:person:person1:Zahra|Emily]]
+slug: mahsa-arrest
+date: '2022-09-20'
+summary: L'expérience d'une étudiante de 23 ans pendant les manifestations suivant la mort de Mahsa Amini.
+content: |-
+  !!! AVERTISSEMENT : CETTE HISTOIRE N'EST PAS VÉRIFIÉE ET EST PUREMENT À DES FINS DE DÉMONSTRATION !!!
+  Le soir du [[MARKER:date:arrest-date:2022-09-20|2022-09-20]], [[MARKER:person:person1:Zahra|Emily]], une étudiante de 23 ans de [[MARKER:place:hometown:Mashhad|{{hometown}}]], a rejoint une veillée pacifique à [[MARKER:place:main-square:la place Azadi|{{main-square}}]].
+  Le rassemblement était l'une des nombreuses manifestations spontanées qui ont éclaté à travers l'Iran suite à la mort de Mahsa Amini en garde à vue le [[MARKER:date:mahsa-death:2022-09-16|2022-09-16]]{{source:mahsa-death-source}}. [[MARKER:person:person1:Zahra|Emily]] tenait une bougie et scandait "[[MARKER:unknown:chant:Femme, Vie, Liberté|Femme, Vie, Liberté]]" avec environ [[MARKER:number:protesters:200|90|Scaled from Iran (200) to CA by population ratio: 200 × (38.3M / 85.0M) = 90]] autres personnes.
+  À [[MARKER:time:raid-time:21:30|21:30]], les forces de sécurité sont arrivées et ont commencé à procéder à des arrestations. [[MARKER:person:person1:Zahra|Emily]] faisait partie des [[MARKER:number:arrested:47|21|Scaled from Iran (47) to CA by population ratio: 47 × (38.3M / 85.0M) = 21]] personnes détenues cette nuit-là et emmenées à [[MARKER:place:detention-center:la prison d'Evin|{{detention-center}}]].
+  Pendant [[MARKER:number:detention-days:18|18]] jours, la famille de [[MARKER:person:person1:Zahra|Emily]] n'a eu aucune information sur son lieu de détention. Les appels téléphoniques aux autorités sont restés sans réponse. Le jour [[MARKER:number:first-contact-day:11|11]], ils ont finalement reçu un bref appel confirmant que [[MARKER:person:person1:Zahra|Emily]] était en vie mais ne fournissant aucun autre détail.
+  La famille de [[MARKER:person:person1:Zahra|Emily]] a rassemblé [[MARKER:unknown:bail-amount:80 000 000 de rials|2 480 $ CA]] pour la caution. Ce montant représentait environ [[MARKER:number:months-salary:8|8]] mois du salaire de [[MARKER:person:parent:Hassan|Lucas]] en tant qu'[[MARKER:unknown:parent-job:ouvrier du bâtiment|ouvrier du bâtiment]].
+  Après [[MARKER:number:detention-days:18|18]] jours de détention, [[MARKER:person:person1:Zahra|Emily]] a été libérée avec des conditions strictes : pas de réseaux sociaux, pas de participation à des rassemblements, et des contrôles réguliers auprès des autorités. Les accusations restent en suspens.
+  "Je voulais juste allumer une bougie pour Mahsa," a déclaré [[MARKER:person:person1:Zahra|Emily]]. "Je n'ai jamais imaginé que cela arriverait."
+tags:
+  - protest
+  - detention
+  - student
+  - mahsa-amini
+hashtags: '#Iran #MahsaAmini #DroitsDeLHomme #FemmeVieLiberté'
+severity: high
+verified: true
+source: Témoignages compilés par des organisations de défense des droits de l'homme
+content-warning: Détention, séparation familiale
+meta:
+  og-title: L'histoire d'une étudiante lors des manifestations iraniennes de 2022
+  og-description: Découvrez le coût humain de la manifestation pacifique à travers la détention d'une étudiante.

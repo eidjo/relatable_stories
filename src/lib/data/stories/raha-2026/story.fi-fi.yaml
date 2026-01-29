@@ -1,0 +1,30 @@
+id: raha-2026
+title: '[[MARKER:person:student:Rahan|Liljan]] viimeinen päivä'
+slug: raha-2026
+date: '2026-01-08'
+summary: 22-vuotias yliopisto-opiskelija, joka rakasti taidetta ja musiikkia, tapettiin turvallisuusjoukkojen toimesta vuoden 2026 kansannousun aikana.
+content: |-
+  !!! VASTUUVAPAUSLAUSEKE: TÄTÄ TARINAA EI OLE VAHVISTETTU JA SE ON PUHTAASTI ESITTELYTARKOITUKSESSA !!!
+  [[MARKER:person:student:Raha|Lilja]], 22-vuotias yliopisto-opiskelija [[MARKER:place:tehran:Teheranista|Helsingistä]], oli kiinnostunut taiteesta ja musiikista. Hän piti verkossa päiväkirjaa, johon hän kirjoitti hengittämisestä, jatkamisesta ja huomisesta. Hän kirjasi pidätettyjen ystävien ja luokkatovereiden nimet ymmärtäen, että sortaminen alkaa pyyhkimisestä pois.
+  [[MARKER:date:protest-date:2026-01-08|2026-01-08]] aamulla mielenosoitukset puhkesivat ympäri Irania. Muutamassa tunnissa mielenosoitukset levisivät yli [[MARKER:number:cities:400|26|Scaled from Iran (400) to FI by population ratio: 400 × (5.5M / 85.0M) = 26]] kaupunkiin ja kuntaan. [[MARKER:person:student:Raha|Lilja]] liittyi mielenosoittajiin lähellä [[MARKER:place:square:Fatemi-aukiota|Rautatientoria]] [[MARKER:place:tehran:Teheranissa|Helsingissä]].
+  Mielenosoitukset kohtasivat ylivoimaisen väkivallan. Turvallisuusjoukot, mukaan lukien IRGC-yksiköt ja siviilipukuiset agentit, avasivat tulen väkijoukkoja kohti. Luokiteltujen asiakirjojen mukaan{{source:death-toll}} yli [[MARKER:casualties:killed:36500|2379|Scaled from Iran (36,500) to FI by country population: 36,500 × (5.5M / 85.0M) = 2379]] ihmistä tapettiin [[COMPARISON:(340 times the Myyrmanni bombing)|(340 kertaa enemmän kuin Myyrmanni-pommi-iskussa)|Comparison: 2,379 casualties vs. Myyrmanni bombing (7 casualties in 2002) = 340x more]] kahden päivän aikana, mikä tekee siitä historian tappavimman mielenosoitusten joukkomurhan.
+  [[MARKER:person:student:Raha|Lilja]] ammuttiin lähellä [[MARKER:place:square:Fatemi-aukiota|Toria]] [[MARKER:date:protest-date:2026-01-08|2026-01-08]]. Hän oli 22-vuotias. Hänen perheensä löysi myöhemmin hänen ruumiinsa [[MARKER:place:morgue:Kahrizakin ruumishuoneelta|oikeustalolta]], yhtenä tuhansista ruumiista, jotka toimitettiin uhrien määrästä ylikuormittuneisiin tiloihin.
+  {{image:morgue-scene}}
+  Lääkintähenkilöstö raportoi, että joitakin haavoittuneita mielenosoittajia ammuttiin päähän heidän ollessaan sairaalahoidossa{{source:hospital-executions}}. Ruumishuoneiden kuvat osoittivat ruumiita, joissa oli yhä kiinni sydämen seurantalaitteita, mikä viittaa siihen, että lääkärin hoidossa olleita potilaita teloitettiin. Lääkärit ja sairaanhoitajat kuvasivat turvallisuusjoukkojen tulevan sairaaloihin ja vievän pois haavoittuneita potilaita, joista osa löydettiin myöhemmin kuolleina.
+  Hallitus katkaisi internetyhteyden koko maassa [[MARKER:number:blackout-days:16|16]] päiväksi estäen perheitä jakamasta tietoa ja tehden lähes mahdottomaksi dokumentoida surmien laajuutta. Surevat perheet pakotettiin maksamaan maksuja, joita kuvattiin "luotikustannuksina" ruumiiden vastaanottamiseksi. Joissakin tapauksissa viranomaiset hautasivat uhrit ilman perheen suostumusta.
+  [[MARKER:person:student:Raha|Lilja]] ei jättänyt jälkeensä manifestia. Jäljellä ovat vain sirpaleet - lyhyitä, huolellisesti valittuja pohdintoja. Hänen kirjoituksensa palasivat yhä uudelleen perustavanlaatuisiin huolenaiheisiin: hengittämiseen, jatkamiseen, huomiseen. Hän ymmärsi, että elossa oleminen ei ole neuvoteltavissa.
+  Ennen kuolemaansa [[MARKER:person:student:Raha|Lilja]] kirjoitti nimiä. Hän nimesi pidätettyjä ja kadonneita. Hän kirjasi ihmisiä ihmisinä, ei abstraktioina. Hän tiesi, miten sortaminen alkaa - ei luodeilla, vaan pyyhkimällä pois.
+tags:
+  - 2026-uprising
+  - student
+  - massacre
+  - internet-blackout
+  - raha-bohlouli
+hashtags: '#Iran #NeverForget #HumanRights #RahaBohlouli #IranUprising'
+severity: critical
+verified: true
+source: Iran International investigative reporting, witness testimonies, classified documents
+content-warning: Mass killings, extrajudicial executions, state violence
+meta:
+  og-title: 'Rahan tarina: Opiskelija tapettiin Iranin vuoden 2026 kansannousussa'
+  og-description: Yliopisto-opiskelija, joka kirjasi pidätettyjen nimiä, tapettiin historian tappavimman mielenosoitusten joukkomurhan aikana.

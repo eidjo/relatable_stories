@@ -1,0 +1,30 @@
+id: raha-2026
+title: '[[MARKER:person:student:Raha|Alices]] sista dag'
+slug: raha-2026
+date: '2026-01-08'
+summary: En 22-årig universitetsstudent som älskade konst och musik dödades av säkerhetsstyrkor under upproret 2026.
+content: |-
+  !!! ANSVARSFRISKRIVNING: DENNA BERÄTTELSE ÄR INTE VERIFIERAD OCH ÄR ENBART FÖR DEMONSTRATIONSÄNDAMÅL !!!
+  [[MARKER:person:student:Raha|Alice]], en 22-årig universitetsstudent från [[MARKER:place:tehran:Teheran|Stockholm]], var intresserad av konst och musik. Hon förde en onlinedagbok där hon skrev om att andas, att fortsätta och om morgondagen. Hon registrerade namn på fängslade vänner och klasskamrater, och förstod att förtrycket börjar med utplåning.
+  På morgonen den [[MARKER:date:protest-date:2026-01-08|2026-01-08]] bröt protester ut över hela Iran. Inom några timmar spred sig demonstrationerna till mer än [[MARKER:number:cities:400|49|Scaled from Iran (400) to SE by population ratio: 400 × (10.3M / 85.0M) = 49]] städer och orter. [[MARKER:person:student:Raha|Alice]] anslöt sig till demonstranterna nära [[MARKER:place:square:Fatemi-torget|Mynttorget]] i [[MARKER:place:tehran:Teheran|Stockholm]].
+  Protesterna möttes med överväldigande våld. Säkerhetsstyrkor, inklusive IRGC-enheter och civilklädda agenter, öppnade eld mot folkmassorna. Enligt klassificerade dokument{{source:death-toll}} dödades mer än [[MARKER:casualties:killed:36500|4444|Scaled from Iran (36,500) to SE by country population: 36,500 × (10.3M / 85.0M) = 4444]] människor [[COMPARISON:(5 times the MS Estonia sinking)|(5 gånger MS Estonias förlisning)|Comparison: 4,444 casualties vs. MS Estonia sinking (852 casualties in 1994) = 5x more]] under två dagar, vilket gör det till det dödligaste protestmassakern i historien.
+  [[MARKER:person:student:Raha|Alice]] sköts nära [[MARKER:place:square:Fatemi-torget|Mynttorget]] den [[MARKER:date:protest-date:2026-01-08|2026-01-08]]. Hon var 22 år gammal. Hennes familj hittade senare hennes kropp på [[MARKER:place:morgue:Kahrizak-bårhuset|Fängelset]], en av tusentals som levererades till anläggningar som var överväldigade av antalet offer.
+  {{image:morgue-scene}}
+  Medicinsk personal rapporterade att vissa skadade demonstranter sköts i huvudet medan de låg på sjukhus{{source:hospital-executions}}. Bilder från bårhus visade kroppar med hjärtövervakningsutrustning fortfarande påkopplad, vilket tyder på att patienter under medicinsk vård avrättades. Läkare och sjuksköterskor beskrev hur säkerhetsstyrkor gick in på sjukhus och förde bort skadade patienter, av vilka några senare hittades döda.
+  Regeringen stängde av internetåtkomsten i hela landet i [[MARKER:number:blackout-days:16|16]] dagar, vilket hindrade familjer från att dela information och gjorde det nästan omöjligt att dokumentera omfattningen av dödandet. Sörjande familjer tvingades betala avgifter som beskrevs som "kulkostnader" för att få tillbaka kropparna. I vissa fall begravde myndigheterna offren utan familjens samtycke.
+  [[MARKER:person:student:Raha|Alice]] lämnade inget manifest efter sig. Det som finns kvar är fragment - korta reflektioner noggrant utvalda. Hennes skrivande återkom gång på gång till elementära bekymmer: att andas, att fortsätta, morgondagen. Hon förstod att att vara vid liv inte är förhandlingsbart.
+  Innan hon dog skrev [[MARKER:person:student:Raha|Alice]] namn. Hon namngav fängslade och försvunna. Hon registrerade människor som människor, inte som abstraktioner. Hon visste hur förtrycket börjar - inte med kulor, utan med utplåning.
+tags:
+  - 2026-uprising
+  - student
+  - massacre
+  - internet-blackout
+  - raha-bohlouli
+hashtags: '#Iran #GlömAldrig #Mänskligarättigheter #RahaBohlouli #IranUpproret'
+severity: critical
+verified: true
+source: Iran Internationals undersökande journalistik, vittnesmål, klassificerade dokument
+content-warning: Massdödande, utomrättsliga avrättningar, statligt våld
+meta:
+  og-title: 'Rahas berättelse: En student dödad i Irans uppror 2026'
+  og-description: En universitetsstudent som registrerade namn på fängslade dödades under den dödligaste protestmassakern i historien.

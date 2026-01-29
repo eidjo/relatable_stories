@@ -1,0 +1,30 @@
+id: raha-2026
+title: O Último Dia de [[MARKER:person:student:Raha|Valentina]]
+slug: raha-2026
+date: '2026-01-08'
+summary: Uma estudante universitária de 22 anos que amava arte e música foi morta pelas forças de segurança durante a revolta de 2026.
+content: |-
+  !!! AVISO: ESTA HISTÓRIA NÃO FOI VERIFICADA E É PURAMENTE PARA FINS DE DEMONSTRAÇÃO !!!
+  [[MARKER:person:student:Raha|Valentina]], uma estudante universitária de 22 anos de [[MARKER:place:tehran:Teerã|Brasília]], interessava-se por arte e música. Ela mantinha um diário online onde escrevia sobre respirar, continuar e o amanhã. Ela registrava nomes de amigos e colegas de classe detidos, compreendendo que a repressão começa com o apagamento.
+  Na manhã de [[MARKER:date:protest-date:08/01/2026|08/01/2026]], protestos eclodiram por todo o Irã. Em poucas horas, as manifestações se espalharam para mais de [[MARKER:number:cities:400|1013|Scaled from Iran (400) to BR by population ratio: 400 × (215.3M / 85.0M) = 1013]] cidades e vilas. [[MARKER:person:student:Raha|Valentina]] juntou-se aos manifestantes perto da [[MARKER:place:square:Praça Fatemi|Esplanada dos Ministérios]] em [[MARKER:place:tehran:Teerã|Brasília]].
+  Os protestos foram recebidos com força avassaladora. As forças de segurança, incluindo unidades da IRGC e agentes à paisana, abriram fogo contra as multidões. De acordo com documentos classificados{{source:death-toll}}, mais de [[MARKER:casualties:killed:36500|92452|Scaled from Iran (36,500) to BR by country population: 36,500 × (215.3M / 85.0M) = 92452]] pessoas foram mortas [[COMPARISON:(833 times the Carandiru massacre)|(833 vezes o massacre do Carandiru)|Comparison: 92,452 casualties vs. Carandiru massacre (111 casualties in 1992) = 833x more]] ao longo de dois dias, tornando-o o massacre de protesto mais mortal da história.
+  [[MARKER:person:student:Raha|Valentina]] foi baleada perto da [[MARKER:place:square:Praça Fatemi|Avenida]] em [[MARKER:date:protest-date:08/01/2026|08/01/2026]]. Ela tinha 22 anos. Sua família mais tarde encontrou seu corpo no [[MARKER:place:morgue:necrotério de Kahrizak|Tribunal]], uma das milhares de vítimas entregues a instalações sobrecarregadas pelas baixas.
+  {{image:morgue-scene}}
+  A equipe médica relatou que alguns manifestantes feridos foram baleados na cabeça enquanto estavam hospitalizados{{source:hospital-executions}}. Imagens de necrotérios mostravam corpos com equipamentos de monitoramento cardíaco ainda conectados, sugerindo que pacientes sob cuidados médicos foram executados. Médicos e enfermeiros descreveram forças de segurança entrando em hospitais e levando pacientes feridos, alguns dos quais foram posteriormente encontrados mortos.
+  O governo cortou o acesso à internet em todo o país por [[MARKER:number:blackout-days:16|16]] dias, impedindo as famílias de compartilhar informações e tornando quase impossível documentar a escala dos assassinatos. Famílias enlutadas foram forçadas a pagar taxas descritas como "custos de balas" para receber os corpos. Em alguns casos, as autoridades enterraram vítimas sem o consentimento da família.
+  [[MARKER:person:student:Raha|Valentina]] não deixou nenhum manifesto. O que resta são fragmentos - reflexões curtas cuidadosamente escolhidas. Sua escrita retornava repetidamente a preocupações elementares: respirar, continuar, o amanhã. Ela entendia que estar viva não é negociável.
+  Antes de morrer, [[MARKER:person:student:Raha|Valentina]] escreveu nomes. Ela nomeou detidos e desaparecidos. Ela registrou pessoas como pessoas, não como abstrações. Ela sabia como a repressão começa - não com balas, mas com o apagamento.
+tags:
+  - 2026-uprising
+  - student
+  - massacre
+  - internet-blackout
+  - raha-bohlouli
+hashtags: '#Irã #NuncaEsquecer #DireitosHumanos #RahaBohlouli #RevoltaDoIrã'
+severity: critical
+verified: true
+source: Reportagem investigativa da Iran International, testemunhos de testemunhas, documentos classificados
+content-warning: Assassinatos em massa, execuções extrajudiciais, violência estatal
+meta:
+  og-title: 'A História de Raha: Uma Estudante Morta na Revolta de 2026 no Irã'
+  og-description: Uma estudante universitária que registrava nomes de detidos foi morta durante o massacre de protesto mais mortal da história.

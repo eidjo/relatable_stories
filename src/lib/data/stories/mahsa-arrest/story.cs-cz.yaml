@@ -1,0 +1,27 @@
+id: mahsa-arrest
+title: Zadržení [[MARKER:person:person1:Zahry|Emy]]
+slug: mahsa-arrest
+date: '2022-09-20'
+summary: Zkušenost 23leté studentky během protestů po smrti Mahsy Aminiové.
+content: |-
+  !!! UPOZORNĚNÍ: TENTO PŘÍBĚH NENÍ OVĚŘENÝ A SLOUŽÍ POUZE PRO DEMONSTRAČNÍ ÚČELY !!!
+  Večer [[MARKER:date:arrest-date:20. 9. 2022|20. 9. 2022]] se [[MARKER:person:person1:Zahra|Ema]], 23letá studentka z [[MARKER:place:hometown:Mašhadu|Brna]], připojila k mírovému shromáždění na [[MARKER:place:main-square:náměstí Azádí|{{main-square}}]].
+  Toto shromáždění bylo jednou z mnoha spontánních demonstrací, které vypukly po celém Íránu po smrti Mahsy Aminiové v policejní vazbě dne [[MARKER:date:mahsa-death:16. 9. 2022|16. 9. 2022]]{{source:mahsa-death-source}}. [[MARKER:person:person1:Zahra|Ema]] držela svíčku a skandovala "[[MARKER:unknown:chant:Ženo, Život, Svoboda|Ženo, Život, Svoboda]]" spolu s přibližně [[MARKER:number:protesters:200|25|Scaled from Iran (200) to CZ by population ratio: 200 × (10.5M / 85.0M) = 25]] dalšími lidmi.
+  V [[MARKER:time:raid-time:21:30|21:30]] přijely bezpečnostní složky a začaly provádět zatýkání. [[MARKER:person:person1:Zahra|Ema]] byla mezi [[MARKER:number:arrested:47|6|Scaled from Iran (47) to CZ by population ratio: 47 × (10.5M / 85.0M) = 6]] lidmi zadrženými té noci a odvezenými do [[MARKER:place:detention-center:věznice Evin|{{detention-center}}]].
+  Po dobu [[MARKER:number:detention-days:18|18]] dní neměla rodina [[MARKER:person:person1:Zahry|Emy]] žádné informace o tom, kde se nachází. Telefonáty úřadům zůstávaly nezodpovězené. [[MARKER:number:first-contact-day:11.|11.]] den konečně dostali krátký telefonát potvrzující, že [[MARKER:person:person1:Zahra|Ema]] žije, ale bez dalších podrobností.
+  Rodina [[MARKER:person:person1:Zahry|Emy]] dala dohromady [[MARKER:unknown:bail-amount:80 000 000 riálů|42 400 Kč]] na kauci. Tato částka představovala přibližně [[MARKER:number:months-salary:8|8]] měsíců platu [[MARKER:person:parent:Hassana|Adama]], který pracuje jako [[MARKER:unknown:parent-job:stavební dělník|stavební dělník]].
+  Po [[MARKER:number:detention-days:18|18]] dnech ve vazbě byla [[MARKER:person:person1:Zahra|Ema]] propuštěna s přísnými podmínkami: žádné sociální sítě, žádná účast na shromážděních a pravidelné hlášení se úřadům. Obvinění stále visí.
+  "Chtěla jsem jen zapálit svíčku za Mahsu," řekla [[MARKER:person:person1:Zahra|Ema]]. "Nikdy by mě nenapadlo, že se tohle stane."
+tags:
+  - protest
+  - detention
+  - student
+  - mahsa-amini
+hashtags: '#Írán #MahsaAmini #LidskáPráva #ŽenaŽivotSvoboda'
+severity: high
+verified: true
+source: Svědectví očitých svědků shromážděná organizacemi na ochranu lidských práv
+content-warning: Zadržení, odloučení od rodiny
+meta:
+  og-title: Příběh studentky z íránských protestů v roce 2022
+  og-description: Poznejte lidskou cenu mírumilovného protestu prostřednictvím zadržení jedné studentky.

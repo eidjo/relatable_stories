@@ -1,0 +1,27 @@
+id: mahsa-arrest
+title: '[[MARKER:person:person1:Zahras|Wilmas]] frihetsberövande'
+slug: mahsa-arrest
+date: '2022-09-20'
+summary: En 23-årig students upplevelse under protesterna efter Mahsa Aminis död.
+content: |-
+  !!! ANSVARSFRISKRIVNING: DENNA BERÄTTELSE ÄR INTE VERIFIERAD OCH ÄR ENBART FÖR DEMONSTRATIONSÄNDAMÅL !!!
+  På kvällen den [[MARKER:date:arrest-date:2022-09-20|2022-09-20]] gick [[MARKER:person:person1:Zahra|Wilma]], en 23-årig student från [[MARKER:place:hometown:Mashhad|Malmö]], med i en fredlig vaka på [[MARKER:place:main-square:Azadi-torget|{{main-square}}]].
+  Sammankomsten var en av många spontana demonstrationer som bröt ut över Iran efter Mahsa Aminis död i polisförvar den [[MARKER:date:mahsa-death:2022-09-16|2022-09-16]]{{source:mahsa-death-source}}. [[MARKER:person:person1:Zahra|Wilma]] höll ett ljus och skanderade "[[MARKER:unknown:chant:Kvinna, Liv, Frihet|Kvinna, Liv, Frihet]]" tillsammans med ungefär [[MARKER:number:protesters:200|24|Scaled from Iran (200) to SE by population ratio: 200 × (10.3M / 85.0M) = 24]] andra.
+  Klockan [[MARKER:time:raid-time:21:30|21:30]] anlände säkerhetsstyrkor och började göra arresteringar. [[MARKER:person:person1:Zahra|Wilma]] var bland [[MARKER:number:arrested:47|6|Scaled from Iran (47) to SE by population ratio: 47 × (10.3M / 85.0M) = 6]] personer som greps den natten och fördes till [[MARKER:place:detention-center:Evin-fängelset|{{detention-center}}]].
+  I [[MARKER:number:detention-days:18|18]] dagar hade [[MARKER:person:person1:Zahras|Wilmas]] familj ingen information om var de befann sig. Telefonsamtal till myndigheterna förblev obesvarade. På dag [[MARKER:number:first-contact-day:11|11]] fick de äntligen ett kort samtal som bekräftade att [[MARKER:person:person1:Zahra|Wilma]] var vid liv men utan några andra detaljer.
+  [[MARKER:person:person1:Zahras|Wilmas]] familj skrapade ihop [[MARKER:unknown:bail-amount:80 000 000 Rial|19 200 kr]] för borgen. Detta belopp motsvarade ungefär [[MARKER:number:months-salary:8|8]] månaders lön för [[MARKER:person:parent:Hassan|Matteo]] som [[MARKER:unknown:parent-job:byggnadsarbetare|byggnadsarbetare]].
+  Efter [[MARKER:number:detention-days:18|18]] dagar i förvar släpptes [[MARKER:person:person1:Zahra|Wilma]] med strikta villkor: inga sociala medier, inga sammankomster och regelbundna kontroller hos myndigheterna. Anklagelserna är fortfarande väntande.
+  "Jag ville bara tända ett ljus för Mahsa," sa [[MARKER:person:person1:Zahra|Wilma]]. "Jag föreställde mig aldrig att detta skulle hända."
+tags:
+  - protest
+  - detention
+  - student
+  - mahsa-amini
+hashtags: '#Iran #MahsaAmini #MänskligaRättigheter #KvinnaLivFrihet'
+severity: high
+verified: true
+source: Vittnesmål sammanställda av människorättsorganisationer
+content-warning: Frihetsberövande, familjeseparation
+meta:
+  og-title: En students berättelse från Irans protester 2022
+  og-description: Upplev den mänskliga kostnaden av fredlig protest genom en students frihetsberövande.

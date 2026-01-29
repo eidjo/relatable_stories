@@ -1,0 +1,30 @@
+id: raha-2026
+title: '[[MARKER:person:student:Raha|Lina]]s letzter Tag'
+slug: raha-2026
+date: '2026-01-08'
+summary: Eine 22-jährige Universitätsstudentin, die Kunst und Musik liebte, wurde während des Aufstands 2026 von Sicherheitskräften getötet.
+content: |-
+  !!! HAFTUNGSAUSSCHLUSS: DIESE GESCHICHTE IST NICHT VERIFIZIERT UND DIENT AUSSCHLIESSLICH ZU DEMONSTRATIONSZWECKEN !!!
+  [[MARKER:person:student:Raha|Lina]], eine 22-jährige Universitätsstudentin aus [[MARKER:place:tehran:Teheran|Brüssel]], interessierte sich für Kunst und Musik. Sie führte ein Online-Tagebuch, in dem sie über das Atmen, das Weitermachen und das Morgen schrieb. Sie notierte Namen von inhaftierten Freunden und Kommilitonen und verstand, dass Repression mit Auslöschung beginnt.
+  Am Morgen des [[MARKER:date:protest-date:08.01.2026|08.01.2026]] brachen im ganzen Iran Proteste aus. Innerhalb weniger Stunden breiteten sich die Demonstrationen auf mehr als [[MARKER:number:cities:400|55|Scaled from Iran (400) to BE by population ratio: 400 × (11.6M / 85.0M) = 55]] Städte und Gemeinden aus. [[MARKER:person:student:Raha|Lina]] schloss sich den Demonstranten in der Nähe des [[MARKER:place:square:Fatemi-Platzes|Mont des Arts]] in [[MARKER:place:tehran:Teheran|Brüssel]] an.
+  Die Proteste wurden mit überwältigender Gewalt beantwortet. Sicherheitskräfte, darunter IRGC-Einheiten und Agenten in Zivil, eröffneten das Feuer auf die Menschenmengen. Laut klassifizierten Dokumenten{{source:death-toll}} wurden innerhalb von zwei Tagen mehr als [[MARKER:casualties:killed:36500|4977|Scaled from Iran (36,500) to BE by country population: 36,500 × (11.6M / 85.0M) = 4977]] Menschen getötet [[COMPARISON:(128 times the Heysel Stadium disaster)|(128-mal mehr als die Heysel-Stadion-Katastrophe)|Comparison: 4,977 casualties vs. Heysel Stadium disaster (39 casualties in 1985) = 128x more]], was es zum tödlichsten Protestmassaker der Geschichte macht.
+  [[MARKER:person:student:Raha|Lina]] wurde am [[MARKER:date:protest-date:08.01.2026|08.01.2026]] in der Nähe des [[MARKER:place:square:Fatemi-Platzes|Marktplatzes]] erschossen. Sie war 22 Jahre alt. Ihre Familie fand später ihren Leichnam im [[MARKER:place:morgue:Kahrizak-Leichenschauhaus|Gerichtsgebäude]], einem von Tausenden, die an Einrichtungen geliefert wurden, die von der Zahl der Opfer überwältigt waren.
+  {{image:morgue-scene}}
+  Medizinisches Personal berichtete, dass einige verwundete Demonstranten während ihres Krankenhausaufenthalts in den Kopf geschossen wurden{{source:hospital-executions}}. Bilder aus Leichenschauhäusern zeigten Leichen mit noch angeschlossenen Herzüberwachungsgeräten, was darauf hindeutet, dass Patienten unter medizinischer Versorgung hingerichtet wurden. Ärzte und Krankenschwestern beschrieben, wie Sicherheitskräfte Krankenhäuser betraten und verwundete Patienten mitnahmen, von denen einige später tot aufgefunden wurden.
+  Die Regierung unterbrach den Internetzugang im ganzen Land für [[MARKER:number:blackout-days:16|16]] Tage, was Familien daran hinderte, Informationen auszutauschen, und es nahezu unmöglich machte, das Ausmaß der Tötungen zu dokumentieren. Trauernde Familien wurden gezwungen, Gebühren zu zahlen, die als "Kugelkosten" bezeichnet wurden, um die Leichen zu erhalten. In einigen Fällen begruben die Behörden Opfer ohne Zustimmung der Familie.
+  [[MARKER:person:student:Raha|Lina]] hinterließ kein Manifest. Was bleibt, sind Fragmente - kurze, sorgfältig gewählte Reflexionen. Ihr Schreiben kehrte immer wieder zu elementaren Anliegen zurück: Atmen, Weitermachen, Morgen. Sie verstand, dass das Lebendigsein nicht verhandelbar ist.
+  Bevor sie starb, schrieb [[MARKER:person:student:Raha|Lina]] Namen auf. Sie nannte Inhaftierte und Vermisste. Sie erfasste Menschen als Menschen, nicht als Abstraktionen. Sie wusste, wie Repression beginnt - nicht mit Kugeln, sondern mit Auslöschung.
+tags:
+  - 2026-uprising
+  - student
+  - massacre
+  - internet-blackout
+  - raha-bohlouli
+hashtags: '#Iran #NeverForget #HumanRights #RahaBohlouli #IranUprising'
+severity: critical
+verified: true
+source: Iran International investigative reporting, witness testimonies, classified documents
+content-warning: Mass killings, extrajudicial executions, state violence
+meta:
+  og-title: 'Rahas Geschichte: Eine Studentin, die während des iranischen Aufstands 2026 getötet wurde'
+  og-description: Eine Universitätsstudentin, die Namen von Inhaftierten aufzeichnete, wurde während des tödlichsten Protestmassakers der Geschichte getötet.

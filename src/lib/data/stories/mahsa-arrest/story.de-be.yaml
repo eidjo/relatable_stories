@@ -1,0 +1,27 @@
+id: mahsa-arrest
+title: '[[MARKER:person:person1:Zahras|Camilles]] Verhaftung'
+slug: mahsa-arrest
+date: '2022-09-20'
+summary: Die Erfahrung einer 23-jährigen Studentin während der Proteste nach dem Tod von Mahsa Amini.
+content: |-
+  !!! HAFTUNGSAUSSCHLUSS: DIESE GESCHICHTE IST NICHT VERIFIZIERT UND DIENT AUSSCHLIESSLICH ZU DEMONSTRATIONSZWECKEN !!!
+  Am Abend des [[MARKER:date:arrest-date:2022-09-20|2022-09-20]] schloss sich [[MARKER:person:person1:Zahra|Camille]], eine 23-jährige Studentin aus [[MARKER:place:hometown:Maschhad|Gent]], einer friedlichen Mahnwache auf dem [[MARKER:place:main-square:Azadi-Platz|{{main-square}}]] an.
+  Die Versammlung war eine von vielen spontanen Demonstrationen, die im ganzen Iran nach dem Tod von Mahsa Amini in Polizeigewahrsam am [[MARKER:date:mahsa-death:2022-09-16|2022-09-16]]{{source:mahsa-death-source}} ausbrachen. [[MARKER:person:person1:Zahra|Camille]] hielt eine Kerze und skandierte "[[MARKER:unknown:chant:Frau, Leben, Freiheit|Frau, Leben, Freiheit]]" zusammen mit etwa [[MARKER:number:protesters:200|27|Scaled from Iran (200) to BE by population ratio: 200 × (11.6M / 85.0M) = 27]] anderen.
+  Um [[MARKER:time:raid-time:21:30|21:30]] Uhr trafen Sicherheitskräfte ein und begannen mit Verhaftungen. [[MARKER:person:person1:Zahra|Camille]] war unter den [[MARKER:number:arrested:47|6|Scaled from Iran (47) to BE by population ratio: 47 × (11.6M / 85.0M) = 6]] Personen, die in dieser Nacht festgenommen und zum [[MARKER:place:detention-center:Evin-Gefängnis|{{detention-center}}]] gebracht wurden.
+  [[MARKER:number:detention-days:18|18]] Tage lang hatte [[MARKER:person:person1:Zahras|Camilles]] Familie keine Informationen über ihren Verbleib. Telefonanrufe bei den Behörden blieben unbeantwortet. Am Tag [[MARKER:number:first-contact-day:11|11]] erhielten sie endlich einen kurzen Anruf, der bestätigte, dass [[MARKER:person:person1:Zahra|Camille]] am Leben war, aber keine weiteren Details lieferte.
+  [[MARKER:person:person1:Zahras|Camilles]] Familie kratzte [[MARKER:unknown:bail-amount:80.000.000 Rial|1.680 €]] für die Kaution zusammen. Dieser Betrag entsprach etwa [[MARKER:number:months-salary:8|8]] Monatsgehältern von [[MARKER:person:parent:Hassan|Lucas]], der als [[MARKER:unknown:parent-job:Bauarbeiter|Bauarbeiter]] arbeitet.
+  Nach [[MARKER:number:detention-days:18|18]] Tagen in Haft wurde [[MARKER:person:person1:Zahra|Camille]] unter strengen Auflagen freigelassen: keine sozialen Medien, keine Teilnahme an Versammlungen und regelmäßige Meldungen bei den Behörden. Die Anklage bleibt bestehen.
+  "Ich wollte nur eine Kerze für Mahsa anzünden", sagte [[MARKER:person:person1:Zahra|Camille]]. "Ich hätte nie gedacht, dass so etwas passieren würde."
+tags:
+  - protest
+  - detention
+  - student
+  - mahsa-amini
+hashtags: '#Iran #MahsaAmini #Menschenrechte #FrauLebenFreiheit'
+severity: high
+verified: true
+source: Zeugenbericht zusammengestellt von Menschenrechtsorganisationen
+content-warning: Haft, Familientrennung
+meta:
+  og-title: Die Geschichte einer Studentin aus den iranischen Protesten 2022
+  og-description: Erleben Sie die menschlichen Kosten friedlicher Proteste durch die Inhaftierung einer Studentin.

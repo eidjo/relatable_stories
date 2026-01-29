@@ -1,0 +1,27 @@
+id: mahsa-arrest
+title: '[[MARKER:person:person1:Zahras|Ellas]] tilbageholdelse'
+slug: mahsa-arrest
+date: '2022-09-20'
+summary: En 23-årig studerendes oplevelse under protesterne efter Mahsa Aminis død.
+content: |-
+  !!! ANSVARSFRASKRIVELSE: DENNE HISTORIE ER IKKE VERIFICERET OG ER UDELUKKENDE TIL DEMONSTRATIONSFORMÅL !!!
+  Om aftenen den [[MARKER:date:arrest-date:2022-09-20|2022-09-20]] sluttede [[MARKER:person:person1:Zahra|Ella]], en 23-årig studerende fra [[MARKER:place:hometown:Mashhad|Odense]], sig til en fredelig vagt på [[MARKER:place:main-square:Azadi-pladsen|{{main-square}}]].
+  Forsamlingen var en af mange spontane demonstrationer, der brød ud over hele Iran efter Mahsa Aminis død i politiets varetægt den [[MARKER:date:mahsa-death:2022-09-16|2022-09-16]]{{source:mahsa-death-source}}. [[MARKER:person:person1:Zahra|Ella]] holdt et lys og sang "[[MARKER:unknown:chant:Kvinde, Liv, Frihed|Kvinde, Liv, Frihed]]" sammen med cirka [[MARKER:number:protesters:200|14|Scaled from Iran (200) to DK by population ratio: 200 × (5.9M / 85.0M) = 14]] andre.
+  Klokken [[MARKER:time:raid-time:21:30|21:30]] ankom sikkerhedsstyrker og begyndte at foretage anholdelser. [[MARKER:person:person1:Zahra|Ella]] var blandt [[MARKER:number:arrested:47|3|Scaled from Iran (47) to DK by population ratio: 47 × (5.9M / 85.0M) = 3]] personer, der blev tilbageholdt den nat og ført til [[MARKER:place:detention-center:Evin-fængslet|{{detention-center}}]].
+  I [[MARKER:number:detention-days:18|18]] dage havde [[MARKER:person:person1:Zahras|Ellas]] familie ingen oplysninger om deres opholdssted. Telefonopkald til myndighederne forblev ubesvarede. På dag [[MARKER:number:first-contact-day:11|11]] modtog de endelig et kort opkald, der bekræftede, at [[MARKER:person:person1:Zahra|Ella]] var i live, men uden andre detaljer.
+  [[MARKER:person:person1:Zahras|Ellas]] familie skrabede [[MARKER:unknown:bail-amount:80.000.000 Rial|kr12.000]] sammen til kaution. Dette beløb repræsenterede cirka [[MARKER:number:months-salary:8|8]] måneders løn for [[MARKER:person:parent:Hassan|Lucas]] som [[MARKER:unknown:parent-job:bygningsarbejder|bygningsarbejder]].
+  Efter [[MARKER:number:detention-days:18|18]] dage i varetægt blev [[MARKER:person:person1:Zahra|Ella]] løsladt med strenge betingelser: ingen sociale medier, ingen deltagelse i forsamlinger og regelmæssige tjek med myndighederne. Anklagerne verserer stadig.
+  "Jeg ville bare tænde et lys for Mahsa," sagde [[MARKER:person:person1:Zahra|Ella]]. "Jeg forestillede mig aldrig, at dette ville ske."
+tags:
+  - protest
+  - tilbageholdelse
+  - studerende
+  - mahsa-amini
+hashtags: '#Iran #MahsaAmini #Menneskerettigheder #KvindeLivFrihed'
+severity: high
+verified: true
+source: Vidneudsagn samlet af menneskerettighedsorganisationer
+content-warning: Tilbageholdelse, familieadskillelse
+meta:
+  og-title: En studerendes historie fra Irans protester i 2022
+  og-description: Oplev de menneskelige omkostninger ved fredelig protest gennem én studerendes tilbageholdelse.

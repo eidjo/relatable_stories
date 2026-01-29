@@ -1,0 +1,27 @@
+id: mahsa-arrest
+title: Detenção de [[MARKER:person:person1:Zahra|Beatriz]]
+slug: mahsa-arrest
+date: '2022-09-20'
+summary: A experiência de uma estudante de 23 anos durante os protestos após a morte de Mahsa Amini.
+content: |-
+  !!! AVISO: ESTA HISTÓRIA NÃO FOI VERIFICADA E É PURAMENTE PARA FINS DE DEMONSTRAÇÃO !!!
+  Na noite de [[MARKER:date:arrest-date:2022-09-20|2022-09-20]], [[MARKER:person:person1:Zahra|Beatriz]], uma estudante de 23 anos de [[MARKER:place:hometown:Mashhad|Porto]], juntou-se a uma vigília pacífica na [[MARKER:place:main-square:Praça Azadi|{{main-square}}]].
+  A reunião foi uma das muitas manifestações espontâneas que eclodiram em todo o Irão após a morte de Mahsa Amini sob custódia policial em [[MARKER:date:mahsa-death:2022-09-16|2022-09-16]]{{source:mahsa-death-source}}. [[MARKER:person:person1:Zahra|Beatriz]] segurou uma vela e cantou "[[MARKER:unknown:chant:Mulher, Vida, Liberdade|Mulher, Vida, Liberdade]]" com aproximadamente [[MARKER:number:protesters:200|24|Scaled from Iran (200) to PT by population ratio: 200 × (10.3M / 85.0M) = 24]] outras pessoas.
+  Às [[MARKER:time:raid-time:21:30|21:30]], as forças de segurança chegaram e começaram a fazer detenções. [[MARKER:person:person1:Zahra|Beatriz]] estava entre as [[MARKER:number:arrested:47|6|Scaled from Iran (47) to PT by population ratio: 47 × (10.3M / 85.0M) = 6]] pessoas detidas naquela noite e levadas para a [[MARKER:place:detention-center:Prisão de Evin|{{detention-center}}]].
+  Durante [[MARKER:number:detention-days:18|18]] dias, a família de [[MARKER:person:person1:Zahra|Beatriz]] não teve nenhuma informação sobre o seu paradeiro. As chamadas telefónicas às autoridades ficaram sem resposta. No dia [[MARKER:number:first-contact-day:11|11]], finalmente receberam uma breve chamada confirmando que [[MARKER:person:person1:Zahra|Beatriz]] estava viva, mas sem fornecer outros detalhes.
+  A família de [[MARKER:person:person1:Zahra|Beatriz]] juntou com dificuldade [[MARKER:unknown:bail-amount:80.000.000 Rial|€1.600]] para a fiança. Este montante representava aproximadamente [[MARKER:number:months-salary:8|8]] meses do salário de [[MARKER:person:parent:Hassan|João]] como [[MARKER:unknown:parent-job:trabalhador da construção civil|trabalhador da construção civil]].
+  Após [[MARKER:number:detention-days:18|18]] dias sob custódia, [[MARKER:person:person1:Zahra|Beatriz]] foi libertada com condições rigorosas: sem redes sociais, sem participar em reuniões e check-ins regulares com as autoridades. As acusações permanecem pendentes.
+  "Eu só queria acender uma vela pela Mahsa", disse [[MARKER:person:person1:Zahra|Beatriz]]. "Nunca imaginei que isto pudesse acontecer."
+tags:
+  - protesto
+  - detenção
+  - estudante
+  - mahsa-amini
+hashtags: '#Irão #MahsaAmini #DireitosHumanos #MulherVidaLiberdade'
+severity: high
+verified: true
+source: Testemunhos de testemunhas compilados por organizações de direitos humanos
+content-warning: Detenção, separação familiar
+meta:
+  og-title: A História de uma Estudante dos Protestos no Irão em 2022
+  og-description: Experiencie o custo humano do protesto pacífico através da detenção de uma estudante.

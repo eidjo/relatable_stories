@@ -1,0 +1,27 @@
+id: mahsa-arrest
+title: Detención de [[MARKER:person:person1:Zahra|Lucía]]
+slug: mahsa-arrest
+date: '2022-09-20'
+summary: La experiencia de una estudiante de 23 años durante las protestas tras la muerte de Mahsa Amini.
+content: |-
+  !!! DESCARGO DE RESPONSABILIDAD: ESTA HISTORIA NO ESTÁ VERIFICADA Y ES PURAMENTE PARA FINES DEMOSTRATIVOS !!!
+  En la tarde del [[MARKER:date:arrest-date:2022-09-20|2022-09-20]], [[MARKER:person:person1:Zahra|Lucía]], una estudiante de 23 años de [[MARKER:place:hometown:Mashhad|Sevilla]], se unió a una vigilia pacífica en [[MARKER:place:main-square:Plaza Azadi|{{main-square}}]].
+  La reunión fue una de las muchas manifestaciones espontáneas que estallaron en todo Irán tras la muerte de Mahsa Amini bajo custodia policial el [[MARKER:date:mahsa-death:2022-09-16|2022-09-16]]{{source:mahsa-death-source}}. [[MARKER:person:person1:Zahra|Lucía]] sostenía una vela y coreaba "[[MARKER:unknown:chant:Mujer, Vida, Libertad|Mujer, Vida, Libertad]]" junto con aproximadamente [[MARKER:number:protesters:200|111|Scaled from Iran (200) to ES by population ratio: 200 × (47.4M / 85.0M) = 111]] otras personas.
+  A las [[MARKER:time:raid-time:21:30|21:30]], las fuerzas de seguridad llegaron y comenzaron a realizar arrestos. [[MARKER:person:person1:Zahra|Lucía]] estuvo entre las [[MARKER:number:arrested:47|26|Scaled from Iran (47) to ES by population ratio: 47 × (47.4M / 85.0M) = 26]] personas detenidas esa noche y llevadas a [[MARKER:place:detention-center:Prisión de Evin|{{detention-center}}]].
+  Durante [[MARKER:number:detention-days:18|18]] días, la familia de [[MARKER:person:person1:Zahra|Lucía]] no tuvo información sobre su paradero. Las llamadas telefónicas a las autoridades quedaron sin respuesta. En el día [[MARKER:number:first-contact-day:11|11]], finalmente recibieron una breve llamada confirmando que [[MARKER:person:person1:Zahra|Lucía]] estaba viva pero sin proporcionar otros detalles.
+  La familia de [[MARKER:person:person1:Zahra|Lucía]] reunió con dificultad [[MARKER:unknown:bail-amount:80.000.000 Riales|€1.680]] para la fianza. Esta cantidad representaba aproximadamente [[MARKER:number:months-salary:8|8]] meses del salario de [[MARKER:person:parent:Hassan|Mateo]] como [[MARKER:unknown:parent-job:obrero de construcción|obrero de construcción]].
+  Después de [[MARKER:number:detention-days:18|18]] días bajo custodia, [[MARKER:person:person1:Zahra|Lucía]] fue liberada con condiciones estrictas: no usar redes sociales, no asistir a reuniones y presentarse regularmente ante las autoridades. Los cargos siguen pendientes.
+  "Solo quería encender una vela por Mahsa", dijo [[MARKER:person:person1:Zahra|Lucía]]. "Nunca imaginé que esto sucedería".
+tags:
+  - protesta
+  - detención
+  - estudiante
+  - mahsa-amini
+hashtags: '#Irán #MahsaAmini #DerechosHumanos #MujerVidaLibertad'
+severity: high
+verified: true
+source: Testimonios de testigos recopilados por organizaciones de derechos humanos
+content-warning: Detención, separación familiar
+meta:
+  og-title: La historia de una estudiante de las protestas de Irán en 2022
+  og-description: Experimenta el costo humano de la protesta pacífica a través de la detención de una estudiante.

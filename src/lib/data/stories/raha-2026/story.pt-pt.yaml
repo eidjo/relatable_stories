@@ -1,0 +1,30 @@
+id: raha-2026
+title: O Último Dia de [[MARKER:person:student:Raha|Maria]]
+slug: raha-2026
+date: '2026-01-08'
+summary: Uma estudante universitária de 22 anos que amava arte e música foi morta pelas forças de segurança durante a revolta de 2026.
+content: |-
+  !!! AVISO: ESTA HISTÓRIA NÃO FOI VERIFICADA E É PURAMENTE PARA FINS DE DEMONSTRAÇÃO !!!
+  [[MARKER:person:student:Raha|Maria]], uma estudante universitária de 22 anos de [[MARKER:place:tehran:Teerão|Lisboa]], interessava-se por arte e música. Ela mantinha um diário online onde escrevia sobre respirar, continuar e o amanhã. Ela registrava nomes de amigos e colegas de turma detidos, compreendendo que a repressão começa com o apagamento.
+  Na manhã de [[MARKER:date:protest-date:2026-01-08|2026-01-08]], protestos eclodiram por todo o Irão. Em poucas horas, as manifestações espalharam-se por mais de [[MARKER:number:cities:400|49|Scaled from Iran (400) to PT by population ratio: 400 × (10.3M / 85.0M) = 49]] cidades e vilas. [[MARKER:person:student:Raha|Maria]] juntou-se aos manifestantes perto da [[MARKER:place:square:Praça Fatemi|Praça Marquês de Pombal]] em [[MARKER:place:tehran:Teerão|Lisboa]].
+  Os protestos foram recebidos com força esmagadora. As forças de segurança, incluindo unidades da IRGC e agentes à paisana, abriram fogo contra as multidões. De acordo com documentos classificados{{source:death-toll}}, mais de [[MARKER:casualties:killed:36500|4444|Scaled from Iran (36,500) to PT by country population: 36,500 × (10.3M / 85.0M) = 4444]] pessoas foram mortas [[COMPARISON:(67 times the 2017 wildfires)|(67 vezes os incêndios de 2017)|Comparison: 4,444 casualties vs. 2017 wildfires (66 casualties in 2017) = 67x more]] ao longo de dois dias, tornando-o o massacre de protesto mais mortal da história.
+  [[MARKER:person:student:Raha|Maria]] foi baleada perto da [[MARKER:place:square:Praça Fatemi|Avenida]] em [[MARKER:date:protest-date:2026-01-08|2026-01-08]]. Ela tinha 22 anos. A sua família encontrou mais tarde o seu corpo na [[MARKER:place:morgue:morgue de Kahrizak|Prisão]], um dos milhares entregues a instalações sobrecarregadas com vítimas.
+  {{image:morgue-scene}}
+  O pessoal médico relatou que alguns manifestantes feridos foram baleados na cabeça enquanto estavam hospitalizados{{source:hospital-executions}}. Imagens das morgues mostravam corpos com equipamento de monitorização cardíaca ainda ligado, sugerindo que pacientes sob cuidados médicos foram executados. Médicos e enfermeiros descreveram forças de segurança a entrar em hospitais e a levar pacientes feridos, alguns dos quais foram posteriormente encontrados mortos.
+  O governo cortou o acesso à internet em todo o país durante [[MARKER:number:blackout-days:16|16]] dias, impedindo as famílias de partilhar informações e tornando quase impossível documentar a escala das mortes. Famílias enlutadas foram forçadas a pagar taxas descritas como "custos de balas" para receber os corpos. Em alguns casos, as autoridades enterraram vítimas sem o consentimento da família.
+  [[MARKER:person:student:Raha|Maria]] não deixou nenhum manifesto. O que resta são fragmentos - reflexões curtas cuidadosamente escolhidas. A sua escrita voltava repetidamente a preocupações elementares: respirar, continuar, o amanhã. Ela compreendia que estar vivo não é negociável.
+  Antes de morrer, [[MARKER:person:student:Raha|Maria]] escreveu nomes. Ela nomeou detidos e desaparecidos. Ela registou pessoas como pessoas, não como abstrações. Ela sabia como a repressão começa - não com balas, mas com o apagamento.
+tags:
+  - 2026-uprising
+  - student
+  - massacre
+  - internet-blackout
+  - raha-bohlouli
+hashtags: '#Irão #NuncaEsquecer #DireitosHumanos #RahaBohlouli #RevoltaDoIrão'
+severity: critical
+verified: true
+source: Reportagem investigativa da Iran International, testemunhos de testemunhas, documentos classificados
+content-warning: Assassinatos em massa, execuções extrajudiciais, violência estatal
+meta:
+  og-title: 'A História de Raha: Uma Estudante Morta na Revolta de 2026 no Irão'
+  og-description: Uma estudante universitária que registava nomes de detidos foi morta durante o massacre de protesto mais mortal da história.

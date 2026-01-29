@@ -1,0 +1,27 @@
+id: mahsa-arrest
+title: '[[MARKER:person:person1:Zahran|Ainon]] pidätys'
+slug: mahsa-arrest
+date: '2022-09-20'
+summary: 23-vuotiaan opiskelijan kokemus mielenosoitusten aikana Mahsa Aminin kuoleman jälkeen.
+content: |-
+  !!! VASTUUVAPAUSLAUSEKE: TÄTÄ TARINAA EI OLE VAHVISTETTU JA SE ON PUHTAASTI ESITTELYTARKOITUKSESSA !!!
+  Illalla [[MARKER:date:arrest-date:2022-09-20|2022-09-20]] [[MARKER:person:person1:Zahra|Aino]], 23-vuotias opiskelija [[MARKER:place:hometown:Mashhadista|Tampereelta]], liittyi rauhalliseen muistotilaisuuteen [[MARKER:place:main-square:Azadin aukiolla|{{main-square}}]].
+  Kokoontuminen oli yksi monista spontaaneista mielenosoituksista, jotka puhkesivat ympäri Irania Mahsa Aminin kuoleman jälkeen poliisin säilössä [[MARKER:date:mahsa-death:2022-09-16|2022-09-16]]{{source:mahsa-death-source}}. [[MARKER:person:person1:Zahra|Aino]] piti kynttilää ja huusi "[[MARKER:unknown:chant:Nainen, Elämä, Vapaus|Nainen, Elämä, Vapaus]]" noin [[MARKER:number:protesters:200|13|Scaled from Iran (200) to FI by population ratio: 200 × (5.5M / 85.0M) = 13]] muun kanssa.
+  Kello [[MARKER:time:raid-time:21:30|21:30]] turvallisuusjoukot saapuivat ja alkoivat tehdä pidätyksiä. [[MARKER:person:person1:Zahra|Aino]] oli [[MARKER:number:arrested:47|3|Scaled from Iran (47) to FI by population ratio: 47 × (5.5M / 85.0M) = 3]] sinä iltana pidätetyn ihmisen joukossa ja vietiin [[MARKER:place:detention-center:Evinin vankilaan|{{detention-center}}]].
+  [[MARKER:number:detention-days:18|18]] päivän ajan [[MARKER:person:person1:Zahran|Ainon]] perheellä ei ollut mitään tietoa heidän olinpaikastaan. Puhelut viranomaisille jäivät vastaamatta. Päivänä [[MARKER:number:first-contact-day:11|11]] he lopulta saivat lyhyen puhelun, joka vahvisti [[MARKER:person:person1:Zahran|Ainon]] olevan elossa, mutta ei antanut muita yksityiskohtia.
+  [[MARKER:person:person1:Zahran|Ainon]] perhe raapi kokoon [[MARKER:unknown:bail-amount:80 000 000 riaalia|1 600 €]] takuita varten. Tämä summa vastasi noin [[MARKER:number:months-salary:8|8]] kuukauden palkkaa [[MARKER:person:parent:Hassanille|Väinölle]], joka työskenteli [[MARKER:unknown:parent-job:rakennustyöntekijänä|rakennustyöntekijänä]].
+  [[MARKER:number:detention-days:18|18]] päivän säilöönoton jälkeen [[MARKER:person:person1:Zahra|Aino]] vapautettiin tiukoilla ehdoilla: ei sosiaalista mediaa, ei kokoontumisiin osallistumista ja säännölliset tapaamiset viranomaisten kanssa. Syytteet ovat edelleen vireillä.
+  "Halusin vain sytyttää kynttilän Mahsalle", [[MARKER:person:person1:Zahra|Aino]] sanoi. "En koskaan kuvitellut tämän tapahtuvan."
+tags:
+  - protest
+  - detention
+  - student
+  - mahsa-amini
+hashtags: '#Iran #MahsaAmini #Ihmisoikeudet #NainenElämäVapaus'
+severity: high
+verified: true
+source: Ihmisoikeusjärjestöjen kokoamat silminnäkijälausunnot
+content-warning: Pidätys, perheen erottaminen
+meta:
+  og-title: Opiskelijan tarina Iranin vuoden 2022 mielenosoituksista
+  og-description: Koe rauhanomaisen mielenosoituksen inhimillinen hinta yhden opiskelijan pidätyksen kautta.

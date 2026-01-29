@@ -1,0 +1,30 @@
+id: raha-2026
+title: El último día de [[MARKER:person:student:Raha|Emma]]
+slug: raha-2026
+date: '2026-01-08'
+summary: Una estudiante universitaria de 22 años que amaba el arte y la música fue asesinada por las fuerzas de seguridad durante el levantamiento de 2026.
+content: |-
+  !!! DESCARGO DE RESPONSABILIDAD: ESTA HISTORIA NO ESTÁ VERIFICADA Y ES PURAMENTE PARA FINES DE DEMOSTRACIÓN !!!
+  [[MARKER:person:student:Raha|Emma]], una estudiante universitaria de 22 años de [[MARKER:place:tehran:Teherán|Madrid]], estaba interesada en el arte y la música. Mantenía un diario en línea donde escribía sobre respirar, continuar y el mañana. Registraba nombres de amigos y compañeros de clase detenidos, entendiendo que la represión comienza con el borrado.
+  En la mañana del [[MARKER:date:protest-date:2026-01-08|2026-01-08]], estallaron protestas en todo Irán. En cuestión de horas, las manifestaciones se extendieron a más de [[MARKER:number:cities:400|223|Scaled from Iran (400) to ES by population ratio: 400 × (47.4M / 85.0M) = 223]] ciudades y pueblos. [[MARKER:person:student:Raha|Emma]] se unió a los manifestantes cerca de la [[MARKER:place:square:Plaza Fatemi|Plaza de Cibeles]] en [[MARKER:place:tehran:Teherán|Madrid]].
+  Las protestas fueron recibidas con una fuerza abrumadora. Las fuerzas de seguridad, incluidas unidades del IRGC y agentes de civil, abrieron fuego contra las multitudes. Según documentos clasificados{{source:death-toll}}, más de [[MARKER:casualties:killed:36500|20333|Scaled from Iran (36,500) to ES by country population: 36,500 × (47.4M / 85.0M) = 20333]] personas fueron asesinadas [[COMPARISON:(105 times the Madrid train bombings)|(105 veces los atentados de trenes de Madrid)|Comparison: 20,333 casualties vs. Madrid train bombings (193 casualties in 2004) = 105x more]] en dos días, convirtiéndola en la masacre de protestas más mortífera de la historia.
+  [[MARKER:person:student:Raha|Emma]] recibió un disparo cerca de la [[MARKER:place:square:Plaza Fatemi|Plaza Central]] el [[MARKER:date:protest-date:2026-01-08|2026-01-08]]. Tenía 22 años. Su familia encontró más tarde su cuerpo en la [[MARKER:place:morgue:morgue de Kahrizak|Audiencia]], una de las miles entregadas a instalaciones abrumadas por las bajas.
+  {{image:morgue-scene}}
+  El personal médico informó que algunos manifestantes heridos recibieron disparos en la cabeza mientras estaban hospitalizados{{source:hospital-executions}}. Las imágenes de las morgues mostraban cuerpos con equipos de monitoreo cardíaco aún conectados, lo que sugiere que los pacientes bajo atención médica fueron ejecutados. Médicos y enfermeras describieron cómo las fuerzas de seguridad entraban en los hospitales y se llevaban a pacientes heridos, algunos de los cuales fueron encontrados muertos más tarde.
+  El gobierno cortó el acceso a internet en todo el país durante [[MARKER:number:blackout-days:16|16]] días, impidiendo que las familias compartieran información y haciendo casi imposible documentar la escala de los asesinatos. Las familias en duelo fueron obligadas a pagar tarifas descritas como "costos de balas" para recibir los cuerpos. En algunos casos, las autoridades enterraron a las víctimas sin el consentimiento de la familia.
+  [[MARKER:person:student:Raha|Emma]] no dejó ningún manifiesto. Lo que queda son fragmentos - reflexiones breves cuidadosamente elegidas. Su escritura volvía una y otra vez a preocupaciones elementales: respirar, continuar, el mañana. Ella entendía que estar viva no es negociable.
+  Antes de morir, [[MARKER:person:student:Raha|Emma]] escribió nombres. Nombró a los detenidos y a los desaparecidos. Registró a las personas como personas, no como abstracciones. Sabía cómo comienza la represión - no con balas, sino con el borrado.
+tags:
+  - 2026-uprising
+  - student
+  - massacre
+  - internet-blackout
+  - raha-bohlouli
+hashtags: '#Irán #NuncaOlvidar #DerechosHumanos #RahaBohlouli #LevantamientoIraní'
+severity: critical
+verified: true
+source: Reportaje de investigación de Iran International, testimonios de testigos, documentos clasificados
+content-warning: Asesinatos masivos, ejecuciones extrajudiciales, violencia estatal
+meta:
+  og-title: 'La historia de Raha: Una estudiante asesinada en el levantamiento de Irán de 2026'
+  og-description: Una estudiante universitaria que registraba nombres de detenidos fue asesinada durante la masacre de protestas más mortífera de la historia.

@@ -1,0 +1,27 @@
+id: mahsa-arrest
+title: بازداشت [[MARKER:person:person1:زهرا|فاطمه]]
+slug: mahsa-arrest
+date: '2022-09-20'
+summary: تجربه یک دانشجوی ۲۳ ساله در جریان اعتراضات پس از مرگ مهسا امینی.
+content: |-
+  !!! هشدار: این داستان تأیید نشده و صرفاً برای اهداف نمایشی است !!!
+  در عصر [[MARKER:date:arrest-date:۲۰ سپتامبر ۲۰۲۲|۲۰ سپتامبر ۲۰۲۲]]، [[MARKER:person:person1:زهرا|فاطمه]]، دانشجوی ۲۳ ساله‌ای از [[MARKER:place:hometown:مشهد|{{hometown}}]]، به یک مراسم شمع‌افروزی مسالمت‌آمیز در [[MARKER:place:main-square:میدان آزادی|{{main-square}}]] پیوست.
+  این گردهمایی یکی از بسیاری از تظاهرات خودجوش بود که در سراسر ایران پس از مرگ مهسا امینی در بازداشت پلیس در [[MARKER:date:mahsa-death:۱۶ سپتامبر ۲۰۲۲|۱۶ سپتامبر ۲۰۲۲]]{{source:mahsa-death-source}} رخ داد. [[MARKER:person:person1:زهرا|فاطمه]] شمعی در دست داشت و همراه با تقریباً [[MARKER:number:protesters:200|200|Scaled from Iran (200) to IR by population ratio: 200 × (85.0M / 85.0M) = 200]] نفر دیگر شعار «[[MARKER:unknown:chant:زن، زندگی، آزادی|زن، زندگی، آزادی]]» سر می‌داد.
+  در ساعت [[MARKER:time:raid-time:۲۱:۳۰|۲۱:۳۰]]، نیروهای امنیتی وارد شدند و شروع به دستگیری کردند. [[MARKER:person:person1:زهرا|فاطمه]] در میان [[MARKER:number:arrested:47|47|Scaled from Iran (47) to IR by population ratio: 47 × (85.0M / 85.0M) = 47]] نفری بود که آن شب بازداشت شدند و به [[MARKER:place:detention-center:زندان اوین|{{detention-center}}]] منتقل شدند.
+  به مدت [[MARKER:number:detention-days:18|18]] روز، خانواده [[MARKER:person:person1:زهرا|فاطمه]] هیچ اطلاعاتی از محل نگهداری او نداشتند. تماس‌های تلفنی با مقامات بی‌پاسخ ماند. در روز [[MARKER:number:first-contact-day:11|11]]، سرانجام یک تماس کوتاه دریافت کردند که تأیید می‌کرد [[MARKER:person:person1:زهرا|فاطمه]] زنده است اما جزئیات دیگری ارائه نمی‌شد.
+  خانواده [[MARKER:person:person1:زهرا|فاطمه]] با زحمت [[MARKER:unknown:bail-amount:۸۰،۰۰۰،۰۰۰ ریال|﷼۸۰،۰۰۰،۰۰۰]] برای وثیقه جمع کردند. این مبلغ تقریباً معادل [[MARKER:number:months-salary:8|8]] ماه حقوق [[MARKER:person:parent:حسن|علی]] به عنوان یک [[MARKER:unknown:parent-job:کارگر ساختمانی|کارگر ساختمانی]] بود.
+  پس از [[MARKER:number:detention-days:18|18]] روز بازداشت، [[MARKER:person:person1:زهرا|فاطمه]] با شرایط سختگیرانه آزاد شد: ممنوعیت استفاده از شبکه‌های اجتماعی، ممنوعیت شرکت در تجمعات، و معرفی منظم به مقامات. اتهامات همچنان در انتظار رسیدگی است.
+  [[MARKER:person:person1:زهرا|فاطمه]] گفت: "من فقط می‌خواستم برای مهسا شمع روشن کنم. هرگز تصور نمی‌کردم این اتفاق بیفتد."
+tags:
+  - protest
+  - detention
+  - student
+  - mahsa-amini
+hashtags: '#Iran #MahsaAmini #HumanRights #WomanLifeFreedom'
+severity: high
+verified: true
+source: Witness testimonies compiled by human rights organizations
+content-warning: Detention, family separation
+meta:
+  og-title: A Student's Story from Iran's 2022 Protests
+  og-description: Experience the human cost of peaceful protest through one student's detention.

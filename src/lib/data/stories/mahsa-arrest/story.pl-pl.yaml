@@ -1,0 +1,27 @@
+id: mahsa-arrest
+title: Zatrzymanie [[MARKER:person:person1:Zahry|Zofii]]
+slug: mahsa-arrest
+date: '2022-09-20'
+summary: Doświadczenie 23-letniej studentki podczas protestów po śmierci Mahsy Amini.
+content: |-
+  !!! ZASTRZEŻENIE: TA HISTORIA NIE JEST ZWERYFIKOWANA I MA WYŁĄCZNIE CHARAKTER DEMONSTRACYJNY !!!
+  Wieczorem [[MARKER:date:arrest-date:2022-09-20|2022-09-20]], [[MARKER:person:person1:Zahra|Zofia]], 23-letnia studentka z [[MARKER:place:hometown:Maszhadu|Gdańska]], dołączyła do pokojowego czuwania na [[MARKER:place:main-square:placu Azadi|{{main-square}}]].
+  Zgromadzenie było jednym z wielu spontanicznych demonstracji, które wybuchły w całym Iranie po śmierci Mahsy Amini w areszcie policyjnym [[MARKER:date:mahsa-death:2022-09-16|2022-09-16]]{{source:mahsa-death-source}}. [[MARKER:person:person1:Zahra|Zofia]] trzymała świecę i skandowała "[[MARKER:unknown:chant:Kobieta, Życie, Wolność|Kobieta, Życie, Wolność]]" razem z około [[MARKER:number:protesters:200|89|Scaled from Iran (200) to PL by population ratio: 200 × (38.0M / 85.0M) = 89]] innymi osobami.
+  O [[MARKER:time:raid-time:21:30|21:30]], siły bezpieczeństwa przybyły i rozpoczęły aresztowania. [[MARKER:person:person1:Zahra|Zofia]] była wśród [[MARKER:number:arrested:47|21|Scaled from Iran (47) to PL by population ratio: 47 × (38.0M / 85.0M) = 21]] osób zatrzymanych tej nocy i przewiezionych do [[MARKER:place:detention-center:więzienia Evin|{{detention-center}}]].
+  Przez [[MARKER:number:detention-days:18|18]] dni rodzina [[MARKER:person:person1:Zahry|Zofii]] nie miała żadnych informacji o jej miejscu pobytu. Telefony do władz pozostawały bez odpowiedzi. W dniu [[MARKER:number:first-contact-day:11|11]] w końcu otrzymali krótki telefon potwierdzający, że [[MARKER:person:person1:Zahra|Zofia]] żyje, ale nie podano żadnych innych szczegółów.
+  Rodzina [[MARKER:person:person1:Zahry|Zofii]] zebrała [[MARKER:unknown:bail-amount:80 000 000 riali|7 200 zł]] na kaucję. Ta kwota stanowiła około [[MARKER:number:months-salary:8|8]] miesięcy pensji [[MARKER:person:parent:Hassana|Antoniego]] jako [[MARKER:unknown:parent-job:robotnika budowlanego|robotnika budowlanego]].
+  Po [[MARKER:number:detention-days:18|18]] dniach w areszcie [[MARKER:person:person1:Zahra|Zofia]] została zwolniona z surowymi warunkami: zakaz korzystania z mediów społecznościowych, zakaz uczestnictwa w zgromadzeniach i regularne meldowanie się u władz. Zarzuty nadal są w toku.
+  "Chciałam tylko zapalić świecę dla Mahsy," powiedziała [[MARKER:person:person1:Zahra|Zofia]]. "Nigdy nie wyobrażałam sobie, że to się stanie."
+tags:
+  - protest
+  - detention
+  - student
+  - mahsa-amini
+hashtags: '#Iran #MahsaAmini #PrawaČłowieka #KobietaŻycieWolność'
+severity: high
+verified: true
+source: Zeznania świadków zebrane przez organizacje praw człowieka
+content-warning: Zatrzymanie, rozdzielenie rodziny
+meta:
+  og-title: Historia studentki z protestów w Iranie w 2022 roku
+  og-description: Poznaj ludzki koszt pokojowego protestu przez pryzmat zatrzymania jednej studentki.

@@ -1,0 +1,27 @@
+id: mahsa-arrest
+title: Detenção de [[MARKER:person:person1:Zahra|Júlia]]
+slug: mahsa-arrest
+date: '2022-09-20'
+summary: A experiência de uma estudante de 23 anos durante os protestos após a morte de Mahsa Amini.
+content: |-
+  !!! AVISO: ESTA HISTÓRIA NÃO É VERIFICADA E É PURAMENTE PARA FINS DE DEMONSTRAÇÃO !!!
+  Na noite de [[MARKER:date:arrest-date:2022-09-20|2022-09-20]], [[MARKER:person:person1:Zahra|Júlia]], uma estudante de 23 anos de [[MARKER:place:hometown:Mashhad|{{hometown}}]], participou de uma vigília pacífica na [[MARKER:place:main-square:Praça Azadi|{{main-square}}]].
+  A reunião foi uma das muitas manifestações espontâneas que eclodiram em todo o Irã após a morte de Mahsa Amini sob custódia policial em [[MARKER:date:mahsa-death:2022-09-16|2022-09-16]]{{source:mahsa-death-source}}. [[MARKER:person:person1:Zahra|Júlia]] segurava uma vela e cantava "[[MARKER:unknown:chant:Mulher, Vida, Liberdade|Mulher, Vida, Liberdade]]" com aproximadamente [[MARKER:number:protesters:200|507|Scaled from Iran (200) to BR by population ratio: 200 × (215.3M / 85.0M) = 507]] outras pessoas.
+  Às [[MARKER:time:raid-time:21:30|21:30]], as forças de segurança chegaram e começaram a fazer prisões. [[MARKER:person:person1:Zahra|Júlia]] estava entre as [[MARKER:number:arrested:47|119|Scaled from Iran (47) to BR by population ratio: 47 × (215.3M / 85.0M) = 119]] pessoas detidas naquela noite e levadas para [[MARKER:place:detention-center:Prisão de Evin|{{detention-center}}]].
+  Por [[MARKER:number:detention-days:18|18]] dias, a família de [[MARKER:person:person1:Zahra|Júlia]] não teve nenhuma informação sobre seu paradeiro. Ligações telefônicas para as autoridades não foram atendidas. No dia [[MARKER:number:first-contact-day:11|11]], eles finalmente receberam uma breve ligação confirmando que [[MARKER:person:person1:Zahra|Júlia]] estava viva, mas sem fornecer outros detalhes.
+  A família de [[MARKER:person:person1:Zahra|Júlia]] juntou [[MARKER:unknown:bail-amount:80.000.000 de Riais|R$9.600]] para a fiança. Esse valor representava aproximadamente [[MARKER:number:months-salary:8|8]] meses do salário de [[MARKER:person:parent:Hassan|Théo]] como [[MARKER:unknown:parent-job:trabalhador da construção civil|trabalhador da construção civil]].
+  Após [[MARKER:number:detention-days:18|18]] dias sob custódia, [[MARKER:person:person1:Zahra|Júlia]] foi libertada com condições rígidas: sem redes sociais, sem participar de reuniões e check-ins regulares com as autoridades. As acusações continuam pendentes.
+  "Eu só queria acender uma vela para Mahsa", disse [[MARKER:person:person1:Zahra|Júlia]]. "Nunca imaginei que isso aconteceria."
+tags:
+  - protesto
+  - detenção
+  - estudante
+  - mahsa-amini
+hashtags: '#Irã #MahsaAmini #DireitosHumanos #MulherVidaLiberdade'
+severity: high
+verified: true
+source: Testemunhos de testemunhas compilados por organizações de direitos humanos
+content-warning: Detenção, separação familiar
+meta:
+  og-title: A História de uma Estudante dos Protestos de 2022 no Irã
+  og-description: Experimente o custo humano do protesto pacífico através da detenção de uma estudante.

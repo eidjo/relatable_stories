@@ -1,0 +1,30 @@
+id: raha-2026
+title: Ostatni dzień [[MARKER:person:student:Rahy|Julii]]
+slug: raha-2026
+date: '2026-01-08'
+summary: 22-letnia studentka uniwersytetu, która kochała sztukę i muzykę, została zabita przez siły bezpieczeństwa podczas powstania w 2026 roku.
+content: |-
+  !!! ZASTRZEŻENIE: TA HISTORIA NIE JEST ZWERYFIKOWANA I SŁUŻY WYŁĄCZNIE CELOM DEMONSTRACYJNYM !!!
+  [[MARKER:person:student:Raha|Julia]], 22-letnia studentka uniwersytetu z [[MARKER:place:tehran:Teheranu|Warszawy]], interesowała się sztuką i muzyką. Prowadziła internetowy dziennik, w którym pisała o oddychaniu, kontynuowaniu i jutrze. Zapisywała nazwiska zatrzymanych przyjaciół i kolegów z klasy, rozumiejąc, że represje zaczynają się od wymazywania.
+  Rankiem [[MARKER:date:protest-date:2026-01-08|2026-01-08]] w całym Iranie wybuchły protesty. W ciągu kilku godzin demonstracje rozprzestrzeniły się na ponad [[MARKER:number:cities:400|179|Scaled from Iran (400) to PL by population ratio: 400 × (38.0M / 85.0M) = 179]] miast i miasteczek. [[MARKER:person:student:Raha|Julia]] dołączyła do protestujących w pobliżu [[MARKER:place:square:Placu Fatemi|Placu Trzech Krzyży]] w [[MARKER:place:tehran:Teheranie|Warszawie]].
+  Protesty zostały stłumione z przytłaczającą siłą. Siły bezpieczeństwa, w tym jednostki IRGC i agenci w cywilu, otworzyły ogień do tłumów. Według tajnych dokumentów{{source:death-toll}}, ponad [[MARKER:casualties:killed:36500|16318|Scaled from Iran (36,500) to PL by country population: 36,500 × (38.0M / 85.0M) = 16318]] osób zostało zabitych [[COMPARISON:(Katyń massacre)|(masakra katyńska)|Comparison: 16,318 casualties vs. Katyń massacre (22,000 casualties in 1940) = comparable scale]] w ciągu dwóch dni, co czyni to najkrwawszą masakrą protestujących w historii.
+  [[MARKER:person:student:Raha|Julia]] została zastrzelona w pobliżu [[MARKER:place:square:Placu Fatemi|Placu]] [[MARKER:date:protest-date:2026-01-08|2026-01-08]]. Miała 22 lata. Jej rodzina później odnalazła jej ciało w [[MARKER:place:morgue:kostnicy Kahrizak|Więzieniu]], jednym z tysięcy dostarczonych do placówek przytłoczonych liczbą ofiar.
+  {{image:morgue-scene}}
+  Personel medyczny donosił, że niektórzy ranni protestujący zostali zastrzeleni w głowę podczas hospitalizacji{{source:hospital-executions}}. Zdjęcia z kostnic pokazywały ciała z wciąż podłączonym sprzętem do monitorowania pracy serca, co sugeruje, że pacjenci pod opieką medyczną zostali straceni. Lekarze i pielęgniarki opisywali, jak siły bezpieczeństwa wkraczały do szpitali i zabierały rannych pacjentów, z których niektórzy zostali później znalezieni martwi.
+  Rząd odciął dostęp do internetu w całym kraju na [[MARKER:number:blackout-days:16|16]] dni, uniemożliwiając rodzinom dzielenie się informacjami i sprawiając, że udokumentowanie skali zabójstw było niemal niemożliwe. Rodziny pogrążone w żałobie były zmuszone płacić opłaty określane jako "koszty pocisków", aby odebrać ciała. W niektórych przypadkach władze pochowały ofiary bez zgody rodziny.
+  [[MARKER:person:student:Raha|Julia]] nie pozostawiła żadnego manifestu. Pozostały fragmenty - krótkie refleksje starannie wybrane. Jej pisanie wracało wciąż do elementarnych spraw: oddychania, kontynuowania, jutra. Rozumiała, że bycie żywym nie podlega negocjacjom.
+  Zanim umarła, [[MARKER:person:student:Raha|Julia]] zapisywała nazwiska. Wymieniała zatrzymanych i zaginionych. Rejestrowała ludzi jako ludzi, nie jako abstrakcje. Wiedziała, jak zaczynają się represje - nie od kul, ale od wymazywania.
+tags:
+  - 2026-uprising
+  - student
+  - massacre
+  - internet-blackout
+  - raha-bohlouli
+hashtags: '#Iran #NigdyNieZapomnimy #PrawaCzłowieka #RahaBohlouli #PowstanieWIranie'
+severity: critical
+verified: true
+source: Iran International investigative reporting, witness testimonies, classified documents
+content-warning: Mass killings, extrajudicial executions, state violence
+meta:
+  og-title: 'Historia Rahy: Studentka zabita podczas powstania w Iranie w 2026 roku'
+  og-description: Studentka uniwersytetu, która zapisywała nazwiska zatrzymanych, została zabita podczas najkrwawszej masakry protestujących w historii.

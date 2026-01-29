@@ -1,0 +1,30 @@
+id: raha-2026
+title: Le dernier jour de [[MARKER:person:student:Raha|Léa]]
+slug: raha-2026
+date: '2026-01-08'
+summary: Une étudiante universitaire de 22 ans qui aimait l'art et la musique a été tuée par les forces de sécurité pendant le soulèvement de 2026.
+content: |-
+  !!! AVERTISSEMENT : CETTE HISTOIRE N'EST PAS VÉRIFIÉE ET EST PUREMENT À DES FINS DE DÉMONSTRATION !!!
+  [[MARKER:person:student:Raha|Léa]], une étudiante universitaire de 22 ans originaire de [[MARKER:place:tehran:Téhéran|Paris]], s'intéressait à l'art et à la musique. Elle tenait un journal en ligne où elle écrivait sur la respiration, la continuation et demain. Elle enregistrait les noms d'amis et de camarades de classe détenus, comprenant que la répression commence par l'effacement.
+  Le matin du [[MARKER:date:protest-date:2026-01-08|2026-01-08]], des manifestations ont éclaté à travers l'Iran. En quelques heures, les manifestations se sont étendues à plus de [[MARKER:number:cities:400|319|Scaled from Iran (400) to FR by population ratio: 400 × (67.8M / 85.0M) = 319]] villes et villages. [[MARKER:person:student:Raha|Léa]] a rejoint les manifestants près de la [[MARKER:place:square:place Fatemi|place de la Bastille]] à [[MARKER:place:tehran:Téhéran|Paris]].
+  Les manifestations ont été accueillies par une force écrasante. Les forces de sécurité, y compris les unités du CGRI et des agents en civil, ont ouvert le feu sur les foules. Selon des documents classifiés{{source:death-toll}}, plus de [[MARKER:casualties:killed:36500|29093|Scaled from Iran (36,500) to FR by country population: 36,500 × (67.8M / 85.0M) = 29093]] personnes ont été tuées [[COMPARISON:(212 times the Bataclan massacre)|(212 fois le massacre du Bataclan)|Comparison: 29,093 casualties vs. Bataclan massacre (137 casualties in 2015) = 212x more]] en deux jours, ce qui en fait le massacre de manifestants le plus meurtrier de l'histoire.
+  [[MARKER:person:student:Raha|Léa]] a été abattue près de la [[MARKER:place:square:place Fatemi|place Centrale]] le [[MARKER:date:protest-date:2026-01-08|2026-01-08]]. Elle avait 22 ans. Sa famille a ensuite retrouvé son corps au [[MARKER:place:morgue:morgue de Kahrizak|Palais de Justice]], l'un des milliers livrés à des installations submergées par les victimes.
+  {{image:morgue-scene}}
+  Le personnel médical a signalé que certains manifestants blessés ont reçu une balle dans la tête alors qu'ils étaient hospitalisés{{source:hospital-executions}}. Des images de morgues montraient des corps avec des équipements de surveillance cardiaque encore attachés, suggérant que des patients sous soins médicaux ont été exécutés. Des médecins et des infirmières ont décrit des forces de sécurité entrant dans les hôpitaux et emmenant des patients blessés, dont certains ont été retrouvés morts plus tard.
+  Le gouvernement a coupé l'accès à Internet dans tout le pays pendant [[MARKER:number:blackout-days:16|16]] jours, empêchant les familles de partager des informations et rendant presque impossible la documentation de l'ampleur des tueries. Les familles endeuillées ont été forcées de payer des frais décrits comme des « coûts de balles » pour recevoir les corps. Dans certains cas, les autorités ont enterré des victimes sans le consentement de la famille.
+  [[MARKER:person:student:Raha|Léa]] n'a laissé aucun manifeste. Ce qui reste, ce sont des fragments - de courtes réflexions soigneusement choisies. Son écriture revenait encore et encore à des préoccupations élémentaires : respirer, continuer, demain. Elle comprenait qu'être en vie n'est pas négociable.
+  Avant de mourir, [[MARKER:person:student:Raha|Léa]] a écrit des noms. Elle a nommé les détenus et les disparus. Elle a enregistré les gens en tant que personnes, pas en tant qu'abstractions. Elle savait comment commence la répression - non pas avec des balles, mais avec l'effacement.
+tags:
+  - 2026-uprising
+  - student
+  - massacre
+  - internet-blackout
+  - raha-bohlouli
+hashtags: '#Iran #NeverForget #HumanRights #RahaBohlouli #IranUprising'
+severity: critical
+verified: true
+source: Reportages d'investigation d'Iran International, témoignages de témoins, documents classifiés
+content-warning: Tueries de masse, exécutions extrajudiciaires, violence d'État
+meta:
+  og-title: "L'histoire de Raha : Une étudiante tuée lors du soulèvement iranien de 2026"
+  og-description: Une étudiante universitaire qui enregistrait les noms des détenus a été tuée pendant le massacre de manifestants le plus meurtrier de l'histoire.
