@@ -9,6 +9,8 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import yaml from 'js-yaml';
 import { translateMarker, getOriginalValue } from '../src/lib/translation/core.ts';
+import { format } from 'date-fns';
+import { enUS, cs, fr, de, es, it, nl, sv, nb, da, fi, pl, pt } from 'date-fns/locale';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -19,6 +21,36 @@ const TWITTER_WIDTH = 1200;
 const TWITTER_HEIGHT = 675;
 const INSTAGRAM_WIDTH = 1080;
 const INSTAGRAM_HEIGHT = 1920;
+
+// Date-fns locale map
+const localeMap = {
+  en: enUS,
+  cs: cs,
+  fr: fr,
+  de: de,
+  es: es,
+  it: it,
+  nl: nl,
+  sv: sv,
+  no: nb,
+  da: da,
+  fi: fi,
+  pl: pl,
+  pt: pt,
+};
+
+/**
+ * Format a date string for a specific language
+ */
+function formatDateLocalized(dateString, languageCode = 'en') {
+  try {
+    const date = new Date(dateString);
+    const locale = localeMap[languageCode] || localeMap['en'];
+    return format(date, 'PPP', { locale });
+  } catch (error) {
+    return dateString;
+  }
+}
 
 // Website colors (exact match)
 const THEMES = {
@@ -74,46 +106,118 @@ try {
 
 /**
  * Parse pre-translated text with [[MARKER:...]] format
+ * Also handles {{date:...}} and {{source:...}} markers that weren't translated
  */
-function parsePreTranslated(text) {
-  const segments = [];
-  const markerRegex = /\[\[MARKER:([^:]+):([^:]+):([^\|]+)\|([^\]]+)\]\]/g;
-  let lastIndex = 0;
-  let match;
+function parsePreTranslated(text, markers, storyId, languageCode = 'en') {
+  // Split by newlines first to preserve paragraph structure
+  const paragraphs = text.split(/\n+/).filter(p => p.trim());
+  const allSegments = [];
+  let sourceCounter = 1;
 
-  while ((match = markerRegex.exec(text)) !== null) {
-    // Add text before marker
-    if (match.index > lastIndex) {
-      segments.push({
+  paragraphs.forEach((paragraph, pIdx) => {
+    // Combined regex for both [[MARKER:...]] and {{...}} formats
+    const combinedRegex = /(\[\[MARKER:([^:]+):([^:]+):([^\|]+)\|([^\]]+)\]\])|(\{\{([^:}]+):([^}]+)\}\})/g;
+    let lastIndex = 0;
+    let match;
+
+    while ((match = combinedRegex.exec(paragraph)) !== null) {
+      // Add text before marker
+      if (match.index > lastIndex) {
+        allSegments.push({
+          type: 'text',
+          text: paragraph.substring(lastIndex, match.index),
+        });
+      }
+
+      // Check which format matched
+      if (match[1]) {
+        // [[MARKER:...]] format
+        const [, , type, key, original, translatedValue] = match;
+        allSegments.push({
+          type: 'translated',
+          text: translatedValue,
+          original: original,
+        });
+      } else if (match[6]) {
+        // {{...}} format - needs to be translated
+        const [, , , , , , fullMatch, type, key] = match;
+        const marker = markers[key];
+
+        // Handle sources specially
+        if (type === 'source') {
+          allSegments.push({
+            type: 'source',
+            text: `[${sourceCounter}]`,
+          });
+          sourceCounter++;
+        } else if (type === 'date') {
+          // Format date using date-locale
+          const dateValue = marker?.value || fullMatch;
+          const formattedDate = formatDateLocalized(dateValue, languageCode);
+          allSegments.push({
+            type: 'text',
+            text: formattedDate,
+          });
+        } else if (type === 'image') {
+          // Skip images in share images
+        } else if (marker) {
+          // Translate other marker types that weren't pre-translated
+          const context = contextData;
+          const countryCode = 'US'; // Fallback for untranslated markers
+          const countryNames = context.names[countryCode];
+          const countryPlaces = context.places[countryCode];
+          const targetCountry = context.countries.find(c => c.code === countryCode);
+
+          const translationData = {
+            country: countryCode,
+            names: countryNames,
+            places: countryPlaces,
+            population: targetCountry?.population || 85000000,
+            currencySymbol: targetCountry?.currencySymbol || '$',
+            rialToLocal: targetCountry?.rialToLocal || 0.000024,
+          };
+
+          const result = translateMarker(key, marker, translationData, storyId);
+          allSegments.push({
+            type: result.original ? 'translated' : 'text',
+            text: result.translated,
+            original: result.original || null,
+          });
+        } else {
+          // Marker not found, keep original
+          allSegments.push({
+            type: 'text',
+            text: fullMatch,
+          });
+        }
+      }
+
+      lastIndex = match.index + match[0].length;
+    }
+
+    // Add remaining text from paragraph
+    if (lastIndex < paragraph.length) {
+      allSegments.push({
         type: 'text',
-        text: text.substring(lastIndex, match.index),
+        text: paragraph.substring(lastIndex),
       });
     }
 
-    const [, type, key, original, translatedValue] = match;
-    segments.push({
-      type: 'translated',
-      text: translatedValue,
-      original: original,
-    });
+    // Add paragraph break after each paragraph (except the last one)
+    if (pIdx < paragraphs.length - 1) {
+      allSegments.push({
+        type: 'paragraph-break',
+        text: '\n\n',
+      });
+    }
+  });
 
-    lastIndex = match.index + match[0].length;
-  }
-
-  // Add remaining text
-  if (lastIndex < text.length) {
-    segments.push({
-      type: 'text',
-      text: text.substring(lastIndex),
-    });
-  }
-
-  return segments;
+  return allSegments;
 }
 
 /**
  * Translate text and track original values for strikethrough
- * Now uses core translation logic
+ * Matches website's approach: split by paragraphs first, then process markers
  */
 function translateWithOriginals(text, markers, countryCode, storyId) {
   const context = contextData;
@@ -131,76 +235,90 @@ function translateWithOriginals(text, markers, countryCode, storyId) {
     rialToLocal: targetCountry?.rialToLocal || 0.000024,
   };
 
-  const segments = [];
-  let lastIndex = 0;
+  // Split by newlines first to preserve paragraph structure (like website does)
+  const paragraphs = text.split(/\n+/).filter(p => p.trim());
+  const allSegments = [];
   let sourceCounter = 1;
 
-  // Process all markers
-  const markerRegex = /\{\{([^:}]+):([^}]+)\}\}/g;
-  let match;
+  paragraphs.forEach((paragraph, pIdx) => {
+    let lastIndex = 0;
+    const markerRegex = /\{\{([^:}]+):([^}]+)\}\}/g;
+    let match;
 
-  while ((match = markerRegex.exec(text)) !== null) {
-    // Add text before marker
-    if (match.index > lastIndex) {
-      segments.push({
-        type: 'text',
-        text: text.substring(lastIndex, match.index),
-      });
-    }
+    while ((match = markerRegex.exec(paragraph)) !== null) {
+      // Add text before marker
+      if (match.index > lastIndex) {
+        allSegments.push({
+          type: 'text',
+          text: paragraph.substring(lastIndex, match.index),
+        });
+      }
 
-    const [fullMatch, type, key] = match;
-    const marker = markers[key];
+      const [fullMatch, type, key] = match;
+      const marker = markers[key];
 
-    // Handle sources specially
-    if (type === 'source') {
-      segments.push({
-        type: 'source',
-        text: `[${sourceCounter}]`,
-      });
-      sourceCounter++;
+      // Handle sources specially
+      if (type === 'source') {
+        allSegments.push({
+          type: 'source',
+          text: `[${sourceCounter}]`,
+        });
+        sourceCounter++;
+        lastIndex = match.index + fullMatch.length;
+        continue;
+      }
+
+      if (!marker) {
+        allSegments.push({ type: 'text', text: fullMatch });
+        lastIndex = match.index + fullMatch.length;
+        continue;
+      }
+
+      // Use core translation function
+      const result = translateMarker(key, marker, translationData, storyId);
+
+      if (result.original && result.translated !== result.original) {
+        allSegments.push({
+          type: 'translated',
+          text: result.translated,
+          original: result.original,
+        });
+      } else {
+        allSegments.push({
+          type: 'text',
+          text: result.translated,
+        });
+      }
+
       lastIndex = match.index + fullMatch.length;
-      continue;
     }
 
-    if (!marker) {
-      segments.push({ type: 'text', text: fullMatch });
-      lastIndex = match.index + fullMatch.length;
-      continue;
-    }
-
-    // Use core translation function
-    const result = translateMarker(key, marker, translationData, storyId);
-
-    if (result.original && result.translated !== result.original) {
-      segments.push({
-        type: 'translated',
-        text: result.translated,
-        original: result.original,
-      });
-    } else {
-      segments.push({
+    // Add remaining text from paragraph
+    if (lastIndex < paragraph.length) {
+      allSegments.push({
         type: 'text',
-        text: result.translated,
+        text: paragraph.substring(lastIndex),
       });
     }
 
-    lastIndex = match.index + fullMatch.length;
-  }
+    // Add paragraph break after each paragraph (except the last one)
+    if (pIdx < paragraphs.length - 1) {
+      allSegments.push({
+        type: 'paragraph-break',
+        text: '\n\n',
+      });
+    }
+  });
 
-  // Add remaining text
-  if (lastIndex < text.length) {
-    segments.push({
-      type: 'text',
-      text: text.substring(lastIndex),
-    });
-  }
-
-  return segments;
+  return allSegments;
 }
 
 /**
  * Draw text with segments (handling strikethrough originals and sources)
  * Returns final Y position reached
+ *
+ * IMPORTANT: This matches the website rendering - segments are concatenated directly
+ * with NO automatic spacing. All spacing is already in the segment text.
  */
 function drawSegmentedText(ctx, segments, x, y, maxWidth, maxHeight, colors, fontSize) {
   ctx.font = `${fontSize}px "JetBrains Mono", monospace`;
@@ -224,13 +342,15 @@ function drawSegmentedText(ctx, segments, x, y, maxWidth, maxHeight, colors, fon
       ctx.font = `bold ${fontSize}px "JetBrains Mono", monospace`;
       const width = ctx.measureText(segment.text).width;
 
-      if (currentX + width > x + maxWidth) {
+      if (currentX + width > x + maxWidth && currentX > x) {
         currentX = x;
         currentY += lineHeight;
       }
 
-      ctx.fillText(segment.text, currentX, currentY);
-      currentX += width + spaceWidth;
+      if (currentY <= maxHeight) {
+        ctx.fillText(segment.text, currentX, currentY);
+      }
+      currentX += width;
       ctx.font = `${fontSize}px "JetBrains Mono", monospace`;
 
     } else if (segment.type === 'translated' && segment.original) {
@@ -238,7 +358,7 @@ function drawSegmentedText(ctx, segments, x, y, maxWidth, maxHeight, colors, fon
       ctx.fillStyle = colors.strikethrough;
       const originalWidth = ctx.measureText(segment.original).width;
 
-      if (currentX + originalWidth > x + maxWidth) {
+      if (currentX + originalWidth > x + maxWidth && currentX > x) {
         currentX = x;
         currentY += lineHeight;
       }
@@ -261,7 +381,7 @@ function drawSegmentedText(ctx, segments, x, y, maxWidth, maxHeight, colors, fon
       ctx.fillStyle = colors.primary;
       const translatedWidth = ctx.measureText(segment.text).width;
 
-      if (currentX + translatedWidth > x + maxWidth) {
+      if (currentX + translatedWidth > x + maxWidth && currentX > x) {
         currentX = x;
         currentY += lineHeight;
       }
@@ -269,69 +389,39 @@ function drawSegmentedText(ctx, segments, x, y, maxWidth, maxHeight, colors, fon
       if (currentY <= maxHeight) {
         ctx.fillText(segment.text, currentX, currentY);
       }
-      currentX += translatedWidth + spaceWidth;
+      currentX += translatedWidth;
+      // NO automatic space after - next segment will start directly
 
       ctx.fillStyle = colors.textMuted;
 
+    } else if (segment.type === 'paragraph-break') {
+      // Handle paragraph breaks
+      currentX = x;
+      currentY += lineHeight * 1.5; // Paragraph spacing
     } else {
-      // Regular text - handle paragraph breaks
-      let text = segment.text;
+      // Regular text segment - render exactly as-is with word wrapping
+      // Split by spaces for wrapping, but preserve leading/trailing spaces
+      const text = segment.text;
+      ctx.fillStyle = colors.textMuted;
 
-      // Check for paragraph breaks at start (double or more newlines)
-      const leadingBreaks = text.match(/^(\n\n+)/);
-      if (leadingBreaks && currentX > x) {
-        // Start new paragraph
-        currentX = x;
-        currentY += lineHeight * 2; // Full paragraph spacing
-        text = text.replace(/^(\n\n+)/, ''); // Remove leading breaks
-      } else if (text.startsWith('\n') && currentX > x) {
-        // Single newline - just wrap to next line
-        currentX = x;
-        currentY += lineHeight;
-        text = text.replace(/^\n/, '');
+      // Handle leading spaces
+      const leadingSpaces = text.match(/^\s+/)?.[0] || '';
+      for (let i = 0; i < leadingSpaces.length; i++) {
+        currentX += spaceWidth;
       }
 
-      // Now process the text for internal paragraph breaks
-      if (text.includes('\n\n')) {
-        const paragraphs = text.split(/\n\n+/);
-        for (let i = 0; i < paragraphs.length; i++) {
-          const para = paragraphs[i].trim();
-          if (para) {
-            // Process paragraph words
-            const words = para.split(/\s+/).filter(w => w);
-            ctx.fillStyle = colors.textMuted;
+      // Split by spaces and process words
+      const trimmedText = text.trim();
+      if (trimmedText) {
+        const words = trimmedText.split(/\s+/);
 
-            for (const word of words) {
-              if (!word) continue;
-              const wordWidth = ctx.measureText(word).width;
-
-              if (currentX + wordWidth > x + maxWidth && currentX > x) {
-                currentX = x;
-                currentY += lineHeight;
-              }
-
-              if (currentY <= maxHeight) {
-                ctx.fillText(word, currentX, currentY);
-              }
-              currentX += wordWidth + spaceWidth;
-            }
-          }
-
-          // Add paragraph spacing between paragraphs
-          if (i < paragraphs.length - 1 && currentY <= maxHeight) {
-            currentX = x;
-            currentY += lineHeight * 2;
-          }
-        }
-      } else {
-        // Single paragraph - split by spaces
-        const words = text.split(/\s+/).filter(w => w);
-        ctx.fillStyle = colors.textMuted;
-
-        for (const word of words) {
+        for (let wIdx = 0; wIdx < words.length; wIdx++) {
+          const word = words[wIdx];
           if (!word) continue;
+
           const wordWidth = ctx.measureText(word).width;
 
+          // Wrap if needed (but not if we're at line start)
           if (currentX + wordWidth > x + maxWidth && currentX > x) {
             currentX = x;
             currentY += lineHeight;
@@ -340,8 +430,19 @@ function drawSegmentedText(ctx, segments, x, y, maxWidth, maxHeight, colors, fon
           if (currentY <= maxHeight) {
             ctx.fillText(word, currentX, currentY);
           }
-          currentX += wordWidth + spaceWidth;
+          currentX += wordWidth;
+
+          // Add space after word (except for last word in segment)
+          if (wIdx < words.length - 1) {
+            currentX += spaceWidth;
+          }
         }
+      }
+
+      // Handle trailing spaces
+      const trailingSpaces = text.match(/\s+$/)?.[0] || '';
+      for (let i = 0; i < trailingSpaces.length; i++) {
+        currentX += spaceWidth;
       }
     }
   }
@@ -352,7 +453,7 @@ function drawSegmentedText(ctx, segments, x, y, maxWidth, maxHeight, colors, fon
 /**
  * Generate Twitter share image
  */
-async function generateTwitterImage(story, outputPath, theme, countryCode, countryName, isTranslated = false) {
+async function generateTwitterImage(story, outputPath, theme, countryCode, countryName, languageCode = 'en', isTranslated = false) {
   const canvas = createCanvas(TWITTER_WIDTH, TWITTER_HEIGHT);
   const ctx = canvas.getContext('2d');
   const colors = THEMES[theme];
@@ -372,7 +473,7 @@ async function generateTwitterImage(story, outputPath, theme, countryCode, count
 
   // Translate title - use parsePreTranslated if story is pre-translated
   const titleSegments = isTranslated
-    ? parsePreTranslated(story.title)
+    ? parsePreTranslated(story.title, story.markers, story.id, languageCode)
     : translateWithOriginals(story.title, story.markers, countryCode, story.id);
 
   // Draw title with translation (increased from 48px to 56px)
@@ -383,7 +484,7 @@ async function generateTwitterImage(story, outputPath, theme, countryCode, count
 
   // Translate and draw content (preserve paragraphs)
   const contentSegments = isTranslated
-    ? parsePreTranslated(story.content)
+    ? parsePreTranslated(story.content, story.markers, story.id, languageCode)
     : translateWithOriginals(
         story.content,
     story.markers,
@@ -421,7 +522,7 @@ async function generateTwitterImage(story, outputPath, theme, countryCode, count
 /**
  * Generate Instagram share image
  */
-async function generateInstagramImage(story, outputPath, theme, countryCode, countryName, isTranslated = false) {
+async function generateInstagramImage(story, outputPath, theme, countryCode, countryName, languageCode = 'en', isTranslated = false) {
   const canvas = createCanvas(INSTAGRAM_WIDTH, INSTAGRAM_HEIGHT);
   const ctx = canvas.getContext('2d');
   const colors = THEMES[theme];
@@ -434,25 +535,25 @@ async function generateInstagramImage(story, outputPath, theme, countryCode, cou
   ctx.fillStyle = colors.primary;
   ctx.fillRect(0, 0, INSTAGRAM_WIDTH, 12);
 
-  // Footer positioning - fixed at bottom
-  const footerHeight = 280;
+  // Footer positioning - fixed at bottom (increased for larger text)
+  const footerHeight = 380;
   const footerY = INSTAGRAM_HEIGHT - footerHeight + 20;
-  const contentMaxY = footerY - 100; // Leave space for gradient
+  const contentMaxY = footerY - 120; // Leave space for gradient
 
   // Translate title - use parsePreTranslated if story is pre-translated
   const titleSegments = isTranslated
-    ? parsePreTranslated(story.title)
+    ? parsePreTranslated(story.title, story.markers, story.id, languageCode)
     : translateWithOriginals(story.title, story.markers, countryCode, story.id);
 
-  // Draw title with translation (increased from 52px to 64px)
-  ctx.font = 'bold 64px "JetBrains Mono", monospace';
-  let yPos = 120;
-  const titleEndY = drawSegmentedText(ctx, titleSegments, 60, yPos, INSTAGRAM_WIDTH - 120, yPos + 220, colors, 64);
-  yPos = titleEndY + 70; // Increased gap between title and content
+  // Draw title with translation (96px = 64px * 1.5, extra space at top for Instagram UI)
+  ctx.font = 'bold 96px "JetBrains Mono", monospace';
+  let yPos = 200; // Increased from 120 to leave space for Instagram story overlay
+  const titleEndY = drawSegmentedText(ctx, titleSegments, 60, yPos, INSTAGRAM_WIDTH - 120, yPos + 300, colors, 96);
+  yPos = titleEndY + 80; // Gap between title and content
 
   // Translate and draw content (preserve paragraphs)
   const contentSegments = isTranslated
-    ? parsePreTranslated(story.content)
+    ? parsePreTranslated(story.content, story.markers, story.id, languageCode)
     : translateWithOriginals(
         story.content,
         story.markers,
@@ -460,38 +561,38 @@ async function generateInstagramImage(story, outputPath, theme, countryCode, cou
         story.id
       );
 
-  drawSegmentedText(ctx, contentSegments, 60, yPos, INSTAGRAM_WIDTH - 120, contentMaxY, colors, 34); // Increased from 28px to 34px
+  drawSegmentedText(ctx, contentSegments, 60, yPos, INSTAGRAM_WIDTH - 120, contentMaxY, colors, 48); // Increased from 34px to 48px (34 * 1.5)
 
   // Gradient blur overlay
-  const gradient = ctx.createLinearGradient(0, contentMaxY - 100, 0, contentMaxY + 20);
+  const gradient = ctx.createLinearGradient(0, contentMaxY - 120, 0, contentMaxY + 20);
   gradient.addColorStop(0, colors.background + '00'); // Transparent
   gradient.addColorStop(1, colors.background); // Solid
   ctx.fillStyle = gradient;
-  ctx.fillRect(0, contentMaxY - 100, INSTAGRAM_WIDTH, 120);
+  ctx.fillRect(0, contentMaxY - 120, INSTAGRAM_WIDTH, 140);
 
-  // Footer
+  // Footer (all sizes increased by 1.5x)
   ctx.fillStyle = colors.primary;
-  ctx.font = 'bold 22px "JetBrains Mono", monospace';
+  ctx.font = 'bold 33px "JetBrains Mono", monospace';
   ctx.fillText(`Translated for ${countryName}`, 60, footerY);
 
   ctx.fillStyle = colors.textMuted;
-  ctx.font = '18px "JetBrains Mono", monospace';
-  ctx.fillText(`${story.date} • ${story.severity}`, 60, footerY + 40);
+  ctx.font = '27px "JetBrains Mono", monospace';
+  ctx.fillText(`${story.date} • ${story.severity}`, 60, footerY + 45);
 
   // Hashtags
   if (story.hashtags) {
     ctx.fillStyle = colors.primary;
-    ctx.font = 'bold 24px "JetBrains Mono", monospace';
-    ctx.fillText(story.hashtags, 60, footerY + 75);
+    ctx.font = 'bold 36px "JetBrains Mono", monospace';
+    ctx.fillText(story.hashtags, 60, footerY + 90);
   }
 
   ctx.fillStyle = colors.text;
-  ctx.font = 'bold 26px "JetBrains Mono", monospace';
-  ctx.fillText('Read the full story →', 60, footerY + 115);
+  ctx.font = 'bold 39px "JetBrains Mono", monospace';
+  ctx.fillText('Read the full story →', 60, footerY + 140);
 
   ctx.fillStyle = colors.textMuted;
-  ctx.font = '20px "JetBrains Mono", monospace';
-  ctx.fillText('Swipe up to learn more', 60, footerY + 150);
+  ctx.font = '30px "JetBrains Mono", monospace';
+  ctx.fillText('Link in Story', 60, footerY + 185);
 
   // Save
   const buffer = canvas.toBuffer('image/png');
@@ -567,7 +668,12 @@ async function generateAllImages() {
             const translatedPath = path.join(storiesDir, folder, `story.${lang}-${country.code.toLowerCase()}.yaml`);
             try {
               const translatedContent = await fs.readFile(translatedPath, 'utf8');
-              story = yaml.load(translatedContent);
+              const translatedStory = yaml.load(translatedContent);
+              // Merge translated content with original markers
+              story = {
+                ...translatedStory,
+                markers: originalStory.markers, // Use original markers for parsing
+              };
               isTranslated = true;
             } catch (error) {
               // Translation doesn't exist, use original with runtime translation
@@ -580,13 +686,13 @@ async function generateAllImages() {
               twitterDir,
               `${story.slug}-${lang}-${country.code.toLowerCase()}-${theme}.png`
             );
-            await generateTwitterImage(story, twitterPath, theme, country.code, country.name, isTranslated);
+            await generateTwitterImage(story, twitterPath, theme, country.code, country.name, lang, isTranslated);
 
             const instagramPath = path.join(
               instagramDir,
               `${story.slug}-${lang}-${country.code.toLowerCase()}-${theme}.png`
             );
-            await generateInstagramImage(story, instagramPath, theme, country.code, country.name, isTranslated);
+            await generateInstagramImage(story, instagramPath, theme, country.code, country.name, lang, isTranslated);
 
             totalGenerated += 2;
           }

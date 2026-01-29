@@ -38,33 +38,33 @@
   ></div>
 
   <!-- Title -->
-  <div style="margin-top: 80px; margin-bottom: 40px; font-size: 56px; font-weight: bold; line-height: 1.2;">
+  <div style="margin-top: 80px; margin-bottom: 50px; font-size: 64px; font-weight: bold; line-height: 1.2;">
     <TranslatedTextWithOriginal segments={story.title} inline />
   </div>
 
   <!-- Content excerpt -->
-  <div style="margin-bottom: 60px; font-size: 28px; line-height: 1.6; color: {textMuted}; max-height: 900px; overflow: hidden;">
+  <div style="margin-bottom: 60px; font-size: 32px; line-height: 1.8; color: {textMuted}; max-height: 900px; overflow: hidden;">
     <TranslatedTextWithOriginal segments={contentSegments} inline />
   </div>
 
   <!-- Footer -->
   <div style="position: absolute; bottom: 60px; left: 60px; right: 60px;">
-    <div style="font-size: 22px; font-weight: bold; color: {primaryColor}; margin-bottom: 16px;">
+    <div style="font-size: 26px; font-weight: bold; color: {primaryColor}; margin-bottom: 20px;">
       Translated for {countryName}
     </div>
-    <div style="font-size: 18px; color: {textMuted}; margin-bottom: 16px;">
+    <div style="font-size: 22px; color: {textMuted}; margin-bottom: 20px;">
       {story.date} • {story.severity}
     </div>
-    <div style="font-size: 24px; color: {primaryColor}; margin-bottom: 20px;">
+    <div style="font-size: 28px; color: {primaryColor}; margin-bottom: 24px;">
       {#if story.tags}
         #{story.tags.slice(0, 3).join(' #')}
       {/if}
     </div>
-    <div style="font-size: 26px; font-weight: bold; margin-bottom: 16px;">
+    <div style="font-size: 30px; font-weight: bold; margin-bottom: 20px;">
       Read the full story →
     </div>
-    <div style="font-size: 20px; color: {textMuted};">
-      Swipe up to learn more
+    <div style="font-size: 24px; color: {textMuted};">
+      Link in Story
     </div>
   </div>
 </div>

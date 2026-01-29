@@ -52,7 +52,7 @@ export async function getStoryBySlugTranslated(
     const loader = storyModules[translatedPath];
     if (loader) {
       console.log(`Found loader for ${translatedPath}`);
-      const yaml = await loader() as string;
+      const yaml = (await loader()) as string;
       const story = load(yaml) as Story;
       return story;
     } else {

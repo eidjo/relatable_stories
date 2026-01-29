@@ -7,7 +7,9 @@
 </script>
 
 {#each segments as segment, i}
-  {#if segment.type === 'source'}
+  {#if segment.type === 'paragraph-break'}
+    <span style="display: block; height: 1.5em;"></span>
+  {:else if segment.type === 'source'}
     {#if segment.url}
       <sup class="text-[#ef4444] font-bold">{segment.text}</sup>
     {:else}
