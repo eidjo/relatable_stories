@@ -16,7 +16,8 @@
     "lint:fix": "eslint . --fix",
     "format": "prettier --write \"src/**/*.{ts,js,svelte,json,yaml,yml,md}\"",
     "format:check": "prettier --check \"src/**/*.{ts,js,svelte,json,yaml,yml,md}\"",
-    "generate-share-images": "vite-node scripts/generate-share-images-improved.js",
+    "generate-share-images": "vite-node scripts/generate-share-images-v3.js",
+    "generate-share-images-old": "vite-node scripts/generate-share-images-improved.js",
     "translate": "vite-node scripts/translate-stories.js",
     "validate": "vite-node scripts/validate-contexts-v2.ts"
   },
