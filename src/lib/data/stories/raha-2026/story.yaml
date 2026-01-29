@@ -28,7 +28,7 @@ content: >-
 markers:
   # People
   student:
-    person: 'Raha Bohlouli'
+    person: 'Raha'
     gender: f
     age: 22
 
@@ -65,18 +65,17 @@ markers:
     number: 400
     cities: true
     scaled: true
-    scaleFactor: 0.3 # Dampen the pure scaling
+    # scaleFactor: 0.3 # Dampen the pure scaling
 
   blackout-days:
     number: 16
     days: true
 
-  # Casualties - with city scope
+  # Casualties - nationwide massacre
   killed:
     casualties: 36500
     killed: true
-    scope: city # ✅ Scale against city population, not country
-    scopeCity: tehran # ✅ Use Tehran's population for scaling
+    scope: country # Scale against country population (nationwide event across 400+ cities)
     comparable: massacre
     timeframe: 'over two days'
 
