@@ -5,8 +5,10 @@
   import LanguageSelector from '../shared/LanguageSelector.svelte';
   import ContextualizationToggle from '../shared/ContextualizationToggle.svelte';
   import { selectedCountry } from '$lib/stores/country';
+  import { selectedLanguage } from '$lib/stores/language';
   import { contextualizationEnabled } from '$lib/stores/contextualization';
   import { countryLanguages, countries } from '$lib/data/contexts';
+  import { formatDate } from '$lib/utils/dateLocales';
   import type { TranslatedStory, TranslatedSegment } from '$lib/types';
 
   export let story: TranslatedStory;
@@ -16,6 +18,9 @@
   $: additionalLanguages = countrySpecificLanguages.filter(lang => lang !== 'en');
   $: showLanguageSelector = additionalLanguages.length > 0;
   $: currentCountryName = countries.find(c => c.code === $selectedCountry)?.name || $selectedCountry;
+
+  // Format date based on selected language
+  $: formattedDate = formatDate(story.date, 'PPP', $selectedLanguage);
 
   // Get current URL and prepare share data
   $: currentUrl = browser ? window.location.href : '';
@@ -110,7 +115,7 @@
       <div class="space-y-4">
         <!-- Metadata line -->
         <div class="flex flex-wrap items-center gap-3 text-sm opacity-70">
-          <span>{story.date}</span>
+          <span>{formattedDate}</span>
           <span class="opacity-40">•</span>
           <span class={severityColors[story.severity]}>
             {story.severity}

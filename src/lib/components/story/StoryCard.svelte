@@ -3,6 +3,8 @@
   import { browser } from '$app/environment';
   import Card from '../shared/Card.svelte';
   import TranslatedText from '../shared/TranslatedText.svelte';
+  import { selectedLanguage } from '$lib/stores/language';
+  import { formatDate } from '$lib/utils/dateLocales';
   import type { TranslatedStory } from '$lib/types';
 
   export let story: TranslatedStory;
@@ -13,6 +15,9 @@
     high: 'bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-300',
     critical: 'bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-300',
   };
+
+  // Format date based on selected language
+  $: formattedDate = formatDate(story.date, 'PP', $selectedLanguage);
 
   // Preserve country and language parameters in link (only in browser)
   $: countryParam = browser ? $page.url.searchParams.get('country') : null;
@@ -53,7 +58,7 @@
       </p>
 
       <!-- Date -->
-      <p class="text-xs card-text-muted">{story.date}</p>
+      <p class="text-xs card-text-muted">{formattedDate}</p>
     </div>
   </Card>
 </a>
