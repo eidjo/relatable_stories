@@ -195,3 +195,12 @@ countries:
     rial-to-local: 0.000090
     timezones:
       - 'Europe/Warsaw'
+
+  - code: 'GR'
+    name: 'Greece'
+    population: 10640000
+    currency: 'EUR'
+    currency-symbol: '€'
+    rial-to-local: 0.000021
+    timezones:
+      - 'Europe/Athens'
