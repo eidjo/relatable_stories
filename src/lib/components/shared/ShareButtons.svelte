@@ -25,6 +25,11 @@
   $: languageCode = $selectedLanguage;
   $: currentTheme = $theme;
 
+  // Share URL - points to /share/{slug}/{country}/{lang} for perfect social meta tags
+  $: shareUrl = browser
+    ? `${window.location.origin}${base}/share/${storySlug}/${countryCode}/${languageCode}`
+    : '';
+
   // Share image URLs - use language, country, and theme specific images
   $: twitterImageUrl = browser
     ? `${window.location.origin}${base}/share/twitter/${storySlug}-${languageCode}-${countryCode}-${currentTheme}.png`
@@ -67,7 +72,8 @@
 
   function shareToTwitter() {
     const hashtagsPart = hashtags ? `\n\n${hashtags}` : '';
-    const twitterText = encodeURIComponent(`${text}\n\n${url}${hashtagsPart}`);
+    // Use shareUrl for Twitter so it has the correct meta tags
+    const twitterText = encodeURIComponent(`${text}\n\n${shareUrl}${hashtagsPart}`);
     const twitterUrl = `https://twitter.com/intent/tweet?text=${twitterText}`;
     window.open(twitterUrl, '_blank', 'noopener,noreferrer');
   }
@@ -115,7 +121,8 @@
 
   async function copyLinkForInstagram() {
     try {
-      await navigator.clipboard.writeText(url);
+      // Use shareUrl for Instagram so it has the correct meta tags
+      await navigator.clipboard.writeText(shareUrl);
       showCopied = true;
       setTimeout(() => {
         showCopied = false;

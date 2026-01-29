@@ -188,6 +188,7 @@
   function handleUrlSync() {
     const urlCountry = $page.url.searchParams.get('country') as CountryCode | null;
     const urlLang = $page.url.searchParams.get('lang') as string | null;
+    const urlTheme = $page.url.searchParams.get('theme') as string | null;
 
     if (urlCountry && urlCountry !== $selectedCountry) {
       // Valid country code in URL, update store
@@ -195,7 +196,7 @@
       initialCountrySet = true;
     } else if (!urlCountry) {
       // No country in URL, add current selection to URL
-      updateUrl($selectedCountry, $selectedLanguage);
+      updateUrl($selectedCountry, $selectedLanguage, $theme);
       initialCountrySet = true;
     } else {
       initialCountrySet = true;
@@ -211,38 +212,49 @@
       const additionalLangs = countryLangs.filter(lang => lang !== 'en');
       const defaultLang = additionalLangs.length > 0 ? additionalLangs[0] : 'en';
       selectedLanguage.set(defaultLang);
-      updateUrl($selectedCountry, defaultLang);
+      updateUrl($selectedCountry, defaultLang, $theme);
+    }
+
+    if (urlTheme && urlTheme !== $theme) {
+      // Theme in URL, update store
+      theme.set(urlTheme as 'light' | 'dark');
+    } else if (!urlTheme) {
+      // No theme in URL, add current theme to URL
+      updateUrl($selectedCountry, $selectedLanguage, $theme);
     }
   }
 
-  // Sync URL when country or language changes (browser only, after location confirmed)
-  $: if (browser && initialCountrySet && locationConfirmed && $selectedCountry && $selectedLanguage) {
-    updateUrl($selectedCountry, $selectedLanguage);
+  // Sync URL when country, language, or theme changes (browser only, after location confirmed)
+  $: if (browser && initialCountrySet && locationConfirmed && $selectedCountry && $selectedLanguage && $theme) {
+    updateUrl($selectedCountry, $selectedLanguage, $theme);
   }
 
-  function updateUrl(country: CountryCode, language: string) {
+  function updateUrl(country: CountryCode, language: string, themeValue: string) {
     if (!browser || !$page.url) return;
 
     const newUrl = new URL($page.url);
     const currentCountry = newUrl.searchParams.get('country');
     const currentLang = newUrl.searchParams.get('lang');
+    const currentTheme = newUrl.searchParams.get('theme');
 
     // Only update if different to avoid infinite loops
-    if (currentCountry !== country || currentLang !== language) {
+    if (currentCountry !== country || currentLang !== language || currentTheme !== themeValue) {
       newUrl.searchParams.set('country', country);
       newUrl.searchParams.set('lang', language);
+      newUrl.searchParams.set('theme', themeValue);
       goto(newUrl.toString(), { replaceState: true, noScroll: true, keepFocus: true });
     }
   }
 </script>
 
+<!-- Meta tags for client-side rendering (social crawlers use /share/ URLs) -->
 {#if translatedStory}
+  {@const metaCountryCode = $selectedCountry.toLowerCase()}
+  {@const metaLanguageCode = $selectedLanguage}
+  {@const metaTheme = $theme}
+  {@const shareImagePath = `/share/twitter/${slug}-${metaLanguageCode}-${metaCountryCode}-${metaTheme}.png`}
   {@const storyTitle = translatedStory.title.map(s => s.text).join('')}
   {@const storySummary = translatedStory.summary.map(s => s.text).join('')}
-  {@const countryCode = $selectedCountry.toLowerCase()}
-  {@const languageCode = $selectedLanguage}
-  {@const currentTheme = $theme}
-  {@const shareImagePath = `/share/twitter/${slug}-${languageCode}-${countryCode}-${currentTheme}.png`}
 
   <SocialMeta
     title={`${storyTitle} - Relatable Stories`}
@@ -250,7 +262,7 @@
     type="article"
     image={shareImagePath}
     imageAlt={storyTitle}
-    url={`/stories/${slug}`}
+    url={`/stories/${slug}?country=${metaCountryCode}&lang=${metaLanguageCode}&theme=${metaTheme}`}
   />
 {/if}
 
