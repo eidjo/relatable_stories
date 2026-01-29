@@ -1,0 +1,29 @@
+id: raha-2026
+title: Poslední den [[MARKER:person:student:Rahy|Karolíny]]
+slug: raha-2026
+date: "2026-01-08"
+summary: "[[MARKER:number:age:22|22]]letá vysokoškolská studentka, která milovala umění a hudbu, byla zabita bezpečnostními silami během povstání v roce 2026."
+content: |-
+  [[MARKER:person:student:Raha|Karolína]], [[MARKER:number:age:22|22]]letá vysokoškolská studentka z [[MARKER:place:hometown:Teheránu|Prahy]], se zajímala o umění a hudbu. Vedla si online deník, kde psala o dýchání, pokračování a zítřku. Zaznamenávala jména zadržených přátel a spolužáků, protože chápala, že represe začíná vymazáváním.
+  Ráno {{date:protest-date}} vypukly v Íránu protesty. Během několika hodin se demonstrace rozšířily do více než [[MARKER:number:cities:400|14]] měst a obcí. [[MARKER:person:student:Raha|Karolína]] se připojila k protestujícím poblíž [[MARKER:place:square:náměstí Fatemi|Staroměstského náměstí]] v [[MARKER:place:capital:Teheránu|Praze]].
+  Protesty byly potlačeny ohromnou silou. Bezpečnostní síly, včetně jednotek IRGC a agentů v civilu, otevřely palbu na davy. Podle utajovaných dokumentů{{source:death-toll}} bylo během dvou dnů zabito více než [[MARKER:number:killed:36500|2166]] lidí, což z toho činí nejsmrtelnější masakr protestujících v historii.
+  [[MARKER:person:student:Raha|Karolína]] byla zastřelena poblíž [[MARKER:place:square:náměstí Fatemi|Staroměstského náměstí]] dne {{date:protest-date}}. Bylo jí [[MARKER:number:age:22|22]] let. Její rodina později našla její tělo v [[MARKER:place:morgue:márnici Kahrizak|Věznici]], jedné z tisíců dodaných do zařízení zahlcených oběťmi.
+  {{image:morgue-scene}}
+  Zdravotnický personál hlásil, že někteří zranění protestující byli zastřeleni do hlavy, když byli hospitalizováni{{source:hospital-executions}}. Snímky z márnic ukazovaly těla se stále připojeným zařízením pro srdeční monitoring, což naznačuje, že pacienti pod lékařskou péčí byli popraveni. Lékaři a zdravotní sestry popisovali, jak bezpečnostní síly vstupovaly do nemocnic a odvážely zraněné pacienty, z nichž někteří byli později nalezeni mrtví.
+  Vláda přerušila přístup k internetu po celé zemi na [[MARKER:number:blackout-days:16|16]] dní, což rodinám znemožnilo sdílet informace a téměř znemožnilo zdokumentovat rozsah zabíjení. Pozůstalé rodiny byly nuceny platit poplatky popisované jako „náklady na kulky", aby mohly získat těla. V některých případech úřady pohřbily oběti bez souhlasu rodiny.
+  [[MARKER:person:student:Raha|Karolína]] nezanechala žádný manifest. Co zůstává, jsou fragmenty - krátké úvahy pečlivě vybrané. Její psaní se znovu a znovu vracelo k základním obavám: dýchání, pokračování, zítřek. Chápala, že být naživu není předmětem vyjednávání.
+  Než zemřela, [[MARKER:person:student:Raha|Karolína]] psala jména. Jmenovala zadržené a pohřešované. Zaznamenávala lidi jako lidi, ne jako abstrakce. Věděla, jak represe začíná - ne kulkami, ale vymazáváním.
+tags:
+  - 2026-uprising
+  - student
+  - massacre
+  - internet-blackout
+  - raha-bohlouli
+hashtags: "#Iran #NeverForget #HumanRights #RahaBohlouli #IranUprising"
+severity: critical
+verified: true
+source: Investigativní zpravodajství Iran International, svědectví svědků, utajované dokumenty
+content-warning: Hromadné zabíjení, mimosoudní popravy, státní násilí
+meta:
+  og-title: "Příběh Rahy: Studentka zabita během íránského povstání v roce 2026"
+  og-description: Vysokoškolská studentka, která zaznamenávala jména zadržených, byla zabita během nejsmrtelnějšího masakru protestujících v historii.

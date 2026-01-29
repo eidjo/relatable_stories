@@ -1,0 +1,26 @@
+id: mahsa-arrest
+title: "[[MARKER:person:person1:Zahra|Lenas]] Festnahme"
+slug: mahsa-arrest
+date: "2022-09-20"
+summary: Die Erfahrung einer [[MARKER:number:age:23|22]]-jährigen Studentin während der Proteste nach dem Tod von Mahsa Amini.
+content: |-
+  Am Abend des {{date:arrest-date}} schloss sich [[MARKER:person:person1:Zahra|Lena]], eine [[MARKER:number:age:23|22]]-jährige Studentin aus [[MARKER:place:hometown:Mashhad|Münster]], einer friedlichen Mahnwache am [[MARKER:place:main-square:Azadi Square|Bahnhofsvorplatz]] an.
+  Die Versammlung war eine von vielen spontanen Demonstrationen, die im ganzen Iran nach dem Tod von Mahsa Amini in Polizeigewahrsam am {{date:mahsa-death}}{{source:mahsa-death-source}} ausbrachen. [[MARKER:person:person1:Zahra|Lena]] hielt eine Kerze und skandierte "{{event:chant}}" zusammen mit ungefähr [[MARKER:number:protesters:200|94]] anderen.
+  Um {{time:raid-time}} trafen Sicherheitskräfte ein und begannen mit Festnahmen. [[MARKER:person:person1:Zahra|Lena]] war unter den [[MARKER:number:arrested:47|22]] Personen, die in dieser Nacht festgenommen und zur [[MARKER:place:detention-center:Evin Prison|Justizvollzugsanstalt]] gebracht wurden.
+  [[MARKER:number:detention-days:18|18]] Tage lang hatte [[MARKER:person:person1:Zahra|Lenas]] Familie keine Informationen über ihren Verbleib. Telefonanrufe bei den Behörden blieben unbeantwortet. Am Tag [[MARKER:number:first-contact-day:11|11]] erhielten sie endlich einen kurzen Anruf, der bestätigte, dass [[MARKER:person:person1:Zahra|Lena]] am Leben war, aber keine weiteren Einzelheiten lieferte.
+  [[MARKER:person:person1:Zahra|Lenas]] Familie kratzte [[MARKER:currency:bail-amount:80,000,000 Rial|1.680 €]] für die Kaution zusammen. Dieser Betrag entsprach ungefähr [[MARKER:number:months-salary:8|8]] Monatsgehältern von [[MARKER:person:parent:Hassan|Finn]], der als [[MARKER:occupation:parent-job:construction worker|Fabrikarbeiter]] arbeitet.
+  Nach [[MARKER:number:detention-days:18|18]] Tagen in Haft wurde [[MARKER:person:person1:Zahra|Lena]] unter strengen Auflagen freigelassen: keine sozialen Medien, keine Teilnahme an Versammlungen und regelmäßige Meldungen bei den Behörden. Die Anklage bleibt bestehen.
+  "Ich wollte nur eine Kerze für Mahsa anzünden", sagte [[MARKER:person:person1:Zahra|Lena]]. "Ich hätte nie gedacht, dass so etwas passieren würde."
+tags:
+  - protest
+  - detention
+  - student
+  - mahsa-amini
+hashtags: "#Iran #MahsaAmini #Menschenrechte #FrauLebenFreiheit"
+severity: high
+verified: true
+source: Zeugenaussagen zusammengestellt von Menschenrechtsorganisationen
+content-warning: Haft, Familientrennung
+meta:
+  og-title: Die Geschichte einer Studentin aus den iranischen Protesten 2022
+  og-description: Erleben Sie die menschlichen Kosten friedlicher Proteste durch die Haft einer Studentin.

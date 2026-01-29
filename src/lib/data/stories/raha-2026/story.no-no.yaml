@@ -1,0 +1,29 @@
+id: raha-2026
+title: "[[MARKER:person:student:Raha|Fridas]] siste dag"
+slug: raha-2026
+date: "2026-01-08"
+summary: En [[MARKER:number:age:22|22]] år gammel universitetsstudent som elsket kunst og musikk ble drept av sikkerhetsstyrker under opprøret i 2026.
+content: |-
+  [[MARKER:person:student:Raha|Frida]], en [[MARKER:number:age:22|22]] år gammel universitetsstudent fra [[MARKER:place:hometown:Tehran|Stavanger]], var interessert i kunst og musikk. Hun hadde en nettdagbok hvor hun skrev om å puste, fortsette, og morgendagen. Hun registrerte navn på fengslede venner og klassekamerater, og forsto at undertrykkelse begynner med utslettelse.
+  Om morgenen {{date:protest-date}} brøt protester ut over hele Iran. I løpet av timer spredte demonstrasjonene seg til mer enn [[MARKER:number:cities:400|7]] byer og tettsteder. [[MARKER:person:student:Raha|Frida]] sluttet seg til demonstranter nær [[MARKER:place:square:Fatemi Square|Torget]] i [[MARKER:place:capital:Tehran|Bergen]].
+  Protestene ble møtt med overveldende makt. Sikkerhetsstyrker, inkludert IRGC-enheter og sivilagenter, åpnet ild mot folkemengdene. I følge klassifiserte dokumenter{{source:death-toll}}, ble mer enn [[MARKER:number:killed:36500|1127]] mennesker drept i løpet av to dager, noe som gjør det til det dødeligste protestmassakren i historien.
+  [[MARKER:person:student:Raha|Frida]] ble skutt nær [[MARKER:place:square:Fatemi Square|Torget]] den {{date:protest-date}}. Hun var [[MARKER:number:age:22|22]] år gammel. Familien hennes fant senere kroppen hennes på [[MARKER:place:morgue:Kahrizak morgue|Rådhuset]], en av tusenvis levert til anlegg overveldet av antall ofre.
+  {{image:morgue-scene}}
+  Medisinsk personell rapporterte at noen skadde demonstranter ble skutt i hodet mens de var innlagt på sykehus{{source:hospital-executions}}. Bilder fra likhus viste kropper med hjertemonitorutstyr fortsatt festet, noe som tyder på at pasienter under medisinsk behandling ble henrettet. Leger og sykepleiere beskrev sikkerhetsstyrker som kom inn på sykehus og tok med seg skadde pasienter, hvorav noen senere ble funnet døde.
+  Regjeringen kuttet internettilgang over hele landet i [[MARKER:number:blackout-days:16|16]] dager, noe som forhindret familier fra å dele informasjon og gjorde det nesten umulig å dokumentere omfanget av drapene. Sørgende familier ble tvunget til å betale gebyrer beskrevet som "kulekostnader" for å motta lik. I noen tilfeller begravde myndighetene ofre uten familiens samtykke.
+  [[MARKER:person:student:Raha|Frida]] etterlot seg intet manifest. Det som gjenstår er fragmenter - korte refleksjoner nøye valgt. Skrivingen hennes kom igjen og igjen tilbake til elementære bekymringer: å puste, fortsette, morgendagen. Hun forsto at å være i live ikke er til forhandling.
+  Før hun døde, skrev [[MARKER:person:student:Raha|Frida]] navn. Hun navnga fanger og de savnede. Hun registrerte mennesker som mennesker, ikke som abstraksjoner. Hun visste hvordan undertrykkelse begynner - ikke med kuler, men med utslettelse.
+tags:
+  - 2026-uprising
+  - student
+  - massacre
+  - internet-blackout
+  - raha-bohlouli
+hashtags: "#Iran #NeverForget #HumanRights #RahaBohlouli #IranUprising"
+severity: critical
+verified: true
+source: Iran International undersøkende journalistikk, vitneforklaringer, klassifiserte dokumenter
+content-warning: Massedrap, utenomrettslige henrettelser, statlig vold
+meta:
+  og-title: "Rahas historie: En student drept i Irans opprør i 2026"
+  og-description: En universitetsstudent som registrerte navn på fengslede ble drept under den dødeligste protestmassakren i historien.

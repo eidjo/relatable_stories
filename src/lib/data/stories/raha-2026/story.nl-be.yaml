@@ -1,0 +1,29 @@
+id: raha-2026
+title: "[[MARKER:person:student:Raha|Lina]]'s laatste dag"
+slug: raha-2026
+date: '2026-01-08'
+summary: Een [[MARKER:number:age:22|22]]-jarige universiteitsstudente die van kunst en muziek hield, werd gedood door veiligheidstroepen tijdens de opstand van 2026.
+content: |-
+  [[MARKER:person:student:Raha|Lina]], een [[MARKER:number:age:22|22]]-jarige universiteitsstudente uit [[MARKER:place:hometown:Tehran|Brussel]], was geïnteresseerd in kunst en muziek. Ze hield een online dagboek bij waarin ze schreef over ademhalen, doorgaan en morgen. Ze noteerde namen van gedetineerde vrienden en klasgenoten, met het besef dat repressie begint met uitwissing.
+  Op de ochtend van {{date:protest-date}} braken protesten uit in heel Iran. Binnen enkele uren verspreidden demonstraties zich naar meer dan [[MARKER:number:cities:400|16]] steden en dorpen. [[MARKER:person:student:Raha|Lina]] sloot zich aan bij demonstranten bij [[MARKER:place:square:Fatemi Square|Place Royale]] in [[MARKER:place:capital:Tehran|Gent]].
+  De protesten werden met overweldigend geweld beantwoord. Veiligheidstroepen, waaronder IRGC-eenheden en agenten in burger, openden het vuur op menigten. Volgens geclassificeerde documenten{{source:death-toll}} werden meer dan [[MARKER:number:killed:36500|2389]] mensen gedood in twee dagen tijd, waarmee het het dodelijkste protestbloedbad in de geschiedenis werd.
+  [[MARKER:person:student:Raha|Lina]] werd neergeschoten bij [[MARKER:place:square:Fatemi Square|Place Royale]] op {{date:protest-date}}. Ze was [[MARKER:number:age:22|22]] jaar oud. Haar familie vond later haar lichaam in [[MARKER:place:morgue:Kahrizak morgue|Centre de Détention]], een van de duizenden die werden afgeleverd bij faciliteiten die overspoeld werden door slachtoffers.
+  {{image:morgue-scene}}
+  Medisch personeel meldde dat sommige gewonde demonstranten in het hoofd werden geschoten terwijl ze in het ziekenhuis lagen{{source:hospital-executions}}. Beelden uit mortuaria toonden lichamen met nog steeds aangesloten hartbewakingsapparatuur, wat suggereert dat patiënten onder medische zorg werden geëxecuteerd. Artsen en verpleegkundigen beschreven hoe veiligheidstroepen ziekenhuizen binnenkwamen en gewonde patiënten meenamen, van wie sommigen later dood werden teruggevonden.
+  De regering blokkeerde [[MARKER:number:blackout-days:16|16]] dagen lang landelijk de internettoegang, waardoor families geen informatie konden delen en het bijna onmogelijk werd om de omvang van de moordpartijen te documenteren. Rouwende families werden gedwongen kosten te betalen die werden omschreven als "kogelkosten" om lichamen te ontvangen. In sommige gevallen begroeven autoriteiten slachtoffers zonder toestemming van de familie.
+  [[MARKER:person:student:Raha|Lina]] liet geen manifest na. Wat overblijft zijn fragmenten - korte, zorgvuldig gekozen reflecties. Haar geschriften keerden steeds weer terug naar elementaire zorgen: ademhalen, doorgaan, morgen. Ze begreep dat in leven zijn niet onderhandelbaar is.
+  Voordat ze stierf, schreef [[MARKER:person:student:Raha|Lina]] namen op. Ze noemde gedetineerden en vermisten. Ze registreerde mensen als mensen, niet als abstracties. Ze wist hoe repressie begint - niet met kogels, maar met uitwissing.
+tags:
+  - 2026-opstand
+  - studente
+  - bloedbad
+  - internet-blokkade
+  - raha-bohlouli
+hashtags: '#Iran #NooitVergeten #MensenRechten #RahaBohlouli #IranOpstand'
+severity: critical
+verified: true
+source: Iran International onderzoeksjournalistiek, getuigenverklaringen, geclassificeerde documenten
+content-warning: Massale moordpartijen, buitengerechtelijke executies, staatsgeweld
+meta:
+  og-title: "Raha's verhaal: Een studente gedood tijdens de Iraanse opstand van 2026"
+  og-description: Een universiteitsstudente die namen van gedetineerden noteerde, werd gedood tijdens het dodelijkste protestbloedbad in de geschiedenis.

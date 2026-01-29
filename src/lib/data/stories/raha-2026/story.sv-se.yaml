@@ -1,0 +1,29 @@
+id: raha-2026
+title: "[[MARKER:person:student:Raha|Alices]] sista dag"
+slug: raha-2026
+date: "2026-01-08"
+summary: En [[MARKER:number:age:22|22]]-årig universitetsstudent som älskade konst och musik dödades av säkerhetsstyrkor under upproret 2026.
+content: |-
+  [[MARKER:person:student:Raha|Alice]], en [[MARKER:number:age:22|22]]-årig universitetsstudent från [[MARKER:place:hometown:Tehran|Malmö]], var intresserad av konst och musik. Hon förde en dagbok online där hon skrev om att andas, fortsätta och morgondagen. Hon dokumenterade namn på fängslade vänner och klasskamrater, med förståelsen att förtrycket börjar med utplåning.
+  På morgonen den {{date:protest-date}} bröt protester ut över hela Iran. Inom några timmar spred sig demonstrationerna till mer än [[MARKER:number:cities:400|14]] städer och samhällen. [[MARKER:person:student:Raha|Alice]] anslöt sig till demonstranter nära [[MARKER:place:square:Fatemi Square|Stadshusplatsen]] i [[MARKER:place:capital:Tehran|Göteborg]].
+  Protesterna möttes med överväldigande våld. Säkerhetsstyrkor, inklusive IRGC-enheter och civilklädda agenter, öppnade eld mot folkmassorna. Enligt hemligstämplade dokument{{source:death-toll}} dödades mer än [[MARKER:number:killed:36500|2133]] människor under två dagar, vilket gör det till den dödligaste protestmassakern i historien.
+  [[MARKER:person:student:Raha|Alice]] sköts nära [[MARKER:place:square:Fatemi Square|Stadshusplatsen]] den {{date:protest-date}}. Hon var [[MARKER:number:age:22|22]] år gammal. Hennes familj hittade senare hennes kropp på [[MARKER:place:morgue:Kahrizak morgue|Polisstationen]], en av tusentals som levererades till anläggningar som var överväldigade av antalet offer.
+  {{image:morgue-scene}}
+  Medicinsk personal rapporterade att vissa skadade demonstranter sköts i huvudet medan de var inlagda på sjukhus{{source:hospital-executions}}. Bilder från bårhus visade kroppar med hjärtövervakningsutrustning fortfarande fastsatt, vilket tyder på att patienter under medicinsk vård avrättades. Läkare och sjuksköterskor beskrev hur säkerhetsstyrkor gick in på sjukhus och förde bort skadade patienter, av vilka några senare hittades döda.
+  Regeringen stängde av internetåtkomsten i hela landet i [[MARKER:number:blackout-days:16|16]] dagar, vilket hindrade familjer från att dela information och gjorde det nästan omöjligt att dokumentera omfattningen av dödandet. Sörjande familjer tvingades betala avgifter som beskrevs som "kulkostnader" för att få tillbaka kropparna. I vissa fall begravde myndigheterna offren utan familjens samtycke.
+  [[MARKER:person:student:Raha|Alice]] lämnade inget manifest efter sig. Det som finns kvar är fragment - korta reflektioner noggrant valda. Hennes skrivande återkom gång på gång till elementära angelägenheter: att andas, fortsätta, morgondagen. Hon förstod att att vara vid liv inte är förhandlingsbart.
+  Innan hon dog skrev [[MARKER:person:student:Raha|Alice]] namn. Hon namngav fängslade och försvunna. Hon dokumenterade människor som människor, inte som abstraktioner. Hon visste hur förtrycket börjar - inte med kulor, utan med utplåning.
+tags:
+  - 2026-uprising
+  - student
+  - massacre
+  - internet-blackout
+  - raha-bohlouli
+hashtags: "#Iran #GlömAldrig #Mänskligarättigheter #RahaBohlouli #IranUpproret"
+severity: critical
+verified: true
+source: Iran Internationals undersökande rapportering, vittnesmål, hemligstämplade dokument
+content-warning: Massdödande, utomrättsliga avrättningar, statligt våld
+meta:
+  og-title: "Rahas berättelse: En student dödad i Irans uppror 2026"
+  og-description: En universitetsstudent som dokumenterade namn på fängslade dödades under den dödligaste protestmassakern i historien.
