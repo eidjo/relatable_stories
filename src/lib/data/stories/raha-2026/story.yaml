@@ -11,7 +11,7 @@ content: >-
 
   On the morning of {{protest-date}}, protests erupted across Iran. Within hours, demonstrations spread to more than {{cities}} cities and towns. {{student}} joined protesters near {{square}} in {{capital}}.
 
-  The protests were met with overwhelming force. Security forces, including IRGC units and plainclothes agents, opened fire on crowds. According to classified documents{{source:death-toll}}, more than {{killed}} people were killed over two days {{killed:comparable}}, making it the deadliest protest massacre in history.
+  The protests were met with overwhelming force. Security forces, including IRGC units and plainclothes agents, opened fire on crowds. According to classified documents{{source:death-toll}}, more than {{killed}} people were killed {{killed:comparable}} over two days, making it the deadliest protest massacre in history.
 
   {{student}} was shot near {{square}} on {{protest-date}}. She was {{student:age}} years old. Her family later found her body at {{morgue}}, one of thousands delivered to facilities overwhelmed by casualties.
 

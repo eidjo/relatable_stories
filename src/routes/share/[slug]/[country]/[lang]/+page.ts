@@ -113,7 +113,7 @@ export const load: PageLoad = async ({ params }) => {
         translatedTitle = runtimeTranslated.title.map((s) => s.text).join('');
         translatedSummary = runtimeTranslated.summary.map((s) => s.text).join('');
       }
-    } catch (error) {
+    } catch (_error) {
       // Pre-translation not found, fall back to runtime translation
       const runtimeTranslated = translateStory(baseStory, translationContext, lang);
       translatedTitle = runtimeTranslated.title.map((s) => s.text).join('');

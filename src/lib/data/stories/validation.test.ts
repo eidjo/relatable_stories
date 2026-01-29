@@ -1,6 +1,5 @@
 import { describe, it, expect } from 'vitest';
 import { stories } from '$lib/data/stories';
-import { countries } from '$lib/data/contexts';
 import { translateStory } from '$lib/translation/translator';
 import { getCountryByCode, getCountryNames, getCountryPlacesV2, getCountryComparableEvents } from '$lib/data/contexts';
 
@@ -120,7 +119,7 @@ describe('Story Data Loading', () => {
     stories.forEach((story) => {
       if (!story.markers) return;
 
-      Object.entries(story.markers).forEach(([key, marker]) => {
+      Object.entries(story.markers).forEach(([_key, marker]) => {
         if ('person' in marker) {
           expect(typeof marker.person).toBe('string');
           if ('gender' in marker) {

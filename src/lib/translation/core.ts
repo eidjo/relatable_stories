@@ -11,21 +11,16 @@
 
 import type {
   Marker,
-  PersonMarker,
-  PlaceMarker,
-  NumberMarker,
-  CasualtiesMarker,
   DateMarker,
   TimeMarker,
-  AliasMarker,
-} from '$lib/types';
+} from '../types/index.ts';
 import {
   isPersonMarker,
   isPlaceMarker,
   isNumberMarker,
   isCasualtiesMarker,
   isAliasMarker,
-} from '$lib/types';
+} from '../types/index.ts';
 
 /**
  * Deterministic random number generator (seeded)
@@ -52,6 +47,7 @@ export interface ComparableEvent {
   category: string;
   year: number;
   significance?: string;
+  localizedNames?: Record<string, string>; // Language code -> localized name
 }
 
 /**
@@ -78,20 +74,6 @@ export interface CityData {
  */
 export interface PlacesDataV2 {
   cities: CityData[];
-  generic?: {
-    cities?: {
-      small?: string[];
-      medium?: string[];
-      large?: string[];
-    };
-    landmarks?: {
-      protest?: string[];
-      monument?: string[];
-      [key: string]: string[] | undefined;
-    };
-    universities?: string[];
-    'government-facilities'?: string[];
-  };
 }
 
 /**
@@ -109,6 +91,7 @@ export interface TranslationDataV2 {
   currencySymbol: string;
   rialToLocal: number;
   comparableEvents?: ComparableEvent[];
+  languageCode?: string; // Language code for localized comparison text
 }
 
 /**
@@ -127,20 +110,17 @@ export interface TranslationResult {
   value: string;
   original: string | null;
   comparison?: string;  // For casualties with comparable events
+  comparisonExplanation?: string; // Math explanation for comparison
+  explanation?: string; // Math explanation for scaled values
 }
 
 /**
  * Deterministic selection from array using seed
  */
 function selectFromArray<T>(items: T[], seed: string): T {
-  // Simple hash-based selection
-  let hash = 0;
-  for (let i = 0; i < seed.length; i++) {
-    const char = seed.charCodeAt(i);
-    hash = (hash << 5) - hash + char;
-    hash = hash & hash;
-  }
-  const index = Math.abs(hash) % items.length;
+  // Use seededRandom to match translation script behavior
+  const randomValue = seededRandom(seed);
+  const index = Math.floor(randomValue * items.length);
   return items[index];
 }
 
@@ -185,31 +165,71 @@ function findClosestEvent(
 }
 
 /**
+ * Get localized multiplier phrase
+ */
+function getLocalizedMultiplier(multiplier: number, languageCode: string): { phrase: string; needsArticle: boolean } {
+  const formatted = multiplier.toLocaleString();
+
+  // Language-specific translations
+  const translations: Record<string, { twice: string; thrice: string; times: (n: string) => string; needsArticle: boolean }> = {
+    'en': { twice: 'twice', thrice: 'three times', times: (n) => `${n} times`, needsArticle: true },
+    'cs': { twice: 'dvakrát více než', thrice: 'třikrát více než', times: (n) => `${n}krát více než`, needsArticle: false },
+    'de': { twice: 'zweimal', thrice: 'dreimal', times: (n) => `${n}-mal`, needsArticle: false },
+    'fr': { twice: 'deux fois', thrice: 'trois fois', times: (n) => `${n} fois`, needsArticle: false },
+    'es': { twice: 'el doble de', thrice: 'el triple de', times: (n) => `${n} veces`, needsArticle: false },
+    'it': { twice: 'il doppio di', thrice: 'il triplo di', times: (n) => `${n} volte`, needsArticle: false },
+    'nl': { twice: 'twee keer', thrice: 'drie keer', times: (n) => `${n} keer`, needsArticle: false },
+  };
+
+  const lang = translations[languageCode] || translations['en'];
+
+  let phrase: string;
+  if (multiplier === 2) {
+    phrase = lang.twice;
+  } else if (multiplier === 3) {
+    phrase = lang.thrice;
+  } else {
+    phrase = lang.times(formatted);
+  }
+
+  return { phrase, needsArticle: lang.needsArticle };
+}
+
+/**
  * Generate comparison text for casualties
  */
 function generateComparisonText(
   scaledCasualties: number,
   event: ComparableEvent,
-  maxMultiplier: number = 20
-): string {
+  languageCode: string = 'en'
+): { text: string; explanation: string } {
   const multiplier = Math.round(scaledCasualties / event.casualties);
+
+  // Use localized event name if available, otherwise fall back to English
+  const eventName = (event.localizedNames?.[languageCode] || event.name).trim();
+
+  let comparisonText: string;
 
   if (multiplier <= 1) {
     // Close enough - just name the event
-    return event.fullName || event.name;
-  } else if (multiplier <= maxMultiplier) {
-    // Use multiplier
-    const times =
-      multiplier === 2
-        ? 'twice'
-        : multiplier === 3
-        ? 'three times'
-        : `${multiplier} times`;
-    return `${times} the ${event.name}`;
+    comparisonText = event.fullName || eventName;
   } else {
-    // Too large - cap it
-    return `more than ${maxMultiplier} times the ${event.name}`;
+    // Get localized multiplier phrase
+    const { phrase, needsArticle } = getLocalizedMultiplier(multiplier, languageCode);
+
+    // Build comparison text with or without article
+    comparisonText = needsArticle
+      ? `${phrase} the ${eventName}`
+      : `${phrase} ${eventName}`;
   }
+
+  // Wrap in brackets
+  const text = `(${comparisonText})`;
+
+  // Generate explanation (always in English for consistency)
+  const explanation = `Comparison: ${scaledCasualties.toLocaleString()} casualties vs. ${event.name} (${event.casualties.toLocaleString()} casualties in ${event.year}) = ${multiplier > 1 ? `${multiplier}x more` : 'comparable scale'}`;
+
+  return { text, explanation };
 }
 
 /**
@@ -297,7 +317,7 @@ export function translateMarkerV2(
       }
     }
 
-    // No parent or parent not resolved - use generic lists or city selection
+    // No parent or parent not resolved - use city selection
     const size = marker['city-large']
       ? 'large'
       : marker['city-medium']
@@ -307,8 +327,10 @@ export function translateMarkerV2(
       : null;
 
     if (size && data.places.cities) {
-      // Select from cities of this size
-      const cities = data.places.cities.filter((c) => c.size === size);
+      // Select from cities of this size, respecting capital requirement
+      const cities = data.places.cities.filter((c) =>
+        c.size === size && (!marker.capital || c.capital)
+      );
       if (cities.length > 0) {
         const selectedCity = selectFromArray(cities, seed);
         return {
@@ -318,36 +340,52 @@ export function translateMarkerV2(
       }
     }
 
-    // Fallback to generic lists
-    if (marker['landmark-protest'] && data.places.generic?.landmarks?.protest) {
-      return {
-        value: selectFromArray(data.places.generic.landmarks.protest, seed),
-        original: marker.place,
-      };
+    // If no specific place found, try to find ANY city with the required landmark/facility
+    if (marker['landmark-protest']) {
+      const citiesWithLandmark = data.places.cities.filter(c => c.landmarks?.protest && c.landmarks.protest.length > 0);
+      if (citiesWithLandmark.length > 0) {
+        const city = selectFromArray(citiesWithLandmark, seed);
+        return {
+          value: selectFromArray(city.landmarks!.protest!, seed),
+          original: marker.place,
+        };
+      }
     }
 
-    if (marker['landmark-monument'] && data.places.generic?.landmarks?.monument) {
-      return {
-        value: selectFromArray(data.places.generic.landmarks.monument, seed),
-        original: marker.place,
-      };
+    if (marker['landmark-monument']) {
+      const citiesWithLandmark = data.places.cities.filter(c => c.landmarks?.monument && c.landmarks.monument.length > 0);
+      if (citiesWithLandmark.length > 0) {
+        const city = selectFromArray(citiesWithLandmark, seed);
+        return {
+          value: selectFromArray(city.landmarks!.monument!, seed),
+          original: marker.place,
+        };
+      }
     }
 
-    if (marker.university && data.places.generic?.universities) {
-      return {
-        value: selectFromArray(data.places.generic.universities, seed),
-        original: marker.place,
-      };
+    if (marker.university) {
+      const citiesWithUniversities = data.places.cities.filter(c => c.universities && c.universities.length > 0);
+      if (citiesWithUniversities.length > 0) {
+        const city = selectFromArray(citiesWithUniversities, seed);
+        return {
+          value: selectFromArray(city.universities!, seed),
+          original: marker.place,
+        };
+      }
     }
 
-    if (marker['government-facility'] && data.places.generic?.['government-facilities']) {
-      return {
-        value: selectFromArray(data.places.generic['government-facilities'], seed),
-        original: marker.place,
-      };
+    if (marker['government-facility']) {
+      const citiesWithFacilities = data.places.cities.filter(c => c['government-facilities'] && c['government-facilities'].length > 0);
+      if (citiesWithFacilities.length > 0) {
+        const city = selectFromArray(citiesWithFacilities, seed);
+        return {
+          value: selectFromArray(city['government-facilities']!, seed),
+          original: marker.place,
+        };
+      }
     }
 
-    // Last resort fallback
+    // Last resort fallback - return original
     return {
       value: marker.place,
       original: null,
@@ -357,6 +395,7 @@ export function translateMarkerV2(
   // Number
   if (isNumberMarker(marker)) {
     let value = marker.number;
+    let explanation: string | undefined = undefined;
 
     // Population scaling (optional, author-controlled)
     if (marker.scaled) {
@@ -364,6 +403,10 @@ export function translateMarkerV2(
       const ratio = data.population / iranPop;
       const scaleFactor = marker.scaleFactor ?? 1.0; // Default to pure ratio
       value = Math.round(value * ratio * scaleFactor);
+
+      // Generate explanation
+      const countryName = data.country;
+      explanation = `Scaled from Iran (${marker.number.toLocaleString()}) to ${countryName} by population ratio: ${marker.number.toLocaleString()} × (${(data.population / 1000000).toFixed(1)}M / ${(iranPop / 1000000).toFixed(1)}M)${scaleFactor !== 1.0 ? ` × ${scaleFactor}` : ''} = ${value.toLocaleString()}`;
     }
 
     // Variance
@@ -376,8 +419,9 @@ export function translateMarkerV2(
     }
 
     return {
-      value: value.toString(),
-      original: marker.number.toString(),
+      value: value.toLocaleString(),
+      original: marker.number.toLocaleString(),
+      explanation,
     };
   }
 
@@ -386,6 +430,8 @@ export function translateMarkerV2(
     // Step 1: Determine the population to scale against
     let targetPopulation = data.population; // Default: country population
     let sourcePopulation = 85000000; // Iran's population
+    let scopeType = 'country';
+    let scopeName = data.country;
 
     if (marker.scope === 'city' && marker.scopeCity) {
       // Scale against city population instead
@@ -393,6 +439,7 @@ export function translateMarkerV2(
       if (cityMarker && 'population' in cityMarker && typeof cityMarker.population === 'number') {
         targetPopulation = cityMarker.population;
         sourcePopulation = cityMarker.population; // Use same city's population as source
+        scopeType = 'city';
 
         // Also check if we've resolved the city to get its translated population
         if (context.resolved.has(marker.scopeCity)) {
@@ -400,6 +447,7 @@ export function translateMarkerV2(
           // Try to find the translated city's population from places data
           const cityName = resolvedCity?.value;
           if (cityName) {
+            scopeName = cityName;
             const translatedCity = data.places.cities?.find(c => c.name === cityName);
             if (translatedCity?.population) {
               targetPopulation = translatedCity.population;
@@ -412,14 +460,21 @@ export function translateMarkerV2(
     // Step 2: Scale to local context - pure population ratio
     const scaledValue = Math.round(marker.casualties * (targetPopulation / sourcePopulation));
 
+    // Generate explanation for scaling
+    const iranPop = marker.scope === 'city' ? sourcePopulation : 85000000;
+    const explanation = `Scaled from Iran (${marker.casualties.toLocaleString()}) to ${scopeName} by ${scopeType} population: ${marker.casualties.toLocaleString()} × (${(targetPopulation / 1000000).toFixed(1)}M / ${(iranPop / 1000000).toFixed(1)}M) = ${scaledValue.toLocaleString()}`;
+
     // Step 3: Find comparable event using SCALED value
     let comparison: string | undefined = undefined;
+    let comparisonExplanation: string | undefined = undefined;
     if (marker.comparable && data.comparableEvents && data.comparableEvents.length > 0) {
       const category = marker.comparable === 'any' ? null : marker.comparable;
       const event = findClosestEvent(data.comparableEvents, scaledValue, category);
 
       if (event) {
-        comparison = generateComparisonText(scaledValue, event);
+        const result = generateComparisonText(scaledValue, event, data.languageCode || 'en');
+        comparison = result.text;
+        comparisonExplanation = result.explanation;
       }
     }
 
@@ -431,15 +486,19 @@ export function translateMarkerV2(
 
       if (ratio > 2) {
         comparison = `more than ${Math.round(ratio)} times`;
+        comparisonExplanation = `Comparison: ${scaledValue.toLocaleString()} vs. ${referenceValue.toLocaleString()} = ${Math.round(ratio)}x more`;
       } else if (ratio > 1.5) {
         comparison = 'more than twice as many';
+        comparisonExplanation = `Comparison: ${scaledValue.toLocaleString()} vs. ${referenceValue.toLocaleString()} = ${(ratio).toFixed(1)}x more`;
       }
     }
 
     return {
-      value: scaledValue.toString(),
-      original: marker.casualties.toString(),
+      value: scaledValue.toLocaleString(),
+      original: marker.casualties.toLocaleString(),
       comparison,
+      comparisonExplanation,
+      explanation,
     };
   }
 

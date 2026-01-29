@@ -243,54 +243,80 @@ describe('Country Configuration Validation', () => {
       expect(missingCountries).toHaveLength(0);
     });
 
-    it('should have all required place categories for each country', () => {
+    it('should have complete city data for each country', () => {
       const issues: string[] = [];
 
       countryCodes.forEach((code) => {
         const places = placesData[code];
         if (!places) return; // Already caught by previous test
 
-        requiredPlaceCategories.forEach((category) => {
-          if (!places[category]) {
-            issues.push(`${code}: missing category "${category}"`);
-          } else if (!Array.isArray(places[category]) || places[category].length === 0) {
-            issues.push(`${code}: category "${category}" is empty`);
-          }
-        });
+        // Must have cities array
+        if (!places.cities || !Array.isArray(places.cities) || places.cities.length === 0) {
+          issues.push(`${code}: missing "cities" array`);
+          return;
+        }
+
+        // Must have at least one capital city
+        const hasCapital = places.cities.some((c: any) => c.capital);
+        if (!hasCapital) {
+          issues.push(`${code}: no capital city marked`);
+        }
+
+        // At least one city must have each type of landmark/facility
+        const hasProtestLandmark = places.cities.some((c: any) =>
+          c.landmarks?.protest && c.landmarks.protest.length > 0
+        );
+        const hasMonumentLandmark = places.cities.some((c: any) =>
+          c.landmarks?.monument && c.landmarks.monument.length > 0
+        );
+        const hasUniversities = places.cities.some((c: any) =>
+          c.universities && c.universities.length > 0
+        );
+        const hasGovFacilities = places.cities.some((c: any) =>
+          c['government-facilities'] && c['government-facilities'].length > 0
+        );
+
+        if (!hasProtestLandmark) {
+          issues.push(`${code}: no city has protest landmarks`);
+        }
+        if (!hasMonumentLandmark) {
+          issues.push(`${code}: no city has monument landmarks`);
+        }
+        if (!hasUniversities) {
+          issues.push(`${code}: no city has universities`);
+        }
+        if (!hasGovFacilities) {
+          issues.push(`${code}: no city has government facilities`);
+        }
       });
 
       if (issues.length > 0) {
         throw new Error(
-          `Place category issues:\n${issues.join('\n')}\n` +
+          `Incomplete place data:\n${issues.join('\n')}\n` +
             `Fix in src/lib/data/contexts/places.yaml\n` +
-            `Required categories: ${requiredPlaceCategories.join(', ')}`
+            `Required: at least one capital, at least one city with each landmark/facility type`
         );
       }
 
       expect(issues).toHaveLength(0);
     });
 
-    it('should have at least 3 places in each category', () => {
+    it('should have at least 2 cities for variety', () => {
       const issues: string[] = [];
 
       countryCodes.forEach((code) => {
         const places = placesData[code];
-        if (!places) return;
+        if (!places || !places.cities) return;
 
-        requiredPlaceCategories.forEach((category) => {
-          const placeList = places[category];
-          if (placeList && placeList.length < 3) {
-            issues.push(
-              `${code}: only ${placeList.length} places in "${category}" (recommend at least 3)`
-            );
-          }
-        });
+        if (places.cities.length < 2) {
+          issues.push(`${code}: only ${places.cities.length} city (recommend at least 2 for variety)`);
+        }
       });
 
       if (issues.length > 0) {
         throw new Error(
-          `Insufficient place variety:\n${issues.join('\n')}\n` +
-            `Add more places in src/lib/data/contexts/places.yaml`
+          `Insufficient city variety:\n${issues.join('\n')}\n` +
+            `Add more cities in src/lib/data/contexts/places.yaml`
         );
       }
 

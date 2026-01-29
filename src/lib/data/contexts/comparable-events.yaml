@@ -95,6 +95,9 @@ CZ:
     category: massacre
     year: 1942
     significance: critical
+    localizedNames:
+      cs: 'masakr v Lidicích'
+      en: 'Lidice massacre'
 
   - id: prague-uprising
     name: 'Prague uprising'
@@ -103,16 +106,12 @@ CZ:
     category: war-casualties
     year: 1945
     significance: critical
-
-  - id: ostrava-mining
-    name: 'Ostrava mining disaster'
-    fullName: 'Ostrava mining disaster'
-    casualties: 108
-    category: industrial-disaster
-    year: 1961
-    significance: medium
+    localizedNames:
+      cs: 'Pražské povstání'
+      en: 'Prague uprising'
 
 FR:
+  # Terrorist Attacks
   - id: bataclan
     name: 'Bataclan massacre'
     fullName: 'November 2015 Paris attacks'
@@ -129,15 +128,8 @@ FR:
     year: 2016
     significance: major
 
-  - id: charlie-hebdo
-    name: 'Charlie Hebdo attack'
-    fullName: 'Charlie Hebdo shooting'
-    casualties: 12
-    category: terrorist-attack
-    year: 2015
-    significance: major
-
 DE:
+  # Terrorist Attacks
   - id: berlin-christmas
     name: 'Berlin Christmas market attack'
     fullName: 'Berlin Christmas market attack'
@@ -146,15 +138,16 @@ DE:
     year: 2016
     significance: major
 
-  - id: munich-oktoberfest
-    name: 'Munich Oktoberfest bombing'
-    fullName: 'Oktoberfest bombing'
-    casualties: 13
-    category: terrorist-attack
-    year: 1980
+  - id: eschede-train
+    name: 'Eschede train disaster'
+    fullName: 'Eschede train derailment'
+    casualties: 101
+    category: public-disaster
+    year: 1998
     significance: major
 
 CA:
+  # Terrorist Attacks
   - id: air-india
     name: 'Air India bombing'
     fullName: 'Air India Flight 182 bombing'
@@ -163,6 +156,7 @@ CA:
     year: 1985
     significance: critical
 
+  # Massacres
   - id: ecole-polytechnique
     name: 'École Polytechnique massacre'
     fullName: 'Montreal massacre'
@@ -171,15 +165,24 @@ CA:
     year: 1989
     significance: critical
 
-  - id: quebec-city-mosque
-    name: 'Quebec City mosque shooting'
-    fullName: 'Quebec City mosque shooting'
-    casualties: 6
+  - id: nova-scotia-shooting
+    name: 'Nova Scotia shooting'
+    fullName: '2020 Nova Scotia attacks'
+    casualties: 22
+    category: massacre
+    year: 2020
+    significance: major
+
+  - id: toronto-van-attack
+    name: 'Toronto van attack'
+    fullName: 'Toronto van attack'
+    casualties: 11
     category: terrorist-attack
-    year: 2017
+    year: 2018
     significance: major
 
 AU:
+  # Massacres
   - id: port-arthur
     name: 'Port Arthur massacre'
     fullName: 'Port Arthur massacre'
@@ -188,6 +191,7 @@ AU:
     year: 1996
     significance: critical
 
+  # Terrorist Attacks
   - id: bali-bombing
     name: 'Bali bombings'
     fullName: 'Bali bombings'
@@ -196,7 +200,17 @@ AU:
     year: 2002
     significance: critical
 
+  # Natural Disasters
+  - id: black-saturday
+    name: 'Black Saturday bushfires'
+    fullName: 'Black Saturday bushfires'
+    casualties: 173
+    category: natural-disaster
+    year: 2009
+    significance: critical
+
 ES:
+  # Terrorist Attacks
   - id: madrid-train
     name: 'Madrid train bombings'
     fullName: 'Madrid train bombings'
@@ -213,7 +227,26 @@ ES:
     year: 2017
     significance: major
 
+  # Natural Disasters
+  - id: lorca-earthquake
+    name: 'Lorca earthquake'
+    fullName: 'Lorca earthquake'
+    casualties: 9
+    category: natural-disaster
+    year: 2011
+    significance: major
+
+  # Public Disasters
+  - id: spanair-crash
+    name: 'Spanair Flight 5022'
+    fullName: 'Spanair Flight 5022 crash'
+    casualties: 154
+    category: public-disaster
+    year: 2008
+    significance: major
+
 IT:
+  # Terrorist Attacks
   - id: bologna-bombing
     name: 'Bologna station bombing'
     fullName: 'Bologna station bombing'
@@ -222,7 +255,59 @@ IT:
     year: 1980
     significance: critical
 
+  - id: ustica-massacre
+    name: 'Ustica massacre'
+    fullName: 'Itavia Flight 870'
+    casualties: 81
+    category: military-attack
+    year: 1980
+    significance: critical
+
+  # Natural Disasters
+  - id: laquila-earthquake
+    name: "L'Aquila earthquake"
+    fullName: "L'Aquila earthquake"
+    casualties: 309
+    category: natural-disaster
+    year: 2009
+    significance: critical
+
+  - id: genoa-bridge
+    name: 'Genoa bridge collapse'
+    fullName: 'Morandi Bridge collapse'
+    casualties: 43
+    category: public-disaster
+    year: 2018
+    significance: major
+
+  # War Casualties
+  - id: wwi-italy
+    name: 'WWI Italian casualties'
+    fullName: 'World War I Italian casualties'
+    casualties: 650000
+    category: war-casualties
+    year: 1918
+    significance: critical
+
+  - id: wwii-italy
+    name: 'WWII Italian casualties'
+    fullName: 'World War II Italian casualties'
+    casualties: 454000
+    category: war-casualties
+    year: 1945
+    significance: critical
+
+  # Massacres
+  - id: ardeatine-massacre
+    name: 'Ardeatine massacre'
+    fullName: 'Ardeatine massacre'
+    casualties: 335
+    category: massacre
+    year: 1944
+    significance: major
+
 NL:
+  # Military Attacks / Terrorist Attacks
   - id: mh17
     name: 'MH17 downing'
     fullName: 'Malaysia Airlines Flight 17'
@@ -231,7 +316,24 @@ NL:
     year: 2014
     significance: critical
 
+  - id: srebrenica
+    name: 'Srebrenica massacre'
+    fullName: 'Srebrenica massacre (Dutch peacekeepers)'
+    casualties: 8372
+    category: massacre
+    year: 1995
+    significance: critical
+
+  - id: volendam-fire
+    name: 'Volendam New Year fire'
+    fullName: 'Volendam New Year fire'
+    casualties: 14
+    category: public-disaster
+    year: 2001
+    significance: major
+
 SE:
+  # Terrorist Attacks / Massacres
   - id: stockholm-truck
     name: 'Stockholm truck attack'
     fullName: 'Stockholm truck attack'
@@ -240,7 +342,42 @@ SE:
     year: 2017
     significance: major
 
+  # Public Disasters
+  - id: estonia-ferry
+    name: 'MS Estonia sinking'
+    fullName: 'MS Estonia ferry disaster'
+    casualties: 852
+    category: public-disaster
+    year: 1994
+    significance: critical
+
+  - id: backabranden-fire
+    name: 'Backabranden fire'
+    fullName: 'Gothenburg disco fire'
+    casualties: 63
+    category: public-disaster
+    year: 1998
+    significance: major
+
+  # Public Disasters
+  - id: estonia-ferry
+    name: 'MS Estonia sinking'
+    fullName: 'MS Estonia ferry disaster'
+    casualties: 852
+    category: public-disaster
+    year: 1994
+    significance: critical
+
+  - id: backabranden-fire
+    name: 'Backabranden fire'
+    fullName: 'Gothenburg disco fire'
+    casualties: 63
+    category: public-disaster
+    year: 1998
+    significance: major
+
 NO:
+  # Massacres
   - id: utoya
     name: 'Utøya massacre'
     fullName: 'Norway attacks'
@@ -249,4 +386,209 @@ NO:
     year: 2011
     significance: critical
 
-# Add more countries and events as needed
+  # Public Disasters
+  - id: alexander-kielland
+    name: 'Alexander Kielland disaster'
+    fullName: 'Alexander Kielland platform collapse'
+    casualties: 123
+    category: public-disaster
+    year: 1980
+    significance: critical
+
+IR:
+  # Massacres / State Violence
+  - id: 1988-executions
+    name: '1988 prison massacres'
+    fullName: '1988 executions of political prisoners'
+    casualties: 5000
+    category: massacre
+    year: 1988
+    significance: critical
+
+  - id: 2009-protests
+    name: '2009 election protests'
+    fullName: 'Iranian election protests'
+    casualties: 72
+    category: massacre
+    year: 2009
+    significance: critical
+
+  - id: 2019-protests
+    name: '2019 protests'
+    fullName: 'Bloody Aban protests'
+    casualties: 1500
+    category: massacre
+    year: 2019
+    significance: critical
+
+  - id: manjil-earthquake
+    name: 'Manjil-Rudbar earthquake'
+    fullName: 'Manjil-Rudbar earthquake'
+    casualties: 40000
+    category: natural-disaster
+    year: 1990
+    significance: critical
+
+  # Public Disasters
+  - id: ukraine-flight
+    name: 'Ukraine Flight 752'
+    fullName: 'Ukraine International Airlines Flight 752'
+    casualties: 176
+    category: military-attack
+    year: 2020
+    significance: critical
+
+BE:
+  # Terrorist Attacks
+  - id: brussels-bombings
+    name: 'Brussels bombings'
+    fullName: '2016 Brussels bombings'
+    casualties: 35
+    category: terrorist-attack
+    year: 2016
+    significance: critical
+
+  # Public Disasters
+  - id: heysel-stadium
+    name: 'Heysel Stadium disaster'
+    fullName: 'Heysel Stadium disaster'
+    casualties: 39
+    category: public-disaster
+    year: 1985
+    significance: critical
+
+BR:
+  # Public Disasters
+  - id: kiss-nightclub
+    name: 'Kiss nightclub fire'
+    fullName: 'Kiss nightclub fire'
+    casualties: 242
+    category: public-disaster
+    year: 2013
+    significance: critical
+
+  - id: brumadinho-dam
+    name: 'Brumadinho dam disaster'
+    fullName: 'Brumadinho dam collapse'
+    casualties: 270
+    category: public-disaster
+    year: 2019
+    significance: critical
+
+  # Natural Disasters
+  - id: rio-floods-2011
+    name: 'Rio de Janeiro floods'
+    fullName: '2011 Rio de Janeiro floods and mudslides'
+    casualties: 916
+    category: natural-disaster
+    year: 2011
+    significance: critical
+
+  - id: carandiru-massacre
+    name: 'Carandiru massacre'
+    fullName: 'Carandiru prison massacre'
+    casualties: 111
+    category: massacre
+    year: 1992
+    significance: critical
+
+  # Air Disasters
+  - id: tam-3054
+    name: 'TAM Airlines Flight 3054'
+    fullName: 'TAM Airlines Flight 3054 crash'
+    casualties: 199
+    category: public-disaster
+    year: 2007
+    significance: major
+
+PT:
+  # Natural Disasters
+  - id: portugal-wildfires
+    name: '2017 wildfires'
+    fullName: '2017 Portugal wildfires'
+    casualties: 66
+    category: natural-disaster
+    year: 2017
+    significance: critical
+
+  # Public Disasters
+  - id: ponte-hintze-ribeiro
+    name: 'Hintze Ribeiro Bridge collapse'
+    fullName: 'Hintze Ribeiro Bridge disaster'
+    casualties: 59
+    category: public-disaster
+    year: 2001
+    significance: major
+
+DK:
+  # Public Disasters
+  - id: scandinavian-star
+    name: 'MS Scandinavian Star fire'
+    fullName: 'MS Scandinavian Star ferry fire'
+    casualties: 159
+    category: public-disaster
+    year: 1990
+    significance: critical
+
+FI:
+  # Terrorist Attacks / Massacres
+  - id: myyrmanni-bombing
+    name: 'Myyrmanni bombing'
+    fullName: 'Myyrmanni shopping mall bombing'
+    casualties: 7
+    category: terrorist-attack
+    year: 2002
+    significance: major
+
+PL:
+  # Massacres / WWII
+  - id: katyn-massacre
+    name: 'Katyń massacre'
+    fullName: 'Katyń massacre'
+    casualties: 22000
+    category: massacre
+    year: 1940
+    significance: critical
+
+  # Public Disasters
+  - id: smolensk-crash
+    name: 'Smolensk air disaster'
+    fullName: 'Polish Air Force Tu-154 crash'
+    casualties: 96
+    category: public-disaster
+    year: 2010
+    significance: critical
+
+GR:
+  - id: greek-holocaust
+    name: 'Greek Holocaust victims'
+    fullName: 'Holocaust in Greece'
+    casualties: 67000
+    category: massacre
+    year: 1945
+    significance: critical
+
+  - id: greece-wildfires
+    name: '2007 wildfires'
+    fullName: '2007 Greek forest fires'
+    casualties: 77
+    category: natural-disaster
+    year: 2007
+    significance: critical
+
+  - id: mati-wildfire
+    name: 'Mati wildfire'
+    fullName: 'Attica wildfires'
+    casualties: 102
+    category: natural-disaster
+    year: 2018
+    significance: critical
+
+  # Public Disasters
+  - id: express-samina
+    name: 'Express Samina sinking'
+    fullName: 'MS Express Samina ferry disaster'
+    casualties: 82
+    category: public-disaster
+    year: 2000
+    significance: major

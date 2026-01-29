@@ -2,14 +2,14 @@
  * V2 Translator - Uses V2 marker system and parser
  */
 
-import { parseText } from './parser';
+import { parseText } from './parser.ts';
 import {
   translateMarkerV2,
   type TranslationDataV2,
   type TranslationContext,
   type ComparableEvent,
   type PlacesDataV2,
-} from './core';
+} from './core.ts';
 import { formatDateLocalized } from '$lib/utils/date-locale';
 import type { Story, TranslatedStory, TranslatedSegment, Marker } from '$lib/types';
 import type { SourceMarker, ImageMarker } from '$lib/types';
@@ -37,7 +37,7 @@ export interface UITranslationContext {
 /**
  * Convert UI context to V2 translation data
  */
-function contextToData(context: UITranslationContext): TranslationDataV2 {
+function contextToData(context: UITranslationContext, languageCode: string = 'en'): TranslationDataV2 {
   return {
     country: context.country,
     names: context.names,
@@ -46,6 +46,7 @@ function contextToData(context: UITranslationContext): TranslationDataV2 {
     currencySymbol: context.countryData['currency-symbol'],
     rialToLocal: context.countryData['rial-to-local'],
     comparableEvents: context.comparableEvents,
+    languageCode: languageCode,
   };
 }
 
@@ -61,7 +62,7 @@ export function translateText(
   sources?: import('$lib/types').SourceReference[],
   images?: import('$lib/types').ImageReference[]
 ): TranslatedSegment[] {
-  const data = contextToData(context);
+  const data = contextToData(context, languageCode);
   const translationContext: TranslationContext = {
     markers,
     resolved: new Map(),
@@ -170,10 +171,11 @@ export function translateText(
             const result = translationContext.resolved.get(token.markerKey)!;
             if (result.comparison) {
               segments.push({
-                text: `- ${result.comparison} -`,
+                text: result.comparison,
                 original: null,
-                type: null,
+                type: 'comparison' as any, // Special type for red styling
                 key: token.markerKey,
+                explanation: result.comparisonExplanation, // Math explanation for tooltip
               });
             }
             continue;
@@ -276,6 +278,8 @@ export function translateText(
           original: result.original,
           type: markerType as any,
           key: token.markerKey,
+          explanation: result.explanation,
+          // Note: comparison is NOT included here - only at {{killed:comparable}}
         });
       }
     }

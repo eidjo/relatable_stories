@@ -1,5 +1,5 @@
 /**
- * Story translation script with contextualization
+ * Story translation script with contextualization - V2 Marker System
  *
  * This script translates Iranian stories into multiple languages with proper
  * grammatical handling. It substitutes markers with country-specific context,
@@ -7,7 +7,7 @@
  * grammatical cases work correctly in languages like Czech, Polish, Finnish, etc.
  *
  * Flow:
- * 1. Load English story with markers
+ * 1. Load English story with V2 markers
  * 2. For each target country:
  *    - Substitute markers with that country's context (names, places, numbers)
  *    - For each of that country's languages:
@@ -34,6 +34,16 @@ import { glob } from 'glob';
 import { existsSync } from 'fs';
 import path from 'path';
 import yaml from 'js-yaml';
+
+// Import V2 type detection functions
+import {
+  getMarkerType,
+  isPersonMarker,
+  isPlaceMarker,
+  isNumberMarker,
+  isCasualtiesMarker,
+  isAliasMarker,
+} from '../src/lib/types/index.ts';
 
 // Parse CLI arguments
 const args = process.argv.slice(2);
@@ -79,7 +89,7 @@ async function loadNames() {
 }
 
 /**
- * Load place mappings
+ * Load place mappings (V2)
  */
 async function loadPlaces() {
   const content = await readFile('src/lib/data/contexts/places.yaml', 'utf-8');
@@ -87,37 +97,53 @@ async function loadPlaces() {
 }
 
 /**
- * Get original Iranian value for a marker
+ * Load comparable events
+ */
+async function loadComparableEvents() {
+  const content = await readFile('src/lib/data/contexts/comparable-events.yaml', 'utf-8');
+  return yaml.load(content);
+}
+
+/**
+ * Get original Iranian value for a V2 marker
  */
 function getOriginalValue(marker) {
-  switch (marker.type) {
-    case 'person':
-      return marker.name || '[Iranian name]';
-    case 'place':
-      return marker.original || '[Iranian location]';
-    case 'number':
-      return marker.base.toString();
-    case 'currency':
-      return `${marker.base.toLocaleString()} Rial`;
-    case 'date':
-    case 'time':
-    case 'event':
-      return marker.value || '[original]';
-    case 'occupation':
-      return marker.original || marker.category || '[occupation]';
-    case 'subject':
-      return marker.category || '[subject]';
-    default:
-      return '[original]';
+  if (isPersonMarker(marker)) {
+    return marker.person;
   }
+  if (isPlaceMarker(marker)) {
+    return marker.place;
+  }
+  if (isNumberMarker(marker)) {
+    return marker.number.toString();
+  }
+  if (isCasualtiesMarker(marker)) {
+    return marker.casualties.toString();
+  }
+  if ('date' in marker) {
+    return marker.date;
+  }
+  if ('time' in marker) {
+    return marker.time;
+  }
+  if ('currency' in marker) {
+    return `${marker.currency.toLocaleString()} Rial`;
+  }
+  if ('occupation' in marker) {
+    return marker.occupation || '[occupation]';
+  }
+  if ('text' in marker) {
+    return marker.text;
+  }
+  return '[original]';
 }
 
 /**
  * Substitute markers in text with contextualized values wrapped in special markers
  */
-function substituteMarkers(text, markers, context, storyId) {
+function substituteMarkers(text, markers, context, resolvedMarkers, storyId) {
   let result = text;
-  const { countryCode, names, places, population, currencySymbol, rialToLocal } = context;
+  const { countryCode, names, places, population, currencySymbol, rialToLocal, comparableEvents } = context;
 
   // Seeded random for deterministic selection
   function seededRandom(seed) {
@@ -131,103 +157,345 @@ function substituteMarkers(text, markers, context, storyId) {
   }
 
   function selectFromArray(items, seed) {
+    if (!items || items.length === 0) return '[not found]';
     const index = Math.floor(seededRandom(seed) * items.length);
     return items[index];
   }
 
-  // Find all markers in text
-  // Allow hyphens in marker keys (e.g., main-square, arrest-date)
-  const markerRegex = /\{\{([\w-]+):([\w-]+)\}\}/g;
+  // V2 regex: matches {{key}} or {{key:suffix}}
+  const markerRegex = /\{\{([\w-]+)(?::([\w-]+))?\}\}/g;
   let match;
 
+  // Store matches to process them in order
+  const matches = [];
   while ((match = markerRegex.exec(text)) !== null) {
-    const [fullMatch, markerType, markerKey] = match;
-    const marker = markers[markerKey];
+    matches.push({
+      fullMatch: match[0],
+      key: match[1],
+      suffix: match[2],
+      index: match.index,
+    });
+  }
 
-    if (!marker) continue;
+  // Process matches in reverse order to preserve indices
+  for (let i = matches.length - 1; i >= 0; i--) {
+    const { fullMatch, key, suffix, index } = matches[i];
 
-    const seed = `${storyId}-${markerKey}-${countryCode}`;
+    // Handle special cases: source and image references
+    if (key === 'source' || key === 'image') {
+      // Keep these as-is, they'll be handled by the translator
+      continue;
+    }
+
+    const marker = markers[key];
+    if (!marker) {
+      console.warn(`Warning: Marker not found: ${key}`);
+      continue;
+    }
+
+    const seed = `${storyId}-${key}-${countryCode}`;
     let value = fullMatch; // Default to keeping marker
-    const originalValue = getOriginalValue(marker);
+    let originalValue = getOriginalValue(marker);
+    let markerType = getMarkerType(marker);
+    let effectiveKey = key; // Key to use in marker output
 
-    switch (marker.type) {
-      case 'person': {
-        const nameList = names[marker.gender] || names.neutral || ['Person'];
-        value = selectFromArray(nameList, seed);
-        break;
+    // Handle suffixes FIRST before general marker processing
+    if (suffix === 'age' && isPersonMarker(marker) && marker.age) {
+      // {{person:age}} - just output the age number, no marker needed
+      value = marker.age.toString();
+      result = result.substring(0, index) + value + result.substring(index + fullMatch.length);
+      continue;
+    }
+
+    if (suffix === 'comparable' && isCasualtiesMarker(marker)) {
+      // {{killed:comparable}} - output comparison text
+      // We need to compute the scaled casualties and find a comparison
+      const iranPop = 85000000;
+      let targetPop = population;
+
+      if (marker.scope === 'city' && marker.scopeCity) {
+        const cityMarker = markers[marker.scopeCity];
+        if (cityMarker && 'population' in cityMarker) {
+          targetPop = cityMarker.population;
+          if (resolvedMarkers.has(marker.scopeCity)) {
+            const translatedCityName = resolvedMarkers.get(marker.scopeCity);
+            const translatedCity = places.cities?.find(c => c.name === translatedCityName);
+            if (translatedCity?.population) {
+              targetPop = translatedCity.population;
+            }
+          }
+        }
       }
 
-      case 'place': {
-        let placeKey = marker.category;
-        if (marker.size) {
-          placeKey = `${marker.category}-${marker.size}`;
+      const scaledValue = Math.round(marker.casualties * (targetPop / iranPop));
+
+      // Find comparable event if specified
+      let comparisonText = '';
+      let comparisonExplanation = '';
+      if (marker.comparable && comparableEvents) {
+        const countryEvents = comparableEvents;
+        const category = marker.comparable === 'any' ? null : marker.comparable;
+
+        // Find closest event
+        let candidates = countryEvents;
+        if (category) {
+          const filtered = countryEvents.filter(e => e.category === category);
+          if (filtered.length > 0) candidates = filtered;
         }
-        if (marker.category === 'landmark' && marker.significance === 'protest-location') {
-          placeKey = 'landmark-protest';
+
+        if (candidates.length > 0) {
+          const closestEvent = candidates.reduce((best, current) => {
+            const bestDiff = Math.abs(best.casualties - scaledValue);
+            const currentDiff = Math.abs(current.casualties - scaledValue);
+            return currentDiff < bestDiff ? current : best;
+          });
+
+          const multiplier = Math.round(scaledValue / closestEvent.casualties);
+          const eventName = closestEvent.name.trim();
+
+          if (multiplier <= 1) {
+            comparisonText = `(${closestEvent.fullName || eventName})`;
+          } else {
+            const times = multiplier === 2 ? 'twice' : multiplier === 3 ? 'three times' : `${multiplier} times`;
+            comparisonText = `(${times} the ${eventName})`;
+          }
+
+          // Generate comparison explanation
+          comparisonExplanation = `Comparison: ${scaledValue.toLocaleString()} casualties vs. ${eventName} (${closestEvent.casualties.toLocaleString()} casualties in ${closestEvent.year}) = ${multiplier > 1 ? `${multiplier}x more` : 'comparable scale'}`;
         }
-        const placeList = places[placeKey] || places['city-medium'] || ['Location'];
-        value = selectFromArray(placeList, seed);
-        break;
       }
 
-      case 'number': {
-        let numValue = marker.base;
-        if (marker.scale && marker['scale-factor']) {
-          const iranPopulation = 88550570;
-          const ratio = population / iranPopulation;
-          numValue = Math.round(numValue * ratio * marker['scale-factor']);
-        }
-        if (marker.variance) {
-          const seedValue = seededRandom(seed);
-          const adjustment = Math.floor((seedValue - 0.5) * 2 * marker.variance);
-          numValue += adjustment;
-        }
-        value = numValue.toString();
-        break;
-      }
+      // Output comparison text with explanation embedded
+      // Format: [[COMPARISON:original|translated|explanation]]
+      value = comparisonText || `(comparison unavailable)`;
+      const comparisonMarked = comparisonExplanation
+        ? `[[COMPARISON:${comparisonText}|${comparisonText}|${comparisonExplanation}]]`
+        : comparisonText;
+      result = result.substring(0, index) + comparisonMarked + result.substring(index + fullMatch.length);
+      continue;
+    }
 
-      case 'currency': {
-        const converted = Math.round(marker.base * rialToLocal);
-        value = `${currencySymbol}${converted.toLocaleString('en-US')}`;
-        break;
-      }
+    if (suffix === 'original' || suffix === 'translated') {
+      // These suffixes control display mode, not substitution
+      // Just proceed with normal substitution but note the suffix
+    }
 
-      case 'date':
-      case 'time':
-      case 'event':
-        value = marker.value || marker.translation || fullMatch;
-        // Keep markers for dates/times/events as they shouldn't show tooltips
-        result = result.replace(fullMatch, fullMatch);
+    // Handle aliases first
+    if (isAliasMarker(marker)) {
+      const targetKey = marker.sameAs;
+      const targetMarker = markers[targetKey];
+
+      if (!targetMarker) {
+        console.warn(`Warning: Alias target marker not found: ${targetKey}`);
         continue;
-
-      case 'occupation': {
-        if (marker.examples && marker.examples.length > 0) {
-          value = selectFromArray(marker.examples, seed);
-        } else {
-          value = marker.original || marker.category || 'worker';
-        }
-        break;
       }
 
-      case 'subject': {
-        if (marker.examples && marker.examples.length > 0) {
-          value = selectFromArray(marker.examples, seed);
-        } else {
-          value = marker.category || 'studies';
+      // Use target marker's type and original value
+      markerType = getMarkerType(targetMarker);
+      originalValue = getOriginalValue(targetMarker);
+      effectiveKey = targetKey; // Use target key in marker output
+
+      if (resolvedMarkers.has(targetKey)) {
+        value = resolvedMarkers.get(targetKey);
+      } else {
+        // Target not resolved yet - recursively resolve it
+        const targetSeed = `${storyId}-${targetKey}-${countryCode}`;
+
+        if (isPersonMarker(targetMarker)) {
+          const nameList = targetMarker.gender === 'm' ? names.male
+            : targetMarker.gender === 'f' ? names.female
+            : names.neutral;
+          value = selectFromArray(nameList, targetSeed);
+        } else if (isPlaceMarker(targetMarker)) {
+          // Simplified place resolution for aliases
+          const size = targetMarker['city-large'] ? 'large'
+            : targetMarker['city-medium'] ? 'medium'
+            : targetMarker['city-small'] ? 'small'
+            : null;
+          if (size && places.cities) {
+            const cities = places.cities.filter(c =>
+              c.size === size && (!targetMarker.capital || c.capital)
+            );
+            if (cities.length > 0) {
+              const selectedCity = selectFromArray(cities, targetSeed);
+              value = selectedCity.name;
+            }
+          }
         }
-        break;
+
+        // Store the resolved target
+        resolvedMarkers.set(targetKey, value);
+      }
+    }
+    // Person markers
+    else if (isPersonMarker(marker)) {
+      const nameList = marker.gender === 'm' ? names.male
+        : marker.gender === 'f' ? names.female
+        : names.neutral;
+      value = selectFromArray(nameList, seed);
+    }
+    // Place markers with V2 hierarchical support
+    else if (isPlaceMarker(marker)) {
+      // Check if this place has a parent
+      if (marker.within && resolvedMarkers.has(marker.within)) {
+        const parentCityName = resolvedMarkers.get(marker.within);
+
+        // Find the city in places data
+        const cityData = places.cities?.find(c => c.name === parentCityName);
+        if (cityData) {
+          // Try to find appropriate landmark
+          if (marker['landmark-protest'] && cityData.landmarks?.protest) {
+            value = selectFromArray(cityData.landmarks.protest, seed);
+          } else if (marker['landmark-monument'] && cityData.landmarks?.monument) {
+            value = selectFromArray(cityData.landmarks.monument, seed);
+          } else if (marker.university && cityData.universities) {
+            value = selectFromArray(cityData.universities, seed);
+          } else if (marker['government-facility'] && cityData['government-facilities']) {
+            value = selectFromArray(cityData['government-facilities'], seed);
+          }
+        }
       }
 
-      case 'source':
-      case 'image':
-        // Keep these markers as-is
-        continue;
+      // If no parent or not resolved, use direct city selection
+      if (value === fullMatch) {
+        const size = marker['city-large'] ? 'large'
+          : marker['city-medium'] ? 'medium'
+          : marker['city-small'] ? 'small'
+          : null;
+
+        if (size && places.cities) {
+          // Filter by size AND capital requirement (if specified)
+          const cities = places.cities.filter(c =>
+            c.size === size && (!marker.capital || c.capital)
+          );
+          if (cities.length > 0) {
+            const selectedCity = selectFromArray(cities, seed);
+            value = selectedCity.name;
+          }
+        } else {
+          // Fallback to generic lists
+          if (marker['landmark-protest'] && places.generic?.landmarks?.protest) {
+            value = selectFromArray(places.generic.landmarks.protest, seed);
+          } else if (marker.university && places.generic?.universities) {
+            value = selectFromArray(places.generic.universities, seed);
+          } else if (marker['government-facility'] && places.generic?.['government-facilities']) {
+            value = selectFromArray(places.generic['government-facilities'], seed);
+          }
+        }
+      }
+    }
+    // Number markers
+    else if (isNumberMarker(marker)) {
+      let numValue = marker.number;
+      if (marker.scaled) {
+        const iranPopulation = 85000000;
+        const ratio = population / iranPopulation;
+        const scaleFactor = marker.scaleFactor || 1.0;
+        numValue = Math.round(numValue * ratio * scaleFactor);
+      }
+      if (marker.variance) {
+        const seedValue = seededRandom(seed);
+        const adjustment = Math.floor((seedValue - 0.5) * 2 * marker.variance);
+        numValue += adjustment;
+      }
+      value = numValue.toString();
+    }
+    // Casualties markers
+    else if (isCasualtiesMarker(marker)) {
+      const iranPop = 85000000;
+      let targetPop = population;
+
+      // Handle city-scoped casualties
+      if (marker.scope === 'city' && marker.scopeCity) {
+        const cityMarker = markers[marker.scopeCity];
+        if (cityMarker && 'population' in cityMarker) {
+          targetPop = cityMarker.population;
+
+          // If the city has been resolved, use translated city's population
+          if (resolvedMarkers.has(marker.scopeCity)) {
+            const translatedCityName = resolvedMarkers.get(marker.scopeCity);
+            const translatedCity = places.cities?.find(c => c.name === translatedCityName);
+            if (translatedCity?.population) {
+              targetPop = translatedCity.population;
+            }
+          }
+        }
+      }
+
+      const scaledValue = Math.round(marker.casualties * (targetPop / iranPop));
+      value = scaledValue.toString();
+    }
+    // Currency markers
+    else if ('currency' in marker) {
+      const converted = Math.round(marker.currency * rialToLocal);
+      value = `${currencySymbol}${converted.toLocaleString('en-US')}`;
+    }
+    // Date markers
+    else if ('date' in marker) {
+      value = marker.date;
+    }
+    // Time markers
+    else if ('time' in marker) {
+      value = marker.time;
+    }
+    // Occupation markers
+    else if ('occupation' in marker) {
+      value = marker.occupation;
+    }
+    // Text markers (e.g., chants, events)
+    else if ('text' in marker) {
+      value = marker.text;
+    }
+
+    // Store resolved value for aliases and the original key
+    resolvedMarkers.set(key, value);
+    if (effectiveKey !== key) {
+      resolvedMarkers.set(effectiveKey, value); // Also store target key for alias resolution
+    }
+
+    // Build explanation if applicable
+    let explanation = '';
+
+    // For scaled numbers, add scaling explanation
+    if (isNumberMarker(marker) && marker.scaled) {
+      const iranPop = 85000000;
+      const ratio = population / iranPop;
+      const scaleFactor = marker.scaleFactor || 1.0;
+      explanation = `Scaled from Iran (${marker.number.toLocaleString()}) to ${countryCode} by population ratio: ${marker.number.toLocaleString()} × (${(population / 1000000).toFixed(1)}M / ${(iranPop / 1000000).toFixed(1)}M)${scaleFactor !== 1.0 ? ` × ${scaleFactor}` : ''} = ${value}`;
+    }
+
+    // For casualties, add scaling explanation
+    if (isCasualtiesMarker(marker)) {
+      const iranPop = 85000000;
+      let targetPop = population;
+      let scopeType = 'country';
+      let scopeName = countryCode;
+
+      if (marker.scope === 'city' && marker.scopeCity) {
+        const cityMarker = markers[marker.scopeCity];
+        if (cityMarker && 'population' in cityMarker) {
+          targetPop = cityMarker.population;
+          scopeType = 'city';
+          if (resolvedMarkers.has(marker.scopeCity)) {
+            const translatedCityName = resolvedMarkers.get(marker.scopeCity);
+            const translatedCity = places.cities?.find(c => c.name === translatedCityName);
+            if (translatedCity?.population) {
+              targetPop = translatedCity.population;
+              scopeName = translatedCityName;
+            }
+          }
+        }
+      }
+
+      explanation = `Scaled from Iran (${marker.casualties.toLocaleString()}) to ${scopeName} by ${scopeType} population: ${marker.casualties.toLocaleString()} × (${(targetPop / 1000000).toFixed(1)}M / ${(iranPop / 1000000).toFixed(1)}M) = ${value}`;
     }
 
     // Wrap value in special marker that survives translation
-    // Format: [[MARKER:type:key:original|value]]
-    const markedValue = `[[MARKER:${marker.type}:${markerKey}:${originalValue}|${value}]]`;
-    result = result.replace(fullMatch, markedValue);
+    // Format: [[MARKER:type:key:original|value|explanation]]
+    const markedValue = explanation
+      ? `[[MARKER:${markerType}:${effectiveKey}:${originalValue}|${value}|${explanation}]]`
+      : `[[MARKER:${markerType}:${effectiveKey}:${originalValue}|${value}]]`;
+    result = result.substring(0, index) + markedValue + result.substring(index + fullMatch.length);
   }
 
   return result;
@@ -251,9 +519,9 @@ CRITICAL RULES:
 2. Apply proper grammar, conjugation, and case endings naturally
 3. Keep emotional tone - this is about real people suffering
 4. Maintain YAML structure exactly
-5. Preserve field names (title, summary, content, markers, etc.)
+5. Preserve field names (title, summary, content, sources, images, etc.)
 6. Keep paragraph breaks (\\n\\n)
-7. Keep the 'markers' section completely unchanged (it's metadata)
+7. Keep the 'markers', 'sources', and 'images' sections completely unchanged (metadata)
 8. YAML ESCAPING: Properly escape special characters in YAML strings:
    - Use double quotes around strings with apostrophes/single quotes
    - Example: "Ema's house" not Ema's house
@@ -261,7 +529,11 @@ CRITICAL RULES:
    - Don't break YAML syntax - verify your output is valid YAML
 
 SPECIAL MARKERS IN TEXT:
-The text contains special markers in this format: [[MARKER:type:key:original|value]]
+The text contains special markers in these formats:
+
+1. [[MARKER:type:key:original|value]] - Basic marker
+2. [[MARKER:type:key:original|value|explanation]] - With explanation (math for tooltips)
+3. [[COMPARISON:original|translated|explanation]] - Casualty comparisons
 
 For example: [[MARKER:person:person1:Mahsa|Ema]]
 - "Mahsa" = Iranian original name (currently in English)
@@ -270,10 +542,14 @@ For example: [[MARKER:person:person1:Mahsa|Ema]]
 YOU MUST TRANSLATE BOTH PARTS to ${targetLangName}:
 1. Translate the original Iranian context (Mahsa, Tehran, etc.) with proper grammar
 2. Translate the local equivalent (Ema, Prague, etc.) with proper grammar
+3. Keep explanation field UNCHANGED (it's in English for tooltips)
 
-Example:
+IMPORTANT: Numbers in markers are already localized - DO NOT translate them:
+  [[MARKER:number:cities:400|49]] - keep both numbers as-is
+  [[MARKER:casualties:killed:36500|4513|Scaled from Iran...]] - keep numbers and explanation as-is
+
+Examples:
   English input: "in [[MARKER:place:hometown:Tehran|Prague]]"
-
   Czech output: "v [[MARKER:place:hometown:Teheránu|Praze]]"
   - "Teheránu" = Tehran translated to Czech with locative case (v + locative)
   - "Praze" = Prague translated to Czech with locative case (v + locative)
@@ -283,8 +559,22 @@ Example:
   - "Mahsy" = Mahsa in Czech genitive case (possessive)
   - "Emy" = Ema in Czech genitive case (possessive)
 
-The marker format must remain: [[MARKER:type:key:TRANSLATED_ORIGINAL|TRANSLATED_LOCAL]]
-Translate BOTH values, applying proper grammar/case to each!
+  English input: "more than [[MARKER:casualties:killed:36500|4513|Scaled from Iran (36500) to CZ...]] people"
+  Czech output: "více než [[MARKER:casualties:killed:36500|4513|Scaled from Iran (36500) to CZ...]] lidí"
+  - Keep numbers and explanation unchanged
+
+  English input: "[[COMPARISON:(13 times the Lidice massacre)|(13 times the Lidice massacre)|Comparison: 4513 casualties...]]"
+  Czech output: "[[COMPARISON:(13 times the Lidice massacre)|(13krát více než masakr v Lidicích)|Comparison: 4513 casualties...]]"
+  - Translate the comparison text (second part)
+  - Keep explanation (third part) unchanged
+
+The marker format must remain:
+- [[MARKER:type:key:TRANSLATED_ORIGINAL|TRANSLATED_LOCAL]] for basic markers
+- [[MARKER:type:key:TRANSLATED_ORIGINAL|TRANSLATED_LOCAL|explanation]] for markers with math
+- [[COMPARISON:original|TRANSLATED_TEXT|explanation]] for comparisons
+
+Translate names and places with proper grammar/case!
+Keep numbers and explanations unchanged!
 
 YAML to translate:
 ${contextualizedContent}
@@ -301,7 +591,7 @@ Return ONLY valid YAML with proper escaping, no explanations.`
 }
 
 async function main() {
-  console.log('🌍 Contextualized Story Translation Tool\n');
+  console.log('🌍 Contextualized Story Translation Tool (V2)\n');
 
   if (forceOverwrite) {
     console.log('⚠️  Force mode enabled - will overwrite existing files\n');
@@ -312,6 +602,7 @@ async function main() {
   const countries = await loadCountries();
   const allNames = await loadNames();
   const allPlaces = await loadPlaces();
+  const allComparableEvents = await loadComparableEvents();
 
   // Find stories
   const storyPattern = targetStory
@@ -375,6 +666,7 @@ async function main() {
 
       const names = allNames[countryCode] || allNames['US'];
       const places = allPlaces[countryCode] || allPlaces['US'];
+      const comparableEvents = allComparableEvents[countryCode] || allComparableEvents['US'] || [];
 
       const context = {
         countryCode,
@@ -383,14 +675,16 @@ async function main() {
         population: country.population,
         currencySymbol: country['currency-symbol'],
         rialToLocal: country['rial-to-local'],
+        comparableEvents,
       };
 
       // Substitute markers with this country's context
+      const resolvedMarkers = new Map(); // Track resolved values for aliases
       const contextualizedData = {
         ...storyData,
-        title: substituteMarkers(storyData.title, storyData.markers, context, storyId),
-        summary: substituteMarkers(storyData.summary, storyData.markers, context, storyId),
-        content: substituteMarkers(storyData.content, storyData.markers, context, storyId),
+        title: substituteMarkers(storyData.title, storyData.markers, context, resolvedMarkers, storyId),
+        summary: substituteMarkers(storyData.summary, storyData.markers, context, resolvedMarkers, storyId),
+        content: substituteMarkers(storyData.content, storyData.markers, context, resolvedMarkers, storyId),
       };
 
       for (const langCode of languages) {
@@ -440,11 +734,9 @@ async function main() {
           }
 
           // Keep [[MARKER:...]] format in the output
-          // The UI will need a special parser to handle pre-translated stories
-          // Format: [[MARKER:type:key:original|translatedValue]]
-          // This preserves both the translated text (with correct grammar) and original for tooltips
+          // The UI will parse pre-translated stories with proper grammar
 
-          // Remove the markers section since metadata is now inline
+          // Remove the markers, sources, and images sections since metadata is now inline
           let translatedData;
           try {
             translatedData = yaml.load(cleanedTranslation);
@@ -457,6 +749,9 @@ async function main() {
           }
 
           delete translatedData.markers;
+          delete translatedData.sources;
+          delete translatedData.images;
+
           const finalYaml = yaml.dump(translatedData, {
             lineWidth: -1,
             noRefs: true,

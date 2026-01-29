@@ -95,16 +95,6 @@ US:
         - 'Federal Building'
 
   # Generic fallbacks for when no specific city is selected
-  generic:
-    cities:
-      large: ['New York', 'Los Angeles', 'Chicago', 'Houston', 'Phoenix', 'Philadelphia', 'San Francisco', 'Boston']
-      medium: ['Austin', 'Portland', 'Nashville', 'Denver', 'Seattle', 'Minneapolis']
-      small: ['Asheville', 'Burlington', 'Bend', 'Boulder', 'Santa Fe']
-    landmarks:
-      protest: ['City Hall Plaza', 'Town Square', 'Civic Center', 'Capitol Square']
-      monument: ['City Monument', 'War Memorial', 'Historical Landmark']
-    universities: ['State University', 'City College', 'Metropolitan University']
-    government-facilities: ['Federal Detention Center', 'County Jail', 'Federal Building']
 
 UK:
   cities:
@@ -152,16 +142,6 @@ UK:
         - 'HMP Manchester'
         - 'Manchester Magistrates'' Court'
 
-  generic:
-    cities:
-      large: ['London', 'Birmingham', 'Manchester', 'Leeds', 'Liverpool']
-      medium: ['Bristol', 'Brighton', 'Cambridge', 'Oxford', 'Newcastle']
-      small: ['Bath', 'Canterbury', 'Durham', 'York', 'Exeter']
-    landmarks:
-      protest: ['Town Square', 'City Centre', 'The Meadows']
-      monument: ['War Memorial', 'Town Hall']
-    universities: ['City University', 'Metropolitan University', 'University College']
-    government-facilities: ['Police Station', 'Magistrates'' Court', 'Council Office']
 
 CZ:
   cities:
@@ -208,15 +188,1644 @@ CZ:
         - 'Brno Prison'
         - 'Regional Court'
 
-  generic:
-    cities:
-      large: ['Prague']
-      medium: ['Brno', 'Ostrava', 'Plzeň']
-      small: ['Liberec', 'Olomouc', 'České Budějovice']
-    landmarks:
-      protest: ['Town Square', 'Main Square', 'City Square']
-      monument: ['Castle', 'Cathedral', 'Monument']
-    universities: ['University', 'Technical University', 'College']
-    government-facilities: ['Prison', 'Court', 'Police Station']
 
-# Add more countries as needed...
+CA:
+  cities:
+    - id: toronto
+      name: 'Toronto'
+      size: large
+      capital: false
+      population: 2930000
+      region: ontario
+      landmarks:
+        protest:
+          - 'Nathan Phillips Square'
+          - 'Queen''s Park'
+          - 'Yonge-Dundas Square'
+        monument:
+          - 'CN Tower'
+          - 'Casa Loma'
+      universities:
+        - 'University of Toronto'
+        - 'York University'
+        - 'Ryerson University'
+        - 'OCAD University'
+      government-facilities:
+        - 'Toronto South Detention Centre'
+        - 'Old City Hall Courthouse'
+
+    - id: montreal
+      name: 'Montreal'
+      size: large
+      capital: false
+      population: 1760000
+      region: quebec
+      landmarks:
+        protest:
+          - 'Place des Arts'
+          - 'Parc du Mont-Royal'
+          - 'Place Émilie-Gamelin'
+        monument:
+          - 'Notre-Dame Basilica'
+          - 'Olympic Stadium'
+      universities:
+        - 'McGill University'
+        - 'Université de Montréal'
+        - 'Concordia University'
+        - 'UQAM'
+      government-facilities:
+        - 'Bordeaux Prison'
+        - 'Montreal Courthouse'
+
+    - id: vancouver
+      name: 'Vancouver'
+      size: large
+      capital: false
+      population: 675000
+      region: british-columbia
+      landmarks:
+        protest:
+          - 'Vancouver Art Gallery Plaza'
+          - 'Canada Place'
+          - 'Victory Square'
+        monument:
+          - 'Stanley Park'
+          - 'Lions Gate Bridge'
+      universities:
+        - 'University of British Columbia'
+        - 'Simon Fraser University'
+        - 'Emily Carr University'
+      government-facilities:
+        - 'Vancouver Jail'
+        - 'Provincial Court'
+
+    - id: ottawa
+      name: 'Ottawa'
+      size: large
+      capital: true
+      population: 1020000
+      region: ontario
+      landmarks:
+        protest:
+          - 'Parliament Hill'
+          - 'Confederation Square'
+          - 'Major''s Hill Park'
+        monument:
+          - 'Peace Tower'
+          - 'National War Memorial'
+      universities:
+        - 'University of Ottawa'
+        - 'Carleton University'
+      government-facilities:
+        - 'Ottawa-Carleton Detention Centre'
+        - 'Supreme Court of Canada'
+
+    - id: calgary
+      name: 'Calgary'
+      size: large
+      capital: false
+      population: 1300000
+      region: alberta
+      landmarks:
+        protest:
+          - 'Olympic Plaza'
+          - 'City Hall Plaza'
+          - 'Central Memorial Park'
+        monument:
+          - 'Calgary Tower'
+          - 'Peace Bridge'
+      universities:
+        - 'University of Calgary'
+        - 'Mount Royal University'
+      government-facilities:
+        - 'Calgary Remand Centre'
+        - 'Provincial Court'
+
+    - id: edmonton
+      name: 'Edmonton'
+      size: large
+      capital: false
+      population: 1010000
+      region: alberta
+      landmarks:
+        protest:
+          - 'Legislature Grounds'
+          - 'Churchill Square'
+          - 'City Hall Plaza'
+        monument:
+          - 'Alberta Legislature Building'
+          - 'High Level Bridge'
+      universities:
+        - 'University of Alberta'
+        - 'MacEwan University'
+      government-facilities:
+        - 'Edmonton Remand Centre'
+        - 'Law Courts'
+
+
+DE:
+  cities:
+    - id: berlin
+      name: 'Berlin'
+      size: large
+      capital: true
+      population: 3700000
+      region: northeast
+      landmarks:
+        protest:
+          - 'Alexanderplatz'
+          - 'Pariser Platz'
+          - 'Potsdamer Platz'
+        monument:
+          - 'Brandenburg Gate'
+          - 'Reichstag Building'
+          - 'Berlin Wall Memorial'
+      universities:
+        - 'Humboldt University'
+        - 'Free University of Berlin'
+        - 'Technical University of Berlin'
+      government-facilities:
+        - 'Moabit Criminal Court'
+        - 'Plötzensee Prison'
+
+    - id: hamburg
+      name: 'Hamburg'
+      size: large
+      capital: false
+      population: 1900000
+      region: north
+      landmarks:
+        protest:
+          - 'Rathausmarkt'
+          - 'Jungfernstieg'
+          - 'Reeperbahn'
+        monument:
+          - 'Elbphilharmonie'
+          - 'St. Michael''s Church'
+      universities:
+        - 'University of Hamburg'
+        - 'Hamburg University of Technology'
+      government-facilities:
+        - 'Hamburg Prison'
+        - 'District Court'
+
+    - id: munich
+      name: 'Munich'
+      size: large
+      capital: false
+      population: 1500000
+      region: bavaria
+      landmarks:
+        protest:
+          - 'Marienplatz'
+          - 'Königsplatz'
+          - 'Odeonsplatz'
+        monument:
+          - 'Frauenkirche'
+          - 'Neuschwanstein Castle'
+      universities:
+        - 'Ludwig Maximilian University'
+        - 'Technical University of Munich'
+      government-facilities:
+        - 'Stadelheim Prison'
+        - 'Munich District Court'
+
+    - id: cologne
+      name: 'Cologne'
+      size: large
+      capital: false
+      population: 1080000
+      region: rhineland
+      landmarks:
+        protest:
+          - 'Roncalliplatz'
+          - 'Heumarkt'
+          - 'Rudolfplatz'
+        monument:
+          - 'Cologne Cathedral'
+          - 'Hohenzollern Bridge'
+      universities:
+        - 'University of Cologne'
+        - 'TH Köln'
+      government-facilities:
+        - 'Cologne Prison'
+        - 'District Court'
+
+    - id: frankfurt
+      name: 'Frankfurt'
+      size: medium
+      capital: false
+      population: 750000
+      region: hesse
+      landmarks:
+        protest:
+          - 'Römerberg'
+          - 'Hauptwache'
+          - 'Paulsplatz'
+        monument:
+          - 'Frankfurt Cathedral'
+          - 'Main Tower'
+      universities:
+        - 'Goethe University'
+        - 'Frankfurt University of Applied Sciences'
+      government-facilities:
+        - 'Frankfurt Prison'
+        - 'Higher Regional Court'
+
+
+AU:
+  cities:
+    - id: sydney
+      name: 'Sydney'
+      size: large
+      capital: false
+      population: 5300000
+      region: new-south-wales
+      landmarks:
+        protest:
+          - 'Town Hall Square'
+          - 'Hyde Park'
+          - 'The Domain'
+        monument:
+          - 'Sydney Opera House'
+          - 'Sydney Harbour Bridge'
+      universities:
+        - 'University of Sydney'
+        - 'University of New South Wales'
+        - 'University of Technology Sydney'
+      government-facilities:
+        - 'Silverwater Correctional Complex'
+        - 'Downing Centre Court'
+
+    - id: melbourne
+      name: 'Melbourne'
+      size: large
+      capital: false
+      population: 5100000
+      region: victoria
+      landmarks:
+        protest:
+          - 'Federation Square'
+          - 'State Library forecourt'
+          - 'Treasury Gardens'
+        monument:
+          - 'Flinders Street Station'
+          - 'Shrine of Remembrance'
+      universities:
+        - 'University of Melbourne'
+        - 'Monash University'
+        - 'RMIT University'
+      government-facilities:
+        - 'Melbourne Assessment Prison'
+        - 'County Court'
+
+    - id: brisbane
+      name: 'Brisbane'
+      size: large
+      capital: false
+      population: 2600000
+      region: queensland
+      landmarks:
+        protest:
+          - 'King George Square'
+          - 'Queens Gardens'
+          - 'Roma Street Parkland'
+        monument:
+          - 'Story Bridge'
+          - 'Brisbane City Hall'
+      universities:
+        - 'University of Queensland'
+        - 'Queensland University of Technology'
+      government-facilities:
+        - 'Brisbane Correctional Centre'
+        - 'Supreme Court'
+
+    - id: canberra
+      name: 'Canberra'
+      size: medium
+      capital: true
+      population: 460000
+      region: australian-capital-territory
+      landmarks:
+        protest:
+          - 'Parliament House forecourt'
+          - 'Garema Place'
+          - 'Commonwealth Park'
+        monument:
+          - 'Australian War Memorial'
+          - 'Parliament House'
+      universities:
+        - 'Australian National University'
+        - 'University of Canberra'
+      government-facilities:
+        - 'Alexander Maconochie Centre'
+        - 'ACT Supreme Court'
+
+    - id: perth
+      name: 'Perth'
+      size: large
+      capital: false
+      population: 2100000
+      region: western-australia
+      landmarks:
+        protest:
+          - 'Forrest Place'
+          - 'Supreme Court Gardens'
+          - 'Elizabeth Quay'
+        monument:
+          - 'Bell Tower'
+          - 'Kings Park'
+      universities:
+        - 'University of Western Australia'
+        - 'Curtin University'
+      government-facilities:
+        - 'Hakea Prison'
+        - 'District Court'
+
+
+FR:
+  cities:
+    - id: paris
+      name: 'Paris'
+      size: large
+      capital: true
+      population: 2100000
+      region: ile-de-france
+      landmarks:
+        protest:
+          - 'Place de la République'
+          - 'Place de la Bastille'
+          - 'Champs-Élysées'
+        monument:
+          - 'Eiffel Tower'
+          - 'Arc de Triomphe'
+          - 'Notre-Dame Cathedral'
+      universities:
+        - 'Sorbonne University'
+        - 'Sciences Po'
+        - 'Paris-Dauphine University'
+      government-facilities:
+        - 'La Santé Prison'
+        - 'Palais de Justice'
+
+    - id: marseille
+      name: 'Marseille'
+      size: large
+      capital: false
+      population: 870000
+      region: provence
+      landmarks:
+        protest:
+          - 'Vieux-Port'
+          - 'La Canebière'
+          - 'Place Castellane'
+        monument:
+          - 'Notre-Dame de la Garde'
+          - 'MuCEM'
+      universities:
+        - 'Aix-Marseille University'
+      government-facilities:
+        - 'Baumettes Prison'
+        - 'Tribunal de Grande Instance'
+
+    - id: lyon
+      name: 'Lyon'
+      size: large
+      capital: false
+      population: 520000
+      region: auvergne-rhone-alpes
+      landmarks:
+        protest:
+          - 'Place Bellecour'
+          - 'Place des Terreaux'
+          - 'Parc de la Tête d''Or'
+        monument:
+          - 'Basilica of Notre-Dame de Fourvière'
+          - 'Presqu''île'
+      universities:
+        - 'University of Lyon'
+        - 'École Normale Supérieure de Lyon'
+      government-facilities:
+        - 'Lyon-Corbas Prison'
+        - 'Court of Appeal'
+
+    - id: toulouse
+      name: 'Toulouse'
+      size: medium
+      capital: false
+      population: 480000
+      region: occitanie
+      landmarks:
+        protest:
+          - 'Place du Capitole'
+          - 'Place Wilson'
+          - 'Grand Rond'
+        monument:
+          - 'Basilica of Saint-Sernin'
+          - 'Pont Neuf'
+      universities:
+        - 'University of Toulouse'
+        - 'Toulouse School of Economics'
+      government-facilities:
+        - 'Seysses Prison'
+        - 'Tribunal de Grande Instance'
+
+    - id: nice
+      name: 'Nice'
+      size: medium
+      capital: false
+      population: 340000
+      region: provence-alpes-cote-dazur
+      landmarks:
+        protest:
+          - 'Place Masséna'
+          - 'Promenade des Anglais'
+          - 'Place Garibaldi'
+        monument:
+          - 'Castle Hill'
+          - 'Promenade des Anglais'
+      universities:
+        - 'Université Côte d''Azur'
+      government-facilities:
+        - 'Nice Prison'
+        - 'Court of Appeal'
+
+
+ES:
+  cities:
+    - id: madrid
+      name: 'Madrid'
+      size: large
+      capital: true
+      population: 3200000
+      region: madrid
+      landmarks:
+        protest:
+          - 'Puerta del Sol'
+          - 'Plaza de Cibeles'
+          - 'Plaza Mayor'
+        monument:
+          - 'Royal Palace'
+          - 'Prado Museum'
+      universities:
+        - 'Complutense University of Madrid'
+        - 'Autonomous University of Madrid'
+        - 'Carlos III University'
+      government-facilities:
+        - 'Soto del Real Prison'
+        - 'National Court'
+
+    - id: barcelona
+      name: 'Barcelona'
+      size: large
+      capital: false
+      population: 1600000
+      region: catalonia
+      landmarks:
+        protest:
+          - 'Plaça de Catalunya'
+          - 'Plaça Sant Jaume'
+          - 'Arc de Triomf'
+        monument:
+          - 'Sagrada Família'
+          - 'Park Güell'
+      universities:
+        - 'University of Barcelona'
+        - 'Autonomous University of Barcelona'
+        - 'Pompeu Fabra University'
+      government-facilities:
+        - 'Barcelona Prison'
+        - 'Provincial Court'
+
+    - id: valencia
+      name: 'Valencia'
+      size: large
+      capital: false
+      population: 790000
+      region: valencia
+      landmarks:
+        protest:
+          - 'Plaza del Ayuntamiento'
+          - 'Plaza de la Virgen'
+          - 'Jardines del Turia'
+        monument:
+          - 'City of Arts and Sciences'
+          - 'Valencia Cathedral'
+      universities:
+        - 'University of Valencia'
+        - 'Polytechnic University of Valencia'
+      government-facilities:
+        - 'Picassent Prison'
+        - 'Provincial Court'
+
+    - id: seville
+      name: 'Seville'
+      size: medium
+      capital: false
+      population: 690000
+      region: andalusia
+      landmarks:
+        protest:
+          - 'Plaza Nueva'
+          - 'Plaza de España'
+          - 'Alameda de Hércules'
+        monument:
+          - 'Seville Cathedral'
+          - 'Real Alcázar'
+      universities:
+        - 'University of Seville'
+      government-facilities:
+        - 'Seville Prison'
+        - 'Provincial Court'
+
+
+IT:
+  cities:
+    - id: rome
+      name: 'Rome'
+      size: large
+      capital: true
+      population: 2870000
+      region: lazio
+      landmarks:
+        protest:
+          - 'Piazza del Popolo'
+          - 'Piazza Venezia'
+          - 'Piazza Navona'
+        monument:
+          - 'Colosseum'
+          - 'St. Peter''s Basilica'
+          - 'Trevi Fountain'
+      universities:
+        - 'Sapienza University of Rome'
+        - 'Roma Tre University'
+        - 'Tor Vergata University'
+      government-facilities:
+        - 'Regina Coeli Prison'
+        - 'Palace of Justice'
+
+    - id: milan
+      name: 'Milan'
+      size: large
+      capital: false
+      population: 1350000
+      region: lombardy
+      landmarks:
+        protest:
+          - 'Piazza del Duomo'
+          - 'Piazza Gae Aulenti'
+          - 'Largo Cairoli'
+        monument:
+          - 'Milan Cathedral'
+          - 'Galleria Vittorio Emanuele II'
+      universities:
+        - 'University of Milan'
+        - 'Polytechnic University of Milan'
+        - 'Bocconi University'
+      government-facilities:
+        - 'San Vittore Prison'
+        - 'Palace of Justice'
+
+    - id: naples
+      name: 'Naples'
+      size: large
+      capital: false
+      population: 960000
+      region: campania
+      landmarks:
+        protest:
+          - 'Piazza del Plebiscito'
+          - 'Piazza Dante'
+          - 'Piazza Garibaldi'
+        monument:
+          - 'Castel Nuovo'
+          - 'Royal Palace of Naples'
+      universities:
+        - 'University of Naples Federico II'
+        - 'University of Naples Parthenope'
+      government-facilities:
+        - 'Poggioreale Prison'
+        - 'Courthouse'
+
+    - id: turin
+      name: 'Turin'
+      size: large
+      capital: false
+      population: 870000
+      region: piedmont
+      landmarks:
+        protest:
+          - 'Piazza Castello'
+          - 'Piazza San Carlo'
+          - 'Piazza Vittorio Veneto'
+        monument:
+          - 'Mole Antonelliana'
+          - 'Royal Palace of Turin'
+      universities:
+        - 'University of Turin'
+        - 'Polytechnic University of Turin'
+      government-facilities:
+        - 'Le Vallette Prison'
+        - 'Court of Appeal'
+
+    - id: florence
+      name: 'Florence'
+      size: medium
+      capital: false
+      population: 380000
+      region: tuscany
+      landmarks:
+        protest:
+          - 'Piazza della Signoria'
+          - 'Piazza Santa Croce'
+          - 'Piazza del Duomo'
+        monument:
+          - 'Florence Cathedral'
+          - 'Ponte Vecchio'
+      universities:
+        - 'University of Florence'
+      government-facilities:
+        - 'Sollicciano Prison'
+        - 'Court of Appeal'
+
+
+NL:
+  cities:
+    - id: amsterdam
+      name: 'Amsterdam'
+      size: large
+      capital: true
+      population: 870000
+      region: north-holland
+      landmarks:
+        protest:
+          - 'Dam Square'
+          - 'Museumplein'
+          - 'Leidseplein'
+        monument:
+          - 'Royal Palace'
+          - 'Rijksmuseum'
+      universities:
+        - 'University of Amsterdam'
+        - 'VU University Amsterdam'
+      government-facilities:
+        - 'Amsterdam Detention Centre'
+        - 'Palace of Justice'
+
+    - id: rotterdam
+      name: 'Rotterdam'
+      size: large
+      capital: false
+      population: 650000
+      region: south-holland
+      landmarks:
+        protest:
+          - 'Schouwburgplein'
+          - 'Coolsingel'
+          - 'Rotterdam Centraal'
+        monument:
+          - 'Erasmus Bridge'
+          - 'Euromast'
+      universities:
+        - 'Erasmus University Rotterdam'
+        - 'Rotterdam University of Applied Sciences'
+      government-facilities:
+        - 'Rotterdam Prison'
+        - 'District Court'
+
+    - id: the-hague
+      name: 'The Hague'
+      size: medium
+      capital: false
+      population: 550000
+      region: south-holland
+      landmarks:
+        protest:
+          - 'Malieveld'
+          - 'Plein'
+          - 'Grote Markt'
+        monument:
+          - 'Binnenhof'
+          - 'Peace Palace'
+      universities:
+        - 'Leiden University (The Hague campus)'
+        - 'The Hague University of Applied Sciences'
+      government-facilities:
+        - 'Scheveningen Prison'
+        - 'International Criminal Court'
+
+    - id: utrecht
+      name: 'Utrecht'
+      size: medium
+      capital: false
+      population: 360000
+      region: utrecht
+      landmarks:
+        protest:
+          - 'Jaarbeursplein'
+          - 'Domplein'
+          - 'Vredenburg'
+        monument:
+          - 'Dom Tower'
+          - 'Canal system'
+      universities:
+        - 'Utrecht University'
+        - 'HU University of Applied Sciences'
+      government-facilities:
+        - 'Nieuwegein Prison'
+        - 'District Court'
+
+
+IR:
+  cities:
+    - id: tehran
+      name: 'Tehran'
+      size: large
+      capital: true
+      population: 8700000
+      region: tehran
+      landmarks:
+        protest:
+          - 'Azadi Square'
+          - 'Vali-Asr Square'
+          - 'Enghelab Square'
+        monument:
+          - 'Azadi Tower'
+          - 'Milad Tower'
+      universities:
+        - 'University of Tehran'
+        - 'Sharif University'
+        - 'Amirkabir University'
+      government-facilities:
+        - 'Evin Prison'
+        - 'Tehran Court'
+
+    - id: mashhad
+      name: 'Mashhad'
+      size: large
+      capital: false
+      population: 3000000
+      region: khorasan
+      landmarks:
+        protest:
+          - 'Imam Reza Square'
+          - 'Koohsangi Park'
+        monument:
+          - 'Imam Reza Shrine'
+          - 'Nader Shah Tomb'
+      universities:
+        - 'Ferdowsi University'
+        - 'Mashhad University of Medical Sciences'
+      government-facilities:
+        - 'Mashhad Prison'
+        - 'Provincial Court'
+
+    - id: isfahan
+      name: 'Isfahan'
+      size: large
+      capital: false
+      population: 2000000
+      region: isfahan
+      landmarks:
+        protest:
+          - 'Naqsh-e Jahan Square'
+          - 'Chahar Bagh'
+        monument:
+          - 'Imam Mosque'
+          - 'Si-o-se-pol Bridge'
+      universities:
+        - 'University of Isfahan'
+        - 'Isfahan University of Technology'
+      government-facilities:
+        - 'Isfahan Prison'
+        - 'Provincial Court'
+
+    - id: shiraz
+      name: 'Shiraz'
+      size: large
+      capital: false
+      population: 1550000
+      region: fars
+      landmarks:
+        protest:
+          - 'Shahrdari Square'
+          - 'Azadi Park'
+        monument:
+          - 'Nasir al-Mulk Mosque'
+          - 'Persepolis'
+      universities:
+        - 'Shiraz University'
+        - 'Shiraz University of Medical Sciences'
+      government-facilities:
+        - 'Shiraz Prison'
+        - 'Provincial Court'
+
+    - id: tabriz
+      name: 'Tabriz'
+      size: large
+      capital: false
+      population: 1560000
+      region: east-azerbaijan
+      landmarks:
+        protest:
+          - 'Saat Square'
+          - 'Elgoli Park'
+        monument:
+          - 'Blue Mosque'
+          - 'Tabriz Bazaar'
+      universities:
+        - 'University of Tabriz'
+        - 'Tabriz University of Medical Sciences'
+      government-facilities:
+        - 'Tabriz Prison'
+        - 'Provincial Court'
+
+
+SE:
+  cities:
+    - id: stockholm
+      name: 'Stockholm'
+      size: large
+      capital: true
+      population: 980000
+      region: stockholm
+      landmarks:
+        protest:
+          - 'Sergels torg'
+          - 'Medborgarplatsen'
+          - 'Mynttorget'
+        monument:
+          - 'Royal Palace'
+          - 'City Hall'
+      universities:
+        - 'Stockholm University'
+        - 'KTH Royal Institute of Technology'
+        - 'Karolinska Institute'
+      government-facilities:
+        - 'Kronoberg Prison'
+        - 'Stockholm District Court'
+
+    - id: gothenburg
+      name: 'Gothenburg'
+      size: large
+      capital: false
+      population: 580000
+      region: vastra-gotaland
+      landmarks:
+        protest:
+          - 'Götaplatsen'
+          - 'Gustav Adolfs torg'
+        monument:
+          - 'Poseidon statue'
+          - 'Älvsborg Bridge'
+      universities:
+        - 'University of Gothenburg'
+        - 'Chalmers University'
+      government-facilities:
+        - 'Gothenburg Prison'
+        - 'District Court'
+
+    - id: malmo
+      name: 'Malmö'
+      size: medium
+      capital: false
+      population: 350000
+      region: skane
+      landmarks:
+        protest:
+          - 'Stortorget'
+          - 'Gustav Adolfs torg'
+        monument:
+          - 'Turning Torso'
+          - 'Malmö Castle'
+      universities:
+        - 'Malmö University'
+      government-facilities:
+        - 'Malmö Prison'
+        - 'District Court'
+
+    - id: uppsala
+      name: 'Uppsala'
+      size: medium
+      capital: false
+      population: 230000
+      region: uppsala
+      landmarks:
+        protest:
+          - 'Stora torget'
+          - 'Vasaparken'
+        monument:
+          - 'Uppsala Cathedral'
+          - 'Uppsala Castle'
+      universities:
+        - 'Uppsala University'
+        - 'Swedish University of Agricultural Sciences'
+      government-facilities:
+        - 'Uppsala Prison'
+        - 'District Court'
+
+
+BE:
+  cities:
+    - id: brussels
+      name: 'Brussels'
+      size: large
+      capital: true
+      population: 1200000
+      region: brussels-capital
+      landmarks:
+        protest:
+          - 'Place de la Bourse'
+          - 'Mont des Arts'
+          - 'Place Poelaert'
+        monument:
+          - 'Grand Place'
+          - 'Atomium'
+      universities:
+        - 'Université libre de Bruxelles'
+        - 'Vrije Universiteit Brussel'
+        - 'KU Leuven Brussels'
+      government-facilities:
+        - 'Forest Prison'
+        - 'Palace of Justice'
+
+    - id: antwerp
+      name: 'Antwerp'
+      size: medium
+      capital: false
+      population: 530000
+      region: flanders
+      landmarks:
+        protest:
+          - 'Groenplaats'
+          - 'Conscienceplein'
+        monument:
+          - 'Cathedral of Our Lady'
+          - 'Antwerp Central Station'
+      universities:
+        - 'University of Antwerp'
+      government-facilities:
+        - 'Antwerp Prison'
+        - 'Courthouse'
+
+    - id: ghent
+      name: 'Ghent'
+      size: medium
+      capital: false
+      population: 265000
+      region: flanders
+      landmarks:
+        protest:
+          - 'Korenmarkt'
+          - 'Sint-Pietersplein'
+        monument:
+          - 'Gravensteen'
+          - 'Belfry of Ghent'
+      universities:
+        - 'Ghent University'
+      government-facilities:
+        - 'Ghent Prison'
+        - 'Court'
+
+    - id: liege
+      name: 'Liège'
+      size: medium
+      capital: false
+      population: 200000
+      region: wallonia
+      landmarks:
+        protest:
+          - 'Place Saint-Lambert'
+          - 'Place du Marché'
+        monument:
+          - 'Liège-Guillemins station'
+          - 'Montagne de Bueren'
+      universities:
+        - 'University of Liège'
+      government-facilities:
+        - 'Liège Prison'
+        - 'Court of Appeal'
+
+
+BR:
+  cities:
+    - id: sao-paulo
+      name: 'São Paulo'
+      size: large
+      capital: false
+      population: 12300000
+      region: southeast
+      landmarks:
+        protest:
+          - 'Avenida Paulista'
+          - 'Praça da República'
+          - 'Largo da Batata'
+        monument:
+          - 'Museu de Arte de São Paulo'
+          - 'Edifício Copan'
+      universities:
+        - 'University of São Paulo'
+        - 'Universidade Estadual de Campinas'
+        - 'Pontifícia Universidade Católica'
+      government-facilities:
+        - 'Carandiru Complex'
+        - 'Tribunal de Justiça'
+
+    - id: rio-de-janeiro
+      name: 'Rio de Janeiro'
+      size: large
+      capital: false
+      population: 6700000
+      region: southeast
+      landmarks:
+        protest:
+          - 'Cinelândia'
+          - 'Candelária'
+          - 'Praça XV'
+        monument:
+          - 'Christ the Redeemer'
+          - 'Sugarloaf Mountain'
+      universities:
+        - 'Federal University of Rio de Janeiro'
+        - 'Pontifícia Universidade Católica do Rio'
+      government-facilities:
+        - 'Bangu Prison Complex'
+        - 'Tribunal de Justiça'
+
+    - id: brasilia
+      name: 'Brasília'
+      size: large
+      capital: true
+      population: 3100000
+      region: central-west
+      landmarks:
+        protest:
+          - 'Esplanada dos Ministérios'
+          - 'Praça dos Três Poderes'
+        monument:
+          - 'National Congress'
+          - 'Cathedral of Brasília'
+      universities:
+        - 'University of Brasília'
+      government-facilities:
+        - 'Papuda Prison Complex'
+        - 'Supreme Federal Court'
+
+    - id: salvador
+      name: 'Salvador'
+      size: large
+      capital: false
+      population: 2900000
+      region: northeast
+      landmarks:
+        protest:
+          - 'Campo Grande'
+          - 'Pelourinho'
+        monument:
+          - 'Elevador Lacerda'
+          - 'São Francisco Church'
+      universities:
+        - 'Federal University of Bahia'
+      government-facilities:
+        - 'Salvador Prison Complex'
+        - 'State Court'
+
+    - id: belo-horizonte
+      name: 'Belo Horizonte'
+      size: large
+      capital: false
+      population: 2500000
+      region: southeast
+      landmarks:
+        protest:
+          - 'Praça da Liberdade'
+          - 'Praça Sete'
+        monument:
+          - 'Pampulha Modern Ensemble'
+          - 'Mineirão Stadium'
+      universities:
+        - 'Federal University of Minas Gerais'
+      government-facilities:
+        - 'Belo Horizonte Prison'
+        - 'State Court'
+
+
+PT:
+  cities:
+    - id: lisbon
+      name: 'Lisbon'
+      size: large
+      capital: true
+      population: 550000
+      region: lisbon
+      landmarks:
+        protest:
+          - 'Praça do Comércio'
+          - 'Rossio Square'
+          - 'Marquês de Pombal Square'
+        monument:
+          - 'Belém Tower'
+          - '25 de Abril Bridge'
+      universities:
+        - 'University of Lisbon'
+        - 'NOVA University Lisbon'
+        - 'ISCTE'
+      government-facilities:
+        - 'Lisbon Prison'
+        - 'Palace of Justice'
+
+    - id: porto
+      name: 'Porto'
+      size: medium
+      capital: false
+      population: 240000
+      region: north
+      landmarks:
+        protest:
+          - 'Praça da Liberdade'
+          - 'Avenida dos Aliados'
+        monument:
+          - 'Dom Luís I Bridge'
+          - 'Clérigos Tower'
+      universities:
+        - 'University of Porto'
+      government-facilities:
+        - 'Porto Prison'
+        - 'District Court'
+
+    - id: braga
+      name: 'Braga'
+      size: small
+      capital: false
+      population: 195000
+      region: north
+      landmarks:
+        protest:
+          - 'Praça da República'
+          - 'Avenida Central'
+        monument:
+          - 'Bom Jesus do Monte'
+          - 'Braga Cathedral'
+      universities:
+        - 'University of Minho'
+      government-facilities:
+        - 'Braga Prison'
+        - 'Court'
+
+    - id: coimbra
+      name: 'Coimbra'
+      size: small
+      capital: false
+      population: 143000
+      region: central
+      landmarks:
+        protest:
+          - 'Praça da República'
+          - 'Largo da Portagem'
+        monument:
+          - 'University of Coimbra'
+          - 'Old Cathedral'
+      universities:
+        - 'University of Coimbra'
+      government-facilities:
+        - 'Coimbra Prison'
+        - 'Court'
+
+
+NO:
+  cities:
+    - id: oslo
+      name: 'Oslo'
+      size: large
+      capital: true
+      population: 700000
+      region: oslo
+      landmarks:
+        protest:
+          - 'Eidsvolls plass'
+          - 'Youngstorget'
+          - 'Rådhusplassen'
+        monument:
+          - 'Royal Palace'
+          - 'Opera House'
+      universities:
+        - 'University of Oslo'
+        - 'Oslo Metropolitan University'
+      government-facilities:
+        - 'Oslo Prison'
+        - 'Oslo District Court'
+
+    - id: bergen
+      name: 'Bergen'
+      size: medium
+      capital: false
+      population: 285000
+      region: vestland
+      landmarks:
+        protest:
+          - 'Torgallmenningen'
+          - 'Festplassen'
+        monument:
+          - 'Bryggen'
+          - 'Fløyen'
+      universities:
+        - 'University of Bergen'
+        - 'Western Norway University'
+      government-facilities:
+        - 'Bergen Prison'
+        - 'District Court'
+
+    - id: trondheim
+      name: 'Trondheim'
+      size: medium
+      capital: false
+      population: 210000
+      region: trondelag
+      landmarks:
+        protest:
+          - 'Torvet'
+          - 'Kongens gate'
+        monument:
+          - 'Nidaros Cathedral'
+          - 'Old Town Bridge'
+      universities:
+        - 'Norwegian University of Science and Technology'
+      government-facilities:
+        - 'Trondheim Prison'
+        - 'District Court'
+
+    - id: stavanger
+      name: 'Stavanger'
+      size: medium
+      capital: false
+      population: 145000
+      region: rogaland
+      landmarks:
+        protest:
+          - 'Torget'
+          - 'Breiavatnet'
+        monument:
+          - 'Stavanger Cathedral'
+          - 'Old Stavanger'
+      universities:
+        - 'University of Stavanger'
+      government-facilities:
+        - 'Stavanger Prison'
+        - 'District Court'
+
+
+DK:
+  cities:
+    - id: copenhagen
+      name: 'Copenhagen'
+      size: large
+      capital: true
+      population: 640000
+      region: capital-region
+      landmarks:
+        protest:
+          - 'Rådhuspladsen'
+          - 'Nørreport'
+          - 'Christiansborg'
+        monument:
+          - 'Little Mermaid'
+          - 'Tivoli Gardens'
+      universities:
+        - 'University of Copenhagen'
+        - 'Technical University of Denmark'
+        - 'Copenhagen Business School'
+      government-facilities:
+        - 'Vestre Prison'
+        - 'Copenhagen City Court'
+
+    - id: aarhus
+      name: 'Aarhus'
+      size: medium
+      capital: false
+      population: 285000
+      region: central-jutland
+      landmarks:
+        protest:
+          - 'Rådhuspladsen'
+          - 'Store Torv'
+        monument:
+          - 'Aarhus Cathedral'
+          - 'ARoS Museum'
+      universities:
+        - 'Aarhus University'
+      government-facilities:
+        - 'Aarhus Prison'
+        - 'District Court'
+
+    - id: odense
+      name: 'Odense'
+      size: medium
+      capital: false
+      population: 180000
+      region: southern-denmark
+      landmarks:
+        protest:
+          - 'Flakhaven'
+          - 'Kongens Have'
+        monument:
+          - 'Odense Cathedral'
+          - 'Hans Christian Andersen Museum'
+      universities:
+        - 'University of Southern Denmark'
+      government-facilities:
+        - 'Odense Prison'
+        - 'District Court'
+
+    - id: aalborg
+      name: 'Aalborg'
+      size: medium
+      capital: false
+      population: 120000
+      region: north-jutland
+      landmarks:
+        protest:
+          - 'Kennedy Arkaden'
+          - 'Kildeparken'
+        monument:
+          - 'Aalborg Tower'
+          - 'Budolfi Cathedral'
+      universities:
+        - 'Aalborg University'
+      government-facilities:
+        - 'Aalborg Prison'
+        - 'District Court'
+
+
+FI:
+  cities:
+    - id: helsinki
+      name: 'Helsinki'
+      size: large
+      capital: true
+      population: 660000
+      region: uusimaa
+      landmarks:
+        protest:
+          - 'Senate Square'
+          - 'Railway Square'
+          - 'Kaisaniemi Park'
+        monument:
+          - 'Helsinki Cathedral'
+          - 'Suomenlinna'
+      universities:
+        - 'University of Helsinki'
+        - 'Aalto University'
+        - 'Helsinki Metropolia University'
+      government-facilities:
+        - 'Helsinki Prison'
+        - 'District Court'
+
+    - id: espoo
+      name: 'Espoo'
+      size: medium
+      capital: false
+      population: 300000
+      region: uusimaa
+      landmarks:
+        protest:
+          - 'Espoo Central'
+          - 'Tapiola'
+        monument:
+          - 'Espoo Cathedral'
+          - 'Aalto University Campus'
+      universities:
+        - 'Aalto University'
+      government-facilities:
+        - 'Vantaa Prison'
+        - 'District Court'
+
+    - id: tampere
+      name: 'Tampere'
+      size: medium
+      capital: false
+      population: 245000
+      region: pirkanmaa
+      landmarks:
+        protest:
+          - 'Keskustori'
+          - 'Koskikeskus'
+        monument:
+          - 'Tampere Cathedral'
+          - 'Näsinneula Tower'
+      universities:
+        - 'University of Tampere'
+        - 'Tampere University of Technology'
+      government-facilities:
+        - 'Tampere Prison'
+        - 'District Court'
+
+    - id: turku
+      name: 'Turku'
+      size: medium
+      capital: false
+      population: 195000
+      region: southwest-finland
+      landmarks:
+        protest:
+          - 'Market Square'
+          - 'Old Great Square'
+        monument:
+          - 'Turku Castle'
+          - 'Turku Cathedral'
+      universities:
+        - 'University of Turku'
+        - 'Åbo Akademi University'
+      government-facilities:
+        - 'Turku Prison'
+        - 'District Court'
+
+
+PL:
+  cities:
+    - id: warsaw
+      name: 'Warsaw'
+      size: large
+      capital: true
+      population: 1860000
+      region: masovia
+      landmarks:
+        protest:
+          - 'Castle Square'
+          - 'Piłsudski Square'
+          - 'Three Crosses Square'
+        monument:
+          - 'Palace of Culture and Science'
+          - 'Royal Castle'
+      universities:
+        - 'University of Warsaw'
+        - 'Warsaw University of Technology'
+        - 'Warsaw School of Economics'
+      government-facilities:
+        - 'Warsaw Białołęka Prison'
+        - 'District Court'
+
+    - id: krakow
+      name: 'Kraków'
+      size: large
+      capital: false
+      population: 780000
+      region: lesser-poland
+      landmarks:
+        protest:
+          - 'Main Market Square'
+          - 'Wawel'
+          - 'Planty Park'
+        monument:
+          - 'Wawel Castle'
+          - 'St. Mary''s Basilica'
+      universities:
+        - 'Jagiellonian University'
+        - 'AGH University of Science and Technology'
+      government-facilities:
+        - 'Kraków Prison'
+        - 'District Court'
+
+    - id: wroclaw
+      name: 'Wrocław'
+      size: large
+      capital: false
+      population: 640000
+      region: lower-silesia
+      landmarks:
+        protest:
+          - 'Market Square'
+          - 'Solny Square'
+        monument:
+          - 'Wrocław Cathedral'
+          - 'Centennial Hall'
+      universities:
+        - 'University of Wrocław'
+        - 'Wrocław University of Technology'
+      government-facilities:
+        - 'Wrocław Prison'
+        - 'District Court'
+
+    - id: poznan
+      name: 'Poznań'
+      size: medium
+      capital: false
+      population: 535000
+      region: greater-poland
+      landmarks:
+        protest:
+          - 'Freedom Square'
+          - 'Old Market Square'
+        monument:
+          - 'Imperial Castle'
+          - 'Town Hall'
+      universities:
+        - 'Adam Mickiewicz University'
+        - 'Poznań University of Technology'
+      government-facilities:
+        - 'Poznań Prison'
+        - 'District Court'
+
+    - id: gdansk
+      name: 'Gdańsk'
+      size: medium
+      capital: false
+      population: 470000
+      region: pomerania
+      landmarks:
+        protest:
+          - 'Long Market'
+          - 'Solidarity Square'
+        monument:
+          - 'St. Mary''s Church'
+          - 'Neptune Fountain'
+      universities:
+        - 'University of Gdańsk'
+        - 'Gdańsk University of Technology'
+      government-facilities:
+        - 'Gdańsk Prison'
+        - 'District Court'
+
+
+GR:
+  cities:
+    - id: athens
+      name: 'Athens'
+      size: large
+      capital: true
+      population: 660000
+      region: attica
+      landmarks:
+        protest:
+          - 'Syntagma Square'
+          - 'Omonia Square'
+          - 'Exarcheia Square'
+        monument:
+          - 'Acropolis'
+          - 'Parthenon'
+      universities:
+        - 'National and Kapodistrian University of Athens'
+        - 'National Technical University of Athens'
+        - 'Athens University of Economics and Business'
+      government-facilities:
+        - 'Korydallos Prison'
+        - 'Athens Court'
+
+    - id: thessaloniki
+      name: 'Thessaloniki'
+      size: large
+      capital: false
+      population: 325000
+      region: central-macedonia
+      landmarks:
+        protest:
+          - 'Aristotelous Square'
+          - 'Kamara'
+          - 'White Tower Square'
+        monument:
+          - 'White Tower'
+          - 'Rotunda'
+      universities:
+        - 'Aristotle University of Thessaloniki'
+        - 'University of Macedonia'
+      government-facilities:
+        - 'Thessaloniki Prison'
+        - 'Court of Appeal'
+
+    - id: patras
+      name: 'Patras'
+      size: medium
+      capital: false
+      population: 215000
+      region: west-greece
+      landmarks:
+        protest:
+          - 'Georgiou Square'
+          - 'Psila Alonia'
+        monument:
+          - 'Patras Castle'
+          - 'Rio-Antirrio Bridge'
+      universities:
+        - 'University of Patras'
+      government-facilities:
+        - 'Patras Prison'
+        - 'Court'
+
+    - id: heraklion
+      name: 'Heraklion'
+      size: medium
+      capital: false
+      population: 175000
+      region: crete
+      landmarks:
+        protest:
+          - 'Lions Square'
+          - 'Eleftherias Square'
+        monument:
+          - 'Koules Fortress'
+          - 'Archaeological Museum'
+      universities:
+        - 'University of Crete'
+      government-facilities:
+        - 'Heraklion Prison'
+        - 'Court'
+

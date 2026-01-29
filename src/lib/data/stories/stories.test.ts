@@ -1,6 +1,5 @@
 import { describe, it, expect } from 'vitest';
 import { stories, getStoryBySlug, getStoryById } from './index';
-import type { Story } from '$lib/types';
 
 describe('Story Data Loading', () => {
   it('should load at least one story', () => {
@@ -37,7 +36,7 @@ describe('Story Data Loading', () => {
       const matches = allText.matchAll(markerRegex);
 
       for (const match of matches) {
-        const [fullMatch, firstPart, secondPart] = match;
+        const [_fullMatch, firstPart, secondPart] = match;
 
         // Handle special cases: {{source:id}} and {{image:id}}
         if (firstPart === 'source' && secondPart) {
@@ -135,7 +134,7 @@ describe('Story Data Loading', () => {
 
   it('should have properly formatted person markers', () => {
     stories.forEach((story) => {
-      Object.entries(story.markers).forEach(([key, marker]) => {
+      Object.entries(story.markers).forEach(([_key, marker]) => {
         if ('person' in marker) {
           expect(marker).toHaveProperty('gender');
           expect(['m', 'f', 'x']).toContain(marker.gender);
@@ -153,7 +152,7 @@ describe('Story Data Loading', () => {
 
   it('should have properly formatted number markers', () => {
     stories.forEach((story) => {
-      Object.entries(story.markers).forEach(([key, marker]) => {
+      Object.entries(story.markers).forEach(([_key, marker]) => {
         if ('number' in marker) {
           expect(typeof marker.number).toBe('number');
           expect(marker.number).toBeGreaterThanOrEqual(0);
@@ -164,7 +163,7 @@ describe('Story Data Loading', () => {
 
   it('should have properly formatted currency markers', () => {
     stories.forEach((story) => {
-      Object.entries(story.markers).forEach(([key, marker]) => {
+      Object.entries(story.markers).forEach(([_key, marker]) => {
         if ('currency' in marker) {
           expect(typeof marker.currency).toBe('number');
           expect(marker.currency).toBeGreaterThan(0);

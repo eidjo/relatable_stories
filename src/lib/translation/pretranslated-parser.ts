@@ -6,15 +6,19 @@
 import type { TranslatedSegment } from '$lib/types';
 
 /**
- * Parse text containing both [[MARKER:...]] and {{marker:key}} formats
+ * Parse text containing [[MARKER:...]], [[COMPARISON:...]], and {{marker:key}} formats
  * [[MARKER:...]] are pre-translated with tooltips
+ * [[COMPARISON:...]] are casualty comparisons with explanations
  * {{marker:key}} are kept as placeholders to be filled from original story
  */
 export function parsePreTranslated(text: string): TranslatedSegment[] {
   const segments: TranslatedSegment[] = [];
 
-  // Combined regex to match both formats
-  const combinedRegex = /(\[\[MARKER:([\w-]+):([\w-]+):([^\|]+)\|([^\]]+)\]\])|(\{\{([\w-]+):([\w-]+)\}\})/g;
+  // Combined regex to match:
+  // 1. [[MARKER:type:key:original|value]] or [[MARKER:type:key:original|value|explanation]]
+  // 2. [[COMPARISON:original|translated|explanation]]
+  // 3. {{type:key}}
+  const combinedRegex = /(\[\[MARKER:([\w-]+):([\w-]+):([^|]+)\|([^|\]]+)(?:\|([^\]]+))?\]\])|(\[\[COMPARISON:([^|]+)\|([^|]+)\|([^\]]+)\]\])|(\{\{([\w-]+):([\w-]+)\}\})/g;
 
   let lastIndex = 0;
   let match;
@@ -36,17 +40,28 @@ export function parsePreTranslated(text: string): TranslatedSegment[] {
     }
 
     if (match[1]) {
-      // [[MARKER:type:key:original|value]] format - pre-translated
-      const [, , type, key, original, value] = match;
+      // [[MARKER:type:key:original|value]] or [[MARKER:type:key:original|value|explanation]]
+      const [, , type, key, original, value, explanation] = match;
       segments.push({
         text: value,
         original: original,
         type: type as any,
         key: key,
+        explanation: explanation || undefined,
       });
-    } else if (match[6]) {
+    } else if (match[7]) {
+      // [[COMPARISON:original|translated|explanation]] - casualty comparison
+      const [, , , , , , , , , translated, comparisonExplanation] = match;
+      segments.push({
+        text: translated,
+        original: null,
+        type: 'comparison' as any,
+        key: null,
+        explanation: comparisonExplanation,
+      });
+    } else if (match[11]) {
       // {{type:key}} format - needs to be filled from original story
-      const [, , , , , , , markerType, markerKey] = match;
+      const [, , , , , , , , , , , markerType, markerKey] = match;
       segments.push({
         text: match[0], // Keep the {{marker}} as placeholder
         original: null,

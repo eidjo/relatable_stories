@@ -1,5 +1,5 @@
 // Re-export V2 marker types
-export * from './markers-v2';
+export * from './markers-v2.ts';
 
 // Story-specific types
 export interface StoryMeta {
@@ -53,6 +53,8 @@ export interface TranslatedSegment {
   key: string | null;
   url?: string; // For source markers
   title?: string; // For source markers and images
+  explanation?: string; // Math explanation for scaled values
+  comparisonExplanation?: string; // Math explanation for casualty comparison
   // Image-specific fields
   src?: string; // Image source
   alt?: string; // Alt text

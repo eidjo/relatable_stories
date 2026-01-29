@@ -8,6 +8,7 @@
   export let original: string;
   export let translated: string;
   export let sequenceIndex: number = 0; // Index in the sequence of animations
+  export let explanation: string | undefined = undefined; // Math explanation for scaled values
 
   let displayedText = '';
   let animationStarted = false;
@@ -21,7 +22,7 @@
 
   // Determine what to display and what to show in tooltip based on contextualization setting
   $: displayText = $contextualizationEnabled ? translated : original;
-  $: tooltipText = $contextualizationEnabled ? original : translated;
+  $: tooltipText = explanation || ($contextualizationEnabled ? original : translated);
   $: strikethroughText = $contextualizationEnabled ? original : translated;
 
   const TYPING_SPEED = 80; // ms per character

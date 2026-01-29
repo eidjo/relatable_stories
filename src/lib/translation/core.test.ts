@@ -45,11 +45,6 @@ describe('translateMarkerV2', () => {
         'government-facilities': ['Test Prison'],
       },
     ],
-    generic: {
-      landmarks: {
-        protest: ['Generic Square'],
-      },
-    },
   };
 
   const mockTranslationData: TranslationDataV2 = {
@@ -113,7 +108,7 @@ describe('translateMarkerV2', () => {
       expect(result.original).toBe('Tehran');
     });
 
-    it('should handle landmark-protest locations from generic', () => {
+    it('should handle landmark-protest locations from city data', () => {
       const marker: Marker = {
         place: 'Azadi Square',
         'landmark-protest': true,
@@ -121,7 +116,9 @@ describe('translateMarkerV2', () => {
 
       const result = translateMarkerV2('place1', marker, mockTranslationData, mockContext);
 
-      expect(mockPlacesData.generic?.landmarks?.protest).toContain(result.value);
+      // Should pick from city's protest landmarks
+      const cityLandmarks = mockPlacesData.cities[0].landmarks?.protest || [];
+      expect(cityLandmarks).toContain(result.value);
       expect(result.original).toBe('Azadi Square');
     });
   });
@@ -179,10 +176,12 @@ describe('translateMarkerV2', () => {
       const result = translateMarkerV2('casualties1', marker, mockTranslationData, mockContext);
 
       // Should scale: 1000 * (331M / 85M) ≈ 3894
-      const scaled = parseInt(result.value);
+      // Parse locale-formatted number (e.g., "3,894")
+      const scaled = parseInt(result.value.replace(/,/g, ''));
       expect(scaled).toBeGreaterThan(3500);
       expect(scaled).toBeLessThan(4500);
-      expect(result.original).toBe('1000');
+      // Original is also locale-formatted now
+      expect(result.original).toBe('1,000');
     });
   });
 
