@@ -2,6 +2,7 @@
   import { onMount } from 'svelte';
   import { goto } from '$app/navigation';
   import { browser } from '$app/environment';
+  import { base } from '$app/paths';
   import StoryDetail from '$lib/components/story/StoryDetail.svelte';
   import Button from '$lib/components/shared/Button.svelte';
   import LocationConfirmationModal from '$lib/components/shared/LocationConfirmationModal.svelte';
@@ -12,6 +13,7 @@
   import { translateStory } from '$lib/translation/translator';
   import { parsePreTranslatedWithParagraphs } from '$lib/translation/pretranslated-parser';
   import { countryLanguages } from '$lib/data/contexts';
+  import { theme } from '$lib/stores/theme';
   import type { CountryCode, Story, TranslatedStory, TranslatedSegment } from '$lib/types';
 
   $: slug = $page.params.slug || '';
@@ -235,7 +237,33 @@
 
 <svelte:head>
   {#if translatedStory}
-    <title>{translatedStory.title.map(s => s.text).join('')} - Relatable Stories</title>
+    {@const storyTitle = translatedStory.title.map(s => s.text).join('')}
+    {@const storySummary = translatedStory.summary.map(s => s.text).join('')}
+    {@const storyUrl = `https://eidjo.github.io${base}/stories/${slug}`}
+    {@const countryCode = $selectedCountry.toLowerCase()}
+    {@const languageCode = $selectedLanguage}
+    {@const currentTheme = $theme}
+    {@const shareImageUrl = `https://eidjo.github.io${base}/share/twitter/${slug}-${languageCode}-${countryCode}-${currentTheme}.png`}
+
+    <title>{storyTitle} - Relatable Stories</title>
+    <meta name="description" content={storySummary} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content={storyUrl} />
+    <meta property="og:title" content={`${storyTitle} - Relatable Stories`} />
+    <meta property="og:description" content={storySummary} />
+    <meta property="og:image" content={shareImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={storyTitle} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={storyUrl} />
+    <meta property="twitter:title" content={`${storyTitle} - Relatable Stories`} />
+    <meta property="twitter:description" content={storySummary} />
+    <meta property="twitter:image" content={shareImageUrl} />
   {/if}
 </svelte:head>
 

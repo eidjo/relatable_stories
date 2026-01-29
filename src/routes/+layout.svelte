@@ -36,6 +36,34 @@
     name="description"
     content="Experience stories from Iran's 2022 uprising, translated into your local context to help you understand and empathize."
   />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://eidjo.github.io{base}/" />
+  <meta property="og:title" content="Relatable Stories - Iran Uprising Stories in Your Context" />
+  <meta
+    property="og:description"
+    content="Real stories from Iran's 2022 fight for freedom, translated into your local context. Names, places, and numbers adapt to help you understand and empathize."
+  />
+  <meta property="og:image" content="https://eidjo.github.io{base}/raha-protest-2026.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Relatable Stories - Stories from Iran" />
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://eidjo.github.io{base}/" />
+  <meta property="twitter:title" content="Relatable Stories - Iran Uprising Stories in Your Context" />
+  <meta
+    property="twitter:description"
+    content="Real stories from Iran's 2022 fight for freedom, translated into your local context. Names, places, and numbers adapt to help you understand and empathize."
+  />
+  <meta property="twitter:image" content="https://eidjo.github.io{base}/raha-protest-2026.jpg" />
+
+  <!-- Additional Meta Tags -->
+  <meta name="theme-color" content="#0a0a0a" />
+  <meta name="author" content="Relatable Stories" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
   <link

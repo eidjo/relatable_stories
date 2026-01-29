@@ -1,22 +1,39 @@
 <script lang="ts">
   import { page } from '$app/stores';
   import { browser } from '$app/environment';
+  import { base } from '$app/paths';
   import Timeline from '$lib/components/timeline/Timeline.svelte';
   import { events } from '$lib/data/timeline';
   import { aboutContent } from '$lib/data/content';
 
   // Preserve country parameter in links
   $: countryParam = browser ? $page.url.searchParams.get('country') : null;
-  $: storiesUrl = countryParam ? `/stories?country=${countryParam}` : '/stories';
-  $: actionUrl = countryParam ? `/take-action?country=${countryParam}` : '/take-action';
+  $: storiesUrl = countryParam ? `${base}/stories?country=${countryParam}` : `${base}/stories`;
+  $: actionUrl = countryParam ? `${base}/take-action?country=${countryParam}` : `${base}/take-action`;
+
+  const pageUrl = `https://eidjo.github.io${base}/about`;
+  const pageTitle = 'About - Relatable Stories from Iran';
+  const pageDescription = "Learn about Iran's uprisings and how these stories are translated to build empathy and understanding.";
+  const pageImage = `https://eidjo.github.io${base}/raha-protest-2026.jpg`;
 </script>
 
 <svelte:head>
-  <title>About - Relatable Stories from Iran</title>
-  <meta
-    name="description"
-    content="Learn about Iran's uprisings and how these stories are translated to build empathy and understanding."
-  />
+  <title>{pageTitle}</title>
+  <meta name="description" content={pageDescription} />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={pageUrl} />
+  <meta property="og:title" content={pageTitle} />
+  <meta property="og:description" content={pageDescription} />
+  <meta property="og:image" content={pageImage} />
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content={pageUrl} />
+  <meta property="twitter:title" content={pageTitle} />
+  <meta property="twitter:description" content={pageDescription} />
+  <meta property="twitter:image" content={pageImage} />
 </svelte:head>
 
 <div class="max-w-5xl mx-auto px-8 py-16 space-y-16 text-lg">
