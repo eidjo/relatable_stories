@@ -162,6 +162,16 @@ function parsePreTranslated(text, markers, storyId, languageCode = 'en') {
         const marker = markers[key];
 
         if (marker) {
+          // Handle date markers - format with locale
+          if ('date' in marker) {
+            const formattedDate = formatDateLocalized(marker.date, languageCode);
+            allSegments.push({
+              type: 'text',
+              text: formattedDate,
+            });
+            continue;
+          }
+
           // Translate other marker types that weren't pre-translated
           const context = contextData;
           const countryCode = 'US'; // Fallback for untranslated markers
@@ -228,7 +238,7 @@ function parsePreTranslated(text, markers, storyId, languageCode = 'en') {
  * Translate text and track original values for strikethrough
  * Matches website's approach: split by paragraphs first, then process markers
  */
-function translateWithOriginals(text, markers, countryCode, storyId) {
+function translateWithOriginals(text, markers, countryCode, storyId, languageCode = 'en') {
   const context = contextData;
   const countryNames = context.names[countryCode] || context.names['US'];
   const countryPlaces = context.places[countryCode] || context.places['US'];
@@ -243,7 +253,7 @@ function translateWithOriginals(text, markers, countryCode, storyId) {
     currencySymbol: targetCountry?.['currency-symbol'] || '$',
     rialToLocal: targetCountry?.['rial-to-local'] || 0.000024,
     comparableEvents: [],
-    languageCode: 'en',
+    languageCode: languageCode,
   };
 
   const translationContext = {
@@ -295,6 +305,17 @@ function translateWithOriginals(text, markers, countryCode, storyId) {
 
       if (!marker) {
         allSegments.push({ type: 'text', text: fullMatch });
+        lastIndex = match.index + fullMatch.length;
+        continue;
+      }
+
+      // Handle date markers - format with locale
+      if ('date' in marker) {
+        const formattedDate = formatDateLocalized(marker.date, languageCode);
+        allSegments.push({
+          type: 'text',
+          text: formattedDate,
+        });
         lastIndex = match.index + fullMatch.length;
         continue;
       }
@@ -403,10 +424,10 @@ function drawSegmentedText(ctx, segments, x, y, maxWidth, maxHeight, colors, fon
 
       if (currentY <= maxHeight) {
         ctx.fillText(segment.original, currentX, currentY);
-        // Draw strikethrough line (thicker for visibility)
+        // Draw strikethrough line (same color as the original/strikethrough text)
         const lineY = currentY - fontSize * 0.3;
         ctx.strokeStyle = colors.strikethrough;
-        ctx.lineWidth = 2.5;
+        ctx.lineWidth = 5;
         ctx.beginPath();
         ctx.moveTo(currentX, lineY);
         ctx.lineTo(currentX + originalWidth, lineY);
@@ -512,7 +533,7 @@ async function generateTwitterImage(story, outputPath, theme, countryCode, count
   // Translate title - use parsePreTranslated if story is pre-translated
   const titleSegments = isTranslated
     ? parsePreTranslated(story.title, story.markers, story.id, languageCode)
-    : translateWithOriginals(story.title, story.markers, countryCode, story.id);
+    : translateWithOriginals(story.title, story.markers, countryCode, story.id, languageCode);
 
   // Draw title with translation (increased from 48px to 56px)
   ctx.font = 'bold 56px "JetBrains Mono", monospace';
@@ -527,7 +548,8 @@ async function generateTwitterImage(story, outputPath, theme, countryCode, count
         story.content,
     story.markers,
     countryCode,
-    story.id
+    story.id,
+    languageCode
   );
 
   drawSegmentedText(ctx, contentSegments, 60, yPos, TWITTER_WIDTH - 120, contentMaxY, colors, 28); // Increased from 24px to 28px
@@ -581,7 +603,7 @@ async function generateInstagramImage(story, outputPath, theme, countryCode, cou
   // Translate title - use parsePreTranslated if story is pre-translated
   const titleSegments = isTranslated
     ? parsePreTranslated(story.title, story.markers, story.id, languageCode)
-    : translateWithOriginals(story.title, story.markers, countryCode, story.id);
+    : translateWithOriginals(story.title, story.markers, countryCode, story.id, languageCode);
 
   // Draw title with translation (96px = 64px * 1.5, extra space at top for Instagram UI)
   ctx.font = 'bold 96px "JetBrains Mono", monospace';
@@ -596,7 +618,8 @@ async function generateInstagramImage(story, outputPath, theme, countryCode, cou
         story.content,
         story.markers,
         countryCode,
-        story.id
+        story.id,
+        languageCode
       );
 
   drawSegmentedText(ctx, contentSegments, 60, yPos, INSTAGRAM_WIDTH - 120, contentMaxY, colors, 48); // Increased from 34px to 48px (34 * 1.5)

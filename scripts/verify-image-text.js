@@ -29,8 +29,23 @@ async function loadContextData() {
   return contextData;
 }
 
+import { format } from 'date-fns';
+import { enUS } from 'date-fns/locale';
+
+const localeMap = { en: enUS };
+
+function formatDateLocalized(dateString, languageCode = 'en') {
+  try {
+    const date = new Date(dateString);
+    const locale = localeMap[languageCode] || localeMap['en'];
+    return format(date, 'PPP', { locale });
+  } catch (_error) {
+    return dateString;
+  }
+}
+
 // Exact copy of translateWithOriginals from generate-share-images-improved.js
-function translateWithOriginals(text, markers, countryCode, storyId) {
+function translateWithOriginals(text, markers, countryCode, storyId, languageCode = 'en') {
   const context = contextData;
   const countryNames = context.names[countryCode] || context.names['US'];
   const countryPlaces = context.places[countryCode] || context.places['US'];
@@ -44,7 +59,7 @@ function translateWithOriginals(text, markers, countryCode, storyId) {
     currencySymbol: targetCountry?.['currency-symbol'] || '$',
     rialToLocal: targetCountry?.['rial-to-local'] || 0.000024,
     comparableEvents: [],
-    languageCode: 'en',
+    languageCode: languageCode,
   };
 
   const translationContext = {
@@ -88,6 +103,17 @@ function translateWithOriginals(text, markers, countryCode, storyId) {
 
       if (!marker) {
         allSegments.push({ type: 'text', text: fullMatch });
+        lastIndex = match.index + fullMatch.length;
+        continue;
+      }
+
+      // Handle date markers - format with locale
+      if ('date' in marker) {
+        const formattedDate = formatDateLocalized(marker.date, languageCode);
+        allSegments.push({
+          type: 'text',
+          text: formattedDate,
+        });
         lastIndex = match.index + fullMatch.length;
         continue;
       }
