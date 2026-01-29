@@ -197,3 +197,58 @@ BR:
   government-facility: ['Delegacia de Polícia', 'Fórum', 'Penitenciária', 'Prefeitura']
   university:
     ['Universidade Federal', 'Universidade Estadual', 'Instituto de Tecnologia', 'Faculdade']
+
+PT:
+  city-small: ['Braga', 'Coimbra', 'Évora', 'Aveiro', 'Faro', 'Guimarães']
+  city-medium: ['Porto', 'Braga', 'Coimbra', 'Setúbal', 'Funchal']
+  city-large: ['Lisboa', 'Porto', 'Braga']
+  landmark-protest:
+    [
+      'Praça do Comércio',
+      'Avenida da Liberdade',
+      'Rossio',
+      'Praça dos Restauradores',
+      'Largo do Carmo',
+    ]
+  government-facility: ['Esquadra da Polícia', 'Tribunal', 'Prisão', 'Câmara Municipal']
+  university:
+    ['Universidade de Lisboa', 'Universidade do Porto', 'Universidade de Coimbra', 'Instituto Politécnico']
+
+NO:
+  city-small: ['Drammen', 'Kristiansand', 'Fredrikstad', 'Tromsø', 'Ålesund', 'Bodø']
+  city-medium: ['Bergen', 'Trondheim', 'Stavanger', 'Drammen', 'Tromsø', 'Ålesund']
+  city-large: ['Oslo', 'Bergen', 'Trondheim', 'Stavanger']
+  landmark-protest:
+    ['Youngstorget', 'Eidsvolls plass', 'Stortorget', 'Torget', 'Rådhusplassen']
+  government-facility: ['Politistasjon', 'Tingrett', 'Fengsel', 'Rådhus']
+  university:
+    ['Universitetet i Oslo', 'Universitetet i Bergen', 'NTNU', 'Universitetet i Tromsø']
+
+DK:
+  city-small: ['Roskilde', 'Næstved', 'Helsingør', 'Silkeborg', 'Horsens', 'Slagelse']
+  city-medium: ['Aarhus', 'Odense', 'Aalborg', 'Esbjerg', 'Randers', 'Kolding']
+  city-large: ['København', 'Aarhus', 'Odense', 'Aalborg']
+  landmark-protest: ['Rådhuspladsen', 'Kongens Nytorv', 'Nytorv', 'Stortorvet', 'Blågårds Plads']
+  government-facility: ['Politistation', 'Byret', 'Fængsel', 'Rådhus']
+  university:
+    ['Københavns Universitet', 'Aarhus Universitet', 'Danmarks Tekniske Universitet', 'Syddansk Universitet']
+
+FI:
+  city-small: ['Pori', 'Lappeenranta', 'Vaasa', 'Joensuu', 'Kotka', 'Seinäjoki']
+  city-medium: ['Espoo', 'Tampere', 'Vantaa', 'Oulu', 'Turku', 'Lahti']
+  city-large: ['Helsinki', 'Espoo', 'Tampere', 'Vantaa']
+  landmark-protest:
+    ['Senaatintori', 'Rautatientori', 'Keskustori', 'Kauppatori', 'Kansalaistori']
+  government-facility: ['Poliisiasema', 'Käräjäoikeus', 'Vankila', 'Kaupungintalo']
+  university:
+    ['Helsingin yliopisto', 'Aalto-yliopisto', 'Tampereen yliopisto', 'Turun yliopisto']
+
+PL:
+  city-small: ['Lublin', 'Bydgoszcz', 'Białystok', 'Gdynia', 'Rzeszów', 'Toruń']
+  city-medium: ['Kraków', 'Łódź', 'Wrocław', 'Poznań', 'Gdańsk', 'Szczecin']
+  city-large: ['Warszawa', 'Kraków', 'Łódź', 'Wrocław']
+  landmark-protest:
+    ['Plac Zamkowy', 'Plac Piłsudskiego', 'Rynek Główny', 'Plac Konstytucji', 'Plac Wolności']
+  government-facility: ['Komisariat Policji', 'Sąd', 'Areszt Śledczy', 'Urząd Miasta']
+  university:
+    ['Uniwersytet Warszawski', 'Uniwersytet Jagielloński', 'Politechnika Warszawska', 'Uniwersytet Wrocławski']
