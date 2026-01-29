@@ -42,21 +42,23 @@ describe('share-routes', () => {
     it('should generate routes with appropriate languages for each country', () => {
       const routes = getAllShareRoutes();
 
-      // Belgium should have multiple languages
+      // Belgium should have multiple languages including English
       const belgiumRoutes = routes.filter((r) => r.country === 'be');
       const belgiumLanguages = new Set(belgiumRoutes.map((r) => r.language));
-      expect(belgiumLanguages.size).toBeGreaterThan(1); // BE has fr, nl, de
+      expect(belgiumLanguages.size).toBeGreaterThan(1); // BE has fr, nl, de, en
       expect(belgiumLanguages.has('fr')).toBe(true);
+      expect(belgiumLanguages.has('en')).toBe(true); // English always available
 
       // US should have English
       const usRoutes = routes.filter((r) => r.country === 'us');
       const usLanguages = new Set(usRoutes.map((r) => r.language));
       expect(usLanguages.has('en')).toBe(true);
 
-      // France should have French
+      // France should have French AND English (to read with French context)
       const frRoutes = routes.filter((r) => r.country === 'fr');
       const frLanguages = new Set(frRoutes.map((r) => r.language));
       expect(frLanguages.has('fr')).toBe(true);
+      expect(frLanguages.has('en')).toBe(true); // English always available
     });
 
     it('should use lowercase for country and language codes', () => {
@@ -65,6 +67,21 @@ describe('share-routes', () => {
       routes.forEach((route) => {
         expect(route.country).toBe(route.country.toLowerCase());
         expect(route.language).toBe(route.language.toLowerCase());
+      });
+    });
+
+    it('should include English for every country', () => {
+      const routes = getAllShareRoutes();
+      const countriesWithEnglish = new Set(
+        routes.filter((r) => r.language === 'en').map((r) => r.country)
+      );
+
+      // Get all unique countries from routes
+      const allCountries = new Set(routes.map((r) => r.country));
+
+      // Every country should have English available
+      allCountries.forEach((country) => {
+        expect(countriesWithEnglish.has(country)).toBe(true);
       });
     });
   });

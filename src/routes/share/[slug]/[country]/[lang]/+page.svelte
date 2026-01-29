@@ -6,13 +6,20 @@
 
   export let data: PageData;
 
-  // Construct share image path
+  // Construct share image path (always use dark theme for social media)
   const shareImagePath = `/share/twitter/${data.slug}-${data.language}-${data.country}-dark.png`;
+
+  // Use translated title and summary (with country-specific context and names)
+  // Falls back to generic meta tags if translation failed
+  const socialTitle = data.translatedTitle || data.story.meta?.['og-title'] || "A Story from Iran - Relatable Stories";
+  const socialDescription = data.translatedSummary || data.story.meta?.['og-description'] ||
+    "Real stories from Iran's uprisings, translated into your local context to help you understand and empathize.";
 
   // Redirect immediately in browser (before layout logic runs)
   if (browser) {
     // Construct the target URL with base path
-    const targetPath = `${base}/stories/${data.slug}?country=${data.country}&lang=${data.language}`;
+    // Country code needs to be uppercase for the story page
+    const targetPath = `${base}/stories/${data.slug}?country=${data.country.toUpperCase()}&lang=${data.language}`;
     // Use window.location for immediate redirect, bypassing SvelteKit navigation
     window.location.href = targetPath;
   }
@@ -20,21 +27,21 @@
 
 <!-- Meta tags for social media crawlers -->
 <SocialMeta
-  title={`${data.story.title} - Relatable Stories`}
-  description={data.story.summary}
+  title={socialTitle}
+  description={socialDescription}
   type="article"
   image={shareImagePath}
-  imageAlt={data.story.title}
+  imageAlt={socialTitle}
   url={`/share/${data.slug}/${data.country}/${data.language}`}
 />
 
 <!-- Minimal content while redirecting -->
 <div class="min-h-screen flex items-center justify-center">
   <div class="text-center">
-    <h1 class="text-2xl font-bold mb-4">{data.story.title}</h1>
+    <h1 class="text-2xl font-bold mb-4">{socialTitle}</h1>
     <p class="text-gray-600 mb-6">Redirecting...</p>
     <a
-      href={`${base}/stories/${data.slug}?country=${data.country}&lang=${data.language}`}
+      href={`${base}/stories/${data.slug}?country=${data.country.toUpperCase()}&lang=${data.language}`}
       class="text-primary-600 hover:text-primary-700 underline"
     >
       Click here if you're not redirected automatically

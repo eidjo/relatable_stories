@@ -31,6 +31,9 @@
       }
     }
   });
+
+  // Check if current route is a share page
+  let isSharePage = $derived($page.route.id?.startsWith('/share'));
 </script>
 
 <!-- Note: Individual pages provide their own SocialMeta tags -->
@@ -48,9 +51,15 @@
   />
 </svelte:head>
 
-<div class="min-h-screen">
-  <Header />
-  <main class="pt-16">
-    <slot />
-  </main>
-</div>
+{#if isSharePage}
+  <!-- Share pages: minimal layout, no header -->
+  <slot />
+{:else}
+  <!-- Regular pages: full layout with header -->
+  <div class="min-h-screen">
+    <Header />
+    <main class="pt-16">
+      <slot />
+    </main>
+  </div>
+{/if}

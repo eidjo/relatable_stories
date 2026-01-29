@@ -10,6 +10,7 @@ export interface ShareRoute {
 /**
  * Get all available share routes based on country-languages.yaml
  * Returns combinations like: mahsa-arrest/us/en, mahsa-arrest/be/fr, etc.
+ * Every country gets English + its native languages (so you can read with any country's context in English)
  */
 export function getAllShareRoutes(): ShareRoute[] {
   const routes: ShareRoute[] = [];
@@ -19,7 +20,12 @@ export function getAllShareRoutes(): ShareRoute[] {
   // For each story, generate a route for every country × language combination
   for (const story of stories) {
     for (const [countryCode, countryData] of Object.entries(countries)) {
-      for (const language of countryData.languages) {
+      const languagesToInclude = new Set(countryData.languages);
+
+      // Always include English for every country (to read with that country's context)
+      languagesToInclude.add('en');
+
+      for (const language of languagesToInclude) {
         routes.push({
           slug: story.slug,
           country: countryCode.toLowerCase(),

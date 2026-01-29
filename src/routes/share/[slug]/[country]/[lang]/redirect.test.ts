@@ -10,9 +10,10 @@ describe('Share page redirect logic', () => {
       };
       const base = '';
 
-      const targetPath = `${base}/stories/${data.slug}?country=${data.country}&lang=${data.language}`;
+      // Country code should be uppercase in the redirect URL
+      const targetPath = `${base}/stories/${data.slug}?country=${data.country.toUpperCase()}&lang=${data.language}`;
 
-      expect(targetPath).toBe('/stories/mahsa-arrest?country=us&lang=en');
+      expect(targetPath).toBe('/stories/mahsa-arrest?country=US&lang=en');
     });
 
     it('should construct correct redirect URL with base path', () => {
@@ -23,40 +24,41 @@ describe('Share page redirect logic', () => {
       };
       const base = '/relatable_stories';
 
-      const targetPath = `${base}/stories/${data.slug}?country=${data.country}&lang=${data.language}`;
+      // Country code should be uppercase in the redirect URL
+      const targetPath = `${base}/stories/${data.slug}?country=${data.country.toUpperCase()}&lang=${data.language}`;
 
-      expect(targetPath).toBe('/relatable_stories/stories/raha-2026?country=be&lang=fr');
+      expect(targetPath).toBe('/relatable_stories/stories/raha-2026?country=BE&lang=fr');
     });
 
     it('should handle all countries correctly', () => {
       const testCases = [
-        { country: 'us', language: 'en' },
-        { country: 'be', language: 'fr' },
-        { country: 'be', language: 'nl' },
-        { country: 'be', language: 'de' },
-        { country: 'fr', language: 'fr' },
-        { country: 'de', language: 'de' },
-        { country: 'ca', language: 'en' },
-        { country: 'ca', language: 'fr' },
+        { country: 'us', language: 'en', expectedCountry: 'US' },
+        { country: 'be', language: 'fr', expectedCountry: 'BE' },
+        { country: 'be', language: 'nl', expectedCountry: 'BE' },
+        { country: 'be', language: 'de', expectedCountry: 'BE' },
+        { country: 'fr', language: 'fr', expectedCountry: 'FR' },
+        { country: 'de', language: 'de', expectedCountry: 'DE' },
+        { country: 'ca', language: 'en', expectedCountry: 'CA' },
+        { country: 'ca', language: 'fr', expectedCountry: 'CA' },
       ];
 
       const slug = 'mahsa-arrest';
       const base = '/relatable_stories';
 
-      testCases.forEach(({ country, language }) => {
-        const targetPath = `${base}/stories/${slug}?country=${country}&lang=${language}`;
+      testCases.forEach(({ country, language, expectedCountry }) => {
+        const targetPath = `${base}/stories/${slug}?country=${country.toUpperCase()}&lang=${language}`;
 
-        // Should be properly formatted
-        expect(targetPath).toMatch(/^\/relatable_stories\/stories\/[a-z0-9-]+\?country=[a-z]{2}&lang=[a-z]{2}$/);
+        // Should be properly formatted (uppercase country code)
+        expect(targetPath).toMatch(/^\/relatable_stories\/stories\/[a-z0-9-]+\?country=[A-Z]{2}&lang=[a-z]{2}$/);
 
-        // Should contain correct values
-        expect(targetPath).toContain(`country=${country}`);
+        // Should contain correct values (uppercase country)
+        expect(targetPath).toContain(`country=${expectedCountry}`);
         expect(targetPath).toContain(`lang=${language}`);
         expect(targetPath).toContain(`/stories/${slug}`);
       });
     });
 
-    it('should preserve lowercase country and language codes', () => {
+    it('should convert country to uppercase for redirect URL', () => {
       const data = {
         slug: 'raha-2026',
         country: 'be',
@@ -64,28 +66,29 @@ describe('Share page redirect logic', () => {
       };
       const base = '';
 
-      const targetPath = `${base}/stories/${data.slug}?country=${data.country}&lang=${data.language}`;
+      // Data is lowercase, but redirect URL uses uppercase country
+      const targetPath = `${base}/stories/${data.slug}?country=${data.country.toUpperCase()}&lang=${data.language}`;
 
-      expect(targetPath).toBe('/stories/raha-2026?country=be&lang=fr');
-      expect(data.country).toBe(data.country.toLowerCase());
+      expect(targetPath).toBe('/stories/raha-2026?country=BE&lang=fr');
+      expect(data.country).toBe(data.country.toLowerCase()); // Data stays lowercase
       expect(data.language).toBe(data.language.toLowerCase());
     });
   });
 
   describe('Share URL to Story URL mapping', () => {
-    it('should map share URLs to correct story URLs', () => {
+    it('should map share URLs to correct story URLs with uppercase country', () => {
       const mappings = [
         {
           shareUrl: '/share/mahsa-arrest/us/en',
-          expectedStoryUrl: '/stories/mahsa-arrest?country=us&lang=en',
+          expectedStoryUrl: '/stories/mahsa-arrest?country=US&lang=en',
         },
         {
           shareUrl: '/share/raha-2026/be/fr',
-          expectedStoryUrl: '/stories/raha-2026?country=be&lang=fr',
+          expectedStoryUrl: '/stories/raha-2026?country=BE&lang=fr',
         },
         {
           shareUrl: '/share/mahsa-arrest/fr/fr',
-          expectedStoryUrl: '/stories/mahsa-arrest?country=fr&lang=fr',
+          expectedStoryUrl: '/stories/mahsa-arrest?country=FR&lang=fr',
         },
       ];
 
@@ -93,7 +96,8 @@ describe('Share page redirect logic', () => {
         const parts = shareUrl.split('/').filter(Boolean);
         const [, slug, country, lang] = parts;
 
-        const targetPath = `/stories/${slug}?country=${country}&lang=${lang}`;
+        // Convert country to uppercase for story URL
+        const targetPath = `/stories/${slug}?country=${country.toUpperCase()}&lang=${lang}`;
 
         expect(targetPath).toBe(expectedStoryUrl);
       });
@@ -104,11 +108,11 @@ describe('Share page redirect logic', () => {
       const mappings = [
         {
           shareUrl: `${base}/share/mahsa-arrest/us/en`,
-          expectedStoryUrl: `${base}/stories/mahsa-arrest?country=us&lang=en`,
+          expectedStoryUrl: `${base}/stories/mahsa-arrest?country=US&lang=en`,
         },
         {
           shareUrl: `${base}/share/raha-2026/be/fr`,
-          expectedStoryUrl: `${base}/stories/raha-2026?country=be&lang=fr`,
+          expectedStoryUrl: `${base}/stories/raha-2026?country=BE&lang=fr`,
         },
       ];
 
@@ -117,7 +121,8 @@ describe('Share page redirect logic', () => {
         const parts = urlWithoutBase.split('/').filter(Boolean);
         const [, slug, country, lang] = parts;
 
-        const targetPath = `${base}/stories/${slug}?country=${country}&lang=${lang}`;
+        // Convert country to uppercase for story URL
+        const targetPath = `${base}/stories/${slug}?country=${country.toUpperCase()}&lang=${lang}`;
 
         expect(targetPath).toBe(expectedStoryUrl);
       });
@@ -125,7 +130,7 @@ describe('Share page redirect logic', () => {
   });
 
   describe('Fallback link', () => {
-    it('should generate correct fallback link for click', () => {
+    it('should generate correct fallback link for click with uppercase country', () => {
       const data = {
         slug: 'mahsa-arrest',
         country: 'us',
@@ -133,10 +138,10 @@ describe('Share page redirect logic', () => {
       };
       const base = '/relatable_stories';
 
-      // Relative path (as used in the href)
-      const fallbackHref = `${base}/stories/${data.slug}?country=${data.country}&lang=${data.language}`;
+      // Relative path (as used in the href) with uppercase country
+      const fallbackHref = `${base}/stories/${data.slug}?country=${data.country.toUpperCase()}&lang=${data.language}`;
 
-      expect(fallbackHref).toBe('/relatable_stories/stories/mahsa-arrest?country=us&lang=en');
+      expect(fallbackHref).toBe('/relatable_stories/stories/mahsa-arrest?country=US&lang=en');
     });
   });
 });
