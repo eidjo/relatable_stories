@@ -124,13 +124,19 @@
             <thead>
               <tr class="border-t border-stone-700/50">
                 <th class="px-5 py-2 text-left text-xs font-medium text-stone-400 uppercase tracking-wider">Original</th>
+                <th class="px-2 py-2"></th>
                 <th class="px-5 py-2 text-left text-xs font-medium text-stone-400 uppercase tracking-wider">Your Context</th>
               </tr>
             </thead>
             <tbody class="divide-y divide-stone-700/30">
               {#each modalExamples.examples as example}
                 <tr>
-                  <td class="px-5 py-3 text-stone-500">{example.original}</td>
+                  <td class="px-5 py-3 text-stone-500 line-through">{example.original}</td>
+                  <td class="px-2 py-3">
+                    <svg class="w-4 h-4 text-primary-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                    </svg>
+                  </td>
                   <td class="px-5 py-3 text-primary-400 font-semibold">{getTranslation(example.id, selectedOption)}</td>
                 </tr>
               {/each}
