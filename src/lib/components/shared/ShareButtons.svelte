@@ -1,5 +1,6 @@
 <script lang="ts">
   import { browser } from '$app/environment';
+  import { base } from '$app/paths';
   import { translationContext } from '$lib/stores/country';
   import { selectedLanguage } from '$lib/stores/language';
   import { theme } from '$lib/stores/theme';
@@ -25,10 +26,10 @@
 
   // Share image URLs - use language, country, and theme specific images
   $: twitterImageUrl = browser
-    ? `${window.location.origin}/share/twitter/${storySlug}-${languageCode}-${countryCode}-${currentTheme}.png`
+    ? `${window.location.origin}${base}/share/twitter/${storySlug}-${languageCode}-${countryCode}-${currentTheme}.png`
     : '';
   $: instagramImageUrl = browser
-    ? `${window.location.origin}/share/instagram/${storySlug}-${languageCode}-${countryCode}-${currentTheme}.png`
+    ? `${window.location.origin}${base}/share/instagram/${storySlug}-${languageCode}-${countryCode}-${currentTheme}.png`
     : '';
 
   async function handleWebShare() {

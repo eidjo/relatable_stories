@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { base } from '$app/paths';
+
   let isRevealed = false;
 
   export let src: string;
@@ -7,6 +9,9 @@
   export let contentWarning: string | undefined = undefined;
   export let credit: string | undefined = undefined;
   export let creditUrl: string | undefined = undefined;
+
+  // Prepend base path to src if it starts with /
+  $: fullSrc = src.startsWith('/') ? `${base}${src}` : src;
 
   function toggleReveal() {
     isRevealed = !isRevealed;
@@ -24,7 +29,7 @@
         aria-label={isRevealed ? 'Click to hide image' : 'Click to reveal image'}
       >
         <img
-          {src}
+          src={fullSrc}
           {alt}
           class="w-full rounded transition-all duration-300 {isRevealed ? '' : 'blur-xl opacity-50'}"
           loading="lazy"
@@ -59,7 +64,7 @@
   {:else}
     <!-- Normal Image (no content warning) -->
     <div class="max-w-3xl mx-auto">
-      <img {src} {alt} class="w-full rounded" loading="lazy" />
+      <img src={fullSrc} {alt} class="w-full rounded" loading="lazy" />
     </div>
   {/if}
 
