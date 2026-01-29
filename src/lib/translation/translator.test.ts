@@ -18,11 +18,6 @@ const mockPlacesV2: PlacesDataV2 = {
       'government-facilities': ['Multnomah County Detention Center'],
     },
   ],
-  generic: {
-    landmarks: {
-      protest: ['City Plaza', 'Town Square'],
-    },
-  },
 };
 
 const mockContext: UITranslationContext = {
@@ -192,6 +187,64 @@ describe('Translation Engine', () => {
 
       expect(result[0].text).toBe('25');
       expect(result[1].text).toBe(' years old');
+    });
+  });
+
+  describe('Sources and Images', () => {
+    it('should handle {{source:id}} markers with sources array', () => {
+      const sources = [
+        { id: 'test-source', number: 1, title: 'Test Source Title', url: 'https://example.com' },
+      ];
+
+      const result = translateText(
+        'According to reports{{source:test-source}}, something happened.',
+        {},
+        mockContext,
+        'test-story',
+        'en',
+        sources,
+        []
+      );
+
+      // Find the source segment
+      const sourceSegment = result.find((s) => s.type === 'source');
+      expect(sourceSegment).toBeDefined();
+      expect(sourceSegment?.text).toBe('[1]');
+      expect(sourceSegment?.tooltip).toBe('Test Source Title');
+      expect(sourceSegment?.url).toBe('https://example.com');
+      expect(sourceSegment?.key).toBe('test-source');
+    });
+
+    it('should handle {{image:id}} markers with images array', () => {
+      const images = [
+        {
+          id: 'test-image',
+          src: '/test.jpg',
+          alt: 'Test image',
+          caption: 'Test caption',
+          contentWarning: 'Test warning',
+        },
+      ];
+
+      const result = translateText(
+        'Some text before. {{image:test-image}} Some text after.',
+        {},
+        mockContext,
+        'test-story',
+        'en',
+        [],
+        images
+      );
+
+      // Find the image segment
+      const imageSegment = result.find((s) => s.type === 'image');
+      expect(imageSegment).toBeDefined();
+      expect(imageSegment?.text).toBe('');
+      expect(imageSegment?.src).toBe('/test.jpg');
+      expect(imageSegment?.alt).toBe('Test image');
+      expect(imageSegment?.caption).toBe('Test caption');
+      expect(imageSegment?.contentWarning).toBe('Test warning');
+      expect(imageSegment?.key).toBe('test-image');
     });
   });
 });

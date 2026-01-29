@@ -19,7 +19,7 @@ export function parsePreTranslated(text: string): TranslatedSegment[] {
   // 2. [[COMPARISON:original|translated|explanation]]
   // 3. {{type:key}}
   const combinedRegex =
-    /(\[\[MARKER:([\w-]+):([\w-]+):([^|]+)\|([^|\]]+)(?:\|([^\]]+))?\]\])|(\[\[COMPARISON:([^|]+)\|([^|]+)\|([^\]]+)\]\])|(\{\{([\w-]+):([\w-]+)\}\})/g;
+    /(?<marker>\[\[MARKER:(?<mType>[\w-]+):(?<mKey>[\w-]+):(?<mOriginal>[^|]+)\|(?<mValue>[^|\]]+)(?:\|(?<mExplanation>[^\]]+))?\]\])|(?<comparison>\[\[COMPARISON:(?<cOriginal>[^|]+)\|(?<cTranslated>[^|]+)\|(?<cExplanation>[^\]]+)\]\])|(?<placeholder>\{\{(?<pType>[\w-]+):(?<pKey>[\w-]+)\}\})/g;
 
   let lastIndex = 0;
   let match;
@@ -40,36 +40,35 @@ export function parsePreTranslated(text: string): TranslatedSegment[] {
       }
     }
 
-    if (match[1]) {
+    const groups = match.groups!;
+
+    if (groups.marker) {
       // [[MARKER:type:key:original|value]] or [[MARKER:type:key:original|value|explanation]]
-      const [, , type, key, original, value, explanation] = match;
       segments.push({
-        text: value,
-        original: original,
-        type: type as any,
-        key: key,
-        explanation: explanation || undefined,
+        text: groups.mValue,
+        original: groups.mOriginal,
+        type: groups.mType as any,
+        key: groups.mKey,
+        explanation: groups.mExplanation || undefined,
       });
-    } else if (match[7]) {
+    } else if (groups.comparison) {
       // [[COMPARISON:original|translated|explanation]] - casualty comparison
-      const [, , , , , , , , , translated, comparisonExplanation] = match;
       segments.push({
-        text: translated,
+        text: groups.cTranslated,
         original: null,
         type: 'comparison' as any,
         key: null,
-        explanation: comparisonExplanation,
+        explanation: groups.cExplanation,
       });
-    } else if (match[11]) {
+    } else if (groups.placeholder) {
       // {{type:key}} format - needs to be filled from original story
-      const [, , , , , , , , , , , markerType, markerKey] = match;
       segments.push({
         text: match[0], // Keep the {{marker}} as placeholder
         original: null,
-        type: markerType as any,
-        key: markerKey,
+        type: groups.pType,
+        key: groups.pKey,
         isPlaceholder: true, // Flag to indicate this needs processing
-      } as any);
+      });
     }
 
     lastIndex = match.index + match[0].length;

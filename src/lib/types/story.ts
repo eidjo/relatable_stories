@@ -51,8 +51,10 @@ export interface TranslatedSegment {
   original: string | null;
   type: MarkerType | null;
   key: string | null;
+  isPlaceholder?: boolean; // True if this is a {{marker}} placeholder that needs to be filled
   url?: string; // For source markers
-  title?: string; // For source markers and images
+  title?: string; // Deprecated - use tooltip instead
+  tooltip?: string; // Tooltip text for hover (replaces title)
   explanation?: string; // Math explanation for scaled values
   comparisonExplanation?: string; // Math explanation for casualty comparison
   // Image-specific fields

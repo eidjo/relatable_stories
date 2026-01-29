@@ -134,6 +134,7 @@ function findCityByName(placesData: PlacesDataV2, cityName: string): CityData | 
 
 /**
  * Find closest comparable event by casualties
+ * Returns null if no reasonably close match is found (within 3x range)
  */
 function findClosestEvent(
   events: ComparableEvent[],
@@ -152,12 +153,15 @@ function findClosestEvent(
     }
   }
 
-  // Find closest by casualties
-  return candidates.reduce((best, current) => {
+  // Find closest by casualties and return it
+  // We always show the closest match - the comparison text will handle large multipliers
+  const closest = candidates.reduce((best, current) => {
     const bestDiff = Math.abs(best.casualties - casualties);
     const currentDiff = Math.abs(current.casualties - casualties);
     return currentDiff < bestDiff ? current : best;
   });
+
+  return closest;
 }
 
 /**
@@ -225,17 +229,33 @@ function generateComparisonText(
   event: ComparableEvent,
   languageCode: string = 'en'
 ): { text: string; explanation: string } {
-  const multiplier = Math.round(scaledCasualties / event.casualties);
+  const exactRatio = scaledCasualties / event.casualties;
 
   // Use localized event name if available, otherwise fall back to English
   const eventName = (event.localizedNames?.[languageCode] || event.name).trim();
 
   let comparisonText: string;
 
-  if (multiplier <= 1) {
-    // Close enough - just name the event
-    comparisonText = event.fullName || eventName;
-  } else {
+  // Within 15% margin (0.85-1.15x) - say "approximately"
+  if (exactRatio >= 0.85 && exactRatio <= 1.15) {
+    comparisonText = `approximately ${event.fullName || eventName}`;
+  }
+  // Fractional comparisons (less than the event)
+  else if (exactRatio < 0.85) {
+    // Determine fraction phrase
+    let fractionPhrase: string;
+    if (exactRatio <= 0.35) {
+      fractionPhrase = languageCode === 'en' ? 'a third of' : 'třetina'; // Add more languages as needed
+    } else if (exactRatio <= 0.55) {
+      fractionPhrase = languageCode === 'en' ? 'half of' : 'polovina';
+    } else {
+      fractionPhrase = languageCode === 'en' ? 'two-thirds of' : 'dvě třetiny';
+    }
+    comparisonText = `${fractionPhrase} ${event.fullName || eventName}`;
+  }
+  // Multiple times more (greater than the event)
+  else {
+    const multiplier = Math.round(exactRatio);
     // Get localized multiplier phrase
     const { phrase, needsArticle } = getLocalizedMultiplier(multiplier, languageCode);
 
@@ -247,7 +267,8 @@ function generateComparisonText(
   const text = `(${comparisonText})`;
 
   // Generate explanation (always in English for consistency)
-  const explanation = `Comparison: ${scaledCasualties.toLocaleString()} casualties vs. ${event.name} (${event.casualties.toLocaleString()} casualties in ${event.year}) = ${multiplier > 1 ? `${multiplier}x more` : 'comparable scale'}`;
+  const ratioText = exactRatio >= 1 ? `${exactRatio.toFixed(2)}x more` : `${(exactRatio * 100).toFixed(0)}% of`;
+  const explanation = `Comparison: ${scaledCasualties.toLocaleString()} casualties vs. ${event.name} (${event.casualties.toLocaleString()} casualties in ${event.year}) = ${ratioText}`;
 
   return { text, explanation };
 }
@@ -546,6 +567,33 @@ export function translateMarkerV2(
     return {
       value: (marker as TimeMarker).time,
       original: null,
+    };
+  }
+
+  // Text markers (chants, quotes, etc.)
+  if ('text' in marker && typeof (marker as any).text === 'string') {
+    return {
+      value: (marker as any).text,
+      original: null,
+    };
+  }
+
+  // Occupation markers (jobs, professions)
+  if ('occupation' in marker && typeof (marker as any).occupation === 'string') {
+    return {
+      value: (marker as any).occupation,
+      original: null,
+    };
+  }
+
+  // Currency markers
+  if ('currency' in marker && typeof (marker as any).currency === 'number') {
+    const amount = (marker as any).currency;
+    // Convert from Iranian Rial to local currency
+    const localAmount = Math.round(amount * data.rialToLocal);
+    return {
+      value: `${data.currencySymbol}${localAmount.toLocaleString()}`,
+      original: `${amount.toLocaleString()} Rial`,
     };
   }
 

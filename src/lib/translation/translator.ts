@@ -106,7 +106,7 @@ export function translateText(
               type: 'source' as any,
               key: token.suffix,
               url: source.url,
-              title: source.title,
+              tooltip: source.title,
             });
           } else {
             segments.push({
@@ -252,7 +252,7 @@ export function translateText(
             key: token.markerKey,
           };
           if (sourceMarker.url) segment.url = sourceMarker.url;
-          if (sourceMarker.title) segment.title = sourceMarker.title;
+          if (sourceMarker.title) segment.tooltip = sourceMarker.title;
           segments.push(segment);
           continue;
         }

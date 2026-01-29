@@ -1,6 +1,6 @@
 <script lang="ts">
   import { browser } from '$app/environment';
-  import TranslatedText from '../shared/TranslatedText.svelte';
+  import PipelineRenderer from '../shared/PipelineRenderer.svelte';
   import ShareButtons from '../shared/ShareButtons.svelte';
   import LanguageSelector from '../shared/LanguageSelector.svelte';
   import ContextualizationToggle from '../shared/ContextualizationToggle.svelte';
@@ -10,9 +10,9 @@
   import { contextualizationEnabled } from '$lib/stores/contextualization';
   import { countryLanguages, countries } from '$lib/data/contexts';
   import { formatDate } from '$lib/utils/dateLocales';
-  import type { TranslatedStory, TranslatedSegment } from '$lib/types';
+  import type { TranslatedStoryOutput, NormalizedSegment } from '$lib/translation/pipeline';
 
-  export let story: TranslatedStory;
+  export let story: TranslatedStoryOutput;
   export let minimal = false;
 
   $: countrySpecificLanguages = countryLanguages.countries[$selectedCountry]?.languages || [];
@@ -28,7 +28,7 @@
   $: shareTitle = story.title.map((s) => s.text).join('');
   $: shareText = `${shareTitle} - A story from Iran's uprising, translated into your local context.`;
 
-  const severityColors = {
+  const severityColors: Record<string, string> = {
     low: 'text-blue-400',
     medium: 'text-yellow-400',
     high: 'text-orange-400',
@@ -36,12 +36,12 @@
   };
 
   // Split content into paragraphs based on paragraph-break segments
-  function splitIntoParagraphs(segments: TranslatedSegment[]): TranslatedSegment[][] {
-    const paragraphs: TranslatedSegment[][] = [];
-    let currentParagraph: TranslatedSegment[] = [];
+  function splitIntoParagraphs(segments: NormalizedSegment[]): NormalizedSegment[][] {
+    const paragraphs: NormalizedSegment[][] = [];
+    let currentParagraph: NormalizedSegment[] = [];
 
     segments.forEach((segment) => {
-      if (segment.type === ('paragraph-break' as any)) {
+      if (segment.type === 'paragraph-break') {
         // End current paragraph
         if (currentParagraph.length > 0) {
           paragraphs.push(currentParagraph);
@@ -62,18 +62,22 @@
 
   // Extract all sources from content
   function extractSources(
-    segments: TranslatedSegment[]
+    segments: NormalizedSegment[]
   ): Array<{ number: string; title: string; url: string }> {
     const sources: Array<{ number: string; title: string; url: string }> = [];
     const seen = new Set<string>();
 
     segments.forEach((segment) => {
-      const sourceTitle = segment.tooltip || segment.title; // tooltip is new, title for backwards compat
-      if (segment.type === 'source' && segment.url && sourceTitle && !seen.has(segment.text)) {
+      if (
+        segment.type === 'source' &&
+        segment.metadata?.url &&
+        segment.tooltip &&
+        !seen.has(segment.text)
+      ) {
         sources.push({
           number: segment.text,
-          title: sourceTitle,
-          url: segment.url,
+          title: segment.tooltip,
+          url: segment.metadata.url,
         });
         seen.add(segment.text);
       }
@@ -86,7 +90,7 @@
   $: sources = extractSources(story.content);
 
   // Calculate cumulative animation indices for sequencing
-  function countOriginals(segments: TranslatedSegment[]): number {
+  function countOriginals(segments: NormalizedSegment[]): number {
     return segments.filter((s) => s.original).length;
   }
 
@@ -110,7 +114,7 @@
   <div class="space-y-4">
     <ErrorBoundary>
       <h1 class="text-4xl font-bold leading-tight">
-        <TranslatedText segments={story.title} inline animate animationStartIndex={0} />
+        <PipelineRenderer segments={story.title} animate={true} animationStartIndex={0} />
       </h1>
     </ErrorBoundary>
 
@@ -120,10 +124,12 @@
         <!-- Metadata line -->
         <div class="flex flex-wrap items-center gap-3 text-sm opacity-70">
           <span>{formattedDate}</span>
-          <span class="opacity-40">•</span>
-          <span class={severityColors[story.severity]}>
-            {story.severity}
-          </span>
+          {#if story.severity}
+            <span class="opacity-40">•</span>
+            <span class={severityColors[story.severity] || 'text-primary-400'}>
+              {story.severity}
+            </span>
+          {/if}
           {#if story.verified}
             <span class="opacity-40">•</span>
             <span class="text-primary-400">verified</span>
@@ -187,81 +193,52 @@
   </div>
 
   <!-- Summary -->
-  <ErrorBoundary>
-    <div class="text-xl leading-relaxed opacity-90">
-      <TranslatedText
-        segments={story.summary}
-        inline
-        animate
-        animationStartIndex={summaryStartIndex}
-      />
-    </div>
-  </ErrorBoundary>
+  {#if story.summary.length > 0}
+    <ErrorBoundary>
+      <div class="text-lg leading-relaxed opacity-90">
+        <PipelineRenderer
+          segments={story.summary}
+          animate={true}
+          animationStartIndex={summaryStartIndex}
+        />
+      </div>
+    </ErrorBoundary>
+  {/if}
 
   <!-- Content -->
   <ErrorBoundary>
-    <div class="leading-relaxed opacity-80 space-y-6">
-      {#each contentParagraphs as paragraph, pIdx}
-        <p>
-          <TranslatedText
+    <div class="prose prose-lg max-w-none space-y-4">
+      {#each contentParagraphs as paragraph, i}
+        <p class="leading-relaxed">
+          <PipelineRenderer
             segments={paragraph}
-            inline
-            animate
-            animationStartIndex={getContentParagraphStartIndex(pIdx)}
+            animate={true}
+            animationStartIndex={getContentParagraphStartIndex(i)}
           />
         </p>
       {/each}
     </div>
   </ErrorBoundary>
 
-  <!-- Sources List -->
-  {#if sources.length > 0}
-    <div class="pt-6 border-t border-white/10 light:border-black/10">
-      <h3 class="text-lg font-bold mb-3">Sources</h3>
+  <!-- Sources -->
+  {#if sources.length > 0 && !minimal}
+    <div class="mt-8 pt-8 border-t border-white/10 light:border-black/10">
+      <h2 class="text-xl font-bold mb-4">Sources</h2>
       <ol class="space-y-2 text-sm opacity-70">
         {#each sources as source}
-          <li class="flex gap-2">
-            <span class="text-primary-500 font-bold">[{source.number}]</span>
+          <li>
+            <span class="font-bold">[{source.number}]</span>
             <a
               href={source.url}
               target="_blank"
               rel="noopener noreferrer"
-              class="hover:text-primary-500 underline"
+              class="hover:text-primary-400 underline"
             >
               {source.title}
             </a>
           </li>
         {/each}
       </ol>
-    </div>
-  {/if}
-
-  <!-- Source -->
-  {#if story.source && !minimal}
-    <div class="pt-6 border-t border-white/10 light:border-black/10">
-      <p class="text-sm opacity-50">
-        <strong>Attribution:</strong>
-        {story.source}
-      </p>
-    </div>
-  {/if}
-
-  <!-- Share Buttons - Bottom -->
-  {#if !minimal}
-    <div class="pt-8 border-t border-white/10 light:border-black/10">
-      <div class="bg-primary-900/20 light:bg-primary-100/50 rounded-lg p-6">
-        <h3 class="text-lg font-bold mb-3">Help Amplify This Story</h3>
-        <p class="text-sm opacity-70 mb-4">
-          Share this story to help others understand the human cost of repression in Iran. Your
-          share image is personalized to your location to create maximum empathy and impact.
-        </p>
-        <ShareButtons
-          title={shareTitle}
-          text={shareText}
-          storySlug={story.slug}
-          hashtags={story.hashtags || ''}
-        />
-      </div>
     </div>
   {/if}
 </article>

@@ -86,13 +86,13 @@
               on:mouseleave={handleMouseLeave}
               on:focus={() => handleMouseEnter(i)}
               on:blur={handleMouseLeave}
-              aria-label={segment.title || 'Source citation'}
+              aria-label={(segment.tooltip || segment.title) || 'Source citation'}
               ><sup
                 class="text-primary-500 font-bold hover:text-primary-600 cursor-pointer underline"
                 >{segment.text}</sup
               ></a
-            >{#if segment.title}<Tooltip
-                text={segment.title}
+            >{#if segment.tooltip || segment.title}<Tooltip
+                text={(segment.tooltip || segment.title) || ''}
                 show={hoveredIndex === i}
               />{/if}</span
           >{:else}<sup class="text-primary-500 font-bold">{segment.text}</sup

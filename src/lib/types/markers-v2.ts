@@ -160,6 +160,9 @@ export function getMarkerType(marker: Marker): string {
   if ('casualties' in marker) return 'casualties';
   if ('date' in marker) return 'date';
   if ('time' in marker) return 'time';
+  if ('text' in marker) return 'text';
+  if ('occupation' in marker) return 'occupation';
+  if ('currency' in marker) return 'currency';
   if ('sameAs' in marker) return 'alias';
   if ('type' in marker) return marker.type; // source, image, paragraph-break
   return 'unknown';

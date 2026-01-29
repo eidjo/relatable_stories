@@ -43,7 +43,7 @@
     const fillableTypes = ['date', 'source', 'image'];
 
     for (const segment of parsedSegments) {
-      if ((segment as any).isPlaceholder && segment.type && segment.key) {
+      if (segment.isPlaceholder && segment.type && segment.key) {
         // Only fill specific types (dates, sources, images)
         // Leave person/place markers as-is to preserve grammatical inflection
         if (fillableTypes.includes(segment.type)) {
@@ -267,7 +267,7 @@
   {@const metaCountryCode = $selectedCountry.toLowerCase()}
   {@const metaLanguageCode = $selectedLanguage}
   {@const metaTheme = $theme}
-  {@const shareImagePath = `/share/twitter/${slug}-${metaLanguageCode}-${metaCountryCode}-${metaTheme}.png`}
+  {@const shareImagePath = `/share/twitter/${slug}-${metaLanguageCode}-${metaCountryCode}-dark.png`}
   {@const storyTitle = translatedStory.title.map((s) => s.text).join('')}
   {@const storySummary = translatedStory.summary.map((s) => s.text).join('')}
 

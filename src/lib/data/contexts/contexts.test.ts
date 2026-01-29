@@ -157,20 +157,5 @@ describe('Places V2 YAML Validation', () => {
     });
   });
 
-  it('should have generic fallbacks', () => {
-    const v2Countries = ['US', 'UK', 'CZ'];
-
-    v2Countries.forEach((countryCode) => {
-      const places = getCountryPlacesV2(countryCode);
-
-      if (places.generic) {
-        expect(places.generic).toBeDefined();
-
-        if (places.generic.landmarks?.protest) {
-          expect(Array.isArray(places.generic.landmarks.protest)).toBe(true);
-          expect(places.generic.landmarks.protest.length).toBeGreaterThan(0);
-        }
-      }
-    });
-  });
+  // Generic fallbacks were removed - all places are now city-specific
 });

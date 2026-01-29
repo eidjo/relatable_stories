@@ -19,22 +19,21 @@
     supportsWebShare = 'share' in navigator;
   }
 
-  // Get user's selected country, language, and theme for personalized share images
+  // Get user's selected country and language for personalized share images
   $: countryCode = $translationContext.country.toLowerCase();
   $: languageCode = $selectedLanguage;
-  $: currentTheme = $theme;
 
   // Share URL - points to /share/{slug}/{country}/{lang} for perfect social meta tags
   $: shareUrl = browser
     ? `${window.location.origin}${base}/share/${storySlug}/${countryCode}/${languageCode}`
     : '';
 
-  // Share image URLs - use language, country, and theme specific images
+  // Share image URLs - always use dark theme
   $: twitterImageUrl = browser
-    ? `${window.location.origin}${base}/share/twitter/${storySlug}-${languageCode}-${countryCode}-${currentTheme}.png`
+    ? `${window.location.origin}${base}/share/twitter/${storySlug}-${languageCode}-${countryCode}-dark.png`
     : '';
   $: instagramImageUrl = browser
-    ? `${window.location.origin}${base}/share/instagram/${storySlug}-${languageCode}-${countryCode}-${currentTheme}.png`
+    ? `${window.location.origin}${base}/share/instagram/${storySlug}-${languageCode}-${countryCode}-dark.png`
     : '';
 
   async function handleWebShare() {
