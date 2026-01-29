@@ -86,7 +86,7 @@ const COUNTRY_LANGUAGES = {
  */
 async function generateTwitterImage(storySlug, countryCode, languageCode, outputDir) {
   // Translate story using pipeline
-  const translatedStory = await translateStory({
+  const translatedStory = translateStory({
     storySlug,
     country: countryCode,
     language: languageCode,
@@ -113,7 +113,7 @@ async function generateTwitterImage(storySlug, countryCode, languageCode, output
  */
 async function generateInstagramImage(storySlug, countryCode, languageCode, outputDir) {
   // Translate story using pipeline
-  const translatedStory = await translateStory({
+  const translatedStory = translateStory({
     storySlug,
     country: countryCode,
     language: languageCode,
