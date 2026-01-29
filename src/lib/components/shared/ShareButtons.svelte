@@ -5,7 +5,6 @@
   import { selectedLanguage } from '$lib/stores/language';
   import { theme } from '$lib/stores/theme';
 
-  export let url: string;
   export let title: string;
   export let text: string = '';
   export let storySlug: string;
@@ -41,10 +40,11 @@
   async function handleWebShare() {
     if (supportsWebShare && navigator.share) {
       try {
+        // Use shareUrl for Web Share API so social platforms get correct meta tags
         await navigator.share({
           title,
           text,
-          url,
+          url: shareUrl,
         });
       } catch (err) {
         // User cancelled or error occurred
@@ -60,7 +60,8 @@
 
   async function fallbackCopyToClipboard() {
     try {
-      await navigator.clipboard.writeText(url);
+      // Use shareUrl so social platforms get correct meta tags
+      await navigator.clipboard.writeText(shareUrl);
       showCopied = true;
       setTimeout(() => {
         showCopied = false;

@@ -23,8 +23,7 @@
   // Format date based on selected language
   $: formattedDate = formatDate(story.date, 'PPP', $selectedLanguage);
 
-  // Get current URL and prepare share data
-  $: currentUrl = browser ? window.location.href : '';
+  // Prepare share data
   $: shareTitle = story.title.map(s => s.text).join('');
   $: shareText = `${shareTitle} - A story from Iran's uprising, translated into your local context.`;
 
@@ -150,7 +149,6 @@
             <!-- Right: Share -->
             <div class="flex items-center gap-3">
               <ShareButtons
-                url={currentUrl}
                 title={shareTitle}
                 text={shareText}
                 storySlug={story.slug}
@@ -243,7 +241,6 @@
           Your share image is personalized to your location to create maximum empathy and impact.
         </p>
         <ShareButtons
-          url={currentUrl}
           title={shareTitle}
           text={shareText}
           storySlug={story.slug}
