@@ -8,7 +8,7 @@ import { promises as fs } from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import yaml from 'js-yaml';
-import { translateMarker, getOriginalValue } from '../src/lib/translation/core.ts';
+import { translateMarkerV2 } from '../src/lib/translation/core.ts';
 import { format } from 'date-fns';
 import { enUS, cs, fr, de, es, it, nl, sv, nb, da, fi, pl, pt } from 'date-fns/locale';
 
@@ -47,7 +47,7 @@ function formatDateLocalized(dateString, languageCode = 'en') {
     const date = new Date(dateString);
     const locale = localeMap[languageCode] || localeMap['en'];
     return format(date, 'PPP', { locale });
-  } catch (error) {
+  } catch (_error) {
     return dateString;
   }
 }
@@ -100,7 +100,7 @@ const fontPath = path.join(rootDir, 'static', 'fonts', 'JetBrainsMono-Regular.tt
 try {
   GlobalFonts.registerFromPath(fontPath, 'JetBrains Mono');
   console.log('✓ Loaded JetBrains Mono font');
-} catch (error) {
+} catch (_error) {
   console.warn('⚠ Could not load JetBrains Mono font, using default');
 }
 
@@ -116,7 +116,8 @@ function parsePreTranslated(text, markers, storyId, languageCode = 'en') {
 
   paragraphs.forEach((paragraph, pIdx) => {
     // Combined regex for both [[MARKER:...]] and {{...}} formats
-    const combinedRegex = /(\[\[MARKER:([^:]+):([^:]+):([^\|]+)\|([^\]]+)\]\])|(\{\{([^:}]+):([^}]+)\}\})/g;
+    // Matches: [[MARKER:type:key:original|value]] or {{key}} or {{key:suffix}}
+    const combinedRegex = /(\[\[MARKER:([^:]+):([^:]+):([^|]+)\|([^\]]+)\]\])|(\{\{([^:}]+)(?::([^}]+))?\}\})/g;
     let lastIndex = 0;
     let match;
 
@@ -132,7 +133,7 @@ function parsePreTranslated(text, markers, storyId, languageCode = 'en') {
       // Check which format matched
       if (match[1]) {
         // [[MARKER:...]] format
-        const [, , type, key, original, translatedValue] = match;
+        const [, , _type, _key, original, translatedValue] = match;
         allSegments.push({
           type: 'translated',
           text: translatedValue,
@@ -140,27 +141,27 @@ function parsePreTranslated(text, markers, storyId, languageCode = 'en') {
         });
       } else if (match[6]) {
         // {{...}} format - needs to be translated
-        const [, , , , , , fullMatch, type, key] = match;
-        const marker = markers[key];
+        // match[7] = key, match[8] = suffix (optional)
+        const [, , , , , , fullMatch, key, suffix] = match;
 
-        // Handle sources specially
-        if (type === 'source') {
+        // Handle special keys
+        if (key === 'source') {
           allSegments.push({
             type: 'source',
             text: `[${sourceCounter}]`,
           });
           sourceCounter++;
-        } else if (type === 'date') {
-          // Format date using date-locale
-          const dateValue = marker?.value || fullMatch;
-          const formattedDate = formatDateLocalized(dateValue, languageCode);
-          allSegments.push({
-            type: 'text',
-            text: formattedDate,
-          });
-        } else if (type === 'image') {
+          continue;
+        }
+
+        if (key === 'image') {
           // Skip images in share images
-        } else if (marker) {
+          continue;
+        }
+
+        const marker = markers[key];
+
+        if (marker) {
           // Translate other marker types that weren't pre-translated
           const context = contextData;
           const countryCode = 'US'; // Fallback for untranslated markers
@@ -173,14 +174,22 @@ function parsePreTranslated(text, markers, storyId, languageCode = 'en') {
             names: countryNames,
             places: countryPlaces,
             population: targetCountry?.population || 85000000,
-            currencySymbol: targetCountry?.currencySymbol || '$',
-            rialToLocal: targetCountry?.rialToLocal || 0.000024,
+            currencySymbol: targetCountry?.['currency-symbol'] || '$',
+            rialToLocal: targetCountry?.['rial-to-local'] || 0.000024,
+            comparableEvents: [], // Not needed for share images
+            languageCode: languageCode,
           };
 
-          const result = translateMarker(key, marker, translationData, storyId);
+          const translationContext = {
+            markers: markers,
+            resolved: new Map(),
+            storyId: storyId,
+          };
+
+          const result = translateMarkerV2(key, marker, translationData, translationContext);
           allSegments.push({
             type: result.original ? 'translated' : 'text',
-            text: result.translated,
+            text: result.value,
             original: result.original || null,
           });
         } else {
@@ -231,8 +240,16 @@ function translateWithOriginals(text, markers, countryCode, storyId) {
     names: countryNames,
     places: countryPlaces,
     population: targetCountry?.population || 85000000,
-    currencySymbol: targetCountry?.currencySymbol || '$',
-    rialToLocal: targetCountry?.rialToLocal || 0.000024,
+    currencySymbol: targetCountry?.['currency-symbol'] || '$',
+    rialToLocal: targetCountry?.['rial-to-local'] || 0.000024,
+    comparableEvents: [],
+    languageCode: 'en',
+  };
+
+  const translationContext = {
+    markers: markers,
+    resolved: new Map(),
+    storyId: storyId,
   };
 
   // Split by newlines first to preserve paragraph structure (like website does)
@@ -242,7 +259,8 @@ function translateWithOriginals(text, markers, countryCode, storyId) {
 
   paragraphs.forEach((paragraph, pIdx) => {
     let lastIndex = 0;
-    const markerRegex = /\{\{([^:}]+):([^}]+)\}\}/g;
+    // Match {{key}} or {{key:suffix}}
+    const markerRegex = /\{\{([^:}]+)(?::([^}]+))?\}\}/g;
     let match;
 
     while ((match = markerRegex.exec(paragraph)) !== null) {
@@ -254,11 +272,10 @@ function translateWithOriginals(text, markers, countryCode, storyId) {
         });
       }
 
-      const [fullMatch, type, key] = match;
-      const marker = markers[key];
+      const [fullMatch, key, suffix] = match;
 
-      // Handle sources specially
-      if (type === 'source') {
+      // Handle special marker types by key
+      if (key === 'source') {
         allSegments.push({
           type: 'source',
           text: `[${sourceCounter}]`,
@@ -268,25 +285,46 @@ function translateWithOriginals(text, markers, countryCode, storyId) {
         continue;
       }
 
+      if (key === 'image') {
+        // Skip images in share images
+        lastIndex = match.index + fullMatch.length;
+        continue;
+      }
+
+      const marker = markers[key];
+
       if (!marker) {
         allSegments.push({ type: 'text', text: fullMatch });
         lastIndex = match.index + fullMatch.length;
         continue;
       }
 
-      // Use core translation function
-      const result = translateMarker(key, marker, translationData, storyId);
+      // Handle suffixes
+      if (suffix) {
+        if (suffix === 'age' && marker.age) {
+          allSegments.push({
+            type: 'text',
+            text: marker.age.toString(),
+          });
+          lastIndex = match.index + fullMatch.length;
+          continue;
+        }
+        // Add more suffix handling as needed
+      }
 
-      if (result.original && result.translated !== result.original) {
+      // Use core translation function
+      const result = translateMarkerV2(key, marker, translationData, translationContext);
+
+      if (result.original && result.value !== result.original) {
         allSegments.push({
           type: 'translated',
-          text: result.translated,
+          text: result.value,
           original: result.original,
         });
       } else {
         allSegments.push({
           type: 'text',
-          text: result.translated,
+          text: result.value,
         });
       }
 
@@ -365,10 +403,10 @@ function drawSegmentedText(ctx, segments, x, y, maxWidth, maxHeight, colors, fon
 
       if (currentY <= maxHeight) {
         ctx.fillText(segment.original, currentX, currentY);
-        // Draw strikethrough line
+        // Draw strikethrough line (thicker for visibility)
         const lineY = currentY - fontSize * 0.3;
         ctx.strokeStyle = colors.strikethrough;
-        ctx.lineWidth = 1;
+        ctx.lineWidth = 2.5;
         ctx.beginPath();
         ctx.moveTo(currentX, lineY);
         ctx.lineTo(currentX + originalWidth, lineY);
@@ -602,7 +640,7 @@ async function generateInstagramImage(story, outputPath, theme, countryCode, cou
 /**
  * Wrap text helper
  */
-function wrapText(ctx, text, maxWidth) {
+function _wrapText(ctx, text, maxWidth) {
   const words = text.split(' ');
   const lines = [];
   let currentLine = words[0] || '';
@@ -675,7 +713,7 @@ async function generateAllImages() {
                 markers: originalStory.markers, // Use original markers for parsing
               };
               isTranslated = true;
-            } catch (error) {
+            } catch (_error) {
               // Translation doesn't exist, use original with runtime translation
               console.log(`  ⏭️  No translation for ${lang}-${country.code}, using runtime translation`);
             }

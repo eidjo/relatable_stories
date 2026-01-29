@@ -7,7 +7,7 @@ import { promises as fs } from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import yaml from 'js-yaml';
-import { translateMarker } from '../src/lib/translation/core.ts';
+import { translateMarkerV2 } from '../src/lib/translation/core.ts';
 import { format } from 'date-fns';
 import { cs, nl } from 'date-fns/locale';
 
@@ -106,14 +106,22 @@ function parsePreTranslated(text, markers, storyId, languageCode = 'en') {
             names: countryNames,
             places: countryPlaces,
             population: targetCountry?.population || 85000000,
-            currencySymbol: targetCountry?.currencySymbol || '$',
-            rialToLocal: targetCountry?.rialToLocal || 0.000024,
+            currencySymbol: targetCountry?.['currency-symbol'] || '$',
+            rialToLocal: targetCountry?.['rial-to-local'] || 0.000024,
+            comparableEvents: [],
+            languageCode: languageCode,
           };
 
-          const result = translateMarker(key, marker, translationData, storyId);
+          const translationContext = {
+            markers: markers,
+            resolved: new Map(),
+            storyId: storyId,
+          };
+
+          const result = translateMarkerV2(key, marker, translationData, translationContext);
           allSegments.push({
             type: result.original ? 'translated' : 'text',
-            text: result.translated,
+            text: result.value,
             original: result.original || null,
           });
         } else {

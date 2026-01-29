@@ -7,7 +7,7 @@ import { promises as fs } from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import yaml from 'js-yaml';
-import { translateMarker } from '../src/lib/translation/core.ts';
+import { translateMarkerV2 } from '../src/lib/translation/core.ts';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -50,8 +50,16 @@ function translateWithOriginals(text, markers, countryCode, storyId) {
     names: countryNames,
     places: countryPlaces,
     population: targetCountry?.population || 85000000,
-    currencySymbol: targetCountry?.currencySymbol || '$',
-    rialToLocal: targetCountry?.rialToLocal || 0.000024,
+    currencySymbol: targetCountry?.['currency-symbol'] || '$',
+    rialToLocal: targetCountry?.['rial-to-local'] || 0.000024,
+    comparableEvents: [],
+    languageCode: 'en',
+  };
+
+  const translationContext = {
+    markers: markers,
+    resolved: new Map(),
+    storyId: storyId,
   };
 
   // Split by newlines first to preserve paragraph structure (like website does)
@@ -94,18 +102,18 @@ function translateWithOriginals(text, markers, countryCode, storyId) {
       }
 
       // Use core translation function
-      const result = translateMarker(key, marker, translationData, storyId);
+      const result = translateMarkerV2(key, marker, translationData, translationContext);
 
-      if (result.original && result.translated !== result.original) {
+      if (result.original && result.value !== result.original) {
         allSegments.push({
           type: 'translated',
-          text: result.translated,
+          text: result.value,
           original: result.original,
         });
       } else {
         allSegments.push({
           type: 'text',
-          text: result.translated,
+          text: result.value,
         });
       }
 
