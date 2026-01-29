@@ -5,6 +5,7 @@
   import { selectedCountry } from '$lib/stores/country';
   import { selectedLanguage } from '$lib/stores/language';
   import { countries, countryLanguages, languageNames } from '$lib/data/contexts';
+  import { modalExamples } from '$lib/data/content';
   import { sortCountriesForDisplay } from '$lib/utils/sortCountries';
   import { selectBestLanguageForCountry } from '$lib/utils/languageSelection';
   import type { CountryCode } from '$lib/types';
@@ -69,6 +70,17 @@
     selectedLang = lang;
   }
 
+  function getTranslation(exampleId: string, countryCode: CountryCode | null): string {
+    const example = modalExamples.examples.find((ex) => ex.id === exampleId);
+    if (!example) return '';
+
+    if (countryCode && example.translations[countryCode]) {
+      return example.translations[countryCode];
+    }
+
+    return example.translations.default || '';
+  }
+
   $: currentCountry = countries.find((c) => c.code === selectedOption);
 </script>
 
@@ -89,42 +101,41 @@
   >
     <!-- Header -->
     <div class="space-y-4">
-      <h2 id="modal-title" class="text-2xl font-bold text-white">Stories from Iran</h2>
+      <div class="space-y-2">
+        <h2 id="modal-title" class="text-2xl font-bold text-white">Relatable Stories</h2>
+        <p class="text-stone-400 text-sm">Stories from Iran's 2022 uprising</p>
+      </div>
 
-      <!-- Visual Example of Substitution -->
-      <div class="bg-gradient-to-br from-stone-800/80 to-stone-800/40 border-2 border-stone-700/80 rounded-lg p-5 space-y-3">
-        <p class="text-stone-300 text-xs font-medium uppercase tracking-wide">How it works</p>
-        <div class="space-y-3">
-          <div class="flex items-center gap-3">
-            <span class="text-stone-500 line-through text-base">Mahsa in Tehran</span>
-            <svg class="w-5 h-5 text-primary-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-            </svg>
-            <span class="text-primary-400 font-semibold text-base">
-              {#if selectedOption === 'US'}Emily in New York
-              {:else if selectedOption === 'UK'}Olivia in London
-              {:else if selectedOption === 'FR'}Emma in Paris
-              {:else if selectedOption === 'DE'}Emma in Berlin
-              {:else if selectedOption === 'ES'}Lucía in Madrid
-              {:else if selectedOption === 'IT'}Sofia in Rome
-              {:else if selectedOption === 'NL'}Emma in Amsterdam
-              {:else if selectedOption === 'SE'}Alice in Stockholm
-              {:else if selectedOption === 'BE'}Emma in Brussels
-              {:else if selectedOption === 'CZ'}Anna in Prague
-              {:else if selectedOption === 'CA'}Emma in Toronto
-              {:else if selectedOption === 'AU'}Charlotte in Sydney
-              {:else if selectedOption === 'BR'}Alice in São Paulo
-              {:else if selectedOption === 'GR'}Maria in Athens
-              {:else if selectedOption === 'PT'}Maria in Lisbon
-              {:else if selectedOption === 'NO'}Emma in Oslo
-              {:else if selectedOption === 'DK'}Emma in Copenhagen
-              {:else if selectedOption === 'FI'}Aino in Helsinki
-              {:else if selectedOption === 'PL'}Julia in Warsaw
-              {:else}Emma in your city
-              {/if}
-            </span>
-          </div>
-          <p class="text-stone-400 text-xs italic">Names, places, and numbers adapt to your context</p>
+      <!-- Introduction -->
+      <p class="text-stone-300 text-sm leading-relaxed">
+        These are real stories from Iran's fight for freedom. To help you understand and empathize,
+        we translate names, places, and numbers into your local context.
+      </p>
+
+      <!-- Examples of Context Translations -->
+      <div class="bg-gradient-to-br from-stone-800/80 to-stone-800/40 border-2 border-stone-700/80 rounded-lg overflow-hidden">
+        <div class="px-5 pt-4 pb-3">
+          <p class="text-stone-300 text-xs font-medium uppercase tracking-wide">Example of context translations</p>
+        </div>
+
+        <!-- Table -->
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-t border-stone-700/50">
+                <th class="px-5 py-2 text-left text-xs font-medium text-stone-400 uppercase tracking-wider">Original</th>
+                <th class="px-5 py-2 text-left text-xs font-medium text-stone-400 uppercase tracking-wider">Your Context</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-stone-700/30">
+              {#each modalExamples.examples as example}
+                <tr>
+                  <td class="px-5 py-3 text-stone-500">{example.original}</td>
+                  <td class="px-5 py-3 text-primary-400 font-semibold">{getTranslation(example.id, selectedOption)}</td>
+                </tr>
+              {/each}
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
