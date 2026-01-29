@@ -236,7 +236,9 @@
 
         <ol class="space-y-4 text-stone-300 text-sm">
           <li class="flex gap-3">
-            <span class="flex-shrink-0 flex items-center justify-center w-6 h-6 rounded-full bg-primary-600 text-white font-bold text-xs">
+            <span
+              class="flex-shrink-0 flex items-center justify-center w-6 h-6 rounded-full bg-primary-600 text-white font-bold text-xs"
+            >
               1
             </span>
             <div class="flex-1">
@@ -251,7 +253,9 @@
           </li>
 
           <li class="flex gap-3">
-            <span class="flex-shrink-0 flex items-center justify-center w-6 h-6 rounded-full bg-primary-600 text-white font-bold text-xs">
+            <span
+              class="flex-shrink-0 flex items-center justify-center w-6 h-6 rounded-full bg-primary-600 text-white font-bold text-xs"
+            >
               2
             </span>
             <div class="flex-1">
@@ -263,7 +267,9 @@
           </li>
 
           <li class="flex gap-3">
-            <span class="flex-shrink-0 flex items-center justify-center w-6 h-6 rounded-full bg-primary-600 text-white font-bold text-xs">
+            <span
+              class="flex-shrink-0 flex items-center justify-center w-6 h-6 rounded-full bg-primary-600 text-white font-bold text-xs"
+            >
               3
             </span>
             <div class="flex-1">
@@ -275,7 +281,9 @@
           </li>
 
           <li class="flex gap-3">
-            <span class="flex-shrink-0 flex items-center justify-center w-6 h-6 rounded-full bg-primary-600 text-white font-bold text-xs">
+            <span
+              class="flex-shrink-0 flex items-center justify-center w-6 h-6 rounded-full bg-primary-600 text-white font-bold text-xs"
+            >
               4
             </span>
             <div class="flex-1">

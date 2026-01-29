@@ -13,7 +13,13 @@ import {
 import { formatDateLocalized } from '$lib/utils/date-locale';
 import type { Story, TranslatedStory, TranslatedSegment, Marker } from '$lib/types';
 import type { SourceMarker, ImageMarker } from '$lib/types';
-import { getMarkerType, isPersonMarker, isCasualtiesMarker, isSourceMarker, isImageMarker } from '$lib/types';
+import {
+  getMarkerType,
+  isPersonMarker,
+  isCasualtiesMarker,
+  isSourceMarker,
+  isImageMarker,
+} from '$lib/types';
 
 /**
  * Context from UI (stores) needs to be converted to V2 format
@@ -37,7 +43,10 @@ export interface UITranslationContext {
 /**
  * Convert UI context to V2 translation data
  */
-function contextToData(context: UITranslationContext, languageCode: string = 'en'): TranslationDataV2 {
+function contextToData(
+  context: UITranslationContext,
+  languageCode: string = 'en'
+): TranslationDataV2 {
   return {
     country: context.country,
     names: context.names,
@@ -89,7 +98,7 @@ export function translateText(
         // Special handling for source and image references
         if (token.markerKey === 'source' && token.suffix && sources) {
           // {{source:id}} pattern - lookup in sources array
-          const source = sources.find(s => s.id === token.suffix);
+          const source = sources.find((s) => s.id === token.suffix);
           if (source) {
             segments.push({
               text: `[${source.number}]`,
@@ -112,7 +121,7 @@ export function translateText(
 
         if (token.markerKey === 'image' && token.suffix && images) {
           // {{image:id}} pattern - lookup in images array
-          const image = images.find(img => img.id === token.suffix);
+          const image = images.find((img) => img.id === token.suffix);
           if (image) {
             segments.push({
               text: '',
@@ -311,11 +320,35 @@ export function translateStory(
 ): TranslatedStory {
   return {
     id: story.id,
-    title: translateText(story.title, story.markers, context, story.id, languageCode, story.sources, story.images),
+    title: translateText(
+      story.title,
+      story.markers,
+      context,
+      story.id,
+      languageCode,
+      story.sources,
+      story.images
+    ),
     slug: story.slug,
     date: story.date,
-    summary: translateText(story.summary, story.markers, context, story.id, languageCode, story.sources, story.images),
-    content: translateText(story.content, story.markers, context, story.id, languageCode, story.sources, story.images),
+    summary: translateText(
+      story.summary,
+      story.markers,
+      context,
+      story.id,
+      languageCode,
+      story.sources,
+      story.images
+    ),
+    content: translateText(
+      story.content,
+      story.markers,
+      context,
+      story.id,
+      languageCode,
+      story.sources,
+      story.images
+    ),
     tags: story.tags,
     hashtags: story.hashtags,
     severity: story.severity,

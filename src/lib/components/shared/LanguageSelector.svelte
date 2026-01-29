@@ -4,7 +4,7 @@
   import { countryLanguages, languageNames } from '$lib/data/contexts';
 
   $: countrySpecificLanguages = countryLanguages.countries[$selectedCountry]?.languages || [];
-  $: additionalLanguages = countrySpecificLanguages.filter(lang => lang !== 'en');
+  $: additionalLanguages = countrySpecificLanguages.filter((lang) => lang !== 'en');
   $: showSelector = additionalLanguages.length > 0;
   $: currentLanguage = $selectedLanguage;
 

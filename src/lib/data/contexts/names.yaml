@@ -1,32 +1,8 @@
 IR:
   female:
-    [
-      'Zahra',
-      'Fatemeh',
-      'Maryam',
-      'Atefeh',
-      'Leila',
-      'Mahsa',
-      'Sarina',
-      'Nika',
-      'Neda',
-      'Shirin',
-    ]
-  male:
-    [
-      'Hassan',
-      'Mohammad',
-      'Ali',
-      'Reza',
-      'Hossein',
-      'Mehdi',
-      'Amir',
-      'Arash',
-      'Omid',
-      'Kaveh',
-    ]
-  neutral:
-    ['Arya', 'Saman', 'Pari', 'Mitra', 'Raha', 'Azad', 'Kian', 'Nima', 'Saba', 'Shayan']
+    ['Zahra', 'Fatemeh', 'Maryam', 'Atefeh', 'Leila', 'Mahsa', 'Sarina', 'Nika', 'Neda', 'Shirin']
+  male: ['Hassan', 'Mohammad', 'Ali', 'Reza', 'Hossein', 'Mehdi', 'Amir', 'Arash', 'Omid', 'Kaveh']
+  neutral: ['Arya', 'Saman', 'Pari', 'Mitra', 'Raha', 'Azad', 'Kian', 'Nima', 'Saba', 'Shayan']
 
 US:
   female:
@@ -193,18 +169,7 @@ BR:
 
 PT:
   female:
-    [
-      'Maria',
-      'Leonor',
-      'Matilde',
-      'Beatriz',
-      'Carolina',
-      'Ana',
-      'Mariana',
-      'Sofia',
-      'Inês',
-      'Rita',
-    ]
+    ['Maria', 'Leonor', 'Matilde', 'Beatriz', 'Carolina', 'Ana', 'Mariana', 'Sofia', 'Inês', 'Rita']
   male:
     [
       'João',
@@ -234,23 +199,53 @@ DK:
 
 FI:
   female: ['Aino', 'Aada', 'Elsa', 'Sofia', 'Emilia', 'Helmi', 'Lilja', 'Ella', 'Linnea', 'Isla']
-  male:
-    ['Onni', 'Eino', 'Leo', 'Väinö', 'Oliver', 'Elias', 'Eeli', 'Aatos', 'Mikael', 'Aleksi']
-  neutral:
-    ['Alex', 'Kimi', 'Aino', 'Mika', 'Kim', 'Robin', 'Samu', 'Jesse', 'Miro', 'Sasha']
+  male: ['Onni', 'Eino', 'Leo', 'Väinö', 'Oliver', 'Elias', 'Eeli', 'Aatos', 'Mikael', 'Aleksi']
+  neutral: ['Alex', 'Kimi', 'Aino', 'Mika', 'Kim', 'Robin', 'Samu', 'Jesse', 'Miro', 'Sasha']
 
 PL:
   female:
     ['Julia', 'Zuzanna', 'Maja', 'Zofia', 'Hanna', 'Lena', 'Alicja', 'Amelia', 'Maria', 'Oliwia']
   male:
-    ['Antoni', 'Jan', 'Jakub', 'Szymon', 'Franciszek', 'Aleksander', 'Michał', 'Wojciech', 'Kacper', 'Filip']
+    [
+      'Antoni',
+      'Jan',
+      'Jakub',
+      'Szymon',
+      'Franciszek',
+      'Aleksander',
+      'Michał',
+      'Wojciech',
+      'Kacper',
+      'Filip',
+    ]
   neutral:
     ['Alex', 'Sasha', 'Andrea', 'Dominik', 'Niki', 'Kuba', 'Mika', 'Charlie', 'Adrian', 'Robin']
 
 GR:
   female:
-    ['Maria', 'Eleni', 'Sofia', 'Katerina', 'Dimitra', 'Vasiliki', 'Georgia', 'Aikaterini', 'Anna', 'Christina']
+    [
+      'Maria',
+      'Eleni',
+      'Sofia',
+      'Katerina',
+      'Dimitra',
+      'Vasiliki',
+      'Georgia',
+      'Aikaterini',
+      'Anna',
+      'Christina',
+    ]
   male:
-    ['Giorgos', 'Dimitris', 'Nikos', 'Konstantinos', 'Ioannis', 'Christos', 'Panagiotis', 'Vasilis', 'Andreas', 'Alexandros']
-  neutral:
-    ['Alex', 'Andrea', 'Niki', 'Sasha', 'Chris', 'Dimi', 'Stav', 'Theo', 'Panos', 'Ari']
+    [
+      'Giorgos',
+      'Dimitris',
+      'Nikos',
+      'Konstantinos',
+      'Ioannis',
+      'Christos',
+      'Panagiotis',
+      'Vasilis',
+      'Andreas',
+      'Alexandros',
+    ]
+  neutral: ['Alex', 'Andrea', 'Niki', 'Sasha', 'Chris', 'Dimi', 'Stav', 'Theo', 'Panos', 'Ari']

@@ -53,11 +53,7 @@ export function getLocale(languageCode: string): Locale {
  * @param languageCode - Language code from country-languages.yaml
  * @returns Formatted date string
  */
-export function formatDate(
-  date: Date | string,
-  formatStr: string,
-  languageCode: string
-): string {
+export function formatDate(date: Date | string, formatStr: string, languageCode: string): string {
   try {
     const dateObj = typeof date === 'string' ? new Date(date) : date;
     const locale = getLocale(languageCode);

@@ -11,8 +11,13 @@
 
   // Use translated title and summary (with country-specific context and names)
   // Falls back to generic meta tags if translation failed
-  const socialTitle = data.translatedTitle || data.story.meta?.['og-title'] || "A Story from Iran - Relatable Stories";
-  const socialDescription = data.translatedSummary || data.story.meta?.['og-description'] ||
+  const socialTitle =
+    data.translatedTitle ||
+    data.story.meta?.['og-title'] ||
+    'A Story from Iran - Relatable Stories';
+  const socialDescription =
+    data.translatedSummary ||
+    data.story.meta?.['og-description'] ||
     "Real stories from Iran's uprisings, translated into your local context to help you understand and empathize.";
 
   // Redirect immediately in browser (before layout logic runs)

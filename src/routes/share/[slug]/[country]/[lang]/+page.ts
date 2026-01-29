@@ -3,7 +3,12 @@ import { getStoryBySlug, getStoryBySlugTranslated } from '$lib/data/stories';
 import { getShareRouteEntries } from '$lib/utils/share-routes';
 import { translateStory, type UITranslationContext } from '$lib/translation/translator';
 import { parsePreTranslatedWithParagraphs } from '$lib/translation/pretranslated-parser';
-import { getCountryByCode, getCountryNames, getCountryPlacesV2, getCountryComparableEvents } from '$lib/data/contexts';
+import {
+  getCountryByCode,
+  getCountryNames,
+  getCountryPlacesV2,
+  getCountryComparableEvents,
+} from '$lib/data/contexts';
 import { error as throwError } from '@sveltejs/kit';
 import type { CountryCode, TranslatedSegment } from '$lib/types';
 
@@ -95,7 +100,11 @@ export const load: PageLoad = async ({ params }) => {
     try {
       const preTranslatedStory = await getStoryBySlugTranslated(slug, lang, countryCode);
 
-      if (preTranslatedStory && (preTranslatedStory.title?.includes('[[MARKER:') || preTranslatedStory.content?.includes('[[MARKER:'))) {
+      if (
+        preTranslatedStory &&
+        (preTranslatedStory.title?.includes('[[MARKER:') ||
+          preTranslatedStory.content?.includes('[[MARKER:'))
+      ) {
         // Has pre-translated markers - parse them
         const parsedTitle = parsePreTranslatedWithParagraphs(preTranslatedStory.title);
         const parsedSummary = parsePreTranslatedWithParagraphs(preTranslatedStory.summary);

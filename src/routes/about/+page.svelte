@@ -10,7 +10,9 @@
   // Preserve country parameter in links
   $: countryParam = browser ? $page.url.searchParams.get('country') : null;
   $: storiesUrl = countryParam ? `${base}/stories?country=${countryParam}` : `${base}/stories`;
-  $: actionUrl = countryParam ? `${base}/take-action?country=${countryParam}` : `${base}/take-action`;
+  $: actionUrl = countryParam
+    ? `${base}/take-action?country=${countryParam}`
+    : `${base}/take-action`;
 </script>
 
 <SocialMeta

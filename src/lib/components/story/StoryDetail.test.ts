@@ -1,7 +1,12 @@
 import { describe, it } from 'vitest';
 import { translateStory } from '$lib/translation/translator';
 import { stories } from '$lib/data/stories';
-import { getCountryByCode, getCountryNames, getCountryPlacesV2, getCountryComparableEvents } from '$lib/data/contexts';
+import {
+  getCountryByCode,
+  getCountryNames,
+  getCountryPlacesV2,
+  getCountryComparableEvents,
+} from '$lib/data/contexts';
 
 describe('Story Rendering', () => {
   it('should check spacing in rendered story content', () => {

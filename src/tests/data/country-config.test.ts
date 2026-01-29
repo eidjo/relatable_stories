@@ -15,7 +15,9 @@ const DATA_DIR = join(process.cwd(), 'src/lib/data/contexts');
 const countriesData = load(readFileSync(join(DATA_DIR, 'countries.yaml'), 'utf-8')) as {
   countries: Country[];
 };
-const countryLanguagesData = load(readFileSync(join(DATA_DIR, 'country-languages.yaml'), 'utf-8')) as {
+const countryLanguagesData = load(
+  readFileSync(join(DATA_DIR, 'country-languages.yaml'), 'utf-8')
+) as {
   countries: Record<string, { languages: string[] }>;
   language_names: Record<string, string>;
 };
@@ -175,8 +177,7 @@ describe('Country Configuration Validation', () => {
 
       if (issues.length > 0) {
         throw new Error(
-          `Name list issues:\n${issues.join('\n')}\n` +
-            `Fix in src/lib/data/contexts/names.yaml`
+          `Name list issues:\n${issues.join('\n')}\n` + `Fix in src/lib/data/contexts/names.yaml`
         );
       }
 
@@ -254,17 +255,17 @@ describe('Country Configuration Validation', () => {
         }
 
         // At least one city must have each type of landmark/facility
-        const hasProtestLandmark = places.cities.some((c: any) =>
-          c.landmarks?.protest && c.landmarks.protest.length > 0
+        const hasProtestLandmark = places.cities.some(
+          (c: any) => c.landmarks?.protest && c.landmarks.protest.length > 0
         );
-        const hasMonumentLandmark = places.cities.some((c: any) =>
-          c.landmarks?.monument && c.landmarks.monument.length > 0
+        const hasMonumentLandmark = places.cities.some(
+          (c: any) => c.landmarks?.monument && c.landmarks.monument.length > 0
         );
-        const hasUniversities = places.cities.some((c: any) =>
-          c.universities && c.universities.length > 0
+        const hasUniversities = places.cities.some(
+          (c: any) => c.universities && c.universities.length > 0
         );
-        const hasGovFacilities = places.cities.some((c: any) =>
-          c['government-facilities'] && c['government-facilities'].length > 0
+        const hasGovFacilities = places.cities.some(
+          (c: any) => c['government-facilities'] && c['government-facilities'].length > 0
         );
 
         if (!hasProtestLandmark) {
@@ -300,7 +301,9 @@ describe('Country Configuration Validation', () => {
         if (!places || !places.cities) return;
 
         if (places.cities.length < 2) {
-          issues.push(`${code}: only ${places.cities.length} city (recommend at least 2 for variety)`);
+          issues.push(
+            `${code}: only ${places.cities.length} city (recommend at least 2 for variety)`
+          );
         }
       });
 

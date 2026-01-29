@@ -25,7 +25,11 @@
 
   // Reload story when language or country changes
   $: if (slug && $selectedLanguage && $selectedCountry && locationConfirmed) {
-    console.log('🔄 Reactive: Triggering loadStory', { slug, lang: $selectedLanguage, country: $selectedCountry });
+    console.log('🔄 Reactive: Triggering loadStory', {
+      slug,
+      lang: $selectedLanguage,
+      country: $selectedCountry,
+    });
     loadStory(slug, $selectedLanguage, $selectedCountry);
   }
 
@@ -89,8 +93,8 @@
       story = loadedStory;
 
       // Check if story has [[MARKER:...]] format (pre-translated)
-      const hasPreTranslatedMarkers = loadedStory.title?.includes('[[MARKER:') ||
-                                      loadedStory.content?.includes('[[MARKER:');
+      const hasPreTranslatedMarkers =
+        loadedStory.title?.includes('[[MARKER:') || loadedStory.content?.includes('[[MARKER:');
       console.log('🔍 Has pre-translated markers:', hasPreTranslatedMarkers);
 
       if (hasPreTranslatedMarkers) {
@@ -103,7 +107,9 @@
         const parsedContent = parsePreTranslatedWithParagraphs(loadedStory.content);
 
         // Fill in {{marker}} placeholders from original story using translator with target language
-        const originalTranslated = originalStory ? translateStory(originalStory, $translationContext, language) : null;
+        const originalTranslated = originalStory
+          ? translateStory(originalStory, $translationContext, language)
+          : null;
 
         translatedStory = {
           id: loadedStory.id,
@@ -123,14 +129,14 @@
         };
         console.log('✅ Set translatedStory (pre-translated)', {
           id: translatedStory.id,
-          titleLength: translatedStory.title.length
+          titleLength: translatedStory.title.length,
         });
       } else {
         // Regular translation with {{markers}}
         translatedStory = translateStory(loadedStory, $translationContext, language);
         console.log('✅ Set translatedStory (runtime)', {
           id: translatedStory.id,
-          titleLength: translatedStory.title.length
+          titleLength: translatedStory.title.length,
         });
       }
     } catch (error) {
@@ -155,7 +161,9 @@
   $: queryParams = [
     countryParam ? `country=${countryParam}` : null,
     langParam ? `lang=${langParam}` : null,
-  ].filter(Boolean).join('&');
+  ]
+    .filter(Boolean)
+    .join('&');
   $: storiesUrl = queryParams ? `/stories?${queryParams}` : '/stories';
   $: actionUrl = queryParams ? `/take-action?${queryParams}` : '/take-action';
 
@@ -209,7 +217,7 @@
       // No language in URL, default to first additional language or 'en'
       const currentCountry = urlCountry || $selectedCountry;
       const countryLangs = countryLanguages.countries[currentCountry]?.languages || [];
-      const additionalLangs = countryLangs.filter(lang => lang !== 'en');
+      const additionalLangs = countryLangs.filter((lang) => lang !== 'en');
       const defaultLang = additionalLangs.length > 0 ? additionalLangs[0] : 'en';
       selectedLanguage.set(defaultLang);
       updateUrl($selectedCountry, defaultLang, $theme);
@@ -225,7 +233,14 @@
   }
 
   // Sync URL when country, language, or theme changes (browser only, after location confirmed)
-  $: if (browser && initialCountrySet && locationConfirmed && $selectedCountry && $selectedLanguage && $theme) {
+  $: if (
+    browser &&
+    initialCountrySet &&
+    locationConfirmed &&
+    $selectedCountry &&
+    $selectedLanguage &&
+    $theme
+  ) {
     updateUrl($selectedCountry, $selectedLanguage, $theme);
   }
 
@@ -253,8 +268,8 @@
   {@const metaLanguageCode = $selectedLanguage}
   {@const metaTheme = $theme}
   {@const shareImagePath = `/share/twitter/${slug}-${metaLanguageCode}-${metaCountryCode}-${metaTheme}.png`}
-  {@const storyTitle = translatedStory.title.map(s => s.text).join('')}
-  {@const storySummary = translatedStory.summary.map(s => s.text).join('')}
+  {@const storyTitle = translatedStory.title.map((s) => s.text).join('')}
+  {@const storySummary = translatedStory.summary.map((s) => s.text).join('')}
 
   <SocialMeta
     title={`${storyTitle} - Relatable Stories`}
@@ -332,12 +347,8 @@
 
     <!-- Navigation -->
     <div class="mt-12 pt-8 border-t border-stone-200 flex justify-between">
-      <Button href={storiesUrl} variant="ghost">
-        ← Back to Stories
-      </Button>
-      <Button href={actionUrl} variant="primary">
-        Take Action →
-      </Button>
+      <Button href={storiesUrl} variant="ghost">← Back to Stories</Button>
+      <Button href={actionUrl} variant="primary">Take Action →</Button>
     </div>
   {:else if locationConfirmed}
     <div class="text-center py-12">

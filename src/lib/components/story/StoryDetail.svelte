@@ -16,15 +16,16 @@
   export let minimal = false;
 
   $: countrySpecificLanguages = countryLanguages.countries[$selectedCountry]?.languages || [];
-  $: additionalLanguages = countrySpecificLanguages.filter(lang => lang !== 'en');
+  $: additionalLanguages = countrySpecificLanguages.filter((lang) => lang !== 'en');
   $: showLanguageSelector = additionalLanguages.length > 0;
-  $: currentCountryName = countries.find(c => c.code === $selectedCountry)?.name || $selectedCountry;
+  $: currentCountryName =
+    countries.find((c) => c.code === $selectedCountry)?.name || $selectedCountry;
 
   // Format date based on selected language
   $: formattedDate = formatDate(story.date, 'PPP', $selectedLanguage);
 
   // Prepare share data
-  $: shareTitle = story.title.map(s => s.text).join('');
+  $: shareTitle = story.title.map((s) => s.text).join('');
   $: shareText = `${shareTitle} - A story from Iran's uprising, translated into your local context.`;
 
   const severityColors = {
@@ -85,7 +86,7 @@
 
   // Calculate cumulative animation indices for sequencing
   function countOriginals(segments: TranslatedSegment[]): number {
-    return segments.filter(s => s.original).length;
+    return segments.filter((s) => s.original).length;
   }
 
   $: titleOriginalsCount = countOriginals(story.title);
@@ -128,14 +129,18 @@
           {/if}
           {#if story.contentWarning}
             <span class="opacity-40">•</span>
-            <span class="text-primary-400 text-xs px-2 py-0.5 bg-primary-500/10 border border-primary-500/30 rounded">
+            <span
+              class="text-primary-400 text-xs px-2 py-0.5 bg-primary-500/10 border border-primary-500/30 rounded"
+            >
               CW: {story.contentWarning}
             </span>
           {/if}
         </div>
 
         <!-- Control Bar -->
-        <div class="bg-white/5 light:bg-black/5 border border-white/10 light:border-black/10 rounded-lg p-4">
+        <div
+          class="bg-white/5 light:bg-black/5 border border-white/10 light:border-black/10 rounded-lg p-4"
+        >
           <div class="flex flex-wrap items-center justify-between gap-4">
             <!-- Left: Language -->
             <div class="flex flex-wrap items-center gap-4">
@@ -159,16 +164,20 @@
         </div>
 
         <!-- Context Toggle - Prominent Center Section -->
-        <div class="flex flex-col items-center gap-4 py-6 px-4 bg-gradient-to-b from-primary-500/5 to-transparent border-y border-primary-500/20">
+        <div
+          class="flex flex-col items-center gap-4 py-6 px-4 bg-gradient-to-b from-primary-500/5 to-transparent border-y border-primary-500/20"
+        >
           <ContextualizationToggle />
 
           <p class="text-sm text-center max-w-2xl leading-relaxed">
             {#if $contextualizationEnabled}
               Names, places, and values adapted to {currentCountryName} context.
-              <span class="text-primary-500 font-semibold">Hover over red text</span> to see the original Iranian context.
+              <span class="text-primary-500 font-semibold">Hover over red text</span> to see the original
+              Iranian context.
             {:else}
               Reading with original Iranian context.
-              <span class="text-primary-500 font-semibold">Hover over red text</span> to see {currentCountryName} equivalents.
+              <span class="text-primary-500 font-semibold">Hover over red text</span> to see {currentCountryName}
+              equivalents.
             {/if}
           </p>
         </div>
@@ -179,7 +188,12 @@
   <!-- Summary -->
   <ErrorBoundary>
     <div class="text-xl leading-relaxed opacity-90">
-      <TranslatedText segments={story.summary} inline animate animationStartIndex={summaryStartIndex} />
+      <TranslatedText
+        segments={story.summary}
+        inline
+        animate
+        animationStartIndex={summaryStartIndex}
+      />
     </div>
   </ErrorBoundary>
 
@@ -237,8 +251,8 @@
       <div class="bg-primary-900/20 light:bg-primary-100/50 rounded-lg p-6">
         <h3 class="text-lg font-bold mb-3">Help Amplify This Story</h3>
         <p class="text-sm opacity-70 mb-4">
-          Share this story to help others understand the human cost of repression in Iran.
-          Your share image is personalized to your location to create maximum empathy and impact.
+          Share this story to help others understand the human cost of repression in Iran. Your
+          share image is personalized to your location to create maximum empathy and impact.
         </p>
         <ShareButtons
           title={shareTitle}

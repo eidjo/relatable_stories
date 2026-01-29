@@ -49,7 +49,9 @@ describe('Share page redirect logic', () => {
         const targetPath = `${base}/stories/${slug}?country=${country.toUpperCase()}&lang=${language}`;
 
         // Should be properly formatted (uppercase country code)
-        expect(targetPath).toMatch(/^\/relatable_stories\/stories\/[a-z0-9-]+\?country=[A-Z]{2}&lang=[a-z]{2}$/);
+        expect(targetPath).toMatch(
+          /^\/relatable_stories\/stories\/[a-z0-9-]+\?country=[A-Z]{2}&lang=[a-z]{2}$/
+        );
 
         // Should contain correct values (uppercase country)
         expect(targetPath).toContain(`country=${expectedCountry}`);

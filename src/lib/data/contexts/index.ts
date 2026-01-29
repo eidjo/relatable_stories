@@ -12,8 +12,13 @@ export const countries: Country[] = (load(countriesYaml) as { countries: Country
 export const names: NameMappings = load(namesYaml) as NameMappings;
 
 // V2 data (now the primary data)
-export const placesV2: Record<string, PlacesDataV2> = load(placesYaml) as Record<string, PlacesDataV2>;
-export const comparableEvents: Record<string, ComparableEvent[]> = load(comparableEventsYaml) as Record<string, ComparableEvent[]>;
+export const placesV2: Record<string, PlacesDataV2> = load(placesYaml) as Record<
+  string,
+  PlacesDataV2
+>;
+export const comparableEvents: Record<string, ComparableEvent[]> = load(
+  comparableEventsYaml
+) as Record<string, ComparableEvent[]>;
 
 // Legacy V1 places data - kept for backwards compatibility
 // Note: places.yaml now contains V2 data structure
@@ -24,7 +29,9 @@ interface CountryLanguagesData {
   language_names: Record<string, string>;
 }
 
-export const countryLanguages: CountryLanguagesData = load(countryLanguagesYaml) as CountryLanguagesData;
+export const countryLanguages: CountryLanguagesData = load(
+  countryLanguagesYaml
+) as CountryLanguagesData;
 export const languageNames = countryLanguages.language_names;
 
 export function getCountryByCode(code: string): Country | undefined {

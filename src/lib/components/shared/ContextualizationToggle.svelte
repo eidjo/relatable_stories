@@ -2,7 +2,7 @@
   import { contextualizationEnabled } from '$lib/stores/contextualization';
 
   function toggle() {
-    contextualizationEnabled.update(v => !v);
+    contextualizationEnabled.update((v) => !v);
   }
 </script>
 
@@ -15,7 +15,9 @@
   >
     <div class="toggle-content">
       <div class="toggle-label-wrapper">
-        <span class="toggle-label {!$contextualizationEnabled ? 'active' : ''}">Original Iranian</span>
+        <span class="toggle-label {!$contextualizationEnabled ? 'active' : ''}"
+          >Original Iranian</span
+        >
       </div>
 
       <div class="toggle-switch {$contextualizationEnabled ? 'enabled' : 'disabled'}">

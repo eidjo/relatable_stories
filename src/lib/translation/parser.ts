@@ -10,7 +10,7 @@ export interface ParsedToken {
   type: 'text' | 'marker';
   value: string;
   markerKey?: string;
-  suffix?: string;  // Optional modifier: 'comparable', 'age', 'original', 'translated'
+  suffix?: string; // Optional modifier: 'comparable', 'age', 'original', 'translated'
 }
 
 // V2 regex: matches {{key}} or {{key:suffix}}

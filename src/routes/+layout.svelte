@@ -13,7 +13,9 @@
   onMount(() => {
     if (browser) {
       const urlCountry = $page.url.searchParams.get('country');
-      const isStoryDetailPage = $page.url.pathname.startsWith(`${base}/stories/`) && $page.url.pathname.split('/').length > (base ? 3 : 2);
+      const isStoryDetailPage =
+        $page.url.pathname.startsWith(`${base}/stories/`) &&
+        $page.url.pathname.split('/').length > (base ? 3 : 2);
       const isSharePage = $page.url.pathname.startsWith(`${base}/share/`);
 
       // Story detail pages handle their own country logic (modal on first visit)

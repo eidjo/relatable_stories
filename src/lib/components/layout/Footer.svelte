@@ -21,7 +21,9 @@
           <li><a href="{base}/" class="hover:text-white transition-colors">Home</a></li>
           <li><a href="{base}/stories" class="hover:text-white transition-colors">Stories</a></li>
           <li><a href="{base}/about" class="hover:text-white transition-colors">About</a></li>
-          <li><a href="{base}/take-action" class="hover:text-white transition-colors">Take Action</a></li>
+          <li>
+            <a href="{base}/take-action" class="hover:text-white transition-colors">Take Action</a>
+          </li>
         </ul>
       </div>
 
@@ -29,8 +31,9 @@
       <div>
         <h3 class="text-lg font-semibold text-white mb-4">Important Note</h3>
         <p class="text-sm">
-          These stories are based on documented testimonies from human rights organizations.
-          Names and details have been adapted to protect identities and help readers relate to the experiences.
+          These stories are based on documented testimonies from human rights organizations. Names
+          and details have been adapted to protect identities and help readers relate to the
+          experiences.
         </p>
       </div>
     </div>

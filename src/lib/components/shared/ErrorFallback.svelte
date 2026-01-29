@@ -21,11 +21,14 @@
     <!-- Development Details -->
     {#if isDev}
       <details class="text-left mb-6 bg-gray-100 dark:bg-gray-800 rounded-lg overflow-hidden">
-        <summary class="cursor-pointer font-semibold p-4 hover:bg-gray-200 dark:hover:bg-gray-700 transition">
+        <summary
+          class="cursor-pointer font-semibold p-4 hover:bg-gray-200 dark:hover:bg-gray-700 transition"
+        >
           Error Details (dev only)
         </summary>
         <div class="p-4 border-t border-gray-300 dark:border-gray-700">
-          <pre class="text-xs overflow-auto whitespace-pre-wrap break-words">{error.message}\n\n{error.stack}</pre>
+          <pre
+            class="text-xs overflow-auto whitespace-pre-wrap break-words">{error.message}\n\n{error.stack}</pre>
         </div>
       </details>
     {/if}

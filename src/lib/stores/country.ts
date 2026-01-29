@@ -2,7 +2,12 @@ import { writable, derived, get } from 'svelte/store';
 import { browser } from '$app/environment';
 import type { CountryCode } from '$lib/types';
 import type { UITranslationContext } from '$lib/translation/translator';
-import { getCountryByCode, getCountryNames, getCountryPlacesV2, getCountryComparableEvents } from '$lib/data/contexts';
+import {
+  getCountryByCode,
+  getCountryNames,
+  getCountryPlacesV2,
+  getCountryComparableEvents,
+} from '$lib/data/contexts';
 import { selectedLanguage } from './language';
 import { selectBestLanguageForCountry } from '$lib/utils/languageSelection';
 

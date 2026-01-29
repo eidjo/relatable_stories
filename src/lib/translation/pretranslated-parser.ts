@@ -18,7 +18,8 @@ export function parsePreTranslated(text: string): TranslatedSegment[] {
   // 1. [[MARKER:type:key:original|value]] or [[MARKER:type:key:original|value|explanation]]
   // 2. [[COMPARISON:original|translated|explanation]]
   // 3. {{type:key}}
-  const combinedRegex = /(\[\[MARKER:([\w-]+):([\w-]+):([^|]+)\|([^|\]]+)(?:\|([^\]]+))?\]\])|(\[\[COMPARISON:([^|]+)\|([^|]+)\|([^\]]+)\]\])|(\{\{([\w-]+):([\w-]+)\}\})/g;
+  const combinedRegex =
+    /(\[\[MARKER:([\w-]+):([\w-]+):([^|]+)\|([^|\]]+)(?:\|([^\]]+))?\]\])|(\[\[COMPARISON:([^|]+)\|([^|]+)\|([^\]]+)\]\])|(\{\{([\w-]+):([\w-]+)\}\})/g;
 
   let lastIndex = 0;
   let match;

@@ -9,7 +9,9 @@
   $: countryParam = browser ? $page.url.searchParams.get('country') : null;
   $: storiesUrl = countryParam ? `${base}/stories?country=${countryParam}` : `${base}/stories`;
   $: aboutUrl = countryParam ? `${base}/about?country=${countryParam}` : `${base}/about`;
-  $: actionUrl = countryParam ? `${base}/take-action?country=${countryParam}` : `${base}/take-action`;
+  $: actionUrl = countryParam
+    ? `${base}/take-action?country=${countryParam}`
+    : `${base}/take-action`;
 </script>
 
 <header

@@ -41,14 +41,14 @@ describe('Story Data Loading', () => {
         // Handle special cases: {{source:id}} and {{image:id}}
         if (firstPart === 'source' && secondPart) {
           // Check in story.sources array
-          const source = story.sources?.find(s => s.id === secondPart);
+          const source = story.sources?.find((s) => s.id === secondPart);
           expect(
             source,
             `Source ${secondPart} used in story ${story.id} but not defined in sources array`
           ).toBeDefined();
         } else if (firstPart === 'image' && secondPart) {
           // Check in story.images array
-          const image = story.images?.find(img => img.id === secondPart);
+          const image = story.images?.find((img) => img.id === secondPart);
           expect(
             image,
             `Image ${secondPart} used in story ${story.id} but not defined in images array`

@@ -9,13 +9,17 @@
     lg: 'p-8',
   };
 
-  const hoverClass = hover ? 'hover:shadow-lg hover:-translate-y-1 transition-all duration-200 cursor-pointer' : '';
+  const hoverClass = hover
+    ? 'hover:shadow-lg hover:-translate-y-1 transition-all duration-200 cursor-pointer'
+    : '';
 </script>
 
 {#if hover}
   <button
     type="button"
-    class="card-base card-shadow rounded-lg {paddingClasses[padding]} {hoverClass} w-full text-left border-none"
+    class="card-base card-shadow rounded-lg {paddingClasses[
+      padding
+    ]} {hoverClass} w-full text-left border-none"
     on:click
     on:keydown
   >

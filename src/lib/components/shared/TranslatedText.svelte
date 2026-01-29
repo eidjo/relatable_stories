@@ -106,9 +106,9 @@
             tabindex="0"
             aria-label="Original text. Local equivalent: {segment.text}"
             >{segment.original}<Tooltip
-                text={getTooltipText(segment, false)}
-                show={hoveredIndex === i}
-              /></span
+              text={getTooltipText(segment, false)}
+              show={hoveredIndex === i}
+            /></span
           >{:else if animate}<AnimatedTranslation
             original={segment.original}
             translated={segment.text}
@@ -124,9 +124,9 @@
             tabindex="0"
             aria-label="Translated text. Original: {segment.original}"
             >{segment.text}<Tooltip
-                text={getTooltipText(segment, true)}
-                show={hoveredIndex === i}
-              /></span
+              text={getTooltipText(segment, true)}
+              show={hoveredIndex === i}
+            /></span
           >{/if}{:else}{segment.text}{/if}</span
     >
   {/if}

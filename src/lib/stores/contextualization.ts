@@ -16,7 +16,7 @@ if (browser) {
 }
 
 // Persist to localStorage on changes
-contextualizationEnabled.subscribe(value => {
+contextualizationEnabled.subscribe((value) => {
   if (browser) {
     localStorage.setItem('contextualization-enabled', String(value));
   }

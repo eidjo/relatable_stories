@@ -31,7 +31,9 @@
         <img
           src={fullSrc}
           {alt}
-          class="w-full rounded transition-all duration-300 {isRevealed ? '' : 'blur-xl opacity-50'}"
+          class="w-full rounded transition-all duration-300 {isRevealed
+            ? ''
+            : 'blur-xl opacity-50'}"
           loading="lazy"
         />
       </button>

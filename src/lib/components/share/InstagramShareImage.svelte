@@ -4,7 +4,11 @@
   import TranslatedTextWithOriginal from './TranslatedTextWithOriginal.svelte';
   import type { TranslatedStory } from '$lib/types';
 
-  let { story, countryName, theme = 'dark' }: { story: TranslatedStory; countryName: string; theme?: 'dark' | 'light' } = $props();
+  let {
+    story,
+    countryName,
+    theme = 'dark',
+  }: { story: TranslatedStory; countryName: string; theme?: 'dark' | 'light' } = $props();
 
   const bgColor = theme === 'dark' ? '#0a0a0a' : '#ffffff';
   const textColor = theme === 'dark' ? '#ffffff' : '#0a0a0a';
@@ -38,12 +42,16 @@
   ></div>
 
   <!-- Title -->
-  <div style="margin-top: 80px; margin-bottom: 50px; font-size: 64px; font-weight: bold; line-height: 1.2;">
+  <div
+    style="margin-top: 80px; margin-bottom: 50px; font-size: 64px; font-weight: bold; line-height: 1.2;"
+  >
     <TranslatedTextWithOriginal segments={story.title} inline />
   </div>
 
   <!-- Content excerpt -->
-  <div style="margin-bottom: 60px; font-size: 32px; line-height: 1.8; color: {textMuted}; max-height: 900px; overflow: hidden;">
+  <div
+    style="margin-bottom: 60px; font-size: 32px; line-height: 1.8; color: {textMuted}; max-height: 900px; overflow: hidden;"
+  >
     <TranslatedTextWithOriginal segments={contentSegments} inline />
   </div>
 
@@ -63,8 +71,6 @@
     <div style="font-size: 30px; font-weight: bold; margin-bottom: 20px;">
       Read the full story →
     </div>
-    <div style="font-size: 24px; color: {textMuted};">
-      Link in Story
-    </div>
+    <div style="font-size: 24px; color: {textMuted};">Link in Story</div>
   </div>
 </div>

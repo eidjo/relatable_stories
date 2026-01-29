@@ -36,7 +36,7 @@ export function selectBestLanguageForCountry(
   }
 
   // For other countries: prefer first non-English language
-  const nonEnglishLanguages = countryLangs.filter(lang => lang !== 'en');
+  const nonEnglishLanguages = countryLangs.filter((lang) => lang !== 'en');
   if (nonEnglishLanguages.length > 0) {
     return nonEnglishLanguages[0] as LanguageCode;
   }

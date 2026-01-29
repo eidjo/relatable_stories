@@ -9,11 +9,7 @@
  * - Context-aware translation (resolved values cache)
  */
 
-import type {
-  Marker,
-  DateMarker,
-  TimeMarker,
-} from '../types/index.ts';
+import type { Marker, DateMarker, TimeMarker } from '../types/index.ts';
 import {
   isPersonMarker,
   isPlaceMarker,
@@ -109,7 +105,7 @@ export interface TranslationContext {
 export interface TranslationResult {
   value: string;
   original: string | null;
-  comparison?: string;  // For casualties with comparable events
+  comparison?: string; // For casualties with comparable events
   comparisonExplanation?: string; // Math explanation for comparison
   explanation?: string; // Math explanation for scaled values
 }
@@ -167,18 +163,44 @@ function findClosestEvent(
 /**
  * Get localized multiplier phrase
  */
-function getLocalizedMultiplier(multiplier: number, languageCode: string): { phrase: string; needsArticle: boolean } {
+function getLocalizedMultiplier(
+  multiplier: number,
+  languageCode: string
+): { phrase: string; needsArticle: boolean } {
   const formatted = multiplier.toLocaleString();
 
   // Language-specific translations
-  const translations: Record<string, { twice: string; thrice: string; times: (n: string) => string; needsArticle: boolean }> = {
-    'en': { twice: 'twice', thrice: 'three times', times: (n) => `${n} times`, needsArticle: true },
-    'cs': { twice: 'dvakrát více než', thrice: 'třikrát více než', times: (n) => `${n}krát více než`, needsArticle: false },
-    'de': { twice: 'zweimal', thrice: 'dreimal', times: (n) => `${n}-mal`, needsArticle: false },
-    'fr': { twice: 'deux fois', thrice: 'trois fois', times: (n) => `${n} fois`, needsArticle: false },
-    'es': { twice: 'el doble de', thrice: 'el triple de', times: (n) => `${n} veces`, needsArticle: false },
-    'it': { twice: 'il doppio di', thrice: 'il triplo di', times: (n) => `${n} volte`, needsArticle: false },
-    'nl': { twice: 'twee keer', thrice: 'drie keer', times: (n) => `${n} keer`, needsArticle: false },
+  const translations: Record<
+    string,
+    { twice: string; thrice: string; times: (n: string) => string; needsArticle: boolean }
+  > = {
+    en: { twice: 'twice', thrice: 'three times', times: (n) => `${n} times`, needsArticle: true },
+    cs: {
+      twice: 'dvakrát více než',
+      thrice: 'třikrát více než',
+      times: (n) => `${n}krát více než`,
+      needsArticle: false,
+    },
+    de: { twice: 'zweimal', thrice: 'dreimal', times: (n) => `${n}-mal`, needsArticle: false },
+    fr: {
+      twice: 'deux fois',
+      thrice: 'trois fois',
+      times: (n) => `${n} fois`,
+      needsArticle: false,
+    },
+    es: {
+      twice: 'el doble de',
+      thrice: 'el triple de',
+      times: (n) => `${n} veces`,
+      needsArticle: false,
+    },
+    it: {
+      twice: 'il doppio di',
+      thrice: 'il triplo di',
+      times: (n) => `${n} volte`,
+      needsArticle: false,
+    },
+    nl: { twice: 'twee keer', thrice: 'drie keer', times: (n) => `${n} keer`, needsArticle: false },
   };
 
   const lang = translations[languageCode] || translations['en'];
@@ -218,9 +240,7 @@ function generateComparisonText(
     const { phrase, needsArticle } = getLocalizedMultiplier(multiplier, languageCode);
 
     // Build comparison text with or without article
-    comparisonText = needsArticle
-      ? `${phrase} the ${eventName}`
-      : `${phrase} ${eventName}`;
+    comparisonText = needsArticle ? `${phrase} the ${eventName}` : `${phrase} ${eventName}`;
   }
 
   // Wrap in brackets
@@ -269,8 +289,8 @@ export function translateMarkerV2(
       marker.gender === 'm'
         ? data.names.male
         : marker.gender === 'f'
-        ? data.names.female
-        : data.names.neutral;
+          ? data.names.female
+          : data.names.neutral;
 
     // TODO: Regional names if 'from' specified
     // This would require regional name data in TranslationDataV2
@@ -300,7 +320,9 @@ export function translateMarkerV2(
           items = cityData.landmarks.monument;
         } else if (marker.landmark && cityData.landmarks) {
           // Any landmark
-          const allLandmarks = Object.values(cityData.landmarks).flat().filter((x): x is string => typeof x === 'string');
+          const allLandmarks = Object.values(cityData.landmarks)
+            .flat()
+            .filter((x): x is string => typeof x === 'string');
           items = allLandmarks;
         } else if (marker.university && cityData.universities) {
           items = cityData.universities;
@@ -321,15 +343,15 @@ export function translateMarkerV2(
     const size = marker['city-large']
       ? 'large'
       : marker['city-medium']
-      ? 'medium'
-      : marker['city-small']
-      ? 'small'
-      : null;
+        ? 'medium'
+        : marker['city-small']
+          ? 'small'
+          : null;
 
     if (size && data.places.cities) {
       // Select from cities of this size, respecting capital requirement
-      const cities = data.places.cities.filter((c) =>
-        c.size === size && (!marker.capital || c.capital)
+      const cities = data.places.cities.filter(
+        (c) => c.size === size && (!marker.capital || c.capital)
       );
       if (cities.length > 0) {
         const selectedCity = selectFromArray(cities, seed);
@@ -342,7 +364,9 @@ export function translateMarkerV2(
 
     // If no specific place found, try to find ANY city with the required landmark/facility
     if (marker['landmark-protest']) {
-      const citiesWithLandmark = data.places.cities.filter(c => c.landmarks?.protest && c.landmarks.protest.length > 0);
+      const citiesWithLandmark = data.places.cities.filter(
+        (c) => c.landmarks?.protest && c.landmarks.protest.length > 0
+      );
       if (citiesWithLandmark.length > 0) {
         const city = selectFromArray(citiesWithLandmark, seed);
         return {
@@ -353,7 +377,9 @@ export function translateMarkerV2(
     }
 
     if (marker['landmark-monument']) {
-      const citiesWithLandmark = data.places.cities.filter(c => c.landmarks?.monument && c.landmarks.monument.length > 0);
+      const citiesWithLandmark = data.places.cities.filter(
+        (c) => c.landmarks?.monument && c.landmarks.monument.length > 0
+      );
       if (citiesWithLandmark.length > 0) {
         const city = selectFromArray(citiesWithLandmark, seed);
         return {
@@ -364,7 +390,9 @@ export function translateMarkerV2(
     }
 
     if (marker.university) {
-      const citiesWithUniversities = data.places.cities.filter(c => c.universities && c.universities.length > 0);
+      const citiesWithUniversities = data.places.cities.filter(
+        (c) => c.universities && c.universities.length > 0
+      );
       if (citiesWithUniversities.length > 0) {
         const city = selectFromArray(citiesWithUniversities, seed);
         return {
@@ -375,7 +403,9 @@ export function translateMarkerV2(
     }
 
     if (marker['government-facility']) {
-      const citiesWithFacilities = data.places.cities.filter(c => c['government-facilities'] && c['government-facilities'].length > 0);
+      const citiesWithFacilities = data.places.cities.filter(
+        (c) => c['government-facilities'] && c['government-facilities'].length > 0
+      );
       if (citiesWithFacilities.length > 0) {
         const city = selectFromArray(citiesWithFacilities, seed);
         return {
@@ -413,7 +443,8 @@ export function translateMarkerV2(
     if (marker.variance) {
       const variance = marker.variance;
       // Simple random from seed
-      const rand = Math.abs(seed.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0)) % 1000 / 1000;
+      const rand =
+        (Math.abs(seed.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0)) % 1000) / 1000;
       const adjustment = Math.floor((rand - 0.5) * 2 * variance);
       value += adjustment;
     }
@@ -448,7 +479,7 @@ export function translateMarkerV2(
           const cityName = resolvedCity?.value;
           if (cityName) {
             scopeName = cityName;
-            const translatedCity = data.places.cities?.find(c => c.name === cityName);
+            const translatedCity = data.places.cities?.find((c) => c.name === cityName);
             if (translatedCity?.population) {
               targetPopulation = translatedCity.population;
             }
@@ -489,7 +520,7 @@ export function translateMarkerV2(
         comparisonExplanation = `Comparison: ${scaledValue.toLocaleString()} vs. ${referenceValue.toLocaleString()} = ${Math.round(ratio)}x more`;
       } else if (ratio > 1.5) {
         comparison = 'more than twice as many';
-        comparisonExplanation = `Comparison: ${scaledValue.toLocaleString()} vs. ${referenceValue.toLocaleString()} = ${(ratio).toFixed(1)}x more`;
+        comparisonExplanation = `Comparison: ${scaledValue.toLocaleString()} vs. ${referenceValue.toLocaleString()} = ${ratio.toFixed(1)}x more`;
       }
     }
 
@@ -543,7 +574,10 @@ export function translateMarkersV2(
 
   for (const [key, marker] of Object.entries(markers)) {
     // Skip source and image markers (handled separately)
-    if ('type' in marker && (marker.type === 'source' || marker.type === 'image' || marker.type === 'paragraph-break')) {
+    if (
+      'type' in marker &&
+      (marker.type === 'source' || marker.type === 'image' || marker.type === 'paragraph-break')
+    ) {
       continue;
     }
 

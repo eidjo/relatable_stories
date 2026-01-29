@@ -1,7 +1,12 @@
 import { describe, it, expect } from 'vitest';
 import { stories } from '$lib/data/stories';
 import { translateStory } from '$lib/translation/translator';
-import { getCountryByCode, getCountryNames, getCountryPlacesV2, getCountryComparableEvents } from '$lib/data/contexts';
+import {
+  getCountryByCode,
+  getCountryNames,
+  getCountryPlacesV2,
+  getCountryComparableEvents,
+} from '$lib/data/contexts';
 
 describe('Stories Data Validation', () => {
   it('should have at least one story', () => {
@@ -298,12 +303,7 @@ describe('Story Marker Validation', () => {
               // (validated in another test)
             } else {
               // Regular marker suffix (age, comparable, etc.)
-              expect([
-                'age',
-                'comparable',
-                'original',
-                'translated',
-              ]).toContain(suffix);
+              expect(['age', 'comparable', 'original', 'translated']).toContain(suffix);
             }
           }
         }

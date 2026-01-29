@@ -4,7 +4,11 @@
   import TranslatedTextWithOriginal from './TranslatedTextWithOriginal.svelte';
   import type { TranslatedStory } from '$lib/types';
 
-  let { story, countryName, theme = 'dark' }: { story: TranslatedStory; countryName: string; theme?: 'dark' | 'light' } = $props();
+  let {
+    story,
+    countryName,
+    theme = 'dark',
+  }: { story: TranslatedStory; countryName: string; theme?: 'dark' | 'light' } = $props();
 
   const bgColor = theme === 'dark' ? '#0a0a0a' : '#ffffff';
   const textColor = theme === 'dark' ? '#ffffff' : '#0a0a0a';
@@ -43,7 +47,9 @@
   </div>
 
   <!-- Content excerpt -->
-  <div style="margin-bottom: 40px; font-size: 28px; line-height: 1.8; color: {textMuted}; max-height: 300px; overflow: hidden;">
+  <div
+    style="margin-bottom: 40px; font-size: 28px; line-height: 1.8; color: {textMuted}; max-height: 300px; overflow: hidden;"
+  >
     <TranslatedTextWithOriginal segments={contentSegments} inline />
   </div>
 
@@ -52,9 +58,7 @@
     <div style="font-size: 22px; font-weight: bold; color: {primaryColor}; margin-bottom: 16px;">
       Translated for {countryName}
     </div>
-    <div style="font-size: 26px; font-weight: bold;">
-      Relatable Stories from Iran
-    </div>
+    <div style="font-size: 26px; font-weight: bold;">Relatable Stories from Iran</div>
     <div style="font-size: 20px; color: {textMuted}; margin-top: 12px;">
       Experience stories in your local context
     </div>

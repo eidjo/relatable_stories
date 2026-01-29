@@ -14,44 +14,44 @@ export type Gender = 'm' | 'f' | 'x'; // male, female, neutral
  * Person Marker - Represents a person with name translation
  */
 export interface PersonMarker {
-  person: string;          // Original Iranian name
-  gender: Gender;          // Gender for name selection
-  age?: number;           // Age of person
-  from?: string;          // Key to place marker - use regional names
+  person: string; // Original Iranian name
+  gender: Gender; // Gender for name selection
+  age?: number; // Age of person
+  from?: string; // Key to place marker - use regional names
 }
 
 /**
  * Place Marker - Represents a location with hierarchical support
  */
 export interface PlaceMarker {
-  place: string;              // Original Iranian place name
-  'city-small'?: boolean;     // City size (only one should be true)
+  place: string; // Original Iranian place name
+  'city-small'?: boolean; // City size (only one should be true)
   'city-medium'?: boolean;
   'city-large'?: boolean;
-  capital?: boolean;          // Is this a capital city?
-  landmark?: boolean;         // General landmark
+  capital?: boolean; // Is this a capital city?
+  landmark?: boolean; // General landmark
   'landmark-protest'?: boolean; // Protest location
   'landmark-monument'?: boolean; // Monument/memorial
   university?: boolean;
   'government-facility'?: boolean;
-  within?: string;            // Parent place marker key (e.g., city contains landmark)
-  region?: string;            // Geographic region
-  population?: number;        // City population (for better scaling)
+  within?: string; // Parent place marker key (e.g., city contains landmark)
+  region?: string; // Geographic region
+  population?: number; // City population (for better scaling)
 }
 
 /**
  * Number Marker - Generic numeric values
  */
 export interface NumberMarker {
-  number: number;          // Base value
-  cities?: boolean;        // Unit type (only one should be true)
+  number: number; // Base value
+  cities?: boolean; // Unit type (only one should be true)
   days?: boolean;
   years?: boolean;
   months?: boolean;
   hours?: boolean;
-  scaled?: boolean;        // Auto-scale by population ratio
-  scaleFactor?: number;    // Optional dampening (default: 1.0 = pure ratio)
-  variance?: number;       // Add random variance (±N)
+  scaled?: boolean; // Auto-scale by population ratio
+  scaleFactor?: number; // Optional dampening (default: 1.0 = pure ratio)
+  variance?: number; // Add random variance (±N)
 }
 
 /**
@@ -64,40 +64,40 @@ export interface NumberMarker {
  * - Different validation rules
  */
 export interface CasualtiesMarker {
-  casualties: number;      // Number of people
-  killed?: boolean;        // Type of casualty (only one should be true)
+  casualties: number; // Number of people
+  killed?: boolean; // Type of casualty (only one should be true)
   wounded?: boolean;
   missing?: boolean;
   detained?: boolean;
   executed?: boolean;
   scope?: 'country' | 'city'; // What population to scale against (default: 'country')
-  scopeCity?: string;      // If scope='city', key to the city marker with population
+  scopeCity?: string; // If scope='city', key to the city marker with population
   comparable?: 'massacre' | 'terrorist-attack' | 'natural-disaster' | 'war-casualties' | 'any';
-  comparedTo?: string;     // Key to another casualties marker for comparison
-  timeframe?: string;      // Optional context (e.g., 'over two days', 'in one night')
+  comparedTo?: string; // Key to another casualties marker for comparison
+  timeframe?: string; // Optional context (e.g., 'over two days', 'in one night')
 }
 
 /**
  * Date Marker - Temporal dates
  */
 export interface DateMarker {
-  date: string;            // ISO format or descriptive text
-  format?: string;         // Optional format override
+  date: string; // ISO format or descriptive text
+  format?: string; // Optional format override
 }
 
 /**
  * Time Marker - Time of day
  */
 export interface TimeMarker {
-  time: string;            // ISO time or descriptive text
-  format?: string;         // Optional format override
+  time: string; // ISO time or descriptive text
+  format?: string; // Optional format override
 }
 
 /**
  * Alias Marker - Reuses another marker's translation
  */
 export interface AliasMarker {
-  sameAs: string;          // Key of marker to alias
+  sameAs: string; // Key of marker to alias
 }
 
 /**
@@ -106,10 +106,10 @@ export interface AliasMarker {
  */
 export interface SourceMarker {
   type: 'source';
-  text: string;            // Citation number/text
-  url?: string;           // Link to source
-  title?: string;         // Title for tooltip
-  number?: number;        // Reference number
+  text: string; // Citation number/text
+  url?: string; // Link to source
+  title?: string; // Title for tooltip
+  number?: number; // Reference number
 }
 
 /**
@@ -118,9 +118,9 @@ export interface SourceMarker {
  */
 export interface ImageMarker {
   type: 'image';
-  src: string;            // Image path
-  alt: string;            // Alt text
-  caption?: string;       // Optional caption
+  src: string; // Image path
+  alt: string; // Alt text
+  caption?: string; // Optional caption
   contentWarning?: string;
   credit?: string;
   creditUrl?: string;

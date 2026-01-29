@@ -115,11 +115,11 @@ UK:
           - 'The London Eye'
       universities:
         - 'University College London'
-        - 'King''s College London'
+        - "King's College London"
         - 'Imperial College'
       government-facilities:
         - 'Belmarsh Prison'
-        - 'Westminster Magistrates'' Court'
+        - "Westminster Magistrates' Court"
 
     - id: manchester
       name: 'Manchester'
@@ -129,7 +129,7 @@ UK:
       region: northwest
       landmarks:
         protest:
-          - 'St Peter''s Square'
+          - "St Peter's Square"
           - 'Piccadilly Gardens'
           - 'Albert Square'
         monument:
@@ -140,8 +140,7 @@ UK:
         - 'Manchester Metropolitan University'
       government-facilities:
         - 'HMP Manchester'
-        - 'Manchester Magistrates'' Court'
-
+        - "Manchester Magistrates' Court"
 
 CZ:
   cities:
@@ -188,7 +187,6 @@ CZ:
         - 'Brno Prison'
         - 'Regional Court'
 
-
 CA:
   cities:
     - id: toronto
@@ -200,7 +198,7 @@ CA:
       landmarks:
         protest:
           - 'Nathan Phillips Square'
-          - 'Queen''s Park'
+          - "Queen's Park"
           - 'Yonge-Dundas Square'
         monument:
           - 'CN Tower'
@@ -269,7 +267,7 @@ CA:
         protest:
           - 'Parliament Hill'
           - 'Confederation Square'
-          - 'Major''s Hill Park'
+          - "Major's Hill Park"
         monument:
           - 'Peace Tower'
           - 'National War Memorial'
@@ -322,7 +320,6 @@ CA:
         - 'Edmonton Remand Centre'
         - 'Law Courts'
 
-
 DE:
   cities:
     - id: berlin
@@ -361,7 +358,7 @@ DE:
           - 'Reeperbahn'
         monument:
           - 'Elbphilharmonie'
-          - 'St. Michael''s Church'
+          - "St. Michael's Church"
       universities:
         - 'University of Hamburg'
         - 'Hamburg University of Technology'
@@ -431,7 +428,6 @@ DE:
       government-facilities:
         - 'Frankfurt Prison'
         - 'Higher Regional Court'
-
 
 AU:
   cities:
@@ -542,7 +538,6 @@ AU:
         - 'Hakea Prison'
         - 'District Court'
 
-
 FR:
   cities:
     - id: paris
@@ -598,10 +593,10 @@ FR:
         protest:
           - 'Place Bellecour'
           - 'Place des Terreaux'
-          - 'Parc de la Tête d''Or'
+          - "Parc de la Tête d'Or"
         monument:
           - 'Basilica of Notre-Dame de Fourvière'
-          - 'Presqu''île'
+          - "Presqu'île"
       universities:
         - 'University of Lyon'
         - 'École Normale Supérieure de Lyon'
@@ -645,11 +640,10 @@ FR:
           - 'Castle Hill'
           - 'Promenade des Anglais'
       universities:
-        - 'Université Côte d''Azur'
+        - "Université Côte d'Azur"
       government-facilities:
         - 'Nice Prison'
         - 'Court of Appeal'
-
 
 ES:
   cities:
@@ -738,7 +732,6 @@ ES:
         - 'Seville Prison'
         - 'Provincial Court'
 
-
 IT:
   cities:
     - id: rome
@@ -754,7 +747,7 @@ IT:
           - 'Piazza Navona'
         monument:
           - 'Colosseum'
-          - 'St. Peter''s Basilica'
+          - "St. Peter's Basilica"
           - 'Trevi Fountain'
       universities:
         - 'Sapienza University of Rome'
@@ -848,7 +841,6 @@ IT:
         - 'Sollicciano Prison'
         - 'Court of Appeal'
 
-
 NL:
   cities:
     - id: amsterdam
@@ -934,7 +926,6 @@ NL:
       government-facilities:
         - 'Nieuwegein Prison'
         - 'District Court'
-
 
 IR:
   cities:
@@ -1040,7 +1031,6 @@ IR:
         - 'Tabriz Prison'
         - 'Provincial Court'
 
-
 SE:
   cities:
     - id: stockholm
@@ -1124,7 +1114,6 @@ SE:
         - 'Uppsala Prison'
         - 'District Court'
 
-
 BE:
   cities:
     - id: brussels
@@ -1205,7 +1194,6 @@ BE:
       government-facilities:
         - 'Liège Prison'
         - 'Court of Appeal'
-
 
 BR:
   cities:
@@ -1309,7 +1297,6 @@ BR:
         - 'Belo Horizonte Prison'
         - 'State Court'
 
-
 PT:
   cities:
     - id: lisbon
@@ -1390,7 +1377,6 @@ PT:
       government-facilities:
         - 'Coimbra Prison'
         - 'Court'
-
 
 NO:
   cities:
@@ -1473,7 +1459,6 @@ NO:
         - 'Stavanger Prison'
         - 'District Court'
 
-
 DK:
   cities:
     - id: copenhagen
@@ -1554,7 +1539,6 @@ DK:
       government-facilities:
         - 'Aalborg Prison'
         - 'District Court'
-
 
 FI:
   cities:
@@ -1639,7 +1623,6 @@ FI:
         - 'Turku Prison'
         - 'District Court'
 
-
 PL:
   cities:
     - id: warsaw
@@ -1677,7 +1660,7 @@ PL:
           - 'Planty Park'
         monument:
           - 'Wawel Castle'
-          - 'St. Mary''s Basilica'
+          - "St. Mary's Basilica"
       universities:
         - 'Jagiellonian University'
         - 'AGH University of Science and Technology'
@@ -1736,7 +1719,7 @@ PL:
           - 'Long Market'
           - 'Solidarity Square'
         monument:
-          - 'St. Mary''s Church'
+          - "St. Mary's Church"
           - 'Neptune Fountain'
       universities:
         - 'University of Gdańsk'
@@ -1744,7 +1727,6 @@ PL:
       government-facilities:
         - 'Gdańsk Prison'
         - 'District Court'
-
 
 GR:
   cities:
@@ -1828,4 +1810,3 @@ GR:
       government-facilities:
         - 'Heraklion Prison'
         - 'Court'
-

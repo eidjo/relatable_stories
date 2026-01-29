@@ -85,12 +85,7 @@ describe('Translation Engine', () => {
     });
 
     it('should translate place markers', () => {
-      const result = translateText(
-        'In {{city}}',
-        mockStory.markers,
-        mockContext,
-        'test-story'
-      );
+      const result = translateText('In {{city}}', mockStory.markers, mockContext, 'test-story');
 
       expect(result[0].text).toBe('In ');
       expect(result[1].text).toBe('Portland');

@@ -7,7 +7,9 @@
   import { translateStory } from '$lib/translation/translator';
   import SocialMeta from '$lib/components/shared/SocialMeta.svelte';
 
-  $: translatedStories = stories.map((story) => translateStory(story, $translationContext, $selectedLanguage));
+  $: translatedStories = stories.map((story) =>
+    translateStory(story, $translationContext, $selectedLanguage)
+  );
 </script>
 
 <SocialMeta

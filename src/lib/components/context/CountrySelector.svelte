@@ -29,7 +29,7 @@
     goto(newUrl.toString(), {
       replaceState: true,
       noScroll: true,
-      keepFocus: true
+      keepFocus: true,
     });
   }
 

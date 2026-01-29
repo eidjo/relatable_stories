@@ -112,7 +112,7 @@
   }
 
   function sleep(ms: number) {
-    return new Promise(resolve => setTimeout(resolve, ms));
+    return new Promise((resolve) => setTimeout(resolve, ms));
   }
 
   function handleMouseEnter() {
@@ -128,10 +128,7 @@
 
 <span class="relative inline-block" bind:this={elementRef}>
   {#if showOriginal}
-    <span
-      class="text-muted opacity-50 line-through decoration-2"
-      in:fade={{ duration: 200 }}
-    >
+    <span class="text-muted opacity-50 line-through decoration-2" in:fade={{ duration: 200 }}>
       {strikethroughText}
     </span>
   {:else}
@@ -144,7 +141,11 @@
       on:blur={handleMouseLeave}
       role="button"
       tabindex="0"
-      aria-label="{$contextualizationEnabled ? 'Translated' : 'Original'} text. {$contextualizationEnabled ? 'Original' : 'Local equivalent'}: {tooltipText}"
+      aria-label="{$contextualizationEnabled
+        ? 'Translated'
+        : 'Original'} text. {$contextualizationEnabled
+        ? 'Original'
+        : 'Local equivalent'}: {tooltipText}"
     >
       {displayedText}<span class="animate-pulse"
         >{#if !animationComplete}|{/if}</span
