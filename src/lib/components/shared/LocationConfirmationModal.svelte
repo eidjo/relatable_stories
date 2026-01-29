@@ -3,19 +3,30 @@
   import { fade, scale } from 'svelte/transition';
   import { detectCountry } from '$lib/geolocation/detector';
   import { selectedCountry } from '$lib/stores/country';
-  import { countries } from '$lib/data/contexts';
+  import { selectedLanguage } from '$lib/stores/language';
+  import { countries, countryLanguages, languageNames } from '$lib/data/contexts';
   import { sortCountriesForDisplay } from '$lib/utils/sortCountries';
   import type { CountryCode } from '$lib/types';
+  import type { LanguageCode } from '$lib/stores/language';
 
   export let onConfirm: () => void;
 
   let isDetecting = true;
   let detectedCountry: CountryCode | null = null;
   let selectedOption: CountryCode | null = null;
+  let selectedLang: LanguageCode = 'en';
   let showDropdown = false;
   let detectionMethod = '';
 
   $: sortedCountries = sortCountriesForDisplay(countries, detectedCountry);
+  $: countrySpecificLanguages = selectedOption
+    ? (countryLanguages.countries[selectedOption]?.languages || [])
+    : [];
+  $: additionalLanguages = countrySpecificLanguages.filter(lang => lang !== 'en');
+  $: showLanguageSelector = additionalLanguages.length > 0;
+
+  // Default to first additional language, or 'en' if none available
+  $: defaultLanguage = additionalLanguages.length > 0 ? additionalLanguages[0] : 'en';
 
   onMount(async () => {
     // Run IP-based detection
@@ -23,8 +34,13 @@
     detectedCountry = await detectCountry();
     selectedOption = detectedCountry;
 
+    // Set default language for detected country
+    const countryLangs = countryLanguages.countries[detectedCountry]?.languages || [];
+    const additionalLangs = countryLangs.filter(lang => lang !== 'en');
+    selectedLang = additionalLangs.length > 0 ? additionalLangs[0] : 'en';
+
     // Log detection result for debugging
-    console.log(`Detected country: ${detectedCountry}`);
+    console.log(`Detected country: ${detectedCountry}, default language: ${selectedLang}`);
 
     isDetecting = false;
   });
@@ -32,7 +48,8 @@
   function handleConfirm() {
     if (selectedOption) {
       selectedCountry.set(selectedOption);
-      // Country will be added to URL by parent component
+      selectedLanguage.set(selectedLang);
+      // Country and language will be added to URL by parent component
       // No need for localStorage - URL is the source of truth
       onConfirm();
     }
@@ -41,12 +58,25 @@
   function selectCountry(code: CountryCode) {
     selectedOption = code;
     showDropdown = false;
+
+    // Set default language for new country
+    const newCountryLanguages = countryLanguages.countries[code]?.languages || [];
+    const newAdditionalLangs = newCountryLanguages.filter(lang => lang !== 'en');
+
+    // If current language not available in new country, reset to default
+    if (selectedLang !== 'en' && !newCountryLanguages.includes(selectedLang)) {
+      selectedLang = newAdditionalLangs.length > 0 ? newAdditionalLangs[0] : 'en';
+    }
   }
 
   function toggleDropdown() {
     if (!isDetecting) {
       showDropdown = !showDropdown;
     }
+  }
+
+  function selectLanguage(lang: LanguageCode) {
+    selectedLang = lang;
   }
 
   $: currentCountry = countries.find((c) => c.code === selectedOption);
@@ -141,6 +171,48 @@
           </p>
         {/if}
       </div>
+
+      <!-- Language Selection (only show if additional languages available) -->
+      {#if showLanguageSelector}
+        <div class="space-y-3">
+          <label for="language-selector" class="block text-sm font-medium text-stone-300">
+            Language
+          </label>
+
+          <div class="flex flex-wrap gap-2">
+            <!-- Always show Original (English) -->
+            <button
+              type="button"
+              on:click={() => selectLanguage('en')}
+              class="px-4 py-2 rounded border transition-colors {selectedLang === 'en'
+                ? 'bg-primary-600 border-primary-500 text-white'
+                : 'bg-stone-800 border-stone-700 text-stone-300 hover:border-stone-600'}"
+            >
+              <div class="text-sm font-medium">Original</div>
+              <div class="text-xs opacity-75">English</div>
+            </button>
+
+            <!-- Additional languages for this country -->
+            {#each additionalLanguages as lang}
+              <button
+                type="button"
+                on:click={() => selectLanguage(lang)}
+                class="px-4 py-2 rounded border transition-colors {selectedLang === lang
+                  ? 'bg-primary-600 border-primary-500 text-white'
+                  : 'bg-stone-800 border-stone-700 text-stone-300 hover:border-stone-600'}"
+              >
+                <div class="text-sm font-medium">
+                  {languageNames[lang] || lang}
+                </div>
+              </button>
+            {/each}
+          </div>
+
+          <p class="text-xs text-stone-500">
+            Stories will be shown in this language with {currentCountry?.name} context
+          </p>
+        </div>
+      {/if}
 
       <!-- Confirm Button -->
       <button

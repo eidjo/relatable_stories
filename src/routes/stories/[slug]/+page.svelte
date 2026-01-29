@@ -6,34 +6,167 @@
   import Button from '$lib/components/shared/Button.svelte';
   import LocationConfirmationModal from '$lib/components/shared/LocationConfirmationModal.svelte';
   import { page } from '$app/stores';
-  import { getStoryBySlug } from '$lib/data/stories';
+  import { getStoryBySlug, getStoryBySlugTranslated } from '$lib/data/stories';
   import { translationContext, selectedCountry } from '$lib/stores/country';
+  import { selectedLanguage } from '$lib/stores/language';
   import { translateStory } from '$lib/translation/translator';
-  import type { CountryCode } from '$lib/types';
+  import { parsePreTranslatedWithParagraphs } from '$lib/translation/pretranslated-parser';
+  import { countryLanguages } from '$lib/data/contexts';
+  import type { CountryCode, Story, TranslatedStory } from '$lib/types';
 
   $: slug = $page.params.slug || '';
-  $: story = getStoryBySlug(slug);
-  $: translatedStory = story ? translateStory(story, $translationContext) : null;
+
+  let story: Story | undefined = undefined;
+  let translatedStory: TranslatedStory | null = null;
+  let isLoading = false;
+
+  // Reload story when language or country changes
+  $: if (slug && $selectedLanguage && $selectedCountry && locationConfirmed) {
+    console.log('🔄 Reactive: Triggering loadStory', { slug, lang: $selectedLanguage, country: $selectedCountry });
+    loadStory(slug, $selectedLanguage, $selectedCountry);
+  }
+
+  // Helper to fill {{marker}} placeholders with values from translated original
+  // Only fills dates, sources, and images - leaves person/place markers alone to preserve grammar
+  function fillPlaceholders(
+    parsedSegments: TranslatedSegment[],
+    originalSegments: TranslatedSegment[]
+  ): TranslatedSegment[] {
+    const result: TranslatedSegment[] = [];
+    const fillableTypes = ['date', 'source', 'image'];
+
+    for (const segment of parsedSegments) {
+      if ((segment as any).isPlaceholder && segment.type && segment.key) {
+        // Only fill specific types (dates, sources, images)
+        // Leave person/place markers as-is to preserve grammatical inflection
+        if (fillableTypes.includes(segment.type)) {
+          // Find matching segment from original translation
+          const match = originalSegments.find(
+            (orig) => orig.type === segment.type && orig.key === segment.key
+          );
+          if (match) {
+            result.push(match);
+          } else {
+            // Keep placeholder if no match found
+            result.push(segment);
+          }
+        } else {
+          // For person/place markers, keep as-is (grammar is already correct in pre-translation)
+          result.push(segment);
+        }
+      } else {
+        result.push(segment);
+      }
+    }
+
+    return result;
+  }
+
+  async function loadStory(slug: string, language: string, country: CountryCode) {
+    console.log('📖 loadStory called', { slug, language, country });
+    isLoading = true;
+
+    // Clear previous translation to force re-render
+    translatedStory = null;
+    console.log('🧹 Cleared translatedStory');
+
+    try {
+      // Load story in requested language/country
+      const loadedStory = await getStoryBySlugTranslated(slug, language, country);
+      console.log('📥 Loaded story:', loadedStory?.id);
+
+      if (!loadedStory) {
+        console.log('❌ No story found');
+        story = undefined;
+        translatedStory = null;
+        isLoading = false;
+        return;
+      }
+
+      story = loadedStory;
+
+      // Check if story has [[MARKER:...]] format (pre-translated)
+      const hasPreTranslatedMarkers = loadedStory.title?.includes('[[MARKER:') ||
+                                      loadedStory.content?.includes('[[MARKER:');
+      console.log('🔍 Has pre-translated markers:', hasPreTranslatedMarkers);
+
+      if (hasPreTranslatedMarkers) {
+        // Parse pre-translated story, but also load original to fill in remaining {{markers}}
+        const originalStory = getStoryBySlug(slug);
+
+        // Parse with both [[MARKER:...]] and {{marker}} support
+        const parsedTitle = parsePreTranslatedWithParagraphs(loadedStory.title);
+        const parsedSummary = parsePreTranslatedWithParagraphs(loadedStory.summary);
+        const parsedContent = parsePreTranslatedWithParagraphs(loadedStory.content);
+
+        // Fill in {{marker}} placeholders from original story using translator with target language
+        const originalTranslated = originalStory ? translateStory(originalStory, $translationContext, language) : null;
+
+        translatedStory = {
+          id: loadedStory.id,
+          title: fillPlaceholders(parsedTitle, originalTranslated?.title || []),
+          slug: loadedStory.slug,
+          date: loadedStory.date,
+          summary: fillPlaceholders(parsedSummary, originalTranslated?.summary || []),
+          content: fillPlaceholders(parsedContent, originalTranslated?.content || []),
+          tags: loadedStory.tags,
+          hashtags: loadedStory.hashtags,
+          severity: loadedStory.severity,
+          verified: loadedStory.verified,
+          source: loadedStory.source,
+          contentWarning: loadedStory['content-warning'],
+          image: loadedStory.image,
+          meta: loadedStory.meta,
+        };
+        console.log('✅ Set translatedStory (pre-translated)', {
+          id: translatedStory.id,
+          titleLength: translatedStory.title.length
+        });
+      } else {
+        // Regular translation with {{markers}}
+        translatedStory = translateStory(loadedStory, $translationContext, language);
+        console.log('✅ Set translatedStory (runtime)', {
+          id: translatedStory.id,
+          titleLength: translatedStory.title.length
+        });
+      }
+    } catch (error) {
+      console.error('Failed to load story:', error);
+      // Fallback to original
+      story = getStoryBySlug(slug);
+      translatedStory = story ? translateStory(story, $translationContext, language) : null;
+      console.log('⚠️ Set translatedStory (fallback)');
+    } finally {
+      isLoading = false;
+      console.log('🏁 loadStory completed');
+    }
+  }
 
   let initialCountrySet = false;
   let showLocationModal = false;
   let locationConfirmed = false;
 
-  // Preserve country parameter in navigation links (only in browser)
+  // Preserve country and language parameters in navigation links (only in browser)
   $: countryParam = browser ? $page.url.searchParams.get('country') : null;
-  $: storiesUrl = countryParam ? `/stories?country=${countryParam}` : '/stories';
-  $: actionUrl = countryParam ? `/take-action?country=${countryParam}` : '/take-action';
+  $: langParam = browser ? $page.url.searchParams.get('lang') : null;
+  $: queryParams = [
+    countryParam ? `country=${countryParam}` : null,
+    langParam ? `lang=${langParam}` : null,
+  ].filter(Boolean).join('&');
+  $: storiesUrl = queryParams ? `/stories?${queryParams}` : '/stories';
+  $: actionUrl = queryParams ? `/take-action?${queryParams}` : '/take-action';
 
-  // Check if URL has country parameter
+  // Check if URL has country and language parameters
   onMount(() => {
     if (!browser) return;
 
     const urlCountry = $page.url.searchParams.get('country');
+    const urlLang = $page.url.searchParams.get('lang');
 
     if (urlCountry) {
-      // URL has country parameter - skip modal, use that country
+      // URL has country parameter - skip modal, use that country and language
       locationConfirmed = true;
-      handleUrlCountrySync();
+      handleUrlSync();
     } else {
       // No country in URL - show location modal
       showLocationModal = true;
@@ -41,41 +174,60 @@
     }
   });
 
-  function handleLocationConfirmed() {
+  async function handleLocationConfirmed() {
     showLocationModal = false;
+    handleUrlSync();
+
+    // Now set confirmed, which will trigger story loading with correct language
     locationConfirmed = true;
-    handleUrlCountrySync();
   }
 
-  function handleUrlCountrySync() {
+  function handleUrlSync() {
     const urlCountry = $page.url.searchParams.get('country') as CountryCode | null;
+    const urlLang = $page.url.searchParams.get('lang') as string | null;
+
     if (urlCountry && urlCountry !== $selectedCountry) {
       // Valid country code in URL, update store
       selectedCountry.set(urlCountry);
       initialCountrySet = true;
     } else if (!urlCountry) {
       // No country in URL, add current selection to URL
-      updateUrlWithCountry($selectedCountry);
+      updateUrl($selectedCountry, $selectedLanguage);
       initialCountrySet = true;
     } else {
       initialCountrySet = true;
     }
+
+    if (urlLang && urlLang !== $selectedLanguage) {
+      // Language in URL, update store
+      selectedLanguage.set(urlLang);
+    } else if (!urlLang) {
+      // No language in URL, default to first additional language or 'en'
+      const currentCountry = urlCountry || $selectedCountry;
+      const countryLangs = countryLanguages.countries[currentCountry]?.languages || [];
+      const additionalLangs = countryLangs.filter(lang => lang !== 'en');
+      const defaultLang = additionalLangs.length > 0 ? additionalLangs[0] : 'en';
+      selectedLanguage.set(defaultLang);
+      updateUrl($selectedCountry, defaultLang);
+    }
   }
 
-  // Sync URL when country changes (browser only, after location confirmed)
-  $: if (browser && initialCountrySet && locationConfirmed && $selectedCountry) {
-    updateUrlWithCountry($selectedCountry);
+  // Sync URL when country or language changes (browser only, after location confirmed)
+  $: if (browser && initialCountrySet && locationConfirmed && $selectedCountry && $selectedLanguage) {
+    updateUrl($selectedCountry, $selectedLanguage);
   }
 
-  function updateUrlWithCountry(country: CountryCode) {
+  function updateUrl(country: CountryCode, language: string) {
     if (!browser || !$page.url) return;
 
     const newUrl = new URL($page.url);
     const currentCountry = newUrl.searchParams.get('country');
+    const currentLang = newUrl.searchParams.get('lang');
 
     // Only update if different to avoid infinite loops
-    if (currentCountry !== country) {
+    if (currentCountry !== country || currentLang !== language) {
       newUrl.searchParams.set('country', country);
+      newUrl.searchParams.set('lang', language);
       goto(newUrl.toString(), { replaceState: true, noScroll: true, keepFocus: true });
     }
   }
@@ -109,7 +261,7 @@
           Hover over underlined text to see the original Iranian details.
         </p>
         <a
-          href={`/about${countryParam ? `?country=${countryParam}` : ''}`}
+          href={`/about${queryParams ? `?${queryParams}` : ''}`}
           class="inline-flex items-center gap-2 px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white rounded-lg transition-colors text-sm font-medium"
         >
           Learn More About the Context →

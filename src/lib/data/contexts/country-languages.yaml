@@ -1,0 +1,71 @@
+# Mapping of countries to their official/primary languages
+# Used for generating localized translations
+
+countries:
+  US:
+    languages: ['en']
+
+  UK:
+    languages: ['en']
+
+  CA:
+    languages: ['en', 'fr']
+
+  AU:
+    languages: ['en']
+
+  FR:
+    languages: ['fr']
+
+  BE:
+    languages: ['fr', 'nl', 'de']
+
+  ES:
+    languages: ['es']
+
+  DE:
+    languages: ['de']
+
+  IT:
+    languages: ['it']
+
+  NL:
+    languages: ['nl']
+
+  SE:
+    languages: ['sv']
+
+  NO:
+    languages: ['no']
+
+  DK:
+    languages: ['da']
+
+  FI:
+    languages: ['fi']
+
+  CZ:
+    languages: ['cs']
+
+  PL:
+    languages: ['pl']
+
+  IR:
+    languages: ['fa', 'en']
+
+# Language names for display
+language_names:
+  en: 'English'
+  fr: 'Français'
+  nl: 'Nederlands'
+  de: 'Deutsch'
+  es: 'Español'
+  it: 'Italiano'
+  sv: 'Svenska'
+  no: 'Norsk'
+  da: 'Dansk'
+  fi: 'Suomi'
+  fa: 'فارسی'
+  cs: 'Čeština'
+  pl: 'Polski'
+  pt: 'Português'
