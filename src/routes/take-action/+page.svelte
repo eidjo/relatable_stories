@@ -6,6 +6,7 @@
   import { getActionsForCountry } from '$lib/data/actions';
   import { translationContext } from '$lib/stores/country';
   import { countries } from '$lib/data/contexts';
+  import SocialMeta from '$lib/components/shared/SocialMeta.svelte';
 
   $: actions = getActionsForCountry($translationContext.country);
   $: currentCountry = countries.find((c) => c.code === $translationContext.country);
@@ -14,32 +15,16 @@
   $: countryParam = browser ? $page.url.searchParams.get('country') : null;
   $: aboutUrl = countryParam ? `${base}/about?country=${countryParam}` : `${base}/about`;
   $: storiesUrl = countryParam ? `${base}/stories?country=${countryParam}` : `${base}/stories`;
-
-  const pageUrl = `https://eidjo.github.io${base}/take-action`;
-  const pageTitle = 'Take Action - Relatable Stories from Iran';
-  const pageDescription = 'Learn how you can help support Iranian protesters and human rights. Contact representatives, share stories, and support organizations.';
-  const pageImage = `https://eidjo.github.io${base}/raha-protest-2026.jpg`;
 </script>
 
-<svelte:head>
-  <title>{pageTitle}</title>
-  <meta name="description" content={pageDescription} />
-
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content={pageUrl} />
-  <meta property="og:title" content={pageTitle} />
-  <meta property="og:description" content={pageDescription} />
-  <meta property="og:image" content={pageImage} />
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:url" content={pageUrl} />
-  <meta name="twitter:title" content={pageTitle} />
-  <meta name="twitter:description" content={pageDescription} />
-  <meta name="twitter:image" content={pageImage} />
-  <meta name="twitter:image:alt" content="Take Action for Iran" />
-</svelte:head>
+<SocialMeta
+  title="Take Action - Relatable Stories from Iran"
+  description="Learn how you can help support Iranian protesters and human rights. Contact representatives, share stories, and support organizations."
+  type="website"
+  image="/raha-protest-2026.jpg"
+  imageAlt="Take Action for Iran"
+  url="/take-action"
+/>
 
 <div class="max-w-5xl mx-auto px-8 py-16">
   <!-- Page header -->

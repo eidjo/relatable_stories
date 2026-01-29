@@ -15,6 +15,7 @@
   import { countryLanguages } from '$lib/data/contexts';
   import { theme } from '$lib/stores/theme';
   import type { CountryCode, Story, TranslatedStory, TranslatedSegment } from '$lib/types';
+  import SocialMeta from '$lib/components/shared/SocialMeta.svelte';
 
   $: slug = $page.params.slug || '';
 
@@ -235,38 +236,23 @@
   }
 </script>
 
-<svelte:head>
-  {#if translatedStory}
-    {@const storyTitle = translatedStory.title.map(s => s.text).join('')}
-    {@const storySummary = translatedStory.summary.map(s => s.text).join('')}
-    {@const storyUrl = `https://eidjo.github.io${base}/stories/${slug}`}
-    {@const countryCode = $selectedCountry.toLowerCase()}
-    {@const languageCode = $selectedLanguage}
-    {@const currentTheme = $theme}
-    {@const shareImageUrl = `https://eidjo.github.io${base}/share/twitter/${slug}-${languageCode}-${countryCode}-${currentTheme}.png`}
+{#if translatedStory}
+  {@const storyTitle = translatedStory.title.map(s => s.text).join('')}
+  {@const storySummary = translatedStory.summary.map(s => s.text).join('')}
+  {@const countryCode = $selectedCountry.toLowerCase()}
+  {@const languageCode = $selectedLanguage}
+  {@const currentTheme = $theme}
+  {@const shareImagePath = `/share/twitter/${slug}-${languageCode}-${countryCode}-${currentTheme}.png`}
 
-    <title>{storyTitle} - Relatable Stories</title>
-    <meta name="description" content={storySummary} />
-
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="article" />
-    <meta property="og:url" content={storyUrl} />
-    <meta property="og:title" content={`${storyTitle} - Relatable Stories`} />
-    <meta property="og:description" content={storySummary} />
-    <meta property="og:image" content={shareImageUrl} />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="675" />
-    <meta property="og:image:alt" content={storyTitle} />
-
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content={storyUrl} />
-    <meta name="twitter:title" content={`${storyTitle} - Relatable Stories`} />
-    <meta name="twitter:description" content={storySummary} />
-    <meta name="twitter:image" content={shareImageUrl} />
-    <meta name="twitter:image:alt" content={storyTitle} />
-  {/if}
-</svelte:head>
+  <SocialMeta
+    title={`${storyTitle} - Relatable Stories`}
+    description={storySummary}
+    type="article"
+    image={shareImagePath}
+    imageAlt={storyTitle}
+    url={`/stories/${slug}`}
+  />
+{/if}
 
 {#if showLocationModal}
   <LocationConfirmationModal onConfirm={handleLocationConfirmed} />

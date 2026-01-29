@@ -5,37 +5,22 @@
   import Timeline from '$lib/components/timeline/Timeline.svelte';
   import { events } from '$lib/data/timeline';
   import { aboutContent } from '$lib/data/content';
+  import SocialMeta from '$lib/components/shared/SocialMeta.svelte';
 
   // Preserve country parameter in links
   $: countryParam = browser ? $page.url.searchParams.get('country') : null;
   $: storiesUrl = countryParam ? `${base}/stories?country=${countryParam}` : `${base}/stories`;
   $: actionUrl = countryParam ? `${base}/take-action?country=${countryParam}` : `${base}/take-action`;
-
-  const pageUrl = `https://eidjo.github.io${base}/about`;
-  const pageTitle = 'About - Relatable Stories from Iran';
-  const pageDescription = "Learn about Iran's uprisings and how these stories are translated to build empathy and understanding.";
-  const pageImage = `https://eidjo.github.io${base}/raha-protest-2026.jpg`;
 </script>
 
-<svelte:head>
-  <title>{pageTitle}</title>
-  <meta name="description" content={pageDescription} />
-
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content={pageUrl} />
-  <meta property="og:title" content={pageTitle} />
-  <meta property="og:description" content={pageDescription} />
-  <meta property="og:image" content={pageImage} />
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:url" content={pageUrl} />
-  <meta name="twitter:title" content={pageTitle} />
-  <meta name="twitter:description" content={pageDescription} />
-  <meta name="twitter:image" content={pageImage} />
-  <meta name="twitter:image:alt" content="About Relatable Stories from Iran" />
-</svelte:head>
+<SocialMeta
+  title="About - Relatable Stories from Iran"
+  description="Learn about Iran's uprisings and how these stories are translated to build empathy and understanding."
+  type="website"
+  image="/raha-protest-2026.jpg"
+  imageAlt="About Relatable Stories from Iran"
+  url="/about"
+/>
 
 <div class="max-w-5xl mx-auto px-8 py-16 space-y-16 text-lg">
   <!-- Introduction -->

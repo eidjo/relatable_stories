@@ -7,6 +7,7 @@
   import { selectedCountry } from '$lib/stores/country';
   import '../app.css';
   import Header from '$lib/components/layout/Header.svelte';
+  import SocialMeta from '$lib/components/shared/SocialMeta.svelte';
 
   // Ensure URL has country parameter for non-story pages
   onMount(() => {
@@ -30,37 +31,15 @@
   });
 </script>
 
+<SocialMeta
+  title="Relatable Stories - Iran Uprising Stories in Your Context"
+  description="Real stories from Iran's 2022 fight for freedom, translated into your local context. Names, places, and numbers adapt to help you understand and empathize."
+  type="website"
+  image="/raha-protest-2026.jpg"
+  imageAlt="Relatable Stories - Stories from Iran"
+/>
+
 <svelte:head>
-  <title>Relatable Stories - Iran Uprising Stories in Your Context</title>
-  <meta
-    name="description"
-    content="Experience stories from Iran's 2022 uprising, translated into your local context to help you understand and empathize."
-  />
-
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://eidjo.github.io{base}/" />
-  <meta property="og:title" content="Relatable Stories - Iran Uprising Stories in Your Context" />
-  <meta
-    property="og:description"
-    content="Real stories from Iran's 2022 fight for freedom, translated into your local context. Names, places, and numbers adapt to help you understand and empathize."
-  />
-  <meta property="og:image" content="https://eidjo.github.io{base}/raha-protest-2026.jpg" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="Relatable Stories - Stories from Iran" />
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:url" content="https://eidjo.github.io{base}/" />
-  <meta name="twitter:title" content="Relatable Stories - Iran Uprising Stories in Your Context" />
-  <meta
-    name="twitter:description"
-    content="Real stories from Iran's 2022 fight for freedom, translated into your local context. Names, places, and numbers adapt to help you understand and empathize."
-  />
-  <meta name="twitter:image" content="https://eidjo.github.io{base}/raha-protest-2026.jpg" />
-  <meta name="twitter:image:alt" content="Relatable Stories - Stories from Iran" />
-
   <!-- Additional Meta Tags -->
   <meta name="theme-color" content="#0a0a0a" />
   <meta name="author" content="Relatable Stories" />
