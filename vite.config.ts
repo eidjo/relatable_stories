@@ -7,6 +7,9 @@ export default defineConfig({
   server: {
     host: true, // Listen on all addresses
     allowedHosts: ['localhost', '.ngrok.io', '.ngrok-free.dev', '.ngrok.app'],
+    fs: {
+      allow: ['.', './schemas'], // Allow serving schemas directory
+    },
   },
   test: {
     include: ['src/**/*.{test,spec}.{js,ts}'],
