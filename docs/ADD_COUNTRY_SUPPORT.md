@@ -207,6 +207,10 @@ XX:
         - 'Hospital Name'      # Real hospital names in local language
       morgues:
         - 'Morgue/Medical Examiner Name'  # Real facility names
+      prisons:
+        - 'Prison Name'        # Real prison/correctional facility names
+      police-stations:
+        - 'Police Station Name'  # Real police station/precinct names
 ```
 
 #### City Size Guidelines
@@ -247,9 +251,10 @@ XX:
 
 #### Government Facilities
 
-- Use generic institutional names
-- Examples: "District Detention Center", "Municipal Police Station"
+- Use generic institutional names for non-specific facilities
+- Examples: "District Court", "Municipal Office", "Government Building"
 - Avoid: Actual facility names that could be identified
+- **Note**: Use specific types (prisons, police-stations) instead when applicable
 
 #### Hospitals
 
@@ -264,6 +269,22 @@ XX:
 - Include institutes of forensic medicine, public mortuaries
 - 1-2 morgues per city is typical
 - Examples: "Institute of Forensic Medicine", "City Mortuary"
+
+#### Prisons
+
+- Use real prison/correctional facility names
+- Include major detention centers and prisons
+- 1 prison per city is typical
+- Examples: "City Prison", "Central Correctional Facility"
+- **Important**: Use this specific type instead of government-facility for prisons
+
+#### Police Stations
+
+- Use real police station/precinct names
+- Include central police stations and precincts
+- 1 police station per city is typical
+- Examples: "Central Police Station", "City Police Headquarters"
+- **Important**: Use this specific type instead of government-facility for police stations
 
 **Example**:
 ```yaml

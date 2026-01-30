@@ -65,6 +65,8 @@ export interface CityData {
   'government-facilities'?: string[];
   hospitals?: string[];
   morgues?: string[];
+  prisons?: string[];
+  'police-stations'?: string[];
 }
 
 /**
@@ -328,9 +330,20 @@ export function translateMarkerV2(
   // Place
   if (isPlaceMarker(marker)) {
     // Check if this place has a parent
-    if (marker.within && context.resolved.has(marker.within)) {
-      const parentPlace = context.resolved.get(marker.within)!;
-      const cityName = parentPlace.value;
+    if (marker.within) {
+      // Resolve parent if not already resolved
+      if (!context.resolved.has(marker.within)) {
+        const parentMarker = context.markers[marker.within];
+        if (parentMarker) {
+          const parentResult = translateMarkerV2(marker.within, parentMarker, data, context);
+          context.resolved.set(marker.within, parentResult);
+        }
+      }
+
+      // Now get the resolved parent
+      if (context.resolved.has(marker.within)) {
+        const parentPlace = context.resolved.get(marker.within)!;
+        const cityName = parentPlace.value;
 
       // Find the city data
       const cityData = findCityByName(data.places, cityName);
@@ -354,6 +367,10 @@ export function translateMarkerV2(
           items = cityData.hospitals;
         } else if (marker.morgue && cityData.morgues) {
           items = cityData.morgues;
+        } else if (marker.prison && cityData.prisons) {
+          items = cityData.prisons;
+        } else if (marker['police-station'] && cityData['police-stations']) {
+          items = cityData['police-stations'];
         } else if (marker['government-facility'] && cityData['government-facilities']) {
           items = cityData['government-facilities'];
         }
@@ -364,6 +381,7 @@ export function translateMarkerV2(
             original: marker.place,
           };
         }
+      }
       }
     }
 

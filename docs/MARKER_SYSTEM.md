@@ -182,6 +182,8 @@ interface PlaceMarker {
   university?: boolean;
   hospital?: boolean;         // Hospital/medical center
   morgue?: boolean;           // Morgue/forensic facility
+  prison?: boolean;           // Prison/correctional facility
+  'police-station'?: boolean; // Police station/precinct
   'government-facility'?: boolean;
   within?: string;            // Parent place marker key
   region?: string;            // Geographic region
@@ -226,9 +228,21 @@ kahrizak:
   morgue: true
   within: tehran  # ✅ Will select morgue from same city
 
-# Government facilities
+# Prisons
 evin:
   place: 'Evin Prison'
+  prison: true
+  within: tehran  # ✅ Will select prison from same city
+
+# Police stations
+vozara:
+  place: 'Vozara police station'
+  police-station: true
+  within: tehran  # ✅ Will select police station from same city
+
+# Government facilities (generic)
+facility:
+  place: 'Government Building'
   government-facility: true
   within: tehran
 ```

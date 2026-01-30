@@ -35,6 +35,8 @@ export interface PlaceMarker {
   university?: boolean;
   hospital?: boolean;
   morgue?: boolean;
+  prison?: boolean;
+  'police-station'?: boolean;
   'government-facility'?: boolean;
   within?: string; // Parent place marker key (e.g., city contains landmark)
   region?: string; // Geographic region
