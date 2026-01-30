@@ -6,12 +6,13 @@ import type { CountryCode } from '$lib/types';
 // Import story YAML files as raw strings
 import mahsaArrestYaml from './mahsa-arrest/story.yaml?raw';
 import raha2026Yaml from './raha-2026/story.yaml?raw';
+import rideHomeYaml from './ride-home/story.yaml?raw';
 
 // Import translated versions (dynamically imported later)
 const storyModules = import.meta.glob('./*/story.*.yaml', { query: '?raw', import: 'default' });
 
 // Parse stories
-const storyFiles = [mahsaArrestYaml, raha2026Yaml];
+const storyFiles = [mahsaArrestYaml, raha2026Yaml, rideHomeYaml];
 
 export const stories: Story[] = storyFiles.map((yaml) => load(yaml) as Story);
 

@@ -1,0 +1,93 @@
+id: 'ride-home'
+title: 'Ashamed of Being Alive'
+slug: 'ride-home'
+date: '2022-11-15'
+summary: "A first-person account of exile, survivor's guilt, and the weight of watching a massacre from thousands of kilometers away."
+
+content: >-
+  I was coming back from a demonstration. I moved abroad a few years ago but I already made a few friends that I took with me. On the metro home, I sat down next to a middle-aged man. I noticed his small piece of paper glued onto cardboard; he noticed mine. That was enough to start a conversation.
+
+  He had been driving alone for {{drive-time-demo}} hours to come to this demonstration. The day before, he had driven {{drive-time-previous}} hours back and forth to another one, even though he was clearly down with the flu. "That's the only thing I can do," he said. "People are dying on the streets. I am ashamed of being alive."
+
+  I couldn't agree more how helpless I feel. How pointless all of my efforts have been. I fought my whole life: with patriarchy, then with my school staff, then university, after that municipality, and police. I ran away the fastest when morality police was following me. And I ran away even faster to exile, just to survive.
+
+  I ran away from the biggest, and probably the only source of my life's traumas: of being jailed for "inappropriate" hijab in {{vozara-station}} in {{tehran}}; of being banned from continuing my education at the {{university}} because of political activities; of my dad being disappeared for {{dad-disappeared-months}} months before being found in {{zanjan-prison}}, just because of a measure he took in his job and it harmed a mollah's business.
+
+  I left my life behind, and I pretended that I have a new one. But my traumas didn't leave me alone, neither did the government. So many people protested and around {{injured}} were injured one way or another, while I helplessly shouted in the streets of carefree cities, thousands of kilometres away from home.
+
+  I remember {{years-since-threats}} years ago, when I couldn't stop speaking about the systematic massacre of Iranians, I received two distinct death threats. One day I woke up to find a comment plastered under all my posts on Instagram. It said, "If you ever show up here, we will fuck you and your sister to death." The message was clear: I could never return to my country again.
+
+  It has been a long time since I smelled orange blossom in the air of my city, {{shiraz}}. I miss its warm sunshine and my parents' house, which I haven't seen for {{years-since-home}} years.
+
+  And today, after {{killed}} people have been massacred {{killed:comparable}}, I don't even know why I deserved to go through all of this. I don't even know why I'm alive.
+
+markers:
+  # Places
+  tehran:
+    place: 'Tehran'
+    city-large: true
+    capital: true
+    population: 9500000
+
+  shiraz:
+    place: 'Shiraz'
+    city-large: true
+    population: 1565572
+
+  vozara-station:
+    place: 'Vozara police station'
+    government-facility: true
+    within: tehran
+
+  university:
+    place: 'Iran University of Art'
+    university: true
+    within: tehran
+
+  zanjan-prison:
+    place: 'Prison of Zanjan'
+    government-facility: true
+
+  # Numbers - time periods
+  drive-time-demo:
+    number: 5
+    hours: true
+
+  drive-time-previous:
+    number: 6
+    hours: true
+
+  dad-disappeared-months:
+    number: 2
+    months: true
+
+  years-since-threats:
+    number: 3
+    years: true
+
+  years-since-home:
+    number: 5
+    years: true
+
+  # Casualties - nationwide uprising
+  injured:
+    casualties: 300000
+    wounded: true
+    scope: country
+
+  killed:
+    casualties: 43000
+    killed: true
+    scope: country
+    comparable: massacre
+
+tags: ['exile', 'survivor-guilt', 'massacre', 'police-violence', 'displacement', 'death-threats', 'first-person']
+hashtags: '#Iran #Exile #SurvivorsGuilt #NeverForget #IranUprising'
+severity: critical
+verified: false
+source: 'Personal testimony, first-person account'
+contentWarning: "Death threats, state violence, massacre, imprisonment, trauma, survivor's guilt"
+
+meta:
+  og-title: 'Ashamed of Being Alive: An Iranian in Exile'
+  og-description: "A powerful first-person account of survivor's guilt, exile, and watching a massacre from thousands of kilometers away."
