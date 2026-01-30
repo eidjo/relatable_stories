@@ -17,7 +17,6 @@ import addFormats from 'ajv-formats';
 import { readFile } from 'fs/promises';
 import { glob } from 'glob';
 import yaml from 'js-yaml';
-import path from 'path';
 
 const ajv = new Ajv({
   allErrors: true,
@@ -133,12 +132,22 @@ function getPlaceTypeInfo(placeType) {
 async function checkTranslationScriptCompleteness() {
   console.log(`\n${colors.blue}Checking translation script completeness...${colors.reset}`);
 
-  // Load the story schema to get all place marker types
+  // Load translation script
+  const translateScriptContent = await readFile('scripts/translate-stories.js', 'utf-8');
+
+  // Check if using schema-driven approach
+  const usesSchemaHelpers = /getPlaceFacilityTypes/.test(translateScriptContent);
+
+  if (usesSchemaHelpers) {
+    console.log(`${colors.green}✓${colors.reset} Translation script uses schema-driven approach (getPlaceFacilityTypes)`);
+    return true;
+  }
+
+  // Fallback: check for individual handlers (legacy approach)
   const storySchemaContent = await readFile('schemas/story.schema.json', 'utf-8');
   const storySchema = JSON.parse(storySchemaContent);
   const placeMarkerDef = storySchema.definitions.PlaceMarker;
 
-  // Extract all place type properties (excluding place, within, city-*, capital, population, region)
   const placeTypes = Object.keys(placeMarkerDef.properties).filter(key =>
     key !== 'place' &&
     key !== 'within' &&
@@ -148,10 +157,6 @@ async function checkTranslationScriptCompleteness() {
     !key.startsWith('city-')
   );
 
-  // Load translation script
-  const translateScriptContent = await readFile('scripts/translate-stories.js', 'utf-8');
-
-  // Check that each place type is handled in the translation script
   const missingHandlers = [];
   for (const placeType of placeTypes) {
     const { markerCheck, dataCheck } = getPlaceTypeInfo(placeType);
@@ -169,6 +174,7 @@ async function checkTranslationScriptCompleteness() {
       console.log(`  ${colors.yellow}→${colors.reset} ${type}`);
     }
     console.log(`  ${colors.gray}Update scripts/translate-stories.js to handle these types${colors.reset}`);
+    console.log(`  ${colors.gray}Or use schema-driven approach with getPlaceFacilityTypes()${colors.reset}`);
     return false;
   } else {
     console.log(`${colors.green}✓${colors.reset} All place marker types are handled in translation script`);
@@ -182,12 +188,22 @@ async function checkTranslationScriptCompleteness() {
 async function checkCoreTranslationCompleteness() {
   console.log(`\n${colors.blue}Checking core.ts translation completeness...${colors.reset}`);
 
-  // Load the story schema to get all place marker types
+  // Load core.ts
+  const coreContent = await readFile('src/lib/translation/core.ts', 'utf-8');
+
+  // Check if using schema-driven approach
+  const usesSchemaHelpers = /getPlaceFacilityTypes/.test(coreContent);
+
+  if (usesSchemaHelpers) {
+    console.log(`${colors.green}✓${colors.reset} core.ts uses schema-driven approach (getPlaceFacilityTypes)`);
+    return true;
+  }
+
+  // Fallback: check for individual handlers (legacy approach)
   const storySchemaContent = await readFile('schemas/story.schema.json', 'utf-8');
   const storySchema = JSON.parse(storySchemaContent);
   const placeMarkerDef = storySchema.definitions.PlaceMarker;
 
-  // Extract all place type properties
   const placeTypes = Object.keys(placeMarkerDef.properties).filter(key =>
     key !== 'place' &&
     key !== 'within' &&
@@ -197,10 +213,6 @@ async function checkCoreTranslationCompleteness() {
     !key.startsWith('city-')
   );
 
-  // Load core.ts
-  const coreContent = await readFile('src/lib/translation/core.ts', 'utf-8');
-
-  // Check that each place type is handled
   const missingHandlers = [];
   for (const placeType of placeTypes) {
     const { markerCheck, dataCheck } = getPlaceTypeInfo(placeType);
@@ -218,6 +230,7 @@ async function checkCoreTranslationCompleteness() {
       console.log(`  ${colors.yellow}→${colors.reset} ${type}`);
     }
     console.log(`  ${colors.gray}Update src/lib/translation/core.ts to handle these types${colors.reset}`);
+    console.log(`  ${colors.gray}Or use schema-driven approach with getPlaceFacilityTypes()${colors.reset}`);
     return false;
   } else {
     console.log(`${colors.green}✓${colors.reset} All place marker types are handled in core.ts`);
@@ -250,6 +263,22 @@ async function main() {
   totalFiles++;
   const placesValid = await validateFile('src/lib/data/contexts/places.yaml', placesSchema, 'places.schema.json');
   if (placesValid) validFiles++;
+  else failedFiles++;
+
+  // Validate countries.yaml
+  console.log(`\n${colors.blue}Countries:${colors.reset}`);
+  const countriesSchema = await loadSchema('schemas/countries.schema.json');
+  totalFiles++;
+  const countriesValid = await validateFile('src/lib/data/contexts/countries.yaml', countriesSchema, 'countries.schema.json');
+  if (countriesValid) validFiles++;
+  else failedFiles++;
+
+  // Validate names.yaml
+  console.log(`\n${colors.blue}Names:${colors.reset}`);
+  const namesSchema = await loadSchema('schemas/names.schema.json');
+  totalFiles++;
+  const namesValid = await validateFile('src/lib/data/contexts/names.yaml', namesSchema, 'names.schema.json');
+  if (namesValid) validFiles++;
   else failedFiles++;
 
   // Check translation script completeness

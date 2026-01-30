@@ -45,6 +45,12 @@ import {
   isAliasMarker,
 } from '../src/lib/types/index.ts';
 
+// Import schema-driven helpers
+import {
+  getPlaceFacilityTypes,
+  getNestedValue
+} from '../src/lib/translation/schema-helpers.ts';
+
 // Parse CLI arguments
 const args = process.argv.slice(2);
 const targetCountry = args.find(arg => arg.startsWith('--country='))?.split('=')[1];
@@ -390,23 +396,16 @@ function substituteMarkers(text, markers, context, resolvedMarkers, storyId) {
         // Find the city in places data
         const cityData = places.cities?.find(c => c.name === parentCityName);
         if (cityData) {
-          // Try to find appropriate landmark
-          if (marker['landmark-protest'] && cityData.landmarks?.protest) {
-            value = selectFromArray(cityData.landmarks.protest, seed);
-          } else if (marker['landmark-monument'] && cityData.landmarks?.monument) {
-            value = selectFromArray(cityData.landmarks.monument, seed);
-          } else if (marker.university && cityData.universities) {
-            value = selectFromArray(cityData.universities, seed);
-          } else if (marker.hospital && cityData.hospitals) {
-            value = selectFromArray(cityData.hospitals, seed);
-          } else if (marker.morgue && cityData.morgues) {
-            value = selectFromArray(cityData.morgues, seed);
-          } else if (marker.prison && cityData.prisons) {
-            value = selectFromArray(cityData.prisons, seed);
-          } else if (marker['police-station'] && cityData['police-stations']) {
-            value = selectFromArray(cityData['police-stations'], seed);
-          } else if (marker['government-facility'] && cityData['government-facilities']) {
-            value = selectFromArray(cityData['government-facilities'], seed);
+          // Schema-driven facility matching
+          const facilityTypes = getPlaceFacilityTypes();
+          for (const { property, dataPath } of facilityTypes) {
+            const markerHasType = marker[property] === true;
+            const cityHasData = getNestedValue(cityData, dataPath);
+
+            if (markerHasType && cityHasData && Array.isArray(cityHasData)) {
+              value = selectFromArray(cityHasData, seed);
+              break;
+            }
           }
         }
       }

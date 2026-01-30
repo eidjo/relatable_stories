@@ -17,6 +17,10 @@ import {
   isCasualtiesMarker,
   isAliasMarker,
 } from '../types/index.ts';
+import {
+  getPlaceFacilityTypes,
+  getNestedValue
+} from './schema-helpers.ts';
 
 /**
  * Deterministic random number generator (seeded)
@@ -351,28 +355,24 @@ export function translateMarkerV2(
         // Determine subcategory
         let items: string[] = [];
 
-        if (marker['landmark-protest'] && cityData.landmarks?.protest) {
-          items = cityData.landmarks.protest;
-        } else if (marker['landmark-monument'] && cityData.landmarks?.monument) {
-          items = cityData.landmarks.monument;
-        } else if (marker.landmark && cityData.landmarks) {
-          // Any landmark
+        // Special case: generic landmark (any type)
+        if (marker.landmark && cityData.landmarks) {
           const allLandmarks = Object.values(cityData.landmarks)
             .flat()
             .filter((x): x is string => typeof x === 'string');
           items = allLandmarks;
-        } else if (marker.university && cityData.universities) {
-          items = cityData.universities;
-        } else if (marker.hospital && cityData.hospitals) {
-          items = cityData.hospitals;
-        } else if (marker.morgue && cityData.morgues) {
-          items = cityData.morgues;
-        } else if (marker.prison && cityData.prisons) {
-          items = cityData.prisons;
-        } else if (marker['police-station'] && cityData['police-stations']) {
-          items = cityData['police-stations'];
-        } else if (marker['government-facility'] && cityData['government-facilities']) {
-          items = cityData['government-facilities'];
+        } else {
+          // Schema-driven facility matching
+          const facilityTypes = getPlaceFacilityTypes();
+          for (const { property, dataPath } of facilityTypes) {
+            const markerHasType = (marker as any)[property] === true;
+            const cityHasData = getNestedValue(cityData, dataPath);
+
+            if (markerHasType && cityHasData && Array.isArray(cityHasData)) {
+              items = cityHasData;
+              break;
+            }
+          }
         }
 
         if (items.length > 0) {

@@ -68,7 +68,6 @@ markers:
   # Numbers
   cities:
     number: 400
-    cities: true
     scaled: true
     # scaleFactor: 0.3 # Dampen the pure scaling
 
@@ -82,7 +81,7 @@ markers:
     killed: true
     scope: country # Scale against country population (nationwide event across 400+ cities)
     comparable: massacre
-    timeframe: 'over two days'
+    # Note: "over two days" timeframe is mentioned in the story text
 
 # Sources - now in dedicated array
 sources:

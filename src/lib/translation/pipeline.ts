@@ -322,7 +322,7 @@ function parsePreTranslatedText(
         });
       } else if (match[11]) {
         // {{{{key:suffix}}:type}} - escaped format from translation
-        const key = match[12];
+        const _key = match[12]; // Extracted but not used in current logic
         const suffix = match[13];
         const type = match[14];
 
