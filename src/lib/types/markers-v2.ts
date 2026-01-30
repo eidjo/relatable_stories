@@ -33,6 +33,8 @@ export interface PlaceMarker {
   'landmark-protest'?: boolean; // Protest location
   'landmark-monument'?: boolean; // Monument/memorial
   university?: boolean;
+  hospital?: boolean;
+  morgue?: boolean;
   'government-facility'?: boolean;
   within?: string; // Parent place marker key (e.g., city contains landmark)
   region?: string; // Geographic region

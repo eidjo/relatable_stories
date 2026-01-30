@@ -63,6 +63,8 @@ export interface CityData {
   };
   universities?: string[];
   'government-facilities'?: string[];
+  hospitals?: string[];
+  morgues?: string[];
 }
 
 /**
@@ -348,6 +350,10 @@ export function translateMarkerV2(
           items = allLandmarks;
         } else if (marker.university && cityData.universities) {
           items = cityData.universities;
+        } else if (marker.hospital && cityData.hospitals) {
+          items = cityData.hospitals;
+        } else if (marker.morgue && cityData.morgues) {
+          items = cityData.morgues;
         } else if (marker['government-facility'] && cityData['government-facilities']) {
           items = cityData['government-facilities'];
         }
