@@ -1,0 +1,30 @@
+id: ride-home
+title: J'ai honte d'être en vie
+slug: ride-home
+date: "2026-01-29"
+summary: Un témoignage à la première personne sur l'exil, la culpabilité du survivant et le poids d'assister à un massacre depuis des milliers de kilomètres.
+content: |-
+  Je rentrais d'une manifestation. J'ai déménagé à l'étranger il y a quelques années, mais j'avais déjà quelques amis que j'avais emmenés avec moi. Dans le métro, je me suis assis à côté d'un homme d'âge moyen. J'ai remarqué son petit morceau de papier collé sur du carton ; il a remarqué le mien. Cela a suffi pour entamer une conversation.
+  Il avait conduit seul pendant [[MARKER:number:drive-time-demo:5|5]] heures pour venir à cette manifestation. La veille, il avait conduit [[MARKER:number:drive-time-previous:6|6]] heures aller-retour pour une autre, même s'il était clairement grippé. « C'est la seule chose que je peux faire », a-t-il dit. « Les gens meurent dans les rues. J'ai honte d'être en vie. »
+  Je ne pouvais qu'être d'accord sur le sentiment d'impuissance que je ressens. Sur l'inutilité de tous mes efforts. J'ai lutté toute ma vie : contre le patriarcat, puis contre le personnel de mon école, puis l'université, ensuite la municipalité et la police. J'ai couru le plus vite possible quand la police des mœurs me suivait. Et j'ai couru encore plus vite vers l'exil, juste pour survivre.
+  J'ai fui la plus grande, et probablement la seule source des traumatismes de ma vie : d'être emprisonnée pour hijab « inapproprié » à l'[[MARKER:place:vozara-station:poste de police de Vozara|Hôtel de Police (Marché au Charbon)]] à [[MARKER:place:tehran:Téhéran|Bruxelles]] ; d'être interdite de poursuivre mes études à l'[[MARKER:place:university:Université d'Art d'Iran|KU Leuven Bruxelles]] à cause d'activités politiques ; de la disparition de mon père pendant [[MARKER:number:dad-disappeared-months:2|2]] mois avant d'être retrouvé à la [[MARKER:place:zanjan-prison:Prison de Zanjan|Prison de Nieuwewandeling]], juste à cause d'une mesure qu'il avait prise dans son travail et qui avait nui aux affaires d'un mollah.
+  J'ai laissé ma vie derrière moi, et j'ai fait semblant d'en avoir une nouvelle. Mais mes traumatismes ne m'ont pas laissée tranquille, ni le gouvernement. Tant de gens ont manifesté et environ [[MARKER:casualties:injured:300000|40906|Ajusté de l'Iran (300 000) à la BE par population : 300 000 × (11,6M / 85,0M) = 40906]] ont été blessés d'une manière ou d'une autre, pendant que je criais impuissante dans les rues de villes insouciantes, à des milliers de kilomètres de chez moi.
+  Je me souviens il y a [[MARKER:number:years-since-threats:3|3]] ans, quand je ne pouvais pas arrêter de parler du massacre systématique des Iraniens, j'ai reçu deux menaces de mort distinctes. Un jour, je me suis réveillée pour trouver un commentaire placardé sous tous mes posts sur Instagram. Il disait : « Si tu te montres ici, on te baisera toi et ta sœur à mort. » Le message était clair : je ne pourrais plus jamais retourner dans mon pays.
+  Cela fait longtemps que je n'ai pas senti la fleur d'oranger dans l'air de ma ville, [[MARKER:place:shiraz:Chiraz|Bruxelles]]. Son soleil chaleureux et la maison de mes parents me manquent, que je n'ai pas vue depuis [[MARKER:number:years-since-home:5|5]] ans.
+  Et aujourd'hui, après que [[MARKER:casualties:killed:43000|5863|Ajusté de l'Iran (43 000) à la BE par population : 43 000 × (11,6M / 85,0M) = 5863]] personnes ont été massacrées [[COMPARISON:(168 fois les attentats de Bruxelles)|(168 fois les attentats de Bruxelles)|Comparaison : 5 863 victimes contre les attentats de Bruxelles (35 victimes en 2016) = 167,51 fois plus]], je ne sais même pas pourquoi j'ai mérité de traverser tout cela. Je ne sais même pas pourquoi je suis en vie.
+tags:
+  - exile
+  - survivor-guilt
+  - massacre
+  - police-violence
+  - displacement
+  - death-threats
+  - first-person
+hashtags: "#Iran #Exil #CulpabilitéDuSurvivant #JamaisOublier #SoulèvementIranien"
+severity: critical
+verified: false
+source: Témoignage personnel, récit à la première personne
+contentWarning: Menaces de mort, violence d'État, massacre, emprisonnement, traumatisme, culpabilité du survivant
+meta:
+  og-title: "J'ai honte d'être en vie : Une Iranienne en exil"
+  og-description: Un témoignage puissant à la première personne sur la culpabilité du survivant, l'exil et le fait d'assister à un massacre depuis des milliers de kilomètres.

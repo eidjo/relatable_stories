@@ -1,27 +1,27 @@
 id: mahsa-arrest
 title: Détention de [[MARKER:person:person1:Zahra|Camille]]
 slug: mahsa-arrest
-date: '2022-09-20'
+date: "2022-09-20"
 summary: L'expérience d'une étudiante de 23 ans pendant les manifestations suite à la mort de Mahsa Amini.
 content: |-
   !!! AVERTISSEMENT : CETTE HISTOIRE N'EST PAS VÉRIFIÉE ET EST PUREMENT À DES FINS DE DÉMONSTRATION !!!
-  Le soir du [[MARKER:date:arrest-date:2022-09-20|2022-09-20]], [[MARKER:person:person1:Zahra|Camille]], une étudiante de 23 ans originaire de [[MARKER:place:hometown:Mashhad|Gand]], a rejoint une veillée pacifique à [[MARKER:place:main-square:la place Azadi|{{main-square}}]].
-  Le rassemblement était l'une des nombreuses manifestations spontanées qui ont éclaté à travers l'Iran suite à la mort de Mahsa Amini en garde à vue le [[MARKER:date:mahsa-death:2022-09-16|2022-09-16]]{{source:mahsa-death-source}}. [[MARKER:person:person1:Zahra|Camille]] tenait une bougie et scandait "[[MARKER:unknown:chant:Femme, Vie, Liberté|Femme, Vie, Liberté]]" avec environ [[MARKER:number:protesters:200|27|Scaled from Iran (200) to BE by population ratio: 200 × (11.6M / 85.0M) = 27]] autres personnes.
-  À [[MARKER:time:raid-time:21:30|21:30]], les forces de sécurité sont arrivées et ont commencé à procéder à des arrestations. [[MARKER:person:person1:Zahra|Camille]] faisait partie des [[MARKER:number:arrested:47|6|Scaled from Iran (47) to BE by population ratio: 47 × (11.6M / 85.0M) = 6]] personnes détenues cette nuit-là et emmenées à [[MARKER:place:detention-center:la prison d'Evin|{{detention-center}}]].
+  Le soir du [[MARKER:date:arrest-date:2022-09-20|2022-09-20]], [[MARKER:person:person1:Zahra|Camille]], une étudiante de 23 ans originaire de [[MARKER:place:hometown:Mashhad|Gand]], a rejoint une veillée pacifique à [[MARKER:place:main-square:la place Azadi|la place Sint-Pietersplein]].
+  Le rassemblement était l'une des nombreuses manifestations spontanées qui ont éclaté à travers l'Iran suite à la mort de Mahsa Amini en garde à vue le [[MARKER:date:mahsa-death:2022-09-16|2022-09-16]]{{source:mahsa-death-source}}. [[MARKER:person:person1:Zahra|Camille]] tenait une bougie et scandait "[[MARKER:text:chant:Femme, Vie, Liberté|Femme, Vie, Liberté]]" avec environ [[MARKER:number:protesters:200|27|Adapté de l'Iran (200) à la BE par ratio de population : 200 × (11,6M / 85,0M) = 27]] autres personnes.
+  À [[MARKER:time:raid-time:21:30|21:30]], les forces de sécurité sont arrivées et ont commencé à procéder à des arrestations. [[MARKER:person:person1:Zahra|Camille]] faisait partie des [[MARKER:number:arrested:47|6|Adapté de l'Iran (47) à la BE par ratio de population : 47 × (11,6M / 85,0M) = 6]] personnes détenues cette nuit-là et emmenées à [[MARKER:place:detention-center:la prison d'Evin|{{detention-center}}]].
   Pendant [[MARKER:number:detention-days:18|18]] jours, la famille de [[MARKER:person:person1:Zahra|Camille]] n'a eu aucune information sur l'endroit où elle se trouvait. Les appels téléphoniques aux autorités sont restés sans réponse. Le jour [[MARKER:number:first-contact-day:11|11]], ils ont finalement reçu un bref appel confirmant que [[MARKER:person:person1:Zahra|Camille]] était en vie mais ne fournissant aucun autre détail.
-  La famille de [[MARKER:person:person1:Zahra|Camille]] a rassemblé [[MARKER:unknown:bail-amount:80 000 000 de rials|1 680 €]] pour la caution. Ce montant représentait environ [[MARKER:number:months-salary:8|8]] mois du salaire de [[MARKER:person:parent:Hassan|Lucas]] en tant qu'[[MARKER:unknown:parent-job:ouvrier du bâtiment|ouvrier du bâtiment]].
+  La famille de [[MARKER:person:person1:Zahra|Camille]] a rassemblé [[MARKER:currency:bail-amount:80 000 000 Rial|1 680 €]] pour la caution. Ce montant représentait environ [[MARKER:number:months-salary:8|8]] mois du salaire de [[MARKER:person:parent:Hassan|Lucas]] en tant qu'[[MARKER:occupation:parent-job:ouvrier du bâtiment|ouvrier du bâtiment]].
   Après [[MARKER:number:detention-days:18|18]] jours de détention, [[MARKER:person:person1:Zahra|Camille]] a été libérée avec des conditions strictes : pas de réseaux sociaux, pas de participation à des rassemblements, et des contrôles réguliers auprès des autorités. Les accusations restent en suspens.
   "Je voulais juste allumer une bougie pour Mahsa," a déclaré [[MARKER:person:person1:Zahra|Camille]]. "Je n'ai jamais imaginé que cela arriverait."
 tags:
-  - protest
-  - detention
-  - student
+  - manifestation
+  - détention
+  - étudiante
   - mahsa-amini
-hashtags: '#Iran #MahsaAmini #DroitsHumains #FemmeVieLiberte'
+hashtags: "#Iran #MahsaAmini #DroitsHumains #FemmeVieLiberte"
 severity: high
 verified: true
 source: Témoignages compilés par des organisations de défense des droits humains
 content-warning: Détention, séparation familiale
 meta:
   og-title: L'histoire d'une étudiante lors des manifestations iraniennes de 2022
-  og-description: Découvrez le coût humain de la manifestation pacifique à travers la détention d'une étudiante.
+  og-description: Découvrez le coût humain d'une manifestation pacifique à travers la détention d'une étudiante.
