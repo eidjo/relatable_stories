@@ -1,7 +1,7 @@
 id: 'ride-home'
 title: 'Ashamed of Being Alive'
 slug: 'ride-home'
-date: '2022-11-15'
+date: '2026-01-29'
 summary: "A first-person account of exile, survivor's guilt, and the weight of watching a massacre from thousands of kilometers away."
 
 content: >-
@@ -87,7 +87,16 @@ markers:
     scope: country
     comparable: massacre
 
-tags: ['exile', 'survivor-guilt', 'massacre', 'police-violence', 'displacement', 'death-threats', 'first-person']
+tags:
+  [
+    'exile',
+    'survivor-guilt',
+    'massacre',
+    'police-violence',
+    'displacement',
+    'death-threats',
+    'first-person',
+  ]
 hashtags: '#Iran #Exile #SurvivorsGuilt #NeverForget #IranUprising'
 severity: critical
 verified: false

@@ -131,7 +131,7 @@ US:
       police-stations:
         - 'Chicago Police Department Headquarters'
       morgues:
-        - 'Cook County Medical Examiner''s Office'
+        - "Cook County Medical Examiner's Office"
 
   # Generic fallbacks for when no specific city is selected
 
@@ -160,11 +160,11 @@ UK:
         - 'Belmarsh Prison'
         - "Westminster Magistrates' Court"
       hospitals:
-        - 'St Thomas'' Hospital'
+        - "St Thomas' Hospital"
         - 'The Royal London Hospital'
       morgues:
         - 'Westminster Public Mortuary'
-        - 'Poplar Coroner''s Court & Mortuary'
+        - "Poplar Coroner's Court & Mortuary"
 
     - id: manchester
       name: 'Manchester'
@@ -318,7 +318,7 @@ CA:
         - 'Bordeaux Prison'
         - 'Montreal Courthouse'
       hospitals:
-        - 'Centre hospitalier de l''Université de Montréal (CHUM)'
+        - "Centre hospitalier de l'Université de Montréal (CHUM)"
         - 'Hôpital général de Montréal'
       morgues:
         - 'Laboratoire de sciences judiciaires et de médecine légale'
@@ -680,7 +680,7 @@ AU:
         - 'Brisbane Correctional Centre'
         - 'Supreme Court'
       hospitals:
-        - 'Royal Brisbane and Women''s Hospital (RBWH)'
+        - "Royal Brisbane and Women's Hospital (RBWH)"
       morgues:
         - 'John Tonge Centre'
 
@@ -952,7 +952,7 @@ ES:
         - 'Centre Penitenciari Brians 2'
         - 'Centre Penitenciari Lledoners'
       police-stations:
-        - 'Hospital Universitari Vall d''Hebron'
+        - "Hospital Universitari Vall d'Hebron"
         - 'Comissaria General dels Mossos d’Esquadra'
       morgues:
         - 'Institut de Medicina Legal i Ciències Forenses de Catalunya'
@@ -1072,7 +1072,7 @@ IT:
         - 'San Vittore Prison'
         - 'Palace of Justice'
       hospitals:
-        - 'Ospedale Niguarda Ca'' Granda'
+        - "Ospedale Niguarda Ca' Granda"
         - 'Ospedale San Raffaele'
       morgues:
         - 'Obitorio Comunale di Milano'

@@ -17,10 +17,7 @@ import {
   isCasualtiesMarker,
   isAliasMarker,
 } from '../types/index.ts';
-import {
-  getPlaceFacilityTypes,
-  getNestedValue
-} from './schema-helpers.ts';
+import { getPlaceFacilityTypes, getNestedValue } from './schema-helpers.ts';
 
 /**
  * Deterministic random number generator (seeded)
@@ -349,39 +346,39 @@ export function translateMarkerV2(
         const parentPlace = context.resolved.get(marker.within)!;
         const cityName = parentPlace.value;
 
-      // Find the city data
-      const cityData = findCityByName(data.places, cityName);
-      if (cityData) {
-        // Determine subcategory
-        let items: string[] = [];
+        // Find the city data
+        const cityData = findCityByName(data.places, cityName);
+        if (cityData) {
+          // Determine subcategory
+          let items: string[] = [];
 
-        // Special case: generic landmark (any type)
-        if (marker.landmark && cityData.landmarks) {
-          const allLandmarks = Object.values(cityData.landmarks)
-            .flat()
-            .filter((x): x is string => typeof x === 'string');
-          items = allLandmarks;
-        } else {
-          // Schema-driven facility matching
-          const facilityTypes = getPlaceFacilityTypes();
-          for (const { property, dataPath } of facilityTypes) {
-            const markerHasType = (marker as any)[property] === true;
-            const cityHasData = getNestedValue(cityData, dataPath);
+          // Special case: generic landmark (any type)
+          if (marker.landmark && cityData.landmarks) {
+            const allLandmarks = Object.values(cityData.landmarks)
+              .flat()
+              .filter((x): x is string => typeof x === 'string');
+            items = allLandmarks;
+          } else {
+            // Schema-driven facility matching
+            const facilityTypes = getPlaceFacilityTypes();
+            for (const { property, dataPath } of facilityTypes) {
+              const markerHasType = (marker as any)[property] === true;
+              const cityHasData = getNestedValue(cityData, dataPath);
 
-            if (markerHasType && cityHasData && Array.isArray(cityHasData)) {
-              items = cityHasData;
-              break;
+              if (markerHasType && cityHasData && Array.isArray(cityHasData)) {
+                items = cityHasData;
+                break;
+              }
             }
           }
-        }
 
-        if (items.length > 0) {
-          return {
-            value: selectFromArray(items, seed),
-            original: marker.place,
-          };
+          if (items.length > 0) {
+            return {
+              value: selectFromArray(items, seed),
+              original: marker.place,
+            };
+          }
         }
-      }
       }
     }
 

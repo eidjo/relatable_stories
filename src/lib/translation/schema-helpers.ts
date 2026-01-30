@@ -39,12 +39,12 @@ const storySchema = storySchemaJson as StorySchema;
 const PLACE_TYPE_DATA_PATHS: Record<string, string> = {
   'landmark-protest': 'landmarks.protest',
   'landmark-monument': 'landmarks.monument',
-  'university': 'universities',
-  'hospital': 'hospitals',
-  'morgue': 'morgues',
-  'prison': 'prisons',
+  university: 'universities',
+  hospital: 'hospitals',
+  morgue: 'morgues',
+  prison: 'prisons',
   'police-station': 'police-stations',
-  'government-facility': 'government-facilities'
+  'government-facility': 'government-facilities',
 };
 
 /**
@@ -55,15 +55,21 @@ export function getPlaceFacilityTypes(): Array<{ property: string; dataPath: str
 
   // Filter out non-facility properties
   const excludeProps = new Set([
-    'place', 'within', 'region', 'capital', 'population',
-    'city-large', 'city-medium', 'city-small'
+    'place',
+    'within',
+    'region',
+    'capital',
+    'population',
+    'city-large',
+    'city-medium',
+    'city-small',
   ]);
 
   return Object.keys(placeMarkerProps)
-    .filter(prop => !excludeProps.has(prop))
-    .map(prop => ({
+    .filter((prop) => !excludeProps.has(prop))
+    .map((prop) => ({
       property: prop,
-      dataPath: PLACE_TYPE_DATA_PATHS[prop] || `${prop}s`
+      dataPath: PLACE_TYPE_DATA_PATHS[prop] || `${prop}s`,
     }));
 }
 
@@ -174,6 +180,6 @@ export function getAllMarkerTypes(): string[] {
     'currency',
     'occupation',
     'text',
-    'alias'
+    'alias',
   ];
 }
