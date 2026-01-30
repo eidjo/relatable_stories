@@ -1,0 +1,91 @@
+City,Country,Facility Name (Conversational)
+New York,USA,1 Police Plaza (NYPD HQ)
+Washington DC,USA,MPD Headquarters
+Los Angeles,USA,LAPD Headquarters
+Chicago,USA,CPD Headquarters
+London,UK,Scotland Yard
+London,UK,Wood Street Police Station
+Manchester,UK,GMP Headquarters
+Prague,Czech Republic,Policie Kongresová (HQ)
+Brno,Czech Republic,Policie Brno-město
+Toronto,Canada,Toronto Police HQ
+Montreal,Canada,SPVM Headquarters
+Vancouver,Canada,VPD Headquarters
+Ottawa,Canada,Ottawa Police HQ
+Calgary,Canada,CPS Westwinds
+Edmonton,Canada,EPS Headquarters
+Berlin,Germany,Polizeipräsidium (Platz der Luftbrücke)
+Hamburg,Germany,Polizeipräsidium Hamburg
+Munich,Germany,Polizeipräsidium (Ettstraße)
+Cologne,Germany,Polizeipräsidium Kalk
+Frankfurt,Germany,Polizeipräsidium Frankfurt
+Sydney,Australia,Sydney Police Centre
+Melbourne,Australia,Victoria Police Centre
+Brisbane,Australia,Roma Street Police HQ
+Canberra,Australia,ACT Policing HQ
+Perth,Australia,Perth Police Station
+Paris,France,Préfecture de Police (Île de la Cité)
+Marseille,France,L’Évêché (Police HQ)
+Lyon,France,Hôtel de Police (Marius Berliet)
+Toulouse,France,Commissariat Central (Courtois)
+Nice,France,Commissariat Auvare
+Madrid,Spain,Jefatura de Policía (Madrid)
+Barcelona,Spain,Mossos HQ (Les Corts)
+Valencia,Spain,Jefatura Superior de Policía
+Seville,Spain,Jefatura Superior (Sevilla)
+Rome,Italy,Questura di Roma
+Milan,Italy,Questura di Milano
+Naples,Italy,Questura di Napoli
+Turin,Italy,Questura di Torino
+Florence,Italy,Questura di Firenze
+Amsterdam,Netherlands,Hoofdbureau Politie
+Rotterdam,Netherlands,Hoofdbureau Rotterdam
+The Hague,Netherlands,Hoofdbureau Den Haag
+Utrecht,Netherlands,Hoofdbureau Utrecht
+Tehran,Iran,Agahi Headquarters
+Mashhad,Iran,Farandeh-ye Entezami
+Isfahan,Iran,Farandeh-ye Entezami
+Shiraz,Iran,Farandeh-ye Entezami
+Tabriz,Iran,Farandeh-ye Entezami
+Stockholm,Sweden,Polishuset (Kungsholmen)
+Gothenburg,Sweden,Polisen Ernst Fontells Plats
+Malmö,Sweden,Rättscentrum Malmö
+Uppsala,Sweden,Polisen Uppsala
+Brussels,Belgium,Hôtel de Police (Marché au Charbon)
+Antwerp,Belgium,Politie Antwerpen (HQ)
+Ghent,Belgium,Politie Gent (HQ)
+Liège,Belgium,Hôtel de Police
+São Paulo,Brazil,Palácio da Polícia (DGP)
+Rio de Janeiro,Brazil,Cidade da Polícia
+Brasília,Brazil,Sede da Polícia Federal
+Salvador,Brazil,Secretaria de Segurança (CAB)
+Belo Horizonte,Brazil,Delegacia Especializada
+Lisbon,Portugal,COMETLIS (Police HQ)
+Porto,Portugal,COMETPOR (Police HQ)
+Braga,Portugal,PSP de Braga
+Coimbra,Portugal,PSP de Coimbra
+Oslo,Norway,Politihuset (Grønland)
+Bergen,Norway,Bergen Politistasjon
+Trondheim,Norway,Trondheim Politistasjon
+Stavanger,Norway,Stavanger Politistasjon
+Copenhagen,Denmark,Politigården
+Aarhus,Denmark,Aarhus Politigård
+Odense,Denmark,Odense Politigård
+Aalborg,Denmark,Aalborg Politigård
+Helsinki,Finland,Pasilan poliisitalo (HQ)
+Espoo,Finland,Espoon poliisiasema
+Tampere,Finland,Tampereen poliisiasema
+Turku,Finland,Turun poliisiasema
+Warsaw,Poland,Pałac Mostowskich (Police HQ)
+Kraków,Poland,KMP Kraków
+Wrocław,Poland,KWP Wrocław
+Poznań,Poland,KWP Poznań
+Gdańsk,Poland,KWP Gdańsk
+Athens,Greece,The GADA (Police HQ)
+Thessaloniki,Greece,GADA Thessalonikis
+Patras,Greece,Astynomiko Megaro
+Heraklion,Greece,Astynomiko Megaro
+Bucharest,Romania,Poliția Capitalei
+Cluj-Napoca,Romania,IPJ Cluj
+Timișoara,Romania,IPJ Timiș
+Iași,Romania,IPJ Iași

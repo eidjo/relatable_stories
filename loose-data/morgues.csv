@@ -1,0 +1,97 @@
+City,Country,Facility Name (Conversational)
+New York,USA,The OCME (Manhattan Morgue)
+New York,USA,Bellevue Morgue
+Washington DC,USA,DC Medical Examiner
+Los Angeles,USA,L.A. County Morgue
+Chicago,USA,Cook County Morgue
+London,UK,Westminster Morgue
+London,UK,Poplar Morgue
+Manchester,UK,MRI Mortuary
+Manchester,UK,City Morgue
+Prague,Czech Republic,Soudní lékařství (Bulovka)
+Prague,Czech Republic,Soudní lékařství (Motol)
+Brno,Czech Republic,Soudní lékařství (St. Anne's)
+Toronto,Canada,Forensic Pathology Unit (The Morgue)
+Montreal,Canada,Laboratoire de médecine légale
+Vancouver,Canada,VGH Mortuary
+Ottawa,Canada,The Ottawa Civic Mortuary
+Calgary,Canada,Medical Examiner's Office
+Edmonton,Canada,Medical Examiner's Office
+Berlin,Germany,Rechtsmedizin (Charité)
+Berlin,Germany,Gerichtsmedizin (Moabit)
+Hamburg,Germany,Rechtsmedizin (UKE)
+Munich,Germany,Rechtsmedizin (LMU)
+Cologne,Germany,Rechtsmedizin Köln
+Frankfurt,Germany,Rechtsmedizin Frankfurt
+Sydney,Australia,Glebe Morgue (Lidcombe)
+Melbourne,Australia,The VIFM (Morgue)
+Brisbane,Australia,John Tonge Centre
+Canberra,Australia,Forensic Medicine Centre
+Perth,Australia,State Mortuary
+Paris,France,L'IML (Quai de la Rapée)
+Marseille,France,Médecine Légale (La Timone)
+Lyon,France,L'IML de Lyon
+Toulouse,France,L'IML de Rangueil
+Nice,France,L'IML Pasteur
+Madrid,Spain,Anatómico Forense
+Barcelona,Spain,Medicina Legal (Ciutat de la Justícia)
+Valencia,Spain,Medicina Legal Valencia
+Seville,Spain,Medicina Legal Sevilla
+Rome,Italy,Obitorio del Verano
+Rome,Italy,Medicina Legale (Sapienza)
+Milan,Italy,Obitorio Civico (Milano)
+Naples,Italy,Medicina Legale (Policlinico)
+Turin,Italy,Obitorio di Torino
+Florence,Italy,Medicina Legale (Careggi)
+Amsterdam,Netherlands,Mortuarium AMC
+Rotterdam,Netherlands,Mortuarium Erasmus
+The Hague,Netherlands,The NFI
+Utrecht,Netherlands,Mortuarium UMC
+Tehran,Iran,Pezeshki Ghanooni (Kahrizak)
+Mashhad,Iran,Pezeshki Ghanooni
+Isfahan,Iran,Pezeshki Ghanooni
+Shiraz,Iran,Pezeshki Ghanooni
+Tabriz,Iran,Pezeshki Ghanooni
+Stockholm,Sweden,Rättsmedicin (Solna)
+Gothenburg,Sweden,Rättsmedicin Göteborg
+Malmö,Sweden,Rättsmedicin Malmö
+Uppsala,Sweden,Akademiska Bårhus
+Brussels,Belgium,Médecine Légale (Saint-Luc)
+Antwerp,Belgium,Mortuarium UZA
+Ghent,Belgium,Mortuarium UZ Gent
+Liège,Belgium,Institut Médico-Légal
+São Paulo,Brazil,O IML (Central)
+Rio de Janeiro,Brazil,IML Afrânio Peixoto
+Brasília,Brazil,O IML de Brasília
+Salvador,Brazil,IML Nina Rodrigues
+Belo Horizonte,Brazil,IML André Roquette
+Lisbon,Portugal,Medicina Legal (INML)
+Porto,Portugal,Medicina Legal (Norte)
+Braga,Portugal,Gabinete Médico-Legal
+Coimbra,Portugal,Medicina Legal (Centro)
+Oslo,Norway,Rettsmedisinsk
+Bergen,Norway,Gades Institutt
+Trondheim,Norway,Patologisk (St. Olavs)
+Stavanger,Norway,Patologisk (SUS)
+Copenhagen,Denmark,Retsmedicinsk Institut
+Aarhus,Denmark,Retsmedicinsk Institut
+Odense,Denmark,Retsmedicinsk Institut
+Aalborg,Denmark,Kapellet (Aalborg)
+Helsinki,Finland,Oikeuslääketieteen laitos
+Helsinki,Finland,Malmin bårhus
+Espoo,Finland,Jorvin bårhus
+Tampere,Finland,TAYS oikeuslääketiede
+Turku,Finland,TYKS oikeuslääketiede
+Warsaw,Poland,ZMS (Medycyna Sądowa)
+Kraków,Poland,Medycyna Sądowa (UJ)
+Wrocław,Poland,ZMS Wrocław
+Poznań,Poland,ZMS Poznań
+Gdańsk,Poland,ZMS Gdańsk
+Athens,Greece,Iatrodikastiki Athinon
+Thessaloniki,Greece,Iatrodikastiki Thessalonikis
+Patras,Greece,Iatrodikastiki Patron
+Heraklion,Greece,Iatrodikastiki Irakleiou
+Bucharest,Romania,Mina Minovici (IML)
+Cluj-Napoca,Romania,IML Cluj
+Timișoara,Romania,IML Timișoara
+Iași,Romania,IML Iași

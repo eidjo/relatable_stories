@@ -1,0 +1,116 @@
+City,Country,Facility Name (Conversational)
+New York,USA,NY-Presbyterian
+New York,USA,Mount Sinai
+Washington DC,USA,Washington Hospital Center
+Washington DC,USA,GW Hospital
+Los Angeles,USA,Cedars-Sinai
+Los Angeles,USA,UCLA Medical Center
+Chicago,USA,Northwestern Memorial
+Chicago,USA,Rush University Med
+London,UK,St Thomas' Hospital
+London,UK,The Royal London
+Manchester,UK,Manchester Royal Infirmary (MRI)
+Manchester,UK,Wythenshawe Hospital
+Prague,Czech Republic,Nemocnice Motol
+Prague,Czech Republic,VFN (U Apolináře)
+Brno,Czech Republic,FN Brno (Bohunice)
+Toronto,Canada,Toronto General
+Toronto,Canada,Sunnybrook
+Montreal,Canada,The CHUM
+Montreal,Canada,Montreal General
+Vancouver,Canada,VGH (Vancouver General)
+Ottawa,Canada,The Ottawa (Civic Campus)
+Calgary,Canada,Foothills Medical Centre
+Edmonton,Canada,U of A Hospital
+Berlin,Germany,Charité
+Berlin,Germany,Vivantes Neukölln
+Hamburg,Germany,The UKE
+Munich,Germany,LMU Klinikum
+Munich,Germany,Rechts der Isar
+Cologne,Germany,Uniklinik Köln
+Frankfurt,Germany,Uni-Klinik Frankfurt
+Sydney,Australia,The RPA
+Sydney,Australia,Westmead Hospital
+Melbourne,Australia,The Alfred
+Melbourne,Australia,The Royal Melbourne
+Brisbane,Australia,The Royal (RBWH)
+Canberra,Australia,Canberra Hospital
+Perth,Australia,Royal Perth
+Paris,France,La Pitié-Salpêtrière
+Paris,France,Hôpital Georges-Pompidou
+Marseille,France,Hôpital de la Timone
+Lyon,France,Hôpital Édouard-Herriot
+Toulouse,France,Hôpital Purpan
+Nice,France,Hôpital Pasteur
+Madrid,Spain,Hospital La Paz
+Madrid,Spain,Hospital Gregorio Marañón
+Barcelona,Spain,Hospital Clínic
+Barcelona,Spain,Hospital Vall d'Hebron
+Valencia,Spain,Hospital La Fe
+Seville,Spain,Hospital Virgen del Rocío
+Rome,Italy,Policlinico Umberto I
+Rome,Italy,Il Gemelli
+Milan,Italy,Ospedale Niguarda
+Milan,Italy,San Raffaele
+Naples,Italy,Ospedale Cardarelli
+Turin,Italy,Le Molinette
+Florence,Italy,Ospedale Careggi
+Amsterdam,Netherlands,Amsterdam UMC (AMC)
+Rotterdam,Netherlands,Erasmus MC
+The Hague,Netherlands,HMC Westeinde
+Utrecht,Netherlands,UMC Utrecht
+Tehran,Iran,Milad Hospital
+Tehran,Iran,Imam Khomeini Hospital
+Mashhad,Iran,Imam Reza Hospital
+Isfahan,Iran,Al-Zahra Hospital
+Shiraz,Iran,Namazi Hospital
+Tabriz,Iran,Imam Reza Hospital
+Stockholm,Sweden,Karolinska Hospital
+Stockholm,Sweden,SÖS (Södersjukhuset)
+Gothenburg,Sweden,Sahlgrenska
+Malmö,Sweden,SUS Malmö
+Uppsala,Sweden,Akademiska (Ackis)
+Brussels,Belgium,Saint-Luc
+Brussels,Belgium,UZ Brussel
+Antwerp,Belgium,The UZA
+Ghent,Belgium,UZ Gent
+Liège,Belgium,CHU de Liège
+São Paulo,Brazil,Hospital das Clínicas (HC)
+São Paulo,Brazil,Hospital Einstein
+Rio de Janeiro,Brazil,Souza Aguiar
+Brasília,Brazil,Hospital de Base
+Salvador,Brazil,HGE (Hospital Geral)
+Belo Horizonte,Brazil,Hospital das Clínicas
+Lisbon,Portugal,Hospital Santa Maria
+Lisbon,Portugal,Hospital São José
+Porto,Portugal,Hospital São João
+Braga,Portugal,Hospital de Braga
+Coimbra,Portugal,The CHUC
+Oslo,Norway,Ullevål Sykehus
+Bergen,Norway,Haukeland
+Trondheim,Norway,St. Olavs
+Stavanger,Norway,SUS (Stavanger Sykehus)
+Copenhagen,Denmark,Rigshospitalet
+Copenhagen,Denmark,Bispebjerg Hospital
+Aarhus,Denmark,Skejby Sygehus
+Odense,Denmark,OUH (Odense Universitetshospital)
+Aalborg,Denmark,Aalborg Sykehus
+Helsinki,Finland,Meilahden sairaala
+Espoo,Finland,Jorvin sairaala
+Tampere,Finland,TAYS
+Turku,Finland,TYKS
+Warsaw,Poland,Szpital MSWiA
+Warsaw,Poland,Szpital Dzieciątka Jezus
+Kraków,Poland,Szpital Uniwersytecki
+Wrocław,Poland,USK Wrocław
+Poznań,Poland,Szpital Święcickiego
+Gdańsk,Poland,The UCK
+Athens,Greece,Evangelismos Hospital
+Athens,Greece,Attikon Hospital
+Thessaloniki,Greece,AHEPA Hospital
+Patras,Greece,Rio Hospital
+Heraklion,Greece,PAGNI Hospital
+Bucharest,Romania,Spitalul Universitar
+Cluj-Napoca,Romania,Spitalul Județean
+Timișoara,Romania,Spitalul Județean
+Iași,Romania,Sfântul Spiridon

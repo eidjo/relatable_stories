@@ -1,0 +1,107 @@
+City,Country,Facility Name (Conversational & Clear)
+New York,USA,Rikers Island
+New York,USA,Sing Sing
+Washington DC,USA,DC Jail
+Los Angeles,USA,Twin Towers
+Los Angeles,USA,Men's Central
+Chicago,USA,Cook County Jail
+London,UK,Belmarsh
+London,UK,Pentonville
+Manchester,UK,Strangeways
+Prague,Czech Republic,Věznice Pankrác
+Prague,Czech Republic,Věznice Ruzyně
+Brno,Czech Republic,Věznice Bohunice
+Toronto,Canada,Toronto South
+Montreal,Canada,Bordeaux Prison
+Vancouver,Canada,North Fraser Pretrial
+Ottawa,Canada,OCDC (Ottawa-Carleton)
+Calgary,Canada,Calgary Remand
+Edmonton,Canada,Edmonton Max
+Berlin,Germany,JVA Moabit
+Berlin,Germany,JVA Tegel
+Hamburg,Germany,Santa Fu
+Munich,Germany,Stadelheim
+Cologne,Germany,Klingelpütz
+Frankfurt,Germany,JVA Preungesheim
+Sydney,Australia,Long Bay
+Sydney,Australia,Silverwater
+Melbourne,Australia,Barwon Prison
+Melbourne,Australia,The MRC (Remand Centre)
+Brisbane,Australia,Brisbane Correctional
+Canberra,Australia,The AMC
+Perth,Australia,Casuarina
+Paris,France,Fleury-Mérogis
+Paris,France,La Santé
+Marseille,France,Les Baumettes
+Lyon,France,Corbas Prison
+Toulouse,France,Seysses
+Nice,France,Variville
+Madrid,Spain,Estremera
+Madrid,Spain,Soto del Real
+Barcelona,Spain,Brians 2
+Barcelona,Spain,Lledoners
+Valencia,Spain,Picassent
+Seville,Spain,Sevilla II
+Rome,Italy,Regina Coeli
+Rome,Italy,Rebibbia
+Milan,Italy,San Vittore
+Naples,Italy,Poggioreale
+Turin,Italy,Le Vallette
+Florence,Italy,Sollicciano
+Amsterdam,Netherlands,Bijlmerbajes
+Rotterdam,Netherlands,PI Rotterdam
+The Hague,Netherlands,Scheveningen (The Bunker)
+Utrecht,Netherlands,PI Nieuwegein
+Tehran,Iran,Evin Prison
+Tehran,Iran,Rajaee Shahr
+Mashhad,Iran,Vakilabad
+Isfahan,Iran,Zendan-e Isfahan
+Shiraz,Iran,Adel-Abad
+Tabriz,Iran,Zendan-e Tabriz
+Stockholm,Sweden,Hall Anstalten
+Stockholm,Sweden,Österåker Anstalten
+Gothenburg,Sweden,Kumla Anstalten
+Malmö,Sweden,Fosie Anstalten
+Uppsala,Sweden,Salberga Anstalten
+Brussels,Belgium,Prison de Saint-Gilles
+Brussels,Belgium,Prison de Haren
+Antwerp,Belgium,Begijnenstraat Prison
+Ghent,Belgium,Nieuwewandeling Prison
+Liège,Belgium,Prison de Lantin
+São Paulo,Brazil,IML (when referring to morgue) / CDP de Pinheiros
+Rio de Janeiro,Brazil,Bangu Complex
+Brasília,Brazil,Papuda
+Salvador,Brazil,Lemos Brito
+Belo Horizonte,Brazil,Nelson Hungria
+Lisbon,Portugal,EPL (Lisbon Prison)
+Lisbon,Portugal,Monsanto Security Prison
+Porto,Portugal,Custóias Prison
+Braga,Portugal,Cadeia de Braga
+Coimbra,Portugal,Cadeia de Coimbra
+Oslo,Norway,Oslo Fengsel
+Bergen,Norway,Bergen Fengsel
+Trondheim,Norway,Trondheim Fengsel
+Stavanger,Norway,Åna Fengsel
+Copenhagen,Denmark,Vestre Fængsel
+Aarhus,Denmark,Aarhus Arrest
+Odense,Denmark,Odense Arrest
+Aalborg,Denmark,Aalborg Arrest
+Helsinki,Finland,Sörkka (Helsinki Prison)
+Espoo,Finland,Vantaa Prison
+Tampere,Finland,Kylmäkoski Prison
+Turku,Finland,Sarjamäki Prison
+Warsaw,Poland,Białołęka Prison
+Warsaw,Poland,Służewiec Prison
+Kraków,Poland,Montelupich Prison
+Wrocław,Poland,Kleczkowska Prison
+Poznań,Poland,Młyńska Prison
+Gdańsk,Poland,Kurkowa Prison
+Athens,Greece,Korydallos Prison
+Thessaloniki,Greece,Diavata Prison
+Patras,Greece,Agios Stefanos Prison
+Heraklion,Greece,Alikarnassos Prison
+Bucharest,Romania,Penitenciarul Rahova
+Bucharest,Romania,Penitenciarul Jilava
+Cluj-Napoca,Romania,Penitenciarul Gherla
+Timișoara,Romania,Penitenciarul Popa Șapcă
+Iași,Romania,Penitenciarul Iași
