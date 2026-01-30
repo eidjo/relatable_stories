@@ -1,16 +1,11 @@
-# V2 Places Data - Hierarchical Structure
-# Each city contains its landmarks, universities, and government facilities
-#
-# This ensures geographic consistency - landmarks are always in the correct city
-
 US:
   cities:
-    - id: new-york
+    - id: 'new-york'
       name: 'New York'
-      size: large
+      size: 'large'
       capital: false
       population: 8336000
-      region: northeast
+      region: 'northeast'
       landmarks:
         protest:
           - 'Union Square'
@@ -38,13 +33,12 @@ US:
       morgues:
         - 'The OCME (Manhattan Morgue)'
         - 'Bellevue Morgue'
-
-    - id: washington-dc
+    - id: 'washington-dc'
       name: 'Washington DC'
-      size: large
+      size: 'large'
       capital: true
       population: 700000
-      region: mid-atlantic
+      region: 'mid-atlantic'
       landmarks:
         protest:
           - 'Freedom Plaza'
@@ -69,13 +63,12 @@ US:
         - 'MPD Headquarters'
       morgues:
         - 'DC Medical Examiner'
-
-    - id: los-angeles
+    - id: 'los-angeles'
       name: 'Los Angeles'
-      size: large
+      size: 'large'
       capital: false
       population: 3900000
-      region: west-coast
+      region: 'west-coast'
       landmarks:
         protest:
           - 'Pershing Square'
@@ -101,13 +94,12 @@ US:
         - 'LAPD Headquarters'
       morgues:
         - 'L.A. County Morgue'
-
-    - id: chicago
+    - id: 'chicago'
       name: 'Chicago'
-      size: large
+      size: 'large'
       capital: false
       population: 2700000
-      region: midwest
+      region: 'midwest'
       landmarks:
         protest:
           - 'Federal Plaza'
@@ -132,16 +124,14 @@ US:
         - 'CPD Headquarters'
       morgues:
         - 'Cook County Morgue'
-
-
 UK:
   cities:
-    - id: london
+    - id: 'london'
       name: 'London'
-      size: large
+      size: 'large'
       capital: true
       population: 9000000
-      region: southeast
+      region: 'southeast'
       landmarks:
         protest:
           - 'Trafalgar Square'
@@ -153,27 +143,32 @@ UK:
           - 'The London Eye'
       universities:
         - 'University College London'
-        - "King's College London"
+        - 'King''s College London'
         - 'Imperial College'
       government-facilities:
         - 'Belmarsh Prison'
-        - "Westminster Magistrates' Court"
+        - 'Westminster Magistrates'' Court'
       hospitals:
         - 'St Thomas'' Hospital'
         - 'The Royal London'
       morgues:
         - 'Westminster Morgue'
         - 'Poplar Morgue'
-
-    - id: manchester
+      prisons:
+        - 'Belmarsh'
+        - 'Pentonville'
+      police-stations:
+        - 'Scotland Yard'
+        - 'Wood Street Police Station'
+    - id: 'manchester'
       name: 'Manchester'
-      size: large
+      size: 'large'
       capital: false
       population: 550000
-      region: northwest
+      region: 'northwest'
       landmarks:
         protest:
-          - "St Peter's Square"
+          - 'St Peter''s Square'
           - 'Piccadilly Gardens'
           - 'Albert Square'
         monument:
@@ -184,7 +179,7 @@ UK:
         - 'Manchester Metropolitan University'
       government-facilities:
         - 'HMP Manchester'
-        - "Manchester Magistrates' Court"
+        - 'Manchester Magistrates'' Court'
       hospitals:
         - 'Manchester Royal Infirmary (MRI)'
         - 'Wythenshawe Hospital'
@@ -195,15 +190,14 @@ UK:
       morgues:
         - 'MRI Mortuary'
         - 'City Morgue'
-
 CZ:
   cities:
-    - id: prague
+    - id: 'prague'
       name: 'Prague'
-      size: large
+      size: 'large'
       capital: true
       population: 1300000
-      region: central
+      region: 'central'
       landmarks:
         protest:
           - 'Wenceslas Square'
@@ -231,13 +225,12 @@ CZ:
       morgues:
         - 'Soudní lékařství (Bulovka)'
         - 'Soudní lékařství (Motol)'
-
-    - id: brno
+    - id: 'brno'
       name: 'Brno'
-      size: medium
+      size: 'medium'
       capital: false
       population: 380000
-      region: south-moravia
+      region: 'south-moravia'
       landmarks:
         protest:
           - 'Freedom Square'
@@ -259,19 +252,18 @@ CZ:
         - 'Policie Brno-město'
       morgues:
         - 'Soudní lékařství (St. Anne''s)'
-
 CA:
   cities:
-    - id: toronto
+    - id: 'toronto'
       name: 'Toronto'
-      size: large
+      size: 'large'
       capital: false
       population: 2930000
-      region: ontario
+      region: 'ontario'
       landmarks:
         protest:
           - 'Nathan Phillips Square'
-          - "Queen's Park"
+          - 'Queen''s Park'
           - 'Yonge-Dundas Square'
         monument:
           - 'CN Tower'
@@ -293,13 +285,12 @@ CA:
         - 'Toronto Police HQ'
       morgues:
         - 'Forensic Pathology Unit (The Morgue)'
-
-    - id: montreal
+    - id: 'montreal'
       name: 'Montreal'
-      size: large
+      size: 'large'
       capital: false
       population: 1760000
-      region: quebec
+      region: 'quebec'
       landmarks:
         protest:
           - 'Place des Arts'
@@ -321,13 +312,16 @@ CA:
         - 'Montreal General'
       morgues:
         - 'Laboratoire de médecine légale'
-
-    - id: vancouver
+      prisons:
+        - 'Bordeaux Prison'
+      police-stations:
+        - 'SPVM Headquarters'
+    - id: 'vancouver'
       name: 'Vancouver'
-      size: large
+      size: 'large'
       capital: false
       population: 675000
-      region: british-columbia
+      region: 'british-columbia'
       landmarks:
         protest:
           - 'Vancouver Art Gallery Plaza'
@@ -351,18 +345,17 @@ CA:
         - 'VPD Headquarters'
       morgues:
         - 'VGH Mortuary'
-
-    - id: ottawa
+    - id: 'ottawa'
       name: 'Ottawa'
-      size: large
+      size: 'large'
       capital: true
       population: 1020000
-      region: ontario
+      region: 'ontario'
       landmarks:
         protest:
           - 'Parliament Hill'
           - 'Confederation Square'
-          - "Major's Hill Park"
+          - 'Major''s Hill Park'
         monument:
           - 'Peace Tower'
           - 'National War Memorial'
@@ -380,13 +373,12 @@ CA:
         - 'Ottawa Police HQ'
       morgues:
         - 'The Ottawa Civic Mortuary'
-
-    - id: calgary
+    - id: 'calgary'
       name: 'Calgary'
-      size: large
+      size: 'large'
       capital: false
       population: 1300000
-      region: alberta
+      region: 'alberta'
       landmarks:
         protest:
           - 'Olympic Plaza'
@@ -409,13 +401,12 @@ CA:
         - 'CPS Westwinds'
       morgues:
         - 'Medical Examiner''s Office'
-
-    - id: edmonton
+    - id: 'edmonton'
       name: 'Edmonton'
-      size: large
+      size: 'large'
       capital: false
       population: 1010000
-      region: alberta
+      region: 'alberta'
       landmarks:
         protest:
           - 'Legislature Grounds'
@@ -438,15 +429,14 @@ CA:
         - 'EPS Headquarters'
       morgues:
         - 'Medical Examiner''s Office'
-
 DE:
   cities:
-    - id: berlin
+    - id: 'berlin'
       name: 'Berlin'
-      size: large
+      size: 'large'
       capital: true
       population: 3700000
-      region: northeast
+      region: 'northeast'
       landmarks:
         protest:
           - 'Alexanderplatz'
@@ -474,13 +464,12 @@ DE:
       morgues:
         - 'Rechtsmedizin (Charité)'
         - 'Gerichtsmedizin (Moabit)'
-
-    - id: hamburg
+    - id: 'hamburg'
       name: 'Hamburg'
-      size: large
+      size: 'large'
       capital: false
       population: 1900000
-      region: north
+      region: 'north'
       landmarks:
         protest:
           - 'Rathausmarkt'
@@ -488,7 +477,7 @@ DE:
           - 'Reeperbahn'
         monument:
           - 'Elbphilharmonie'
-          - "St. Michael's Church"
+          - 'St. Michael''s Church'
       universities:
         - 'University of Hamburg'
         - 'Hamburg University of Technology'
@@ -503,13 +492,12 @@ DE:
         - 'Polizeipräsidium Hamburg'
       morgues:
         - 'Rechtsmedizin (UKE)'
-
-    - id: munich
+    - id: 'munich'
       name: 'Munich'
-      size: large
+      size: 'large'
       capital: false
       population: 1500000
-      region: bavaria
+      region: 'bavaria'
       landmarks:
         protest:
           - 'Marienplatz'
@@ -533,13 +521,12 @@ DE:
         - 'Polizeipräsidium (Ettstraße)'
       morgues:
         - 'Rechtsmedizin (LMU)'
-
-    - id: cologne
+    - id: 'cologne'
       name: 'Cologne'
-      size: large
+      size: 'large'
       capital: false
       population: 1080000
-      region: rhineland
+      region: 'rhineland'
       landmarks:
         protest:
           - 'Roncalliplatz'
@@ -562,13 +549,12 @@ DE:
         - 'Polizeipräsidium Kalk'
       morgues:
         - 'Rechtsmedizin Köln'
-
-    - id: frankfurt
+    - id: 'frankfurt'
       name: 'Frankfurt'
-      size: medium
+      size: 'medium'
       capital: false
       population: 750000
-      region: hesse
+      region: 'hesse'
       landmarks:
         protest:
           - 'Römerberg'
@@ -591,15 +577,14 @@ DE:
         - 'Polizeipräsidium Frankfurt'
       morgues:
         - 'Rechtsmedizin Frankfurt'
-
 AU:
   cities:
-    - id: sydney
+    - id: 'sydney'
       name: 'Sydney'
-      size: large
+      size: 'large'
       capital: false
       population: 5300000
-      region: new-south-wales
+      region: 'new-south-wales'
       landmarks:
         protest:
           - 'Town Hall Square'
@@ -625,13 +610,12 @@ AU:
         - 'Sydney Police Centre'
       morgues:
         - 'Glebe Morgue (Lidcombe)'
-
-    - id: melbourne
+    - id: 'melbourne'
       name: 'Melbourne'
-      size: large
+      size: 'large'
       capital: false
       population: 5100000
-      region: victoria
+      region: 'victoria'
       landmarks:
         protest:
           - 'Federation Square'
@@ -657,13 +641,12 @@ AU:
         - 'Victoria Police Centre'
       morgues:
         - 'The VIFM (Morgue)'
-
-    - id: brisbane
+    - id: 'brisbane'
       name: 'Brisbane'
-      size: large
+      size: 'large'
       capital: false
       population: 2600000
-      region: queensland
+      region: 'queensland'
       landmarks:
         protest:
           - 'King George Square'
@@ -682,13 +665,16 @@ AU:
         - 'The Royal (RBWH)'
       morgues:
         - 'John Tonge Centre'
-
-    - id: canberra
+      prisons:
+        - 'Brisbane Correctional'
+      police-stations:
+        - 'Roma Street Police HQ'
+    - id: 'canberra'
       name: 'Canberra'
-      size: medium
+      size: 'medium'
       capital: true
       population: 460000
-      region: australian-capital-territory
+      region: 'australian-capital-territory'
       landmarks:
         protest:
           - 'Parliament House forecourt'
@@ -711,13 +697,12 @@ AU:
         - 'ACT Policing HQ'
       morgues:
         - 'Forensic Medicine Centre'
-
-    - id: perth
+    - id: 'perth'
       name: 'Perth'
-      size: large
+      size: 'large'
       capital: false
       population: 2100000
-      region: western-australia
+      region: 'western-australia'
       landmarks:
         protest:
           - 'Forrest Place'
@@ -740,15 +725,14 @@ AU:
         - 'Perth Police Station'
       morgues:
         - 'State Mortuary'
-
 FR:
   cities:
-    - id: paris
+    - id: 'paris'
       name: 'Paris'
-      size: large
+      size: 'large'
       capital: true
       population: 2100000
-      region: ile-de-france
+      region: 'ile-de-france'
       landmarks:
         protest:
           - 'Place de la République'
@@ -775,13 +759,12 @@ FR:
         - 'Préfecture de Police (Île de la Cité)'
       morgues:
         - 'L''IML (Quai de la Rapée)'
-
-    - id: marseille
+    - id: 'marseille'
       name: 'Marseille'
-      size: large
+      size: 'large'
       capital: false
       population: 870000
-      region: provence
+      region: 'provence'
       landmarks:
         protest:
           - 'Vieux-Port'
@@ -803,21 +786,20 @@ FR:
         - 'L’Évêché (Police HQ)'
       morgues:
         - 'Médecine Légale (La Timone)'
-
-    - id: lyon
+    - id: 'lyon'
       name: 'Lyon'
-      size: large
+      size: 'large'
       capital: false
       population: 520000
-      region: auvergne-rhone-alpes
+      region: 'auvergne-rhone-alpes'
       landmarks:
         protest:
           - 'Place Bellecour'
           - 'Place des Terreaux'
-          - "Parc de la Tête d'Or"
+          - 'Parc de la Tête d''Or'
         monument:
           - 'Basilica of Notre-Dame de Fourvière'
-          - "Presqu'île"
+          - 'Presqu''île'
       universities:
         - 'University of Lyon'
         - 'École Normale Supérieure de Lyon'
@@ -832,13 +814,12 @@ FR:
         - 'Hôtel de Police (Marius Berliet)'
       morgues:
         - 'L''IML de Lyon'
-
-    - id: toulouse
+    - id: 'toulouse'
       name: 'Toulouse'
-      size: medium
+      size: 'medium'
       capital: false
       population: 480000
-      region: occitanie
+      region: 'occitanie'
       landmarks:
         protest:
           - 'Place du Capitole'
@@ -861,13 +842,12 @@ FR:
         - 'Commissariat Central (Courtois)'
       morgues:
         - 'L''IML de Rangueil'
-
-    - id: nice
+    - id: 'nice'
       name: 'Nice'
-      size: medium
+      size: 'medium'
       capital: false
       population: 340000
-      region: provence-alpes-cote-dazur
+      region: 'provence-alpes-cote-dazur'
       landmarks:
         protest:
           - 'Place Masséna'
@@ -877,7 +857,7 @@ FR:
           - 'Castle Hill'
           - 'Promenade des Anglais'
       universities:
-        - "Université Côte d'Azur"
+        - 'Université Côte d''Azur'
       government-facilities:
         - 'Nice Prison'
         - 'Court of Appeal'
@@ -889,15 +869,14 @@ FR:
         - 'Commissariat Auvare'
       morgues:
         - 'L''IML Pasteur'
-
 ES:
   cities:
-    - id: madrid
+    - id: 'madrid'
       name: 'Madrid'
-      size: large
+      size: 'large'
       capital: true
       population: 3200000
-      region: madrid
+      region: 'madrid'
       landmarks:
         protest:
           - 'Puerta del Sol'
@@ -923,13 +902,12 @@ ES:
         - 'Jefatura de Policía (Madrid)'
       morgues:
         - 'Anatómico Forense'
-
-    - id: barcelona
+    - id: 'barcelona'
       name: 'Barcelona'
-      size: large
+      size: 'large'
       capital: false
       population: 1600000
-      region: catalonia
+      region: 'catalonia'
       landmarks:
         protest:
           - 'Plaça de Catalunya'
@@ -955,13 +933,12 @@ ES:
         - 'Mossos HQ (Les Corts)'
       morgues:
         - 'Medicina Legal (Ciutat de la Justícia)'
-
-    - id: valencia
+    - id: 'valencia'
       name: 'Valencia'
-      size: large
+      size: 'large'
       capital: false
       population: 790000
-      region: valencia
+      region: 'valencia'
       landmarks:
         protest:
           - 'Plaza del Ayuntamiento'
@@ -984,13 +961,12 @@ ES:
         - 'Jefatura Superior de Policía'
       morgues:
         - 'Medicina Legal Valencia'
-
-    - id: seville
+    - id: 'seville'
       name: 'Seville'
-      size: medium
+      size: 'medium'
       capital: false
       population: 690000
-      region: andalusia
+      region: 'andalusia'
       landmarks:
         protest:
           - 'Plaza Nueva'
@@ -1012,15 +988,14 @@ ES:
         - 'Jefatura Superior (Sevilla)'
       morgues:
         - 'Medicina Legal Sevilla'
-
 IT:
   cities:
-    - id: rome
+    - id: 'rome'
       name: 'Rome'
-      size: large
+      size: 'large'
       capital: true
       population: 2870000
-      region: lazio
+      region: 'lazio'
       landmarks:
         protest:
           - 'Piazza del Popolo'
@@ -1028,7 +1003,7 @@ IT:
           - 'Piazza Navona'
         monument:
           - 'Colosseum'
-          - "St. Peter's Basilica"
+          - 'St. Peter''s Basilica'
           - 'Trevi Fountain'
       universities:
         - 'Sapienza University of Rome'
@@ -1048,13 +1023,12 @@ IT:
       morgues:
         - 'Obitorio del Verano'
         - 'Medicina Legale (Sapienza)'
-
-    - id: milan
+    - id: 'milan'
       name: 'Milan'
-      size: large
+      size: 'large'
       capital: false
       population: 1350000
-      region: lombardy
+      region: 'lombardy'
       landmarks:
         protest:
           - 'Piazza del Duomo'
@@ -1075,13 +1049,16 @@ IT:
         - 'San Raffaele'
       morgues:
         - 'Obitorio Civico (Milano)'
-
-    - id: naples
+      prisons:
+        - 'San Vittore'
+      police-stations:
+        - 'Questura di Milano'
+    - id: 'naples'
       name: 'Naples'
-      size: large
+      size: 'large'
       capital: false
       population: 960000
-      region: campania
+      region: 'campania'
       landmarks:
         protest:
           - 'Piazza del Plebiscito'
@@ -1104,13 +1081,12 @@ IT:
         - 'Questura di Napoli'
       morgues:
         - 'Medicina Legale (Policlinico)'
-
-    - id: turin
+    - id: 'turin'
       name: 'Turin'
-      size: large
+      size: 'large'
       capital: false
       population: 870000
-      region: piedmont
+      region: 'piedmont'
       landmarks:
         protest:
           - 'Piazza Castello'
@@ -1133,13 +1109,12 @@ IT:
         - 'Questura di Torino'
       morgues:
         - 'Obitorio di Torino'
-
-    - id: florence
+    - id: 'florence'
       name: 'Florence'
-      size: medium
+      size: 'medium'
       capital: false
       population: 380000
-      region: tuscany
+      region: 'tuscany'
       landmarks:
         protest:
           - 'Piazza della Signoria'
@@ -1161,15 +1136,14 @@ IT:
         - 'Questura di Firenze'
       morgues:
         - 'Medicina Legale (Careggi)'
-
 NL:
   cities:
-    - id: amsterdam
+    - id: 'amsterdam'
       name: 'Amsterdam'
-      size: large
+      size: 'large'
       capital: true
       population: 870000
-      region: north-holland
+      region: 'north-holland'
       landmarks:
         protest:
           - 'Dam Square'
@@ -1192,13 +1166,12 @@ NL:
         - 'Hoofdbureau Politie'
       morgues:
         - 'Mortuarium AMC'
-
-    - id: rotterdam
+    - id: 'rotterdam'
       name: 'Rotterdam'
-      size: large
+      size: 'large'
       capital: false
       population: 650000
-      region: south-holland
+      region: 'south-holland'
       landmarks:
         protest:
           - 'Schouwburgplein'
@@ -1221,13 +1194,12 @@ NL:
         - 'Hoofdbureau Rotterdam'
       morgues:
         - 'Mortuarium Erasmus'
-
-    - id: the-hague
+    - id: 'the-hague'
       name: 'The Hague'
-      size: medium
+      size: 'medium'
       capital: false
       population: 550000
-      region: south-holland
+      region: 'south-holland'
       landmarks:
         protest:
           - 'Malieveld'
@@ -1250,13 +1222,12 @@ NL:
         - 'Hoofdbureau Den Haag'
       morgues:
         - 'The NFI'
-
-    - id: utrecht
+    - id: 'utrecht'
       name: 'Utrecht'
-      size: medium
+      size: 'medium'
       capital: false
       population: 360000
-      region: utrecht
+      region: 'utrecht'
       landmarks:
         protest:
           - 'Jaarbeursplein'
@@ -1279,15 +1250,14 @@ NL:
         - 'Hoofdbureau Utrecht'
       morgues:
         - 'Mortuarium UMC'
-
 IR:
   cities:
-    - id: tehran
+    - id: 'tehran'
       name: 'Tehran'
-      size: large
+      size: 'large'
       capital: true
       population: 8700000
-      region: tehran
+      region: 'tehran'
       landmarks:
         protest:
           - 'Azadi Square'
@@ -1313,13 +1283,12 @@ IR:
         - 'Agahi Headquarters'
       morgues:
         - 'Pezeshki Ghanooni (Kahrizak)'
-
-    - id: mashhad
+    - id: 'mashhad'
       name: 'Mashhad'
-      size: large
+      size: 'large'
       capital: false
       population: 3000000
-      region: khorasan
+      region: 'khorasan'
       landmarks:
         protest:
           - 'Imam Reza Square'
@@ -1341,13 +1310,12 @@ IR:
         - 'Farandeh-ye Entezami'
       morgues:
         - 'Pezeshki Ghanooni'
-
-    - id: isfahan
+    - id: 'isfahan'
       name: 'Isfahan'
-      size: large
+      size: 'large'
       capital: false
       population: 2000000
-      region: isfahan
+      region: 'isfahan'
       landmarks:
         protest:
           - 'Naqsh-e Jahan Square'
@@ -1369,13 +1337,12 @@ IR:
         - 'Farandeh-ye Entezami'
       morgues:
         - 'Pezeshki Ghanooni'
-
-    - id: shiraz
+    - id: 'shiraz'
       name: 'Shiraz'
-      size: large
+      size: 'large'
       capital: false
       population: 1550000
-      region: fars
+      region: 'fars'
       landmarks:
         protest:
           - 'Shahrdari Square'
@@ -1397,13 +1364,12 @@ IR:
         - 'Farandeh-ye Entezami'
       morgues:
         - 'Pezeshki Ghanooni'
-
-    - id: zanjan
+    - id: 'zanjan'
       name: 'Zanjan'
-      size: medium
+      size: 'medium'
       capital: false
       population: 430000
-      region: zanjan
+      region: 'zanjan'
       landmarks:
         protest:
           - 'Imam Khomeini Square'
@@ -1413,17 +1379,16 @@ IR:
         - 'University of Zanjan'
       government-facilities:
         - 'Zanjan Court'
-      hospitals:
-      prisons:
-      police-stations:
-      morgues:
-
-    - id: tabriz
+      hospitals: []
+      prisons: []
+      police-stations: []
+      morgues: []
+    - id: 'tabriz'
       name: 'Tabriz'
-      size: large
+      size: 'large'
       capital: false
       population: 1560000
-      region: east-azerbaijan
+      region: 'east-azerbaijan'
       landmarks:
         protest:
           - 'Saat Square'
@@ -1445,15 +1410,14 @@ IR:
         - 'Farandeh-ye Entezami'
       morgues:
         - 'Pezeshki Ghanooni'
-
 SE:
   cities:
-    - id: stockholm
+    - id: 'stockholm'
       name: 'Stockholm'
-      size: large
+      size: 'large'
       capital: true
       population: 980000
-      region: stockholm
+      region: 'stockholm'
       landmarks:
         protest:
           - 'Sergels torg'
@@ -1479,13 +1443,12 @@ SE:
         - 'Polishuset (Kungsholmen)'
       morgues:
         - 'Rättsmedicin (Solna)'
-
-    - id: gothenburg
+    - id: 'gothenburg'
       name: 'Gothenburg'
-      size: large
+      size: 'large'
       capital: false
       population: 580000
-      region: vastra-gotaland
+      region: 'vastra-gotaland'
       landmarks:
         protest:
           - 'Götaplatsen'
@@ -1507,13 +1470,12 @@ SE:
         - 'Polisen Ernst Fontells Plats'
       morgues:
         - 'Rättsmedicin Göteborg'
-
-    - id: malmo
+    - id: 'malmo'
       name: 'Malmö'
-      size: medium
+      size: 'medium'
       capital: false
       population: 350000
-      region: skane
+      region: 'skane'
       landmarks:
         protest:
           - 'Stortorget'
@@ -1527,16 +1489,19 @@ SE:
         - 'Malmö Prison'
         - 'District Court'
       hospitals:
+        - 'SUS Malmö'
       prisons:
+        - 'Fosie Anstalten'
       police-stations:
+        - 'Rättscentrum Malmö'
       morgues:
-
-    - id: uppsala
+        - 'Rättsmedicin Malmö'
+    - id: 'uppsala'
       name: 'Uppsala'
-      size: medium
+      size: 'medium'
       capital: false
       population: 230000
-      region: uppsala
+      region: 'uppsala'
       landmarks:
         protest:
           - 'Stora torget'
@@ -1558,15 +1523,14 @@ SE:
         - 'Polisen Uppsala'
       morgues:
         - 'Akademiska Bårhus'
-
 BE:
   cities:
-    - id: brussels
+    - id: 'brussels'
       name: 'Brussels'
-      size: large
+      size: 'large'
       capital: true
       population: 1200000
-      region: brussels-capital
+      region: 'brussels-capital'
       landmarks:
         protest:
           - 'Place de la Bourse'
@@ -1592,13 +1556,12 @@ BE:
         - 'Hôtel de Police (Marché au Charbon)'
       morgues:
         - 'Médecine Légale (Saint-Luc)'
-
-    - id: antwerp
+    - id: 'antwerp'
       name: 'Antwerp'
-      size: medium
+      size: 'medium'
       capital: false
       population: 530000
-      region: flanders
+      region: 'flanders'
       landmarks:
         protest:
           - 'Groenplaats'
@@ -1619,13 +1582,12 @@ BE:
         - 'Politie Antwerpen (HQ)'
       morgues:
         - 'Mortuarium UZA'
-
-    - id: ghent
+    - id: 'ghent'
       name: 'Ghent'
-      size: medium
+      size: 'medium'
       capital: false
       population: 265000
-      region: flanders
+      region: 'flanders'
       landmarks:
         protest:
           - 'Korenmarkt'
@@ -1646,13 +1608,12 @@ BE:
         - 'Politie Gent (HQ)'
       morgues:
         - 'Mortuarium UZ Gent'
-
-    - id: liege
+    - id: 'liege'
       name: 'Liège'
-      size: medium
+      size: 'medium'
       capital: false
       population: 200000
-      region: wallonia
+      region: 'wallonia'
       landmarks:
         protest:
           - 'Place Saint-Lambert'
@@ -1666,18 +1627,21 @@ BE:
         - 'Liège Prison'
         - 'Court of Appeal'
       hospitals:
+        - 'CHU de Liège'
       prisons:
+        - 'Prison de Lantin'
       police-stations:
+        - 'Hôtel de Police'
       morgues:
-
+        - 'Institut Médico-Légal'
 BR:
   cities:
-    - id: sao-paulo
+    - id: 'sao-paulo'
       name: 'São Paulo'
-      size: large
+      size: 'large'
       capital: false
       population: 12300000
-      region: southeast
+      region: 'southeast'
       landmarks:
         protest:
           - 'Avenida Paulista'
@@ -1694,16 +1658,20 @@ BR:
         - 'Carandiru Complex'
         - 'Tribunal de Justiça'
       hospitals:
+        - 'Hospital das Clínicas (HC)'
+        - 'Hospital Einstein'
       prisons:
+        - 'IML (when referring to morgue) / CDP de Pinheiros'
       police-stations:
+        - 'Palácio da Polícia (DGP)'
       morgues:
-
-    - id: rio-de-janeiro
+        - 'O IML (Central)'
+    - id: 'rio-de-janeiro'
       name: 'Rio de Janeiro'
-      size: large
+      size: 'large'
       capital: false
       population: 6700000
-      region: southeast
+      region: 'southeast'
       landmarks:
         protest:
           - 'Cinelândia'
@@ -1726,13 +1694,12 @@ BR:
         - 'Cidade da Polícia'
       morgues:
         - 'IML Afrânio Peixoto'
-
-    - id: brasilia
+    - id: 'brasilia'
       name: 'Brasília'
-      size: large
+      size: 'large'
       capital: true
       population: 3100000
-      region: central-west
+      region: 'central-west'
       landmarks:
         protest:
           - 'Esplanada dos Ministérios'
@@ -1746,16 +1713,19 @@ BR:
         - 'Papuda Prison Complex'
         - 'Supreme Federal Court'
       hospitals:
+        - 'Hospital de Base'
       prisons:
+        - 'Papuda'
       police-stations:
+        - 'Sede da Polícia Federal'
       morgues:
-
-    - id: salvador
+        - 'O IML de Brasília'
+    - id: 'salvador'
       name: 'Salvador'
-      size: large
+      size: 'large'
       capital: false
       population: 2900000
-      region: northeast
+      region: 'northeast'
       landmarks:
         protest:
           - 'Campo Grande'
@@ -1776,13 +1746,12 @@ BR:
         - 'Secretaria de Segurança (CAB)'
       morgues:
         - 'IML Nina Rodrigues'
-
-    - id: belo-horizonte
+    - id: 'belo-horizonte'
       name: 'Belo Horizonte'
-      size: large
+      size: 'large'
       capital: false
       population: 2500000
-      region: southeast
+      region: 'southeast'
       landmarks:
         protest:
           - 'Praça da Liberdade'
@@ -1803,15 +1772,14 @@ BR:
         - 'Delegacia Especializada'
       morgues:
         - 'IML André Roquette'
-
 PT:
   cities:
-    - id: lisbon
+    - id: 'lisbon'
       name: 'Lisbon'
-      size: large
+      size: 'large'
       capital: true
       population: 550000
-      region: lisbon
+      region: 'lisbon'
       landmarks:
         protest:
           - 'Praça do Comércio'
@@ -1837,13 +1805,12 @@ PT:
         - 'COMETLIS (Police HQ)'
       morgues:
         - 'Medicina Legal (INML)'
-
-    - id: porto
+    - id: 'porto'
       name: 'Porto'
-      size: medium
+      size: 'medium'
       capital: false
       population: 240000
-      region: north
+      region: 'north'
       landmarks:
         protest:
           - 'Praça da Liberdade'
@@ -1864,13 +1831,12 @@ PT:
         - 'COMETPOR (Police HQ)'
       morgues:
         - 'Medicina Legal (Norte)'
-
-    - id: braga
+    - id: 'braga'
       name: 'Braga'
-      size: small
+      size: 'small'
       capital: false
       population: 195000
-      region: north
+      region: 'north'
       landmarks:
         protest:
           - 'Praça da República'
@@ -1891,13 +1857,12 @@ PT:
         - 'PSP de Braga'
       morgues:
         - 'Gabinete Médico-Legal'
-
-    - id: coimbra
+    - id: 'coimbra'
       name: 'Coimbra'
-      size: small
+      size: 'small'
       capital: false
       population: 143000
-      region: central
+      region: 'central'
       landmarks:
         protest:
           - 'Praça da República'
@@ -1918,15 +1883,14 @@ PT:
         - 'PSP de Coimbra'
       morgues:
         - 'Medicina Legal (Centro)'
-
 NO:
   cities:
-    - id: oslo
+    - id: 'oslo'
       name: 'Oslo'
-      size: large
+      size: 'large'
       capital: true
       population: 700000
-      region: oslo
+      region: 'oslo'
       landmarks:
         protest:
           - 'Eidsvolls plass'
@@ -1949,13 +1913,12 @@ NO:
         - 'Politihuset (Grønland)'
       morgues:
         - 'Rettsmedisinsk'
-
-    - id: bergen
+    - id: 'bergen'
       name: 'Bergen'
-      size: medium
+      size: 'medium'
       capital: false
       population: 285000
-      region: vestland
+      region: 'vestland'
       landmarks:
         protest:
           - 'Torgallmenningen'
@@ -1977,13 +1940,12 @@ NO:
         - 'Bergen Politistasjon'
       morgues:
         - 'Gades Institutt'
-
-    - id: trondheim
+    - id: 'trondheim'
       name: 'Trondheim'
-      size: medium
+      size: 'medium'
       capital: false
       population: 210000
-      region: trondelag
+      region: 'trondelag'
       landmarks:
         protest:
           - 'Torvet'
@@ -2004,13 +1966,12 @@ NO:
         - 'Trondheim Politistasjon'
       morgues:
         - 'Patologisk (St. Olavs)'
-
-    - id: stavanger
+    - id: 'stavanger'
       name: 'Stavanger'
-      size: medium
+      size: 'medium'
       capital: false
       population: 145000
-      region: rogaland
+      region: 'rogaland'
       landmarks:
         protest:
           - 'Torget'
@@ -2031,15 +1992,14 @@ NO:
         - 'Stavanger Politistasjon'
       morgues:
         - 'Patologisk (SUS)'
-
 DK:
   cities:
-    - id: copenhagen
+    - id: 'copenhagen'
       name: 'Copenhagen'
-      size: large
+      size: 'large'
       capital: true
       population: 640000
-      region: capital-region
+      region: 'capital-region'
       landmarks:
         protest:
           - 'Rådhuspladsen'
@@ -2064,13 +2024,12 @@ DK:
         - 'Politigården'
       morgues:
         - 'Retsmedicinsk Institut'
-
-    - id: aarhus
+    - id: 'aarhus'
       name: 'Aarhus'
-      size: medium
+      size: 'medium'
       capital: false
       population: 285000
-      region: central-jutland
+      region: 'central-jutland'
       landmarks:
         protest:
           - 'Rådhuspladsen'
@@ -2091,13 +2050,12 @@ DK:
         - 'Aarhus Politigård'
       morgues:
         - 'Retsmedicinsk Institut'
-
-    - id: odense
+    - id: 'odense'
       name: 'Odense'
-      size: medium
+      size: 'medium'
       capital: false
       population: 180000
-      region: southern-denmark
+      region: 'southern-denmark'
       landmarks:
         protest:
           - 'Flakhaven'
@@ -2118,13 +2076,12 @@ DK:
         - 'Odense Politigård'
       morgues:
         - 'Retsmedicinsk Institut'
-
-    - id: aalborg
+    - id: 'aalborg'
       name: 'Aalborg'
-      size: medium
+      size: 'medium'
       capital: false
       population: 120000
-      region: north-jutland
+      region: 'north-jutland'
       landmarks:
         protest:
           - 'Kennedy Arkaden'
@@ -2145,15 +2102,14 @@ DK:
         - 'Aalborg Politigård'
       morgues:
         - 'Kapellet (Aalborg)'
-
 FI:
   cities:
-    - id: helsinki
+    - id: 'helsinki'
       name: 'Helsinki'
-      size: large
+      size: 'large'
       capital: true
       population: 660000
-      region: uusimaa
+      region: 'uusimaa'
       landmarks:
         protest:
           - 'Senate Square'
@@ -2178,13 +2134,12 @@ FI:
       morgues:
         - 'Oikeuslääketieteen laitos'
         - 'Malmin bårhus'
-
-    - id: espoo
+    - id: 'espoo'
       name: 'Espoo'
-      size: medium
+      size: 'medium'
       capital: false
       population: 300000
-      region: uusimaa
+      region: 'uusimaa'
       landmarks:
         protest:
           - 'Espoo Central'
@@ -2205,13 +2160,12 @@ FI:
         - 'Espoon poliisiasema'
       morgues:
         - 'Jorvin bårhus'
-
-    - id: tampere
+    - id: 'tampere'
       name: 'Tampere'
-      size: medium
+      size: 'medium'
       capital: false
       population: 245000
-      region: pirkanmaa
+      region: 'pirkanmaa'
       landmarks:
         protest:
           - 'Keskustori'
@@ -2233,13 +2187,12 @@ FI:
         - 'Tampereen poliisiasema'
       morgues:
         - 'TAYS oikeuslääketiede'
-
-    - id: turku
+    - id: 'turku'
       name: 'Turku'
-      size: medium
+      size: 'medium'
       capital: false
       population: 195000
-      region: southwest-finland
+      region: 'southwest-finland'
       landmarks:
         protest:
           - 'Market Square'
@@ -2261,15 +2214,14 @@ FI:
         - 'Turun poliisiasema'
       morgues:
         - 'TYKS oikeuslääketiede'
-
 PL:
   cities:
-    - id: warsaw
+    - id: 'warsaw'
       name: 'Warsaw'
-      size: large
+      size: 'large'
       capital: true
       population: 1860000
-      region: masovia
+      region: 'masovia'
       landmarks:
         protest:
           - 'Castle Square'
@@ -2295,13 +2247,12 @@ PL:
         - 'Pałac Mostowskich (Police HQ)'
       morgues:
         - 'ZMS (Medycyna Sądowa)'
-
-    - id: krakow
+    - id: 'krakow'
       name: 'Kraków'
-      size: large
+      size: 'large'
       capital: false
       population: 780000
-      region: lesser-poland
+      region: 'lesser-poland'
       landmarks:
         protest:
           - 'Main Market Square'
@@ -2309,7 +2260,7 @@ PL:
           - 'Planty Park'
         monument:
           - 'Wawel Castle'
-          - "St. Mary's Basilica"
+          - 'St. Mary''s Basilica'
       universities:
         - 'Jagiellonian University'
         - 'AGH University of Science and Technology'
@@ -2317,16 +2268,19 @@ PL:
         - 'Kraków Prison'
         - 'District Court'
       hospitals:
+        - 'Szpital Uniwersytecki'
       prisons:
+        - 'Montelupich Prison'
       police-stations:
+        - 'KMP Kraków'
       morgues:
-
-    - id: wroclaw
+        - 'Medycyna Sądowa (UJ)'
+    - id: 'wroclaw'
       name: 'Wrocław'
-      size: large
+      size: 'large'
       capital: false
       population: 640000
-      region: lower-silesia
+      region: 'lower-silesia'
       landmarks:
         protest:
           - 'Market Square'
@@ -2341,16 +2295,19 @@ PL:
         - 'Wrocław Prison'
         - 'District Court'
       hospitals:
+        - 'USK Wrocław'
       prisons:
+        - 'Kleczkowska Prison'
       police-stations:
+        - 'KWP Wrocław'
       morgues:
-
-    - id: poznan
+        - 'ZMS Wrocław'
+    - id: 'poznan'
       name: 'Poznań'
-      size: medium
+      size: 'medium'
       capital: false
       population: 535000
-      region: greater-poland
+      region: 'greater-poland'
       landmarks:
         protest:
           - 'Freedom Square'
@@ -2365,22 +2322,25 @@ PL:
         - 'Poznań Prison'
         - 'District Court'
       hospitals:
+        - 'Szpital Święcickiego'
       prisons:
+        - 'Młyńska Prison'
       police-stations:
+        - 'KWP Poznań'
       morgues:
-
-    - id: gdansk
+        - 'ZMS Poznań'
+    - id: 'gdansk'
       name: 'Gdańsk'
-      size: medium
+      size: 'medium'
       capital: false
       population: 470000
-      region: pomerania
+      region: 'pomerania'
       landmarks:
         protest:
           - 'Long Market'
           - 'Solidarity Square'
         monument:
-          - "St. Mary's Church"
+          - 'St. Mary''s Church'
           - 'Neptune Fountain'
       universities:
         - 'University of Gdańsk'
@@ -2389,18 +2349,21 @@ PL:
         - 'Gdańsk Prison'
         - 'District Court'
       hospitals:
+        - 'The UCK'
       prisons:
+        - 'Kurkowa Prison'
       police-stations:
+        - 'KWP Gdańsk'
       morgues:
-
+        - 'ZMS Gdańsk'
 GR:
   cities:
-    - id: athens
+    - id: 'athens'
       name: 'Athens'
-      size: large
+      size: 'large'
       capital: true
       population: 660000
-      region: attica
+      region: 'attica'
       landmarks:
         protest:
           - 'Syntagma Square'
@@ -2425,13 +2388,12 @@ GR:
         - 'The GADA (Police HQ)'
       morgues:
         - 'Iatrodikastiki Athinon'
-
-    - id: thessaloniki
+    - id: 'thessaloniki'
       name: 'Thessaloniki'
-      size: large
+      size: 'large'
       capital: false
       population: 325000
-      region: central-macedonia
+      region: 'central-macedonia'
       landmarks:
         protest:
           - 'Aristotelous Square'
@@ -2454,13 +2416,12 @@ GR:
         - 'GADA Thessalonikis'
       morgues:
         - 'Iatrodikastiki Thessalonikis'
-
-    - id: patras
+    - id: 'patras'
       name: 'Patras'
-      size: medium
+      size: 'medium'
       capital: false
       population: 215000
-      region: west-greece
+      region: 'west-greece'
       landmarks:
         protest:
           - 'Georgiou Square'
@@ -2481,13 +2442,12 @@ GR:
         - 'Astynomiko Megaro'
       morgues:
         - 'Iatrodikastiki Patron'
-
-    - id: heraklion
+    - id: 'heraklion'
       name: 'Heraklion'
-      size: medium
+      size: 'medium'
       capital: false
       population: 175000
-      region: crete
+      region: 'crete'
       landmarks:
         protest:
           - 'Lions Square'
@@ -2508,15 +2468,14 @@ GR:
         - 'Astynomiko Megaro'
       morgues:
         - 'Iatrodikastiki Irakleiou'
-
 RO:
   cities:
-    - id: bucharest
+    - id: 'bucharest'
       name: 'Bucharest'
-      size: large
+      size: 'large'
       capital: true
       population: 1883000
-      region: muntenia
+      region: 'muntenia'
       landmarks:
         protest:
           - 'Piața Universității'
@@ -2541,19 +2500,18 @@ RO:
         - 'Poliția Capitalei'
       morgues:
         - 'Mina Minovici (IML)'
-
-    - id: cluj-napoca
+    - id: 'cluj-napoca'
       name: 'Cluj-Napoca'
-      size: large
+      size: 'large'
       capital: false
       population: 324000
-      region: transylvania
+      region: 'transylvania'
       landmarks:
         protest:
           - 'Piața Unirii'
           - 'Piața Avram Iancu'
         monument:
-          - "St. Michael's Church"
+          - 'St. Michael''s Church'
           - 'Banffy Palace'
       universities:
         - 'Babeș-Bolyai University'
@@ -2569,13 +2527,12 @@ RO:
         - 'IPJ Cluj'
       morgues:
         - 'IML Cluj'
-
-    - id: timisoara
+    - id: 'timisoara'
       name: 'Timișoara'
-      size: large
+      size: 'large'
       capital: false
       population: 319000
-      region: banat
+      region: 'banat'
       landmarks:
         protest:
           - 'Piața Victoriei'
@@ -2591,16 +2548,19 @@ RO:
         - 'Timișoara Prison'
         - 'Timișoara Court'
       hospitals:
+        - 'Spitalul Județean'
       prisons:
+        - 'Penitenciarul Popa Șapcă'
       police-stations:
+        - 'IPJ Timiș'
       morgues:
-
-    - id: iasi
+        - 'IML Timișoara'
+    - id: 'iasi'
       name: 'Iași'
-      size: large
+      size: 'large'
       capital: false
       population: 290000
-      region: moldova
+      region: 'moldova'
       landmarks:
         protest:
           - 'Piața Unirii'
@@ -2615,6 +2575,10 @@ RO:
         - 'Iași Prison'
         - 'Iași Court'
       hospitals:
+        - 'Sfântul Spiridon'
       prisons:
+        - 'Penitenciarul Iași'
       police-stations:
+        - 'IPJ Iași'
       morgues:
+        - 'IML Iași'
