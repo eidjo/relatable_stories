@@ -18,11 +18,15 @@
     "format:check": "prettier --check \"src/**/*.{ts,js,svelte,json,yaml,yml,md}\"",
     "generate-share-images": "vite-node scripts/generate-share-images-v3.js",
     "translate": "vite-node scripts/translate-stories.js",
-    "validate": "vite-node scripts/validate-contexts-v2.ts"
+    "validate": "npm run validate:contexts && npm run validate:schemas",
+    "validate:contexts": "vite-node scripts/validate-contexts-v2.ts",
+    "validate:schemas": "vite-node scripts/validate-schemas.js"
   },
   "devDependencies": {
     "@anthropic-ai/sdk": "^0.32.1",
     "@napi-rs/canvas": "^0.1.88",
+    "ajv": "^8.12.0",
+    "ajv-formats": "^3.0.1",
     "@sveltejs/adapter-auto": "^3.0.0",
     "@sveltejs/adapter-static": "^3.0.10",
     "@sveltejs/kit": "^2.0.0",
