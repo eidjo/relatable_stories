@@ -1810,3 +1810,113 @@ GR:
       government-facilities:
         - 'Heraklion Prison'
         - 'Court'
+      hospitals:
+        - 'General Hospital'
+        - 'Medical Center'
+      morgues:
+        - 'Iatrodikastiki Ypiresia Kritis'
+
+RO:
+  cities:
+    - id: bucharest
+      name: 'Bucharest'
+      size: large
+      capital: true
+      population: 1883000
+      region: muntenia
+      landmarks:
+        protest:
+          - 'Piața Universității'
+          - 'Piața Victoriei'
+          - 'Piața Revoluției'
+        monument:
+          - 'Palace of Parliament'
+          - 'Arcul de Triumf'
+      universities:
+        - 'University of Bucharest'
+        - 'Politehnica University of Bucharest'
+        - 'Academy of Economic Studies'
+      government-facilities:
+        - 'Rahova Prison'
+        - 'Bucharest Court'
+      hospitals:
+        - 'General Hospital'
+        - 'Medical Center'
+      morgues:
+        - 'Institutul National de Medicina Legala "Mina Minovici"'
+
+    - id: cluj-napoca
+      name: 'Cluj-Napoca'
+      size: large
+      capital: false
+      population: 324000
+      region: transylvania
+      landmarks:
+        protest:
+          - 'Piața Unirii'
+          - 'Piața Avram Iancu'
+        monument:
+          - "St. Michael's Church"
+          - 'Banffy Palace'
+      universities:
+        - 'Babeș-Bolyai University'
+        - 'Technical University of Cluj-Napoca'
+      government-facilities:
+        - 'Cluj Prison'
+        - 'Cluj Court'
+      hospitals:
+        - 'General Hospital'
+        - 'Medical Center'
+      morgues:
+        - 'Institutul de Medicina Legala Cluj-Napoca'
+
+    - id: timisoara
+      name: 'Timișoara'
+      size: large
+      capital: false
+      population: 319000
+      region: banat
+      landmarks:
+        protest:
+          - 'Piața Victoriei'
+          - 'Piața Operei'
+          - 'Piața Libertății'
+        monument:
+          - 'Victory Square'
+          - 'Metropolitan Cathedral'
+      universities:
+        - 'West University of Timișoara'
+        - 'Politehnica University of Timișoara'
+      government-facilities:
+        - 'Timișoara Prison'
+        - 'Timișoara Court'
+      hospitals:
+        - 'General Hospital'
+        - 'Medical Center'
+      morgues:
+        - 'Institutul de Medicina Legala Timișoara'
+
+    - id: iasi
+      name: 'Iași'
+      size: large
+      capital: false
+      population: 290000
+      region: moldova
+      landmarks:
+        protest:
+          - 'Piața Unirii'
+          - 'Copou Park'
+        monument:
+          - 'Palace of Culture'
+          - 'Three Hierarchs Monastery'
+      universities:
+        - 'Alexandru Ioan Cuza University'
+        - 'Gheorghe Asachi Technical University'
+      government-facilities:
+        - 'Iași Prison'
+        - 'Iași Court'
+      hospitals:
+        - 'General Hospital'
+        - 'Medical Center'
+      morgues:
+        - 'Institutul de Medicina Legala Iași'

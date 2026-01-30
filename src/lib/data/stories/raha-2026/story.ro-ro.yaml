@@ -1,0 +1,30 @@
+id: raha-2026
+title: Ultima zi a [[MARKER:person:student:Rahei|Mariei]]
+slug: raha-2026
+date: "2026-01-08"
+summary: O studentă de 22 de ani care iubea arta și muzica a fost ucisă de forțele de securitate în timpul revoltei din 2026.
+content: |-
+  !!! AVERTISMENT: ACEASTĂ POVESTE NU ESTE VERIFICATĂ ȘI ESTE PUR ÎN SCOP DEMONSTRATIV !!!
+  [[MARKER:person:student:Raha|Maria]], o studentă de 22 de ani din [[MARKER:place:tehran:Teheran|București]], era interesată de artă și muzică. Ținea un jurnal online unde scria despre respirație, continuare și mâine. Înregistra numele prietenilor și colegilor deținuți, înțelegând că represiunea începe cu ștergerea.
+  În dimineața zilei de [[MARKER:date:protest-date:2026-01-08|2026-01-08]], proteste au izbucnit în tot Iranul. În câteva ore, demonstrațiile s-au răspândit în mai mult de [[MARKER:number:cities:400|90|Scaled from Iran (400) to RO by population ratio: 400 × (19.1M / 85.0M) = 90]] orașe și localități. [[MARKER:person:student:Raha|Maria]] s-a alăturat protestatarilor lângă [[MARKER:place:square:Piața Fatemi|Piața Revoluției]] în [[MARKER:place:tehran:Teheran|București]].
+  Protestele au fost întâmpinate cu forță copleșitoare. Forțele de securitate, inclusiv unități IRGC și agenți în civil, au deschis focul asupra mulțimilor. Conform documentelor clasificate{{source:death-toll}}, mai mult de [[MARKER:casualties:killed:36500|8180|Scaled from Iran (36,500) to RO by country population: 36,500 × (19.1M / 85.0M) = 8180]] persoane au fost ucise [[COMPARISON:(136 times the Las Vegas shooting)|(de 136 de ori mai mult decât atacul din Las Vegas)|Comparison: 8,180 casualties vs. Las Vegas shooting (60 casualties in 2017) = 136.33x more]] în două zile, făcându-l cel mai sângeros masacru de protest din istorie.
+  [[MARKER:person:student:Raha|Maria]] a fost împușcată lângă [[MARKER:place:square:Piața Fatemi|{{square}}]] pe [[MARKER:date:protest-date:2026-01-08|2026-01-08]]. Avea 22 de ani. Familia ei i-a găsit mai târziu corpul la [[MARKER:place:morgue:morga Kahrizak|{{morgue}}]], una dintre miile de victime livrate la facilități copleșite de numărul victimelor.
+  {{image:morgue-scene}}
+  Personalul medical a raportat că unii protestatari răniți au fost împușcați în cap în timp ce erau spitalizați{{source:hospital-executions}}. Imagini din morgi arătau corpuri cu echipament de monitorizare cardiacă încă atașat, sugerând că pacienți sub îngrijire medicală au fost executați. Doctori și asistente au descris forțe de securitate intrând în spitale și luând pacienți răniți, dintre care unii au fost găsiți mai târziu morți.
+  Guvernul a întrerupt accesul la internet la nivel național timp de [[MARKER:number:blackout-days:16|16]] zile, împiedicând familiile să împărtășească informații și făcând aproape imposibilă documentarea amploarei uciderilor. Familiile îndoliate au fost forțate să plătească taxe descrise drept "costuri pentru gloanțe" pentru a primi corpurile. În unele cazuri, autoritățile au îngropat victime fără consimțământul familiei.
+  [[MARKER:person:student:Raha|Maria]] nu a lăsat în urmă niciun manifest. Ceea ce rămâne sunt fragmente - reflecții scurte alese cu grijă. Scrierile ei reveneau mereu la preocupări elementare: respirație, continuare, mâine. Ea înțelegea că a fi în viață nu este negociabil.
+  Înainte să moară, [[MARKER:person:student:Raha|Maria]] a scris nume. A numit deținuți și dispăruți. A înregistrat oameni ca oameni, nu ca abstracțiuni. Știa cum începe represiunea - nu cu gloanțe, ci cu ștergerea.
+tags:
+  - 2026-uprising
+  - student
+  - massacre
+  - internet-blackout
+  - raha-bohlouli
+hashtags: "#Iran #NuUitam #DrepturiOmului #RahaBohlouli #RevoltaIran"
+severity: critical
+verified: true
+source: Raportare investigativă Iran International, mărturii ale martorilor, documente clasificate
+content-warning: Ucideri în masă, execuții extrajudiciare, violență de stat
+meta:
+  og-title: "Povestea Rahei: O studentă ucisă în revolta din Iran din 2026"
+  og-description: O studentă universitară care înregistra numele deținuților a fost ucisă în timpul celui mai sângeros masacru de protest din istorie.

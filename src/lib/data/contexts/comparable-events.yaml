@@ -583,3 +583,22 @@ GR:
     category: public-disaster
     year: 2000
     significance: major
+
+RO:
+  # Political Violence / Protests
+  - id: romanian-revolution
+    name: '1989 Revolution'
+    fullName: 'Romanian Revolution'
+    casualties: 1104
+    category: protest-violence
+    year: 1989
+    significance: critical
+
+  # Public Disasters
+  - id: colectiv-fire
+    name: 'Colectiv nightclub fire'
+    fullName: 'Colectiv nightclub fire'
+    casualties: 64
+    category: public-disaster
+    year: 2015
+    significance: critical

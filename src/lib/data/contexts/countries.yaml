@@ -204,3 +204,12 @@ countries:
     rial-to-local: 0.000021
     timezones:
       - 'Europe/Athens'
+
+  - code: 'RO'
+    name: 'Romania'
+    population: 19050000
+    currency: 'RON'
+    currency-symbol: 'lei'
+    rial-to-local: 0.000114
+    timezones:
+      - 'Europe/Bucharest'

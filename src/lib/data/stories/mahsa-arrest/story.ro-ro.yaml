@@ -1,0 +1,27 @@
+id: mahsa-arrest
+title: Detenția [[MARKER:person:person1:Zahrei|Alexandrei]]
+slug: mahsa-arrest
+date: "2022-09-20"
+summary: Experiența unei studente de 23 de ani în timpul protestelor care au urmat morții Mahsei Amini.
+content: |-
+  !!! ATENȚIE: ACEASTĂ POVESTE NU ESTE VERIFICATĂ ȘI ESTE PUR ÎN SCOP DEMONSTRATIV !!!
+  În seara zilei de [[MARKER:date:arrest-date:2022-09-20|2022-09-20]], [[MARKER:person:person1:Zahra|Alexandra]], o studentă de 23 de ani din [[MARKER:place:hometown:Mashhad|{{hometown}}]], s-a alăturat unei veghe pașnice în [[MARKER:place:main-square:Piața Azadi|{{main-square}}]].
+  Adunarea a fost una dintre numeroasele demonstrații spontane care au izbucnit în tot Iranul în urma morții Mahsei Amini în custodia poliției pe [[MARKER:date:mahsa-death:2022-09-16|2022-09-16]]{{source:mahsa-death-source}}. [[MARKER:person:person1:Zahra|Alexandra]] a ținut o lumânare și a scandat "[[MARKER:text:chant:Femeie, Viață, Libertate|Femeie, Viață, Libertate]]" împreună cu aproximativ [[MARKER:number:protesters:200|45|Scaled from Iran (200) to RO by population ratio: 200 × (19.1M / 85.0M) = 45]] alte persoane.
+  La [[MARKER:time:raid-time:21:30|21:30]], forțele de securitate au sosit și au început să facă arestări. [[MARKER:person:person1:Zahra|Alexandra]] a fost printre [[MARKER:number:arrested:47|11|Scaled from Iran (47) to RO by population ratio: 47 × (19.1M / 85.0M) = 11]] persoanele reținute în acea noapte și duse la [[MARKER:place:detention-center:Închisoarea Evin|{{detention-center}}]].
+  Timp de [[MARKER:number:detention-days:18|18]] zile, familia [[MARKER:person:person1:Zahrei|Alexandrei]] nu a avut nicio informație despre locul unde se afla. Apelurile telefonice către autorități au rămas fără răspuns. În ziua [[MARKER:number:first-contact-day:11|11]], au primit în sfârșit un apel scurt care confirma că [[MARKER:person:person1:Zahra|Alexandra]] era în viață, dar fără alte detalii.
+  Familia [[MARKER:person:person1:Zahrei|Alexandrei]] a strâns cu greu [[MARKER:currency:bail-amount:80.000.000 Rial|9.120 lei]] pentru cauțiune. Această sumă reprezenta aproximativ [[MARKER:number:months-salary:8|8]] luni din salariul lui [[MARKER:person:parent:Hassan|Cristian]] ca [[MARKER:occupation:parent-job:muncitor în construcții|muncitor în construcții]].
+  După [[MARKER:number:detention-days:18|18]] zile în detenție, [[MARKER:person:person1:Zahra|Alexandra]] a fost eliberată cu condiții stricte: fără rețele sociale, fără participare la adunări și prezentări regulate la autorități. Acuzațiile rămân în așteptare.
+  "Am vrut doar să aprind o lumânare pentru Mahsa", a spus [[MARKER:person:person1:Zahra|Alexandra]]. "Nu mi-am imaginat niciodată că se va întâmpla asta."
+tags:
+  - protest
+  - detention
+  - student
+  - mahsa-amini
+hashtags: "#Iran #MahsaAmini #DrepturiOmului #FemeieViațăLibertate"
+severity: high
+verified: true
+source: Mărturii ale martorilor compilate de organizații pentru drepturile omului
+content-warning: Detenție, separare de familie
+meta:
+  og-title: Povestea unei studente din protestele din Iran din 2022
+  og-description: Experimentează costul uman al protestului pașnic prin detenția unei studente.

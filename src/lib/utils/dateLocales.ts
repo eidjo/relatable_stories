@@ -15,6 +15,7 @@ import { nl } from 'date-fns/locale/nl';
 import { nb } from 'date-fns/locale/nb';
 import { pl } from 'date-fns/locale/pl';
 import { pt } from 'date-fns/locale/pt';
+import { ro } from 'date-fns/locale/ro';
 import { sv } from 'date-fns/locale/sv';
 import { faIR } from 'date-fns/locale/fa-IR';
 
@@ -34,6 +35,7 @@ const localeMap: Record<string, Locale> = {
   da: nb, // Danish (use Norwegian as fallback - very similar)
   pl: pl,
   pt: pt,
+  ro: ro,
   sv: sv,
   fa: faIR, // Farsi/Persian
 };

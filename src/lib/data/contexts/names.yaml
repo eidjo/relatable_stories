@@ -249,3 +249,32 @@ GR:
       'Alexandros',
     ]
   neutral: ['Alex', 'Andrea', 'Niki', 'Sasha', 'Chris', 'Dimi', 'Stav', 'Theo', 'Panos', 'Ari']
+
+RO:
+  female:
+    [
+      'Maria',
+      'Elena',
+      'Ana',
+      'Ioana',
+      'Alexandra',
+      'Andreea',
+      'Cristina',
+      'Mihaela',
+      'Gabriela',
+      'Diana',
+    ]
+  male:
+    [
+      'Ion',
+      'Andrei',
+      'Alexandru',
+      'Mihai',
+      'Gheorghe',
+      'Constantin',
+      'Ștefan',
+      'Nicolae',
+      'Vasile',
+      'Cristian',
+    ]
+  neutral: ['Alex', 'Andrea', 'Mihai', 'Sasha', 'Niki', 'Dan', 'Adrian', 'Bogdan', 'Cristi', 'Radu']
