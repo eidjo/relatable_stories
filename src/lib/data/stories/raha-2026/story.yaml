@@ -17,7 +17,7 @@ content: >-
 
   {{image:morgue-scene}}
 
-  Medical staff reported that some wounded protesters were shot in the head while hospitalized{{source:hospital-executions}}. Images from morgues showed bodies with cardiac monitoring equipment still attached, suggesting patients under medical care were executed. Doctors and nurses described security forces entering hospitals and taking away wounded patients, some of whom were later found dead.
+  Medical staff at facilities like {{hospital}} reported that some wounded protesters were shot in the head while hospitalized{{source:hospital-executions}}. Images from morgues showed bodies with cardiac monitoring equipment still attached, suggesting patients under medical care were executed. Doctors and nurses described security forces entering hospitals and taking away wounded patients, some of whom were later found dead in facilities like {{morgue}}.
 
   The government cut internet access nationwide for {{blackout-days}} days, preventing families from sharing information and making it nearly impossible to document the scale of the killings. Bereaved families were forced to pay fees described as "bullet costs" to receive bodies. In some cases, authorities buried victims without family consent.
 
@@ -46,8 +46,13 @@ markers:
 
   morgue:
     place: 'Kahrizak morgue'
-    government-facility: true
+    morgue: true
     within: tehran # ✅ Same city
+
+  hospital:
+    place: 'Imam Khomeini Hospital'
+    hospital: true
+    within: tehran #✅ Same city
 
   # Aliases - reuse translations
   hometown:
