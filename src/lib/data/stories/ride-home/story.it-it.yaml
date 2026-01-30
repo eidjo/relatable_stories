@@ -1,0 +1,30 @@
+id: ride-home
+title: Vergogna di Essere Viva
+slug: ride-home
+date: "2026-01-29"
+summary: Un racconto in prima persona di esilio, senso di colpa del sopravvissuto e il peso di assistere a un massacro da migliaia di chilometri di distanza.
+content: |-
+  Stavo tornando da una manifestazione. Mi sono trasferita all'estero qualche anno fa ma ho già fatto alcune amicizie che ho portato con me. Sulla metro verso casa, mi sono seduta accanto a un uomo di mezza età. Ho notato il suo piccolo pezzo di carta incollato su cartone; lui ha notato il mio. È bastato per iniziare una conversazione.
+  Aveva guidato da solo per [[MARKER:number:drive-time-demo:5|5]] ore per venire a questa manifestazione. Il giorno prima, aveva guidato [[MARKER:number:drive-time-previous:6|6]] ore andata e ritorno per un'altra, anche se era chiaramente influenzato. "È l'unica cosa che posso fare," ha detto. "La gente sta morendo per le strade. Mi vergogno di essere vivo."
+  Non potevo essere più d'accordo su quanto mi senta impotente. Quanto inutili siano stati tutti i miei sforzi. Ho lottato tutta la vita: con il patriarcato, poi con il personale della mia scuola, poi l'università, dopo il comune e la polizia. Sono scappata più veloce quando la polizia morale mi stava seguendo. E sono scappata ancora più veloce verso l'esilio, solo per sopravvivere.
+  Sono scappata dalla più grande, e probabilmente l'unica fonte dei traumi della mia vita: essere stata incarcerata per hijab "inappropriato" alla [[MARKER:place:vozara-station:stazione di polizia di Vozara|Questura di Roma]] a [[MARKER:place:tehran:Teheran|Roma]]; essere stata bandita dal continuare la mia istruzione all'[[MARKER:place:university:Università d'Arte dell'Iran|Università Roma Tre]] a causa di attività politiche; la scomparsa di mio padre per [[MARKER:number:dad-disappeared-months:2|2]] mesi prima di essere trovato nel [[MARKER:place:zanjan-prison:carcere di Zanjan|Sollicciano]], solo a causa di una misura che aveva preso nel suo lavoro e che aveva danneggiato gli affari di un mollah.
+  Ho lasciato la mia vita alle spalle, e ho fatto finta di averne una nuova. Ma i miei traumi non mi hanno lasciata in pace, né il governo. Così tante persone hanno protestato e circa [[MARKER:casualties:injured:300000|210176|Adattato dall'Iran (300.000) all'IT per popolazione del paese: 300.000 × (59,5M / 85,0M) = 210176]] sono state ferite in un modo o nell'altro, mentre io gridavo impotente nelle strade di città spensierate, a migliaia di chilometri da casa.
+  Ricordo [[MARKER:number:years-since-threats:3|3]] anni fa, quando non riuscivo a smettere di parlare del massacro sistematico degli iraniani, ho ricevuto due distinte minacce di morte. Un giorno mi sono svegliata e ho trovato un commento incollato sotto tutti i miei post su Instagram. Diceva: "Se ti fai mai vedere qui, scopiamo te e tua sorella a morte." Il messaggio era chiaro: non avrei mai più potuto tornare nel mio paese.
+  È passato molto tempo da quando ho sentito l'odore dei fiori d'arancio nell'aria della mia città, [[MARKER:place:shiraz:Shiraz|Roma]]. Mi manca il suo sole caldo e la casa dei miei genitori, che non vedo da [[MARKER:number:years-since-home:5|5]] anni.
+  E oggi, dopo che [[MARKER:casualties:killed:43000|30125|Adattato dall'Iran (43.000) all'IT per popolazione del paese: 43.000 × (59,5M / 85,0M) = 30125]] persone sono state massacrate [[COMPARISON:(90 volte il massacro delle Fosse Ardeatine)|(90 volte il massacro delle Fosse Ardeatine)|Confronto: 30.125 vittime vs. massacro delle Fosse Ardeatine (335 vittime nel 1944) = 89,93 volte di più]], non so nemmeno perché meritassi di passare attraverso tutto questo. Non so nemmeno perché sono viva.
+tags:
+  - esilio
+  - senso-di-colpa-del-sopravvissuto
+  - massacro
+  - violenza-della-polizia
+  - sfollamento
+  - minacce-di-morte
+  - prima-persona
+hashtags: "#Iran #Esilio #SensoDiColpaDelSopravvissuto #NonDimenticare #RivoltaIraniana"
+severity: critical
+verified: false
+source: Testimonianza personale, racconto in prima persona
+contentWarning: Minacce di morte, violenza di stato, massacro, incarcerazione, trauma, senso di colpa del sopravvissuto
+meta:
+  og-title: "Vergogna di Essere Viva: Un'Iraniana in Esilio"
+  og-description: Un potente racconto in prima persona di senso di colpa del sopravvissuto, esilio e assistere a un massacro da migliaia di chilometri di distanza.
