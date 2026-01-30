@@ -610,7 +610,6 @@ For example: [[MARKER:person:person1:Mahsa|Ema]]
 YOU MUST TRANSLATE BOTH PARTS to ${targetLangName}:
 1. Translate the original Iranian context (Mahsa, Tehran, etc.) with proper grammar
 2. Translate the local equivalent (Ema, Prague, etc.) with proper grammar
-3. Keep explanation field UNCHANGED (it's in English for tooltips)
 
 IMPORTANT: Numbers in markers are already localized - DO NOT translate them:
   [[MARKER:number:cities:400|49]] - keep both numbers as-is
@@ -629,7 +628,7 @@ Examples:
 
   English input: "more than [[MARKER:casualties:killed:36500|4513|Scaled from Iran (36500) to CZ...]] people"
   Czech output: "více než [[MARKER:casualties:killed:36500|4513|Přepočítáno z Íránu (36 500) na Českou republiku...]] lidí"
-  - Keep numbers and explanation unchanged
+  - Keep numbers unchanged, but translate the explanation.
 
   English input: "[[COMPARISON:(13 times the Lidice massacre)|(13 times the Lidice massacre)|Comparison: 4513 casualties...]]"
   Czech output: "[[COMPARISON:(13 times the Lidice massacre)|(13krát více než masakr v Lidicích)|Srovnání: 4 513 obětí...]]"
@@ -647,7 +646,7 @@ Keep numbers unchanged!
 YAML to translate:
 ${contextualizedContent}
 
-Return ONLY valid YAML with proper escaping, no explanations.`,
+Return ONLY valid YAML with proper escaping, no additional chatter.`,
         },
       ],
     });
