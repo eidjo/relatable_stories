@@ -1,0 +1,133 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://relatable-stories.org/schemas/places.schema.json",
+  "title": "Relatable Stories - Places Schema",
+  "description": "Schema for places.yaml with V2 hierarchical structure",
+  "type": "object",
+  "patternProperties": {
+    "^[A-Z]{2}$": {
+      "type": "object",
+      "required": ["cities"],
+      "properties": {
+        "cities": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/City" }
+        },
+        "generic": { "$ref": "#/definitions/GenericPlaces" }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false,
+  "definitions": {
+    "City": {
+      "type": "object",
+      "required": ["id", "name", "size", "capital", "population"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9-]+$",
+          "description": "Kebab-case city identifier"
+        },
+        "name": {
+          "type": "string",
+          "description": "City name in local language"
+        },
+        "size": {
+          "type": "string",
+          "enum": ["small", "medium", "large"],
+          "description": "City size category"
+        },
+        "capital": {
+          "type": "boolean",
+          "description": "Whether this is the national capital"
+        },
+        "population": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "City population"
+        },
+        "region": {
+          "type": "string",
+          "description": "Geographic region"
+        },
+        "landmarks": {
+          "type": "object",
+          "properties": {
+            "protest": {
+              "type": "array",
+              "items": { "type": "string" },
+              "description": "Public gathering spaces (squares, parks)"
+            },
+            "monument": {
+              "type": "array",
+              "items": { "type": "string" },
+              "description": "Cultural landmarks and monuments"
+            }
+          },
+          "additionalProperties": false
+        },
+        "universities": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Universities in this city"
+        },
+        "government-facilities": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Generic government facilities"
+        },
+        "hospitals": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Hospitals and medical centers"
+        },
+        "morgues": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Morgues and medical examiner offices"
+        },
+        "prisons": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Prisons and correctional facilities"
+        },
+        "police-stations": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Police stations and headquarters"
+        }
+      },
+      "additionalProperties": false
+    },
+    "GenericPlaces": {
+      "type": "object",
+      "description": "Fallback places when city-specific data isn't available",
+      "properties": {
+        "landmarks": {
+          "type": "object",
+          "properties": {
+            "protest": {
+              "type": "array",
+              "items": { "type": "string" }
+            },
+            "monument": {
+              "type": "array",
+              "items": { "type": "string" }
+            }
+          },
+          "additionalProperties": false
+        },
+        "universities": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "government-facilities": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

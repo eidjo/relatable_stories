@@ -34,9 +34,14 @@ markers:
     city-large: true
     population: 1565572
 
+  zanjan:
+    place: 'Zanjan'
+    city-medium: true
+    population: 430000
+
   vozara-station:
     place: 'Vozara police station'
-    government-facility: true
+    police-station: true
     within: tehran
 
   university:
@@ -46,7 +51,8 @@ markers:
 
   zanjan-prison:
     place: 'Prison of Zanjan'
-    government-facility: true
+    prison: true
+    within: zanjan
 
   # Numbers - time periods
   drive-time-demo:

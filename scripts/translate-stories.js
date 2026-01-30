@@ -360,6 +360,29 @@ function substituteMarkers(text, markers, context, resolvedMarkers, storyId) {
     }
     // Place markers with V2 hierarchical support
     else if (isPlaceMarker(marker)) {
+      // Resolve parent on-demand if needed
+      if (marker.within && !resolvedMarkers.has(marker.within)) {
+        const parentMarker = markers[marker.within];
+        if (parentMarker && isPlaceMarker(parentMarker)) {
+          // Recursively resolve parent (city markers don't have parents themselves)
+          const parentSeed = `${storyId}-${marker.within}-${countryCode}`;
+          const parentSize = parentMarker['city-large'] ? 'large'
+            : parentMarker['city-medium'] ? 'medium'
+            : parentMarker['city-small'] ? 'small'
+            : null;
+
+          if (parentSize && places.cities) {
+            const cities = places.cities.filter(c =>
+              c.size === parentSize && (!parentMarker.capital || c.capital)
+            );
+            if (cities.length > 0) {
+              const selectedCity = selectFromArray(cities, parentSeed);
+              resolvedMarkers.set(marker.within, selectedCity.name);
+            }
+          }
+        }
+      }
+
       // Check if this place has a parent
       if (marker.within && resolvedMarkers.has(marker.within)) {
         const parentCityName = resolvedMarkers.get(marker.within);
@@ -374,6 +397,14 @@ function substituteMarkers(text, markers, context, resolvedMarkers, storyId) {
             value = selectFromArray(cityData.landmarks.monument, seed);
           } else if (marker.university && cityData.universities) {
             value = selectFromArray(cityData.universities, seed);
+          } else if (marker.hospital && cityData.hospitals) {
+            value = selectFromArray(cityData.hospitals, seed);
+          } else if (marker.morgue && cityData.morgues) {
+            value = selectFromArray(cityData.morgues, seed);
+          } else if (marker.prison && cityData.prisons) {
+            value = selectFromArray(cityData.prisons, seed);
+          } else if (marker['police-station'] && cityData['police-stations']) {
+            value = selectFromArray(cityData['police-stations'], seed);
           } else if (marker['government-facility'] && cityData['government-facilities']) {
             value = selectFromArray(cityData['government-facilities'], seed);
           }
