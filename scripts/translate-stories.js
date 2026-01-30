@@ -46,16 +46,13 @@ import {
 } from '../src/lib/types/index.ts';
 
 // Import schema-driven helpers
-import {
-  getPlaceFacilityTypes,
-  getNestedValue
-} from '../src/lib/translation/schema-helpers.ts';
+import { getPlaceFacilityTypes, getNestedValue } from '../src/lib/translation/schema-helpers.ts';
 
 // Parse CLI arguments
 const args = process.argv.slice(2);
-const targetCountry = args.find(arg => arg.startsWith('--country='))?.split('=')[1];
-const targetStory = args.find(arg => arg.startsWith('--story='))?.split('=')[1];
-const targetLang = args.find(arg => arg.startsWith('--lang='))?.split('=')[1];
+const targetCountry = args.find((arg) => arg.startsWith('--country='))?.split('=')[1];
+const targetStory = args.find((arg) => arg.startsWith('--story='))?.split('=')[1];
+const targetLang = args.find((arg) => arg.startsWith('--lang='))?.split('=')[1];
 const forceOverwrite = args.includes('--force') || args.includes('-f');
 
 // Check for API key
@@ -149,7 +146,8 @@ function getOriginalValue(marker) {
  */
 function substituteMarkers(text, markers, context, resolvedMarkers, storyId) {
   let result = text;
-  const { countryCode, names, places, population, currencySymbol, rialToLocal, comparableEvents } = context;
+  const { countryCode, names, places, population, currencySymbol, rialToLocal, comparableEvents } =
+    context;
 
   // Seeded random for deterministic selection
   function seededRandom(seed) {
@@ -225,7 +223,7 @@ function substituteMarkers(text, markers, context, resolvedMarkers, storyId) {
           targetPop = cityMarker.population;
           if (resolvedMarkers.has(marker.scopeCity)) {
             const translatedCityName = resolvedMarkers.get(marker.scopeCity);
-            const translatedCity = places.cities?.find(c => c.name === translatedCityName);
+            const translatedCity = places.cities?.find((c) => c.name === translatedCityName);
             if (translatedCity?.population) {
               targetPop = translatedCity.population;
             }
@@ -245,7 +243,7 @@ function substituteMarkers(text, markers, context, resolvedMarkers, storyId) {
         // Find closest event
         let candidates = countryEvents;
         if (category) {
-          const filtered = countryEvents.filter(e => e.category === category);
+          const filtered = countryEvents.filter((e) => e.category === category);
           if (filtered.length > 0) candidates = filtered;
         }
 
@@ -290,7 +288,10 @@ function substituteMarkers(text, markers, context, resolvedMarkers, storyId) {
           }
 
           // Generate comparison explanation
-          const ratioText = exactRatio >= 1 ? `${exactRatio.toFixed(2)}x more` : `${(exactRatio * 100).toFixed(0)}% of`;
+          const ratioText =
+            exactRatio >= 1
+              ? `${exactRatio.toFixed(2)}x more`
+              : `${(exactRatio * 100).toFixed(0)}% of`;
           comparisonExplanation = `Comparison: ${scaledValue.toLocaleString()} casualties vs. ${eventName} (${closestEvent.casualties.toLocaleString()} casualties in ${closestEvent.year}) = ${ratioText}`;
         }
       }
@@ -301,7 +302,8 @@ function substituteMarkers(text, markers, context, resolvedMarkers, storyId) {
       const comparisonMarked = comparisonExplanation
         ? `[[COMPARISON:${comparisonText}|${comparisonText}|${comparisonExplanation}]]`
         : comparisonText;
-      result = result.substring(0, index) + comparisonMarked + result.substring(index + fullMatch.length);
+      result =
+        result.substring(0, index) + comparisonMarked + result.substring(index + fullMatch.length);
       continue;
     }
 
@@ -332,19 +334,25 @@ function substituteMarkers(text, markers, context, resolvedMarkers, storyId) {
         const targetSeed = `${storyId}-${targetKey}-${countryCode}`;
 
         if (isPersonMarker(targetMarker)) {
-          const nameList = targetMarker.gender === 'm' ? names.male
-            : targetMarker.gender === 'f' ? names.female
-            : names.neutral;
+          const nameList =
+            targetMarker.gender === 'm'
+              ? names.male
+              : targetMarker.gender === 'f'
+                ? names.female
+                : names.neutral;
           value = selectFromArray(nameList, targetSeed);
         } else if (isPlaceMarker(targetMarker)) {
           // Simplified place resolution for aliases
-          const size = targetMarker['city-large'] ? 'large'
-            : targetMarker['city-medium'] ? 'medium'
-            : targetMarker['city-small'] ? 'small'
-            : null;
+          const size = targetMarker['city-large']
+            ? 'large'
+            : targetMarker['city-medium']
+              ? 'medium'
+              : targetMarker['city-small']
+                ? 'small'
+                : null;
           if (size && places.cities) {
-            const cities = places.cities.filter(c =>
-              c.size === size && (!targetMarker.capital || c.capital)
+            const cities = places.cities.filter(
+              (c) => c.size === size && (!targetMarker.capital || c.capital)
             );
             if (cities.length > 0) {
               const selectedCity = selectFromArray(cities, targetSeed);
@@ -359,9 +367,8 @@ function substituteMarkers(text, markers, context, resolvedMarkers, storyId) {
     }
     // Person markers
     else if (isPersonMarker(marker)) {
-      const nameList = marker.gender === 'm' ? names.male
-        : marker.gender === 'f' ? names.female
-        : names.neutral;
+      const nameList =
+        marker.gender === 'm' ? names.male : marker.gender === 'f' ? names.female : names.neutral;
       value = selectFromArray(nameList, seed);
     }
     // Place markers with V2 hierarchical support
@@ -372,14 +379,17 @@ function substituteMarkers(text, markers, context, resolvedMarkers, storyId) {
         if (parentMarker && isPlaceMarker(parentMarker)) {
           // Recursively resolve parent (city markers don't have parents themselves)
           const parentSeed = `${storyId}-${marker.within}-${countryCode}`;
-          const parentSize = parentMarker['city-large'] ? 'large'
-            : parentMarker['city-medium'] ? 'medium'
-            : parentMarker['city-small'] ? 'small'
-            : null;
+          const parentSize = parentMarker['city-large']
+            ? 'large'
+            : parentMarker['city-medium']
+              ? 'medium'
+              : parentMarker['city-small']
+                ? 'small'
+                : null;
 
           if (parentSize && places.cities) {
-            const cities = places.cities.filter(c =>
-              c.size === parentSize && (!parentMarker.capital || c.capital)
+            const cities = places.cities.filter(
+              (c) => c.size === parentSize && (!parentMarker.capital || c.capital)
             );
             if (cities.length > 0) {
               const selectedCity = selectFromArray(cities, parentSeed);
@@ -394,7 +404,7 @@ function substituteMarkers(text, markers, context, resolvedMarkers, storyId) {
         const parentCityName = resolvedMarkers.get(marker.within);
 
         // Find the city in places data
-        const cityData = places.cities?.find(c => c.name === parentCityName);
+        const cityData = places.cities?.find((c) => c.name === parentCityName);
         if (cityData) {
           // Schema-driven facility matching
           const facilityTypes = getPlaceFacilityTypes();
@@ -412,15 +422,18 @@ function substituteMarkers(text, markers, context, resolvedMarkers, storyId) {
 
       // If no parent or not resolved, use direct city selection
       if (value === fullMatch) {
-        const size = marker['city-large'] ? 'large'
-          : marker['city-medium'] ? 'medium'
-          : marker['city-small'] ? 'small'
-          : null;
+        const size = marker['city-large']
+          ? 'large'
+          : marker['city-medium']
+            ? 'medium'
+            : marker['city-small']
+              ? 'small'
+              : null;
 
         if (size && places.cities) {
           // Filter by size AND capital requirement (if specified)
-          const cities = places.cities.filter(c =>
-            c.size === size && (!marker.capital || c.capital)
+          const cities = places.cities.filter(
+            (c) => c.size === size && (!marker.capital || c.capital)
           );
           if (cities.length > 0) {
             const selectedCity = selectFromArray(cities, seed);
@@ -468,7 +481,7 @@ function substituteMarkers(text, markers, context, resolvedMarkers, storyId) {
           // If the city has been resolved, use translated city's population
           if (resolvedMarkers.has(marker.scopeCity)) {
             const translatedCityName = resolvedMarkers.get(marker.scopeCity);
-            const translatedCity = places.cities?.find(c => c.name === translatedCityName);
+            const translatedCity = places.cities?.find((c) => c.name === translatedCityName);
             if (translatedCity?.population) {
               targetPop = translatedCity.population;
             }
@@ -532,7 +545,7 @@ function substituteMarkers(text, markers, context, resolvedMarkers, storyId) {
           scopeType = 'city';
           if (resolvedMarkers.has(marker.scopeCity)) {
             const translatedCityName = resolvedMarkers.get(marker.scopeCity);
-            const translatedCity = places.cities?.find(c => c.name === translatedCityName);
+            const translatedCity = places.cities?.find((c) => c.name === translatedCityName);
             if (translatedCity?.population) {
               targetPop = translatedCity.population;
               scopeName = translatedCityName;
@@ -564,9 +577,10 @@ async function translateContextualizedStory(contextualizedContent, targetLangCod
       model: 'claude-sonnet-4-5-20250929',
       max_tokens: 8000,
       temperature: 0.3,
-      messages: [{
-        role: 'user',
-        content: `Translate this YAML story about Iran's uprising from English to ${targetLangName}.
+      messages: [
+        {
+          role: 'user',
+          content: `Translate this YAML story about Iran's uprising from English to ${targetLangName}.
 
 CRITICAL RULES:
 1. Translate ALL text content to ${targetLangName}
@@ -600,7 +614,7 @@ YOU MUST TRANSLATE BOTH PARTS to ${targetLangName}:
 
 IMPORTANT: Numbers in markers are already localized - DO NOT translate them:
   [[MARKER:number:cities:400|49]] - keep both numbers as-is
-  [[MARKER:casualties:killed:36500|4513|Scaled from Iran...]] - keep numbers and explanation as-is
+  [[MARKER:casualties:killed:36500|4513|Scaled from Iran...]] - keep numbers as is, but translate the explanation
 
 Examples:
   English input: "in [[MARKER:place:hometown:Tehran|Prague]]"
@@ -614,13 +628,13 @@ Examples:
   - "Emy" = Ema in Czech genitive case (possessive)
 
   English input: "more than [[MARKER:casualties:killed:36500|4513|Scaled from Iran (36500) to CZ...]] people"
-  Czech output: "více než [[MARKER:casualties:killed:36500|4513|Scaled from Iran (36500) to CZ...]] lidí"
+  Czech output: "více než [[MARKER:casualties:killed:36500|4513|Přepočítáno z Íránu (36 500) na Českou republiku...]] lidí"
   - Keep numbers and explanation unchanged
 
   English input: "[[COMPARISON:(13 times the Lidice massacre)|(13 times the Lidice massacre)|Comparison: 4513 casualties...]]"
-  Czech output: "[[COMPARISON:(13 times the Lidice massacre)|(13krát více než masakr v Lidicích)|Comparison: 4513 casualties...]]"
+  Czech output: "[[COMPARISON:(13 times the Lidice massacre)|(13krát více než masakr v Lidicích)|Srovnání: 4 513 obětí...]]"
   - Translate the comparison text (second part)
-  - Keep explanation (third part) unchanged
+  - Translate the explanation (third part)
 
 The marker format must remain:
 - [[MARKER:type:key:TRANSLATED_ORIGINAL|TRANSLATED_LOCAL]] for basic markers
@@ -628,13 +642,14 @@ The marker format must remain:
 - [[COMPARISON:original|TRANSLATED_TEXT|explanation]] for comparisons
 
 Translate names and places with proper grammar/case!
-Keep numbers and explanations unchanged!
+Keep numbers unchanged!
 
 YAML to translate:
 ${contextualizedContent}
 
-Return ONLY valid YAML with proper escaping, no explanations.`
-      }]
+Return ONLY valid YAML with proper escaping, no explanations.`,
+        },
+      ],
     });
 
     return response.content[0].text;
@@ -686,19 +701,21 @@ async function main() {
 
     // Filter countries
     let countriesToProcess = targetCountry
-      ? countries.filter(c => c.code === targetCountry)
+      ? countries.filter((c) => c.code === targetCountry)
       : countries;
 
     // If --lang is specified without --country, filter to countries that have that language
     if (targetLang && !targetCountry) {
-      countriesToProcess = countriesToProcess.filter(country => {
+      countriesToProcess = countriesToProcess.filter((country) => {
         const langs = countryLanguages.countries[country.code]?.languages || [];
         return langs.includes(targetLang);
       });
 
       if (countriesToProcess.length === 0) {
         console.error(`❌ No countries found with language code: ${targetLang}`);
-        const availableLangs = Object.keys(countryLanguages.language_names || {}).filter(l => l !== 'en');
+        const availableLangs = Object.keys(countryLanguages.language_names || {}).filter(
+          (l) => l !== 'en'
+        );
         console.log(`Available languages: ${availableLangs.join(', ')}`);
         process.exit(1);
       }
@@ -711,7 +728,7 @@ async function main() {
 
       // Filter to specific language if --lang is specified
       if (targetLang) {
-        languages = languages.filter(lang => lang === targetLang);
+        languages = languages.filter((lang) => lang === targetLang);
         if (languages.length === 0) {
           console.log(`   ⏭️  Skipping ${countryName} - language ${targetLang} not available`);
           continue;
@@ -736,9 +753,27 @@ async function main() {
       const resolvedMarkers = new Map(); // Track resolved values for aliases
       const contextualizedData = {
         ...storyData,
-        title: substituteMarkers(storyData.title, storyData.markers, context, resolvedMarkers, storyId),
-        summary: substituteMarkers(storyData.summary, storyData.markers, context, resolvedMarkers, storyId),
-        content: substituteMarkers(storyData.content, storyData.markers, context, resolvedMarkers, storyId),
+        title: substituteMarkers(
+          storyData.title,
+          storyData.markers,
+          context,
+          resolvedMarkers,
+          storyId
+        ),
+        summary: substituteMarkers(
+          storyData.summary,
+          storyData.markers,
+          context,
+          resolvedMarkers,
+          storyId
+        ),
+        content: substituteMarkers(
+          storyData.content,
+          storyData.markers,
+          context,
+          resolvedMarkers,
+          storyId
+        ),
       };
 
       for (const langCode of languages) {
@@ -754,7 +789,9 @@ async function main() {
 
         // Skip if already exists (unless --force flag is set)
         if (existsSync(outputPath) && !forceOverwrite) {
-          console.log(`   ⏭️  ${langName} (${countryName}) - already exists (use --force to overwrite)`);
+          console.log(
+            `   ⏭️  ${langName} (${countryName}) - already exists (use --force to overwrite)`
+          );
           totalSkipped++;
           continue;
         }
@@ -768,7 +805,7 @@ async function main() {
         const contextualizedYaml = yaml.dump(contextualizedData, {
           lineWidth: -1,
           noRefs: true,
-          quotingType: '"',  // Use double quotes for better escaping
+          quotingType: '"', // Use double quotes for better escaping
           forceQuotes: false, // Only quote when necessary
         });
 
@@ -809,7 +846,7 @@ async function main() {
           const finalYaml = yaml.dump(translatedData, {
             lineWidth: -1,
             noRefs: true,
-            quotingType: '"',  // Use double quotes for better escaping
+            quotingType: '"', // Use double quotes for better escaping
             forceQuotes: false, // Only quote when necessary
           });
 
@@ -822,7 +859,7 @@ async function main() {
         }
 
         // Delay to avoid rate limits
-        await new Promise(resolve => setTimeout(resolve, 1000));
+        await new Promise((resolve) => setTimeout(resolve, 1000));
       }
     }
 
@@ -841,7 +878,7 @@ async function main() {
   }
 }
 
-main().catch(error => {
+main().catch((error) => {
   console.error('Fatal error:', error);
   process.exit(1);
 });
