@@ -1,0 +1,14 @@
+{
+  "yaml.schemas": {
+    "./schemas/story.schema.json": "src/lib/data/stories/*/story.yaml",
+    "./schemas/places.schema.json": "src/lib/data/contexts/places.yaml",
+    "./schemas/countries.schema.json": "src/lib/data/contexts/countries.yaml",
+    "./schemas/names.schema.json": "src/lib/data/contexts/names.yaml"
+  },
+  "yaml.format.enable": true,
+  "yaml.validate": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[yaml]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  }
+}
