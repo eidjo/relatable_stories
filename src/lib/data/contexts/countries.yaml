@@ -1,13 +1,4 @@
 countries:
-  - code: 'IR'
-    name: 'Iran'
-    population: 85000000
-    currency: 'IRR'
-    currency-symbol: '﷼'
-    rial-to-local: 1.0
-    timezones:
-      - 'Asia/Tehran'
-
   - code: 'US'
     name: 'United States'
     population: 331900000

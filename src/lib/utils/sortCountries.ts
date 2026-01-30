@@ -4,7 +4,6 @@ import type { CountryCode } from '$lib/types';
 /**
  * Sort countries for display in dropdowns
  * - Auto-detected country first
- * - Iran second
  * - All others alphabetically
  */
 export function sortCountriesForDisplay(
@@ -14,21 +13,17 @@ export function sortCountriesForDisplay(
   const sorted = [...countries];
 
   // Separate into categories
-  const iran = sorted.find((c) => c.code === 'IR');
   const detected = detectedCountryCode
-    ? sorted.find((c) => c.code === detectedCountryCode && c.code !== 'IR')
+    ? sorted.find((c) => c.code === detectedCountryCode)
     : null;
   const others = sorted
-    .filter((c) => c.code !== 'IR' && c.code !== detectedCountryCode)
+    .filter((c) => c.code !== detectedCountryCode)
     .sort((a, b) => a.name.localeCompare(b.name));
 
-  // Build result: [detected?, iran, ...others]
+  // Build result: [detected?, ...others]
   const result: Country[] = [];
   if (detected) {
     result.push(detected);
-  }
-  if (iran) {
-    result.push(iran);
   }
   result.push(...others);
 

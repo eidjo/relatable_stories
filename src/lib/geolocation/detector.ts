@@ -92,8 +92,6 @@ function detectFromLocale(): CountryCode | null {
       'cs-CZ': 'CZ',
       pt: 'BR',
       'pt-BR': 'BR',
-      fa: 'IR',
-      'fa-IR': 'IR',
     };
 
     // Try exact match first

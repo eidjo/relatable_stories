@@ -80,18 +80,6 @@ describe('Language Selection', () => {
       // But if no current language, Belgium defaults to French (first non-English)
       expect(selectBestLanguageForCountry('BE')).toBe('fr');
     });
-
-    it('should handle Iran correctly', () => {
-      // Iran has Farsi and English
-      // No current language → defaults to Farsi (first non-English)
-      expect(selectBestLanguageForCountry('IR')).toBe('fa');
-
-      // Farsi → Iran (keeps Farsi)
-      expect(selectBestLanguageForCountry('IR', 'fa')).toBe('fa');
-
-      // English → Iran (keeps English)
-      expect(selectBestLanguageForCountry('IR', 'en')).toBe('en');
-    });
   });
 
   describe('isLanguageAvailableForCountry', () => {

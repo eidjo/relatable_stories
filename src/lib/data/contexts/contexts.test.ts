@@ -58,11 +58,6 @@ describe('Countries YAML Validation', () => {
       });
     });
   });
-
-  it('should have Iran (IR) as the first country', () => {
-    expect(countries[0].code).toBe('IR');
-    expect(countries[0].name).toContain('Iran');
-  });
 });
 
 describe('Names YAML Validation', () => {

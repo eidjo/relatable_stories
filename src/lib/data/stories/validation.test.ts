@@ -207,8 +207,8 @@ describe('Story Translation Validation', () => {
     if (storyWithMarkers) {
       const translated = translateStory({
         storySlug: storyWithMarkers.slug,
-        country: 'IR',
-        language: 'fa',
+        country: 'US',
+        language: 'en',
         contextualizationEnabled: false,
       });
 

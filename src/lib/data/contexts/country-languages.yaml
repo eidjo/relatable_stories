@@ -62,9 +62,6 @@ countries:
   RO:
     languages: ['ro']
 
-  IR:
-    languages: ['fa', 'en']
-
 # Language names for display
 language_names:
   en: 'English'

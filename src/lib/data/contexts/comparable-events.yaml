@@ -395,49 +395,6 @@ NO:
     year: 1980
     significance: critical
 
-IR:
-  # Massacres / State Violence
-  - id: 1988-executions
-    name: '1988 prison massacres'
-    fullName: '1988 executions of political prisoners'
-    casualties: 5000
-    category: massacre
-    year: 1988
-    significance: critical
-
-  - id: 2009-protests
-    name: '2009 election protests'
-    fullName: 'Iranian election protests'
-    casualties: 72
-    category: massacre
-    year: 2009
-    significance: critical
-
-  - id: 2019-protests
-    name: '2019 protests'
-    fullName: 'Bloody Aban protests'
-    casualties: 1500
-    category: massacre
-    year: 2019
-    significance: critical
-
-  - id: manjil-earthquake
-    name: 'Manjil-Rudbar earthquake'
-    fullName: 'Manjil-Rudbar earthquake'
-    casualties: 40000
-    category: natural-disaster
-    year: 1990
-    significance: critical
-
-  # Public Disasters
-  - id: ukraine-flight
-    name: 'Ukraine Flight 752'
-    fullName: 'Ukraine International Airlines Flight 752'
-    casualties: 176
-    category: military-attack
-    year: 2020
-    significance: critical
-
 BE:
   # Terrorist Attacks
   - id: brussels-bombings

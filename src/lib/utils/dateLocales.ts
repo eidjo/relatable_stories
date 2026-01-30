@@ -17,7 +17,6 @@ import { pl } from 'date-fns/locale/pl';
 import { pt } from 'date-fns/locale/pt';
 import { ro } from 'date-fns/locale/ro';
 import { sv } from 'date-fns/locale/sv';
-import { faIR } from 'date-fns/locale/fa-IR';
 
 // Comprehensive locale mapping
 // Maps language codes to date-fns locale objects
@@ -37,7 +36,6 @@ const localeMap: Record<string, Locale> = {
   pt: pt,
   ro: ro,
   sv: sv,
-  fa: faIR, // Farsi/Persian
 };
 
 /**

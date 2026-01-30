@@ -78,7 +78,6 @@ const COUNTRY_LANGUAGES = {
   CA: ['en', 'fr'],
   BE: ['nl', 'fr', 'de', 'en'],
   GR: ['el', 'en'],
-  IR: ['fa', 'en'],
 };
 
 /**
