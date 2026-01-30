@@ -1,0 +1,22 @@
+{
+  "lsp": {
+    "yaml-language-server": {
+      "settings": {
+        "yaml": {
+          "schemas": {
+            "../schemas/story.schema.json": "src/lib/data/stories/*/story.yaml",
+            "../schemas/places.schema.json": "src/lib/data/contexts/places.yaml",
+            "../schemas/countries.schema.json": "src/lib/data/contexts/countries.yaml",
+            "../schemas/names.schema.json": "src/lib/data/contexts/names.yaml",
+          },
+          "format": {
+            "enable": true,
+          },
+          "validate": true,
+          "hover": true,
+          "completion": true,
+        },
+      },
+    },
+  },
+}
