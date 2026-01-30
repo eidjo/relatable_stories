@@ -1,0 +1,30 @@
+id: ride-home
+title: Envergonhada de Estar Viva
+slug: ride-home
+date: "2026-01-29"
+summary: Um relato em primeira pessoa sobre exílio, culpa de sobrevivente e o peso de assistir a um massacre a milhares de quilómetros de distância.
+content: |-
+  Estava a voltar de uma manifestação. Mudei-me para o estrangeiro há alguns anos, mas já fiz alguns amigos que trouxe comigo. No metro a caminho de casa, sentei-me ao lado de um homem de meia-idade. Reparei no seu pequeno pedaço de papel colado em cartão; ele reparou no meu. Isso foi suficiente para iniciar uma conversa.
+  Ele tinha conduzido sozinho durante [[MARKER:number:drive-time-demo:5|5]] horas para vir a esta manifestação. No dia anterior, tinha conduzido [[MARKER:number:drive-time-previous:6|6]] horas de ida e volta para outra, mesmo estando claramente com gripe. "É a única coisa que posso fazer", disse ele. "As pessoas estão a morrer nas ruas. Tenho vergonha de estar vivo."
+  Não podia concordar mais com o quão impotente me sinto. Quão inúteis foram todos os meus esforços. Lutei toda a minha vida: com o patriarcado, depois com o pessoal da minha escola, depois a universidade, depois a câmara municipal e a polícia. Fugi o mais rápido possível quando a polícia da moralidade me estava a seguir. E fugi ainda mais rápido para o exílio, apenas para sobreviver.
+  Fugi da maior, e provavelmente a única fonte dos traumas da minha vida: de ser presa por hijab "inapropriado" na [[MARKER:place:vozara-station:esquadra de polícia de Vozara|COMETLIS (Quartel-General da Polícia)]] em [[MARKER:place:tehran:Teerão|Lisboa]]; de ser proibida de continuar a minha educação na [[MARKER:place:university:Universidade de Arte do Irão|Universidade NOVA de Lisboa]] por causa de atividades políticas; do meu pai ter desaparecido durante [[MARKER:number:dad-disappeared-months:2|2]] meses antes de ser encontrado na [[MARKER:place:zanjan-prison:Prisão de Zanjan|Prisão de Custóias]], apenas por causa de uma medida que tomou no seu trabalho e que prejudicou o negócio de um mullah.
+  Deixei a minha vida para trás e fingi que tenho uma nova. Mas os meus traumas não me deixaram em paz, nem o governo. Tantas pessoas protestaram e cerca de [[MARKER:casualties:injured:300000|36529|Dimensionado do Irão (300.000) para PT por população do país: 300.000 × (10,3M / 85,0M) = 36529]] ficaram feridas de uma forma ou de outra, enquanto eu gritava impotente nas ruas de cidades despreocupadas, a milhares de quilómetros de casa.
+  Lembro-me de há [[MARKER:number:years-since-threats:3|3]] anos, quando não conseguia parar de falar sobre o massacre sistemático de iranianos, recebi duas ameaças de morte distintas. Um dia acordei e encontrei um comentário colado em todas as minhas publicações no Instagram. Dizia: "Se alguma vez apareceres aqui, vamos foder-te a ti e à tua irmã até à morte." A mensagem era clara: nunca mais poderia regressar ao meu país.
+  Já passou muito tempo desde que cheirei flor de laranjeira no ar da minha cidade, [[MARKER:place:shiraz:Shiraz|Lisboa]]. Sinto falta do seu sol quente e da casa dos meus pais, que não vejo há [[MARKER:number:years-since-home:5|5]] anos.
+  E hoje, depois de [[MARKER:casualties:killed:43000|5236|Dimensionado do Irão (43.000) para PT por população do país: 43.000 × (10,3M / 85,0M) = 5236]] pessoas terem sido massacradas [[COMPARISON:(79 vezes os incêndios de 2017)|(79 vezes os incêndios de 2017)|Comparação: 5.236 vítimas vs. incêndios de 2017 (66 vítimas em 2017) = 79,33x mais]], nem sequer sei porque mereci passar por tudo isto. Nem sequer sei porque estou viva.
+tags:
+  - exile
+  - survivor-guilt
+  - massacre
+  - police-violence
+  - displacement
+  - death-threats
+  - first-person
+hashtags: "#Irão #Exílio #CulpaDeSobrevivente #NuncaEsquecer #RevoltaDoIrão"
+severity: critical
+verified: false
+source: Testemunho pessoal, relato em primeira pessoa
+contentWarning: Ameaças de morte, violência estatal, massacre, prisão, trauma, culpa de sobrevivente
+meta:
+  og-title: "Envergonhada de Estar Viva: Uma Iraniana no Exílio"
+  og-description: Um poderoso relato em primeira pessoa sobre culpa de sobrevivente, exílio e assistir a um massacre a milhares de quilómetros de distância.

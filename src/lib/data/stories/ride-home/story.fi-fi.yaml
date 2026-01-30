@@ -1,0 +1,30 @@
+id: ride-home
+title: Häpeän olevani elossa
+slug: ride-home
+date: "2026-01-29"
+summary: Ensimmäisen persoonan kertomus maanpaosta, selviytyjän syyllisyydestä ja taakasta seurata verilöylyä tuhansien kilometrien päästä.
+content: |-
+  Olin palaamassa mielenosoituksesta. Muutin ulkomaille muutama vuosi sitten, mutta olin jo ehtinyt saada muutaman ystävän, jotka otin mukaan. Metrossa kotiin istuuduin keski-ikäisen miehen viereen. Huomasin hänen pieneen pahviin liimatun paperinsa; hän huomasi minun. Se riitti aloittamaan keskustelun.
+  Hän oli ajanut yksin [[MARKER:number:drive-time-demo:5|5]] tuntia tullakseen tähän mielenosoitukseen. Edellisenä päivänä hän oli ajanut [[MARKER:number:drive-time-previous:6|6]] tuntia edestakaisin toiseen, vaikka hän oli selvästi flunssassa. "Se on ainoa asia, jonka voin tehdä", hän sanoi. "Ihmiset kuolevat kaduilla. Häpeän olevani elossa."
+  En voinut olla enempää samaa mieltä siitä, kuinka avuttomaksi tunnen itseni. Kuinka turhia kaikki ponnisteluni ovat olleet. Taistelin koko elämäni: patriarkaatin kanssa, sitten kouluni henkilökunnan kanssa, sitten yliopiston, sen jälkeen kunnan ja poliisin kanssa. Juoksin nopeimmin, kun moraalipoliisi seurasi minua. Ja juoksin vielä nopeammin maanpakoon, vain selviytyäkseni.
+  Juoksin pakoon suurimmasta ja todennäköisesti ainoasta elämäni traumojen lähteestä: vangitsemisesta "sopimattoman" hijabin vuoksi [[MARKER:place:vozara-station:Vozaran poliisiasemalla|Pasilan poliisitalossa (päämaja)]] [[MARKER:place:tehran:Teheranissa|Helsingissä]]; kiellosta jatkaa koulutustani [[MARKER:place:university:Iranin taideyliopistolle|Helsingin Metropolia-ammattikorkeakoulussa]] poliittisen toiminnan vuoksi; isäni katoamisesta [[MARKER:number:dad-disappeared-months:2|2]] kuukaudeksi ennen kuin hänet löydettiin [[MARKER:place:zanjan-prison:Zandjanin vankilasta|Kylmäkosken vankilasta]], vain siksi, että hän teki työssään toimenpiteen, joka vahingoitti mollahin liiketoimintaa.
+  Jätin elämäni taakseni ja teeskentelin, että minulla on uusi. Mutta traumani eivät jättäneet minua rauhaan, eikä hallitus. Niin monet ihmiset osoittivat mieltään ja noin [[MARKER:casualties:injured:300000|19553|Skaalattu Iranista (300 000) Suomeen maan väkiluvun mukaan: 300 000 × (5,5M / 85,0M) = 19553]] loukkaantui tavalla tai toisella, kun minä avuttomana huusin huolettomien kaupunkien kaduilla, tuhansien kilometrien päässä kotoa.
+  Muistan [[MARKER:number:years-since-threats:3|3]] vuotta sitten, kun en voinut lopettaa puhumista iranilaisten järjestelmällisestä verilöylystä, sain kaksi erillistä tappouhkausta. Eräänä päivänä heräsin ja löysin kommentin liimatun kaikkien Instagramin julkaisujeni alle. Siinä luki: "Jos koskaan näytät täällä, me naidamme sinut ja sisaresi kuoliaaksi." Viesti oli selvä: en voinut koskaan palata maahani.
+  On kulunut pitkä aika siitä, kun haistoin appelsiininkukkien tuoksun kaupunkini ilmassa, [[MARKER:place:shiraz:Shirazissa|Helsingissä]]. Kaipaan sen lämmintä auringonpaistetta ja vanhempieni taloa, jota en ole nähnyt [[MARKER:number:years-since-home:5|5]] vuoteen.
+  Ja tänään, sen jälkeen kun [[MARKER:casualties:killed:43000|2803|Skaalattu Iranista (43 000) Suomeen maan väkiluvun mukaan: 43 000 × (5,5M / 85,0M) = 2803]] ihmistä on murhattu [[COMPARISON:(400 kertaa Myyrmanni-pommi-isku)|(400 kertaa Myyrmanni-pommi-isku)|Vertailu: 2 803 uhria vs. Myyrmannin pommi-isku (7 uhria vuonna 2002) = 400,43x enemmän]], en edes tiedä, miksi ansaitsin käydä läpi kaiken tämän. En edes tiedä, miksi olen elossa.
+tags:
+  - exile
+  - survivor-guilt
+  - massacre
+  - police-violence
+  - displacement
+  - death-threats
+  - first-person
+hashtags: "#Iran #Maanpako #SelviytyjänSyyllisyys #EiKoskaanUnohda #IraninKansannousu"
+severity: critical
+verified: false
+source: Henkilökohtainen todistus, ensimmäisen persoonan kertomus
+contentWarning: Tappouhkaukset, valtion väkivalta, verilöyly, vangitseminen, trauma, selviytyjän syyllisyys
+meta:
+  og-title: "Häpeän olevani elossa: Iranilainen maanpaossa"
+  og-description: Voimakas ensimmäisen persoonan kertomus selviytyjän syyllisyydestä, maanpaosta ja verilöylyn seuraamisesta tuhansien kilometrien päästä.

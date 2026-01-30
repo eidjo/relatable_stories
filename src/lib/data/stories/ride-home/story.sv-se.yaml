@@ -1,0 +1,30 @@
+id: ride-home
+title: Skäms över att vara vid liv
+slug: ride-home
+date: "2026-01-29"
+summary: En förstapersonsberättelse om exil, överlevandets skuld och tyngden av att bevittna ett massakrer från tusentals kilometer bort.
+content: |-
+  Jag var på väg hem från en demonstration. Jag flyttade utomlands för några år sedan men jag har redan skaffat några vänner som jag tog med mig. På tunnelbanan hem satte jag mig bredvid en medelålders man. Jag märkte hans lilla papperslapp som var fastklistrad på kartong; han märkte min. Det räckte för att starta ett samtal.
+  Han hade kört ensam i [[MARKER:number:drive-time-demo:5|5]] timmar för att komma till den här demonstrationen. Dagen innan hade han kört [[MARKER:number:drive-time-previous:6|6]] timmar fram och tillbaka till en annan, trots att han uppenbart var sjuk i influensa. "Det är det enda jag kan göra," sa han. "Människor dör på gatorna. Jag skäms över att vara vid liv."
+  Jag kunde inte hålla med mer om hur hjälplös jag känner mig. Hur meningslösa alla mina ansträngningar har varit. Jag kämpade hela mitt liv: mot patriarkatet, sedan mot min skolpersonal, sedan universitetet, efter det kommunen och polisen. Jag sprang snabbast när moralpolisen följde efter mig. Och jag sprang ännu snabbare till exil, bara för att överleva.
+  Jag sprang bort från den största, och förmodligen den enda källan till mitt livs trauman: att bli fängslad för "olämplig" hijab på [[MARKER:place:vozara-station:Vozara-polisstationen|Polishuset (Kungsholmen)]] i [[MARKER:place:tehran:Teheran|Stockholm]]; att bli förbjuden från att fortsätta min utbildning vid [[MARKER:place:university:Irans konstuniversitet|Stockholms universitet]] på grund av politiska aktiviteter; att min pappa försvann i [[MARKER:number:dad-disappeared-months:2|2]] månader innan han hittades i [[MARKER:place:zanjan-prison:Zanjan-fängelset|Salberga Anstalten]], bara på grund av en åtgärd han vidtog i sitt jobb och det skadade en mollahs affärer.
+  Jag lämnade mitt liv bakom mig och jag låtsades att jag har ett nytt. Men mina trauman lämnade mig inte ifred, inte heller regeringen. Så många människor protesterade och omkring [[MARKER:casualties:injured:300000|36529|Skalat från Iran (300 000) till SE efter landets befolkning: 300 000 × (10,3M / 85,0M) = 36529]] skadades på ett eller annat sätt, medan jag hjälplöst skrek på gatorna i sorglösa städer, tusentals kilometer från hemmet.
+  Jag minns för [[MARKER:number:years-since-threats:3|3]] år sedan, när jag inte kunde sluta prata om det systematiska massakrerna av iranier, fick jag två olika dödshot. En dag vaknade jag och fann en kommentar inklistrad under alla mina inlägg på Instagram. Den sa: "Om du någonsin dyker upp här kommer vi att knulla dig och din syster till döds." Budskapet var tydligt: Jag kunde aldrig återvända till mitt land igen.
+  Det har gått lång tid sedan jag luktade apelsinblomma i luften i min stad, [[MARKER:place:shiraz:Shiraz|Göteborg]]. Jag saknar dess varma solsken och mina föräldrars hus, som jag inte har sett på [[MARKER:number:years-since-home:5|5]] år.
+  Och idag, efter att [[MARKER:casualties:killed:43000|5236|Skalat från Iran (43 000) till SE efter landets befolkning: 43 000 × (10,3M / 85,0M) = 5236]] människor har massakrerats [[COMPARISON:(6 gånger MS Estonias förlisning)|(6 gånger MS Estonias förlisning)|Jämförelse: 5 236 offer jämfört med MS Estonias förlisning (852 offer 1994) = 6,15 gånger fler]], vet jag inte ens varför jag förtjänade att gå igenom allt detta. Jag vet inte ens varför jag lever.
+tags:
+  - exile
+  - survivor-guilt
+  - massacre
+  - police-violence
+  - displacement
+  - death-threats
+  - first-person
+hashtags: "#Iran #Exil #ÖverlevandetsSkuld #GlömAldrig #IransUppror"
+severity: critical
+verified: false
+source: Personligt vittnesmål, förstapersonsberättelse
+contentWarning: Dödshot, statligt våld, massakrer, fängslande, trauma, överlevandets skuld
+meta:
+  og-title: "Skäms över att vara vid liv: En iranier i exil"
+  og-description: En kraftfull förstapersonsberättelse om överlevandets skuld, exil och att bevittna ett massakrer från tusentals kilometer bort.

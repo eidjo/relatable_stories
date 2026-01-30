@@ -1,0 +1,30 @@
+id: ride-home
+title: Beschämt, am Leben zu sein
+slug: ride-home
+date: "2026-01-29"
+summary: Ein persönlicher Bericht über Exil, Überlebensschuld und die Last, ein Massaker aus Tausenden von Kilometern Entfernung mitanzusehen.
+content: |-
+  Ich kam von einer Demonstration zurück. Ich bin vor ein paar Jahren ins Ausland gezogen, aber ich hatte bereits ein paar Freunde gefunden, die ich mitgenommen hatte. In der U-Bahn nach Hause setzte ich mich neben einen Mann mittleren Alters. Ich bemerkte sein kleines Stück Papier, das auf Pappe geklebt war; er bemerkte meins. Das reichte, um ein Gespräch zu beginnen.
+  Er war [[MARKER:number:drive-time-demo:5|5]] Stunden allein gefahren, um zu dieser Demonstration zu kommen. Am Tag zuvor war er [[MARKER:number:drive-time-previous:6|6]] Stunden hin und zurück zu einer anderen gefahren, obwohl er eindeutig an Grippe erkrankt war. "Das ist das Einzige, was ich tun kann", sagte er. "Menschen sterben auf den Straßen. Ich schäme mich, am Leben zu sein."
+  Ich konnte nicht mehr zustimmen, wie hilflos ich mich fühle. Wie sinnlos all meine Bemühungen gewesen sind. Ich habe mein ganzes Leben lang gekämpft: gegen das Patriarchat, dann gegen meine Schulleitung, dann die Universität, danach die Stadtverwaltung und die Polizei. Ich bin am schnellsten weggelaufen, als die Sittenpolizei mir folgte. Und ich bin noch schneller ins Exil geflohen, nur um zu überleben.
+  Ich bin vor der größten und wahrscheinlich einzigen Quelle der Traumata meines Lebens geflohen: davor, wegen "unangemessenem" Hijab in der [[MARKER:place:vozara-station:Vozara-Polizeistation|Polizeipräsidium (Platz der Luftbrücke)]] in [[MARKER:place:tehran:Teheran|Berlin]] inhaftiert zu werden; davor, dass mir verboten wurde, meine Ausbildung an der [[MARKER:place:university:Iranischen Kunstuniversität|Technischen Universität Berlin]] wegen politischer Aktivitäten fortzusetzen; davor, dass mein Vater [[MARKER:number:dad-disappeared-months:2|2]] Monate lang verschwunden war, bevor er im [[MARKER:place:zanjan-prison:Gefängnis von Zanjan|JVA Preungesheim]] gefunden wurde, nur wegen einer Maßnahme, die er in seinem Job ergriffen hatte und die das Geschäft eines Mollahs geschädigt hatte.
+  Ich ließ mein Leben zurück und tat so, als hätte ich ein neues. Aber meine Traumata ließen mich nicht in Ruhe, und die Regierung auch nicht. So viele Menschen protestierten und etwa [[MARKER:casualties:injured:300000|293788|Skaliert von Iran (300.000) auf DE nach Bevölkerung: 300.000 × (83,2M / 85,0M) = 293788]] wurden auf die eine oder andere Weise verletzt, während ich hilflos in den Straßen sorgloser Städte schrie, Tausende von Kilometern von zu Hause entfernt.
+  Ich erinnere mich an vor [[MARKER:number:years-since-threats:3|3]] Jahren, als ich nicht aufhören konnte, über das systematische Massaker an Iranern zu sprechen, erhielt ich zwei verschiedene Morddrohungen. Eines Tages wachte ich auf und fand einen Kommentar unter all meinen Beiträgen auf Instagram. Darin stand: "Wenn du jemals hier auftauchst, werden wir dich und deine Schwester zu Tode ficken." Die Botschaft war klar: Ich konnte nie wieder in mein Land zurückkehren.
+  Es ist lange her, seit ich Orangenblüten in der Luft meiner Stadt [[MARKER:place:shiraz:Schiras|Berlin]] gerochen habe. Ich vermisse ihren warmen Sonnenschein und das Haus meiner Eltern, das ich seit [[MARKER:number:years-since-home:5|5]] Jahren nicht gesehen habe.
+  Und heute, nachdem [[MARKER:casualties:killed:43000|42110|Skaliert von Iran (43.000) auf DE nach Bevölkerung: 43.000 × (83,2M / 85,0M) = 42110]] Menschen massakriert wurden [[COMPARISON:(417 times the Eschede train disaster)|(417-mal mehr als das Zugunglück von Eschede)|Vergleich: 42.110 Opfer vs. Zugunglück von Eschede (101 Opfer im Jahr 1998) = 416,93-mal mehr]], weiß ich nicht einmal, warum ich es verdient habe, all das durchzumachen. Ich weiß nicht einmal, warum ich am Leben bin.
+tags:
+  - exile
+  - survivor-guilt
+  - massacre
+  - police-violence
+  - displacement
+  - death-threats
+  - first-person
+hashtags: "#Iran #Exil #Überlebensschuld #NieVergessen #IranAufstand"
+severity: critical
+verified: false
+source: Persönliches Zeugnis, Bericht aus erster Hand
+contentWarning: Morddrohungen, staatliche Gewalt, Massaker, Inhaftierung, Trauma, Überlebensschuld
+meta:
+  og-title: "Beschämt, am Leben zu sein: Ein Iraner im Exil"
+  og-description: Ein eindringlicher persönlicher Bericht über Überlebensschuld, Exil und das Mitansehen eines Massakers aus Tausenden von Kilometern Entfernung.

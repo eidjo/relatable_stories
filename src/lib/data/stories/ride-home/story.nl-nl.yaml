@@ -1,0 +1,30 @@
+id: ride-home
+title: Beschaamd om in Leven te Zijn
+slug: ride-home
+date: "2026-01-29"
+summary: Een persoonlijk verslag van ballingschap, schuldgevoel van overlevenden en het gewicht van het aanschouwen van een bloedbad van duizenden kilometers afstand.
+content: |-
+  Ik kwam terug van een demonstratie. Ik ben een paar jaar geleden naar het buitenland verhuisd, maar ik had al een paar vrienden gemaakt die ik meenam. In de metro naar huis ging ik naast een man van middelbare leeftijd zitten. Ik zag zijn kleine stukje papier op karton geplakt; hij zag het mijne. Dat was genoeg om een gesprek te beginnen.
+  Hij had [[MARKER:number:drive-time-demo:5|5]] uur alleen gereden om naar deze demonstratie te komen. De dag ervoor had hij [[MARKER:number:drive-time-previous:6|6]] uur heen en terug gereden naar een andere, ook al had hij duidelijk griep. "Dat is het enige wat ik kan doen," zei hij. "Mensen sterven op straat. Ik schaam me dat ik in leven ben."
+  Ik kon het niet meer eens zijn met hoe hulpeloos ik me voel. Hoe zinloos al mijn inspanningen zijn geweest. Ik heb mijn hele leven gevochten: met het patriarchaat, daarna met mijn schoolpersoneel, toen de universiteit, daarna de gemeente en de politie. Ik rende het snelst weg toen de zedenpolitie me volgde. En ik rende nog sneller naar ballingschap, gewoon om te overleven.
+  Ik rende weg van de grootste, en waarschijnlijk de enige bron van de trauma's van mijn leven: opgesloten worden vanwege "ongepaste" hijab in het [[MARKER:place:vozara-station:Vozara-politiebureau|Hoofdbureau Politie]] in [[MARKER:place:tehran:Teheran|Amsterdam]]; verboden worden om mijn opleiding voort te zetten aan de [[MARKER:place:university:Iran Universiteit van Kunst|Universiteit van Amsterdam]] vanwege politieke activiteiten; mijn vader die [[MARKER:number:dad-disappeared-months:2|2]] maanden verdween voordat hij werd gevonden in de [[MARKER:place:zanjan-prison:Gevangenis van Zanjan|PI Nieuwegein]], alleen maar vanwege een maatregel die hij in zijn werk nam en die de zaken van een mollah schaadde.
+  Ik liet mijn leven achter en deed alsof ik een nieuw leven had. Maar mijn trauma's lieten me niet met rust, en de regering ook niet. Zoveel mensen protesteerden en ongeveer [[MARKER:casualties:injured:300000|61553|Opgeschaald van Iran (300.000) naar NL op basis van bevolking: 300.000 × (17,4M / 85,0M) = 61553]] raakten op de een of andere manier gewond, terwijl ik hulpeloos schreeuwde in de straten van zorgeloze steden, duizenden kilometers van huis.
+  Ik herinner me [[MARKER:number:years-since-threats:3|3]] jaar geleden, toen ik niet kon stoppen met praten over het systematische bloedbad onder Iraniërs, ontving ik twee verschillende doodsbedreigingen. Op een dag werd ik wakker en vond een opmerking onder al mijn berichten op Instagram. Er stond: "Als je hier ooit verschijnt, zullen we jou en je zus doodverkrachten." De boodschap was duidelijk: ik kon nooit meer terugkeren naar mijn land.
+  Het is lang geleden dat ik sinaasappelbloesem rook in de lucht van mijn stad, [[MARKER:place:shiraz:Shiraz|Rotterdam]]. Ik mis de warme zon en het huis van mijn ouders, dat ik al [[MARKER:number:years-since-home:5|5]] jaar niet heb gezien.
+  En vandaag, nadat [[MARKER:casualties:killed:43000|8823|Opgeschaald van Iran (43.000) naar NL op basis van bevolking: 43.000 × (17,4M / 85,0M) = 8823]] mensen zijn afgeslacht [[COMPARISON:(ongeveer het bloedbad van Srebrenica (Nederlandse blauwhelmen))|(ongeveer het bloedbad van Srebrenica (Nederlandse blauwhelmen))|Vergelijking: 8.823 slachtoffers vs. bloedbad van Srebrenica (8.372 slachtoffers in 1995) = 1,05x meer]], weet ik niet eens waarom ik dit allemaal verdiende. Ik weet niet eens waarom ik in leven ben.
+tags:
+  - exile
+  - survivor-guilt
+  - massacre
+  - police-violence
+  - displacement
+  - death-threats
+  - first-person
+hashtags: "#Iran #Ballingschap #SchuldgevoelVanOverlevenden #NooitVergeten #IranOpstand"
+severity: critical
+verified: false
+source: Persoonlijke getuigenis, eerstepersoons verslag
+contentWarning: Doodsbedreigingen, staatsgeweld, bloedbad, gevangenschap, trauma, schuldgevoel van overlevenden
+meta:
+  og-title: "Beschaamd om in Leven te Zijn: Een Iraniër in Ballingschap"
+  og-description: Een krachtig eerstepersoons verslag van schuldgevoel van overlevenden, ballingschap en het aanschouwen van een bloedbad van duizenden kilometers afstand.

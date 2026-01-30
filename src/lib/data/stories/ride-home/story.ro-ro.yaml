@@ -1,0 +1,30 @@
+id: ride-home
+title: Rușinat că sunt în viață
+slug: ride-home
+date: "2026-01-29"
+summary: O mărturie în persoana întâi despre exil, vinovăția supraviețuitorului și povara de a privi un masacru de la mii de kilometri distanță.
+content: |-
+  Mă întorceam de la o demonstrație. M-am mutat în străinătate cu câțiva ani în urmă, dar deja mi-am făcut câțiva prieteni pe care i-am luat cu mine. În metrou spre casă, m-am așezat lângă un bărbat de vârstă mijlocie. Am observat bucățica lui de hârtie lipită pe carton; el a observat-o pe a mea. Asta a fost suficient pentru a începe o conversație.
+  Condusese singur timp de [[MARKER:number:drive-time-demo:5|5]] ore ca să vină la această demonstrație. Cu o zi înainte, condusese [[MARKER:number:drive-time-previous:6|6]] ore dus-întors la alta, deși era clar răcit cu gripa. "Asta e singurul lucru pe care îl pot face", a spus el. "Oamenii mor pe străzi. Sunt rușinat că sunt în viață."
+  Nu aș putea fi mai de acord cu cât de neputincioasă mă simt. Cât de inutile au fost toate eforturile mele. M-am luptat toată viața: cu patriarhatul, apoi cu personalul școlii, apoi universitatea, după aceea primăria și poliția. Am fugit cel mai repede când poliția moralității mă urmărea. Și am fugit și mai repede în exil, doar ca să supraviețuiesc.
+  Am fugit de cea mai mare, și probabil singura sursă a traumelor vieții mele: de a fi închisă pentru hijab "nepotrivit" la [[MARKER:place:vozara-station:Stația de poliție Vozara|Poliția Capitalei]] în [[MARKER:place:tehran:Teheran|București]]; de a fi interzisă să-mi continui educația la [[MARKER:place:university:Universitatea de Artă din Iran|Universitatea din București]] din cauza activităților politice; de dispariția tatălui meu timp de [[MARKER:number:dad-disappeared-months:2|2]] luni înainte de a fi găsit în [[MARKER:place:zanjan-prison:Închisoarea din Zanjan|{{zanjan-prison}}]], doar din cauza unei măsuri pe care a luat-o la serviciu și care a dăunat afacerii unui mollah.
+  Mi-am lăsat viața în urmă și m-am prefăcut că am una nouă. Dar traumele mele nu m-au lăsat în pace, nici guvernul. Atât de mulți oameni au protestat și aproximativ [[MARKER:casualties:injured:300000|67235|Scalat din Iran (300.000) la RO după populația țării: 300.000 × (19,1M / 85,0M) = 67235]] au fost răniți într-un fel sau altul, în timp ce eu strigam neputincioasă pe străzile orașelor fără griji, la mii de kilometri distanță de casă.
+  Îmi amintesc acum [[MARKER:number:years-since-threats:3|3]] ani, când nu puteam să nu vorbesc despre masacrul sistematic al iranienilor, am primit două amenințări cu moartea distincte. Într-o zi m-am trezit și am găsit un comentariu lipit sub toate postările mele de pe Instagram. Spunea: "Dacă te arăți vreodată aici, te vom fute pe tine și pe sora ta până la moarte." Mesajul era clar: nu mă mai puteam întoarce niciodată în țara mea.
+  A trecut mult timp de când am mirosit floarea de portocal în aerul orașului meu, [[MARKER:place:shiraz:Shiraz|Timișoara]]. Îmi lipsește soarele lui cald și casa părinților mei, pe care nu am văzut-o de [[MARKER:number:years-since-home:5|5]] ani.
+  Și astăzi, după ce [[MARKER:casualties:killed:43000|9637|Scalat din Iran (43.000) la RO după populația țării: 43.000 × (19,1M / 85,0M) = 9637]] oameni au fost masacrați [[COMPARISON:(de 9 ori Revoluția din 1989)|(de 9 ori Revoluția din 1989)|Comparație: 9.637 victime vs. Revoluția din 1989 (1.104 victime în 1989) = de 8,73 ori mai mult]], nici măcar nu știu de ce am meritat să trec prin toate acestea. Nici măcar nu știu de ce sunt în viață.
+tags:
+  - exil
+  - vinovăția-supraviețuitorului
+  - masacru
+  - violență-polițienească
+  - strămutare
+  - amenințări-cu-moartea
+  - persoana-întâi
+hashtags: "#Iran #Exil #VinovățiaSupraviețuitorilor #NiciodatăNuUităm #RevoltaIran"
+severity: critical
+verified: false
+source: Mărturie personală, relatare în persoana întâi
+contentWarning: Amenințări cu moartea, violență de stat, masacru, închisoare, traumă, vinovăția supraviețuitorului
+meta:
+  og-title: "Rușinat că sunt în viață: Un iranian în exil"
+  og-description: O mărturie puternică în persoana întâi despre vinovăția supraviețuitorului, exil și privirea unui masacru de la mii de kilometri distanță.

@@ -1,0 +1,30 @@
+id: ride-home
+title: Wstyd, że żyję
+slug: ride-home
+date: "2026-01-29"
+summary: Relacja z pierwszej ręki o wygnaniu, poczuciu winy ocalałego i ciężarze obserwowania masakry z tysięcy kilometrów.
+content: |-
+  Wracałam z demonstracji. Wyprowadziłam się za granicę kilka lat temu, ale zdążyłam już poznać kilku przyjaciół, których zabrałam ze sobą. W metrze do domu usiadłam obok mężczyzny w średnim wieku. Zauważyłam jego małą kartkę papieru przyklejoną do kartonu; on zauważył moją. To wystarczyło, żeby rozpocząć rozmowę.
+  Jechał sam przez [[MARKER:number:drive-time-demo:5|5]] godzin, żeby przyjechać na tę demonstrację. Dzień wcześniej przejechał [[MARKER:number:drive-time-previous:6|6]] godzin tam i z powrotem na inną, mimo że wyraźnie był przeziębiony. "To jedyne, co mogę zrobić" - powiedział. "Ludzie umierają na ulicach. Wstydzę się, że żyję."
+  W pełni zgadzam się z tym, jak bezsilna się czuję. Jak bezsensowne były wszystkie moje wysiłki. Walczyłam całe życie: z patriarchatem, potem z personelem szkoły, potem uniwersytetem, potem z władzami miejskimi i policją. Uciekałam najszybciej jak mogłam, gdy policja obyczajowa mnie śledziła. A jeszcze szybciej uciekłam na wygnanie, tylko po to, żeby przeżyć.
+  Uciekłam przed największym i prawdopodobnie jedynym źródłem traum mojego życia: przed więzieniem za "niewłaściwy" hidżab w [[MARKER:place:vozara-station:komisariacie policji Vozara|Pałacu Mostowskich (Komenda Główna Policji)]] w [[MARKER:place:tehran:Teheranie|Warszawie]]; przed zakazem kontynuowania edukacji na [[MARKER:place:university:Irańskim Uniwersytecie Sztuki|Politechnice Warszawskiej]] z powodu działalności politycznej; przed zniknięciem mojego taty na [[MARKER:number:dad-disappeared-months:2|2]] miesiące, zanim został odnaleziony w [[MARKER:place:zanjan-prison:więzieniu w Zandżanie|{{zanjan-prison}}]], tylko dlatego, że podjął decyzję w swojej pracy, która zaszkodziła interesom mułły.
+  Zostawiłam swoje życie za sobą i udawałam, że mam nowe. Ale moje traumy nie zostawiły mnie w spokoju, podobnie jak rząd. Tak wiele osób protestowało, a około [[MARKER:casualties:injured:300000|134118|Przeskalowane z Iranu (300 000) do Polski według populacji kraju: 300 000 × (38,0 mln / 85,0 mln) = 134118]] zostało rannych w taki czy inny sposób, podczas gdy ja bezsilnie krzyczałam na ulicach beztroskich miast, tysiące kilometrów od domu.
+  Pamiętam [[MARKER:number:years-since-threats:3|3]] lata temu, kiedy nie mogłam przestać mówić o systematycznej masakrze Irańczyków, otrzymałam dwie różne groźby śmierci. Pewnego dnia obudziłam się i znalazłam komentarz umieszczony pod wszystkimi moimi postami na Instagramie. Brzmiał: "Jeśli kiedykolwiek się tu pojawisz, wyruchamy cię i twoją siostrę na śmierć." Przesłanie było jasne: nigdy nie mogłam wrócić do swojego kraju.
+  Minęło dużo czasu, odkąd poczułam zapach kwiatu pomarańczy w powietrzu mojego miasta, [[MARKER:place:shiraz:Szirazu|Wrocławia]]. Tęsknię za jego ciepłym słońcem i domem moich rodziców, którego nie widziałam od [[MARKER:number:years-since-home:5|5]] lat.
+  A dziś, po tym jak [[MARKER:casualties:killed:43000|19224|Przeskalowane z Iranu (43 000) do Polski według populacji kraju: 43 000 × (38,0 mln / 85,0 mln) = 19224]] ludzi zostało zmasakrowanych [[COMPARISON:(w przybliżeniu masakra katyńska)|(w przybliżeniu masakra katyńska)|Porównanie: 19 224 ofiary vs. masakra katyńska (22 000 ofiar w 1940 r.) = 87% z]], nawet nie wiem, dlaczego zasłużyłam na to wszystko. Nawet nie wiem, dlaczego żyję.
+tags:
+  - wygnanie
+  - poczucie-winy-ocalałego
+  - masakra
+  - przemoc-policyjna
+  - wysiedlenie
+  - groźby-śmierci
+  - pierwsza-osoba
+hashtags: "#Iran #Wygnanie #PoczucieWinyOcalałego #NigdyNieZapomnimy #PowstanieWIranie"
+severity: critical
+verified: false
+source: Osobiste świadectwo, relacja z pierwszej ręki
+contentWarning: Groźby śmierci, przemoc państwowa, masakra, więzienie, trauma, poczucie winy ocalałego
+meta:
+  og-title: "Wstyd, że żyję: Iranka na wygnaniu"
+  og-description: Poruszająca relacja z pierwszej ręki o poczuciu winy ocalałego, wygnaniu i obserwowaniu masakry z tysięcy kilometrów.

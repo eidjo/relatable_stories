@@ -1,0 +1,30 @@
+id: ride-home
+title: Stydím se, že jsem naživu
+slug: ride-home
+date: '2022-11-15'
+summary: Osobní svědectví o exilu, pocitu viny přeživšího a tíze sledování masakru ze vzdálenosti tisíců kilometrů.
+content: |-
+  Vracela jsem se z demonstrace. Před pár lety jsem se odstěhovala do zahraničí, ale už jsem si našla pár přátel, které jsem si vzala s sebou. V metru domů jsem si sedla vedle muže středního věku. Všimla jsem si jeho malého kousku papíru přilepeného na kartonu; on si všiml mého. To stačilo k zahájení rozhovoru.
+  Jel sám [[MARKER:number:drive-time-demo:5|5]] hodin, aby se dostal na tuto demonstraci. Den předtím jezdil [[MARKER:number:drive-time-previous:6|6]] hodin tam a zpět na jinou, i když byl zjevně nemocný chřipkou. "To je jediné, co můžu dělat," řekl. "Lidé umírají na ulicích. Stydím se, že jsem naživu."
+  Nemohla jsem víc souhlasit s tím, jak bezmocná se cítím. Jak marné byly všechny moje snahy. Bojovala jsem celý život: s patriarchátem, pak se zaměstnanci školy, pak s univerzitou, potom s magistrátem a policií. Utíkala jsem nejrychleji, když mě pronásledovala mravnostní policie. A utekla jsem ještě rychleji do exilu, jen abych přežila.
+  Utekla jsem před největším a pravděpodobně jediným zdrojem traumat mého života: před uvězněním za "nevhodný" hidžáb na [[MARKER:place:vozara-station:policejní stanici Vozara|Krajském ředitelství policie hl. m. Prahy (Kongresová)]] v [[MARKER:place:tehran:Teheránu|Praze]]; před zákazem pokračovat ve studiu na [[MARKER:place:university:Íránské univerzitě umění|Vysoké škole ekonomické]] kvůli politickým aktivitám; před zmizením mého otce na [[MARKER:number:dad-disappeared-months:2|2]] měsíce, než byl nalezen ve [[MARKER:place:zanjan-prison:věznici v Zandžánu|Vazební věznici Brno (Bohunice)]], jen kvůli opatření, které přijal ve své práci a poškodilo to obchod nějakého molláha.
+  Nechala jsem svůj život za sebou a předstírala jsem, že mám nový. Ale moje traumata mě neopustila, ani vláda ne. Tolik lidí protestovalo a kolem [[MARKER:casualties:injured:300000|37094|Scaled from Iran (300,000) to CZ by country population: 300,000 × (10.5M / 85.0M) = 37094]] bylo zraněno tím či oním způsobem, zatímco jsem bezmocně křičela v ulicích bezstarostných měst, tisíce kilometrů daleko od domova.
+  Pamatuji si, že před [[MARKER:number:years-since-threats:3|3]] lety, když jsem nemohla přestat mluvit o systematickém masakru Íránců, jsem dostala dvě výhrůžky smrtí. Jednoho dne jsem se probudila a našla komentář nalepený pod všemi mými příspěvky na Instagramu. Říkal: "Pokud se tu někdy objevíš, vyšukáme tě a tvou sestru k smrti." Zpráva byla jasná: nikdy se už nemohu vrátit do své země.
+  Už je to dlouho, co jsem cítila vůni pomerančového květu ve vzduchu mého města, [[MARKER:place:shiraz:Šírázu|Prahy]]. Chybí mi jeho teplé slunce a dům mých rodičů, který jsem neviděla [[MARKER:number:years-since-home:5|5]] let.
+  A dnes, poté, co bylo zmasakrováno [[MARKER:casualties:killed:43000|5317|Scaled from Iran (43,000) to CZ by country population: 43,000 × (10.5M / 85.0M) = 5317]] lidí [[COMPARISON:(16 times the Lidice massacre)|(16krát více než masakr v Lidicích)|Comparison: 5,317 casualties vs. Lidice massacre (340 casualties in 1942) = 15.64x more]], ani nevím, proč jsem si zasloužila projít si tím vším. Ani nevím, proč jsem naživu.
+tags:
+  - exile
+  - survivor-guilt
+  - massacre
+  - police-violence
+  - displacement
+  - death-threats
+  - first-person
+hashtags: '#Iran #Exil #VinaPrezivsich #NikdyNezapomeneme #IranskePovstani'
+severity: critical
+verified: false
+source: Osobní svědectví, vyprávění v první osobě
+contentWarning: Výhrůžky smrtí, státní násilí, masakr, uvěznění, trauma, pocit viny přeživšího
+meta:
+  og-title: 'Stydím se, že jsem naživu: Íránec v exilu'
+  og-description: Silné osobní svědectví o pocitu viny přeživšího, exilu a sledování masakru ze vzdálenosti tisíců kilometrů.

@@ -1,0 +1,30 @@
+id: ride-home
+title: Envergonhada de Estar Viva
+slug: ride-home
+date: "2026-01-29"
+summary: Um relato em primeira pessoa sobre exílio, culpa de sobrevivente e o peso de assistir a um massacre a milhares de quilômetros de distância.
+content: |-
+  Eu estava voltando de uma manifestação. Mudei-me para o exterior há alguns anos, mas já fiz alguns amigos que levei comigo. No metrô para casa, sentei-me ao lado de um homem de meia-idade. Notei seu pequeno pedaço de papel colado em papelão; ele notou o meu. Isso foi suficiente para iniciar uma conversa.
+  Ele tinha dirigido sozinho por [[MARKER:number:drive-time-demo:5|5]] horas para vir a esta manifestação. No dia anterior, ele tinha dirigido [[MARKER:number:drive-time-previous:6|6]] horas de ida e volta para outra, mesmo estando claramente gripado. "Essa é a única coisa que posso fazer", ele disse. "As pessoas estão morrendo nas ruas. Estou envergonhado de estar vivo."
+  Não poderia concordar mais com o quão impotente me sinto. Quão inúteis todos os meus esforços têm sido. Lutei minha vida inteira: com o patriarcado, depois com a equipe da minha escola, depois a universidade, depois a prefeitura e a polícia. Corri o mais rápido quando a polícia da moralidade estava me seguindo. E corri ainda mais rápido para o exílio, apenas para sobreviver.
+  Fugi da maior, e provavelmente a única fonte dos traumas da minha vida: de ser presa por hijab "inadequado" na [[MARKER:place:vozara-station:delegacia de polícia de Vozara|{{vozara-station}}]] em [[MARKER:place:tehran:Teerã|Brasília]]; de ser proibida de continuar minha educação na [[MARKER:place:university:Universidade de Arte do Irã|Universidade de Brasília]] por causa de atividades políticas; de meu pai ter desaparecido por [[MARKER:number:dad-disappeared-months:2|2]] meses antes de ser encontrado na [[MARKER:place:zanjan-prison:Prisão de Zanjan|{{zanjan-prison}}]], apenas por causa de uma medida que ele tomou em seu trabalho e que prejudicou os negócios de um mollah.
+  Deixei minha vida para trás e fingi que tenho uma nova. Mas meus traumas não me deixaram em paz, nem o governo. Tantas pessoas protestaram e cerca de [[MARKER:casualties:injured:300000|759882|Dimensionado do Irã (300.000) para o BR pela população do país: 300.000 × (215,3M / 85,0M) = 759882]] ficaram feridas de uma forma ou de outra, enquanto eu gritava impotente nas ruas de cidades despreocupadas, a milhares de quilômetros de casa.
+  Lembro-me de [[MARKER:number:years-since-threats:3|3]] anos atrás, quando não conseguia parar de falar sobre o massacre sistemático de iranianos, recebi duas ameaças de morte distintas. Um dia acordei e encontrei um comentário colado em todas as minhas postagens no Instagram. Dizia: "Se você aparecer aqui, vamos foder você e sua irmã até a morte." A mensagem era clara: eu nunca poderia retornar ao meu país novamente.
+  Faz muito tempo desde que senti o cheiro de flor de laranjeira no ar da minha cidade, [[MARKER:place:shiraz:Shiraz|Rio de Janeiro]]. Sinto falta do seu sol quente e da casa dos meus pais, que não vejo há [[MARKER:number:years-since-home:5|5]] anos.
+  E hoje, depois que [[MARKER:casualties:killed:43000|108916|Dimensionado do Irã (43.000) para o BR pela população do país: 43.000 × (215,3M / 85,0M) = 108916]] pessoas foram massacradas [[COMPARISON:(981 vezes o massacre do Carandiru)|(981 vezes o massacre do Carandiru)|Comparação: 108.916 vítimas vs. massacre do Carandiru (111 vítimas em 1992) = 981,23x mais]], nem sei por que mereci passar por tudo isso. Nem sei por que estou viva.
+tags:
+  - exile
+  - survivor-guilt
+  - massacre
+  - police-violence
+  - displacement
+  - death-threats
+  - first-person
+hashtags: "#Irã #Exílio #CulpaDeSobrevivente #NuncaEsquecer #LevantamentoDoIrã"
+severity: critical
+verified: false
+source: Testemunho pessoal, relato em primeira pessoa
+contentWarning: Ameaças de morte, violência estatal, massacre, prisão, trauma, culpa de sobrevivente
+meta:
+  og-title: "Envergonhada de Estar Viva: Uma Iraniana no Exílio"
+  og-description: Um poderoso relato em primeira pessoa sobre culpa de sobrevivente, exílio e assistir a um massacre a milhares de quilômetros de distância.

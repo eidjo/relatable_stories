@@ -1,0 +1,30 @@
+id: ride-home
+title: Skamfuld over at være i live
+slug: ride-home
+date: "2026-01-29"
+summary: En førstepersonsberetning om eksil, overlevendes skyld og byrden ved at se et massakre fra tusindvis af kilometer væk.
+content: |-
+  Jeg var på vej hjem fra en demonstration. Jeg flyttede til udlandet for et par år siden, men jeg havde allerede fået nogle venner, som jeg tog med mig. I metroen hjem satte jeg mig ned ved siden af en midaldrende mand. Jeg lagde mærke til hans lille stykke papir limet på pap; han lagde mærke til mit. Det var nok til at starte en samtale.
+  Han havde kørt alene i [[MARKER:number:drive-time-demo:5|5]] timer for at komme til denne demonstration. Dagen før havde han kørt [[MARKER:number:drive-time-previous:6|6]] timer frem og tilbage til en anden, selvom han tydeligvis var syg af influenza. "Det er det eneste, jeg kan gøre," sagde han. "Folk dør på gaderne. Jeg skammer mig over at være i live."
+  Jeg kunne ikke være mere enig i, hvor hjælpeløs jeg føler mig. Hvor meningsløse alle mine bestræbelser har været. Jeg kæmpede hele mit liv: med patriarkatet, så med min skoles personale, så universitetet, derefter kommunen og politiet. Jeg løb hurtigst væk, da moralitetspoliti forfulgte mig. Og jeg løb endnu hurtigere til eksil, bare for at overleve.
+  Jeg løb væk fra den største, og sandsynligvis den eneste kilde til mit livs traumer: at blive fængslet for "upassende" hijab på [[MARKER:place:vozara-station:Vozara politistation|Politigården]] i [[MARKER:place:tehran:Teheran|København]]; at blive forbudt at fortsætte min uddannelse på [[MARKER:place:university:Irans Kunstuniversitet|Copenhagen Business School]] på grund af politiske aktiviteter; at min far blev forsvundet i [[MARKER:number:dad-disappeared-months:2|2]] måneder, før han blev fundet i [[MARKER:place:zanjan-prison:Fængslet i Zanjan|Odense Arrest]], bare på grund af en foranstaltning, han tog i sit job, og det skadede en mollahs forretning.
+  Jeg forlod mit liv, og jeg lod som om, jeg havde et nyt. Men mine traumer forlod mig ikke, og det gjorde regeringen heller ikke. Så mange mennesker protesterede, og omkring [[MARKER:casualties:injured:300000|20929|Skaleret fra Iran (300.000) til DK efter landets befolkning: 300.000 × (5,9M / 85,0M) = 20929]] blev såret på den ene eller anden måde, mens jeg hjælpeløst råbte på gaderne i sorgløse byer, tusindvis af kilometer væk fra hjemmet.
+  Jeg husker for [[MARKER:number:years-since-threats:3|3]] år siden, da jeg ikke kunne holde op med at tale om det systematiske massakre af iranere, modtog jeg to forskellige dødstrusler. En dag vågnede jeg op til at finde en kommentar smækket under alle mine opslag på Instagram. Den sagde: "Hvis du nogensinde dukker op her, vil vi kneppe dig og din søster ihjel." Budskabet var klart: Jeg kunne aldrig vende tilbage til mit land igen.
+  Det er lang tid siden, jeg duftede appelsinblomst i luften i min by, [[MARKER:place:shiraz:Shiraz|København]]. Jeg savner dens varme solskin og mine forældres hus, som jeg ikke har set i [[MARKER:number:years-since-home:5|5]] år.
+  Og i dag, efter [[MARKER:casualties:killed:43000|3000|Skaleret fra Iran (43.000) til DK efter landets befolkning: 43.000 × (5,9M / 85,0M) = 3000]] mennesker er blevet massakreret [[COMPARISON:(19 gange MS Scandinavian Star-branden)|(19 gange MS Scandinavian Star-branden)|Sammenligning: 3.000 ofre vs. MS Scandinavian Star-branden (159 ofre i 1990) = 18,87x flere]], ved jeg ikke engang, hvorfor jeg fortjente at gå igennem alt dette. Jeg ved ikke engang, hvorfor jeg er i live.
+tags:
+  - eksil
+  - overlevendes-skyld
+  - massakre
+  - politivold
+  - fordrivelse
+  - dødstrusler
+  - førsteperson
+hashtags: "#Iran #Eksil #OverlevendesSkyld #GlemAldrig #IransOpstand"
+severity: critical
+verified: false
+source: Personligt vidnesbyrd, førstepersonsberetning
+contentWarning: Dødstrusler, statsvold, massakre, fængsling, traume, overlevendes skyld
+meta:
+  og-title: "Skamfuld over at være i live: En iraner i eksil"
+  og-description: En stærk førstepersonsberetning om overlevendes skyld, eksil og at se et massakre fra tusindvis af kilometer væk.

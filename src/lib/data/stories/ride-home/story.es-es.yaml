@@ -1,0 +1,30 @@
+id: ride-home
+title: Avergonzada de Estar Viva
+slug: ride-home
+date: "2026-01-29"
+summary: Un relato en primera persona sobre el exilio, la culpa del superviviente y el peso de presenciar una masacre desde miles de kilómetros de distancia.
+content: |-
+  Volvía de una manifestación. Me mudé al extranjero hace unos años, pero ya había hecho algunos amigos que llevé conmigo. En el metro de vuelta a casa, me senté junto a un hombre de mediana edad. Me fijé en su pequeño trozo de papel pegado en un cartón; él se fijó en el mío. Eso fue suficiente para iniciar una conversación.
+  Había estado conduciendo solo durante [[MARKER:number:drive-time-demo:5|5]] horas para venir a esta manifestación. El día anterior, había conducido [[MARKER:number:drive-time-previous:6|6]] horas de ida y vuelta a otra, aunque claramente estaba con gripe. "Eso es lo único que puedo hacer", dijo. "La gente está muriendo en las calles. Estoy avergonzado de estar vivo."
+  No podría estar más de acuerdo con lo impotente que me siento. Lo inútiles que han sido todos mis esfuerzos. Luché toda mi vida: contra el patriarcado, luego contra el personal de mi escuela, después la universidad, luego el municipio y la policía. Corrí lo más rápido que pude cuando la policía de la moral me seguía. Y corrí aún más rápido hacia el exilio, solo para sobrevivir.
+  Huí de la mayor, y probablemente la única fuente de los traumas de mi vida: de ser encarcelada por hiyab "inapropiado" en la [[MARKER:place:vozara-station:comisaría de Vozara|Jefatura de Policía (Madrid)]] en [[MARKER:place:tehran:Teherán|Madrid]]; de que me prohibieran continuar mi educación en la [[MARKER:place:university:Universidad de Arte de Irán|Universidad Carlos III]] debido a actividades políticas; de que mi padre desapareciera durante [[MARKER:number:dad-disappeared-months:2|2]] meses antes de ser encontrado en la [[MARKER:place:zanjan-prison:Prisión de Zanjan|Sevilla II]], solo por una medida que tomó en su trabajo y que perjudicó el negocio de un mulá.
+  Dejé mi vida atrás y fingí que tenía una nueva. Pero mis traumas no me dejaron en paz, ni tampoco el gobierno. Tantas personas protestaron y alrededor de [[MARKER:casualties:injured:300000|167118|Escalado desde Irán (300.000) a ES por población del país: 300.000 × (47,4M / 85,0M) = 167118]] fueron heridas de una forma u otra, mientras yo gritaba impotente en las calles de ciudades despreocupadas, a miles de kilómetros de casa.
+  Recuerdo hace [[MARKER:number:years-since-threats:3|3]] años, cuando no podía dejar de hablar sobre la masacre sistemática de iraníes, recibí dos amenazas de muerte distintas. Un día me desperté y encontré un comentario pegado debajo de todas mis publicaciones en Instagram. Decía: "Si alguna vez apareces aquí, te violaremos a ti y a tu hermana hasta la muerte." El mensaje era claro: nunca podría volver a mi país.
+  Ha pasado mucho tiempo desde que olí el azahar en el aire de mi ciudad, [[MARKER:place:shiraz:Shiraz|Madrid]]. Echo de menos su cálido sol y la casa de mis padres, que no he visto en [[MARKER:number:years-since-home:5|5]] años.
+  Y hoy, después de que [[MARKER:casualties:killed:43000|23954|Escalado desde Irán (43.000) a ES por población del país: 43.000 × (47,4M / 85,0M) = 23954]] personas hayan sido masacradas [[COMPARISON:(124 veces los atentados de trenes de Madrid)|(124 veces los atentados de trenes de Madrid)|Comparación: 23.954 víctimas vs. atentados de trenes de Madrid (193 víctimas en 2004) = 124,11 veces más]], ni siquiera sé por qué merecí pasar por todo esto. Ni siquiera sé por qué estoy viva.
+tags:
+  - exilio
+  - culpa-del-superviviente
+  - masacre
+  - violencia-policial
+  - desplazamiento
+  - amenazas-de-muerte
+  - primera-persona
+hashtags: "#Irán #Exilio #CulpaDelSuperviviente #NuncaOlvidar #LevantamientoIraní"
+severity: critical
+verified: false
+source: Testimonio personal, relato en primera persona
+contentWarning: Amenazas de muerte, violencia estatal, masacre, encarcelamiento, trauma, culpa del superviviente
+meta:
+  og-title: "Avergonzada de Estar Viva: Una Iraní en el Exilio"
+  og-description: Un poderoso relato en primera persona sobre la culpa del superviviente, el exilio y presenciar una masacre desde miles de kilómetros de distancia.
