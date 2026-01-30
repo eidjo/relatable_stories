@@ -1,0 +1,323 @@
+# Relatable Stories - Agent Handoff Documentation
+
+## Project Overview
+A static web app that translates stories from Iran's uprisings into the reader's local context (names, places, numbers) to foster empathy. Built with SvelteKit 5 + TypeScript + Tailwind CSS.
+
+## Key Concepts
+
+### 1. Translation System
+Stories contain markers like `{{name:person1}}` that get replaced with contextually appropriate values based on the user's selected country.
+
+**Files:**
+- `src/lib/translation/translator.ts` - Core translation engine
+- `src/lib/translation/pipeline.ts` - Translation pipeline and segment processing
+- `src/lib/translation/core.ts` - Core types (TranslationContext, CityData with hospitals/morgues)
+- `src/lib/data/contexts/` - Country-specific mappings (names, places, hospitals, morgues, comparable events)
+- `src/lib/data/stories/*/story.yaml` - Story files with markers
+
+**Marker types:**
+- `{{name:key}}` → Translated to local names (gender-matched)
+- `{{place:key}}` → Translated to local places (category-matched: cities, landmarks, universities, hospitals, morgues, government facilities)
+- `{{number:key}}` → Scaled by population if `scale: true`
+- `{{currency:key}}` → Converted to local currency
+- `{{source:key}}` → Renders as `[1]` citation
+- `{{date:key}}`, `{{event:key}}`, `{{occupation:key}}`, `{{subject:key}}`
+
+### 2. Share Image Generation
+Social media images are generated at build time for all countries/languages/themes.
+
+**Files:**
+- `scripts/generate-share-images-improved.js` - Canvas-based image generation
+- `scripts/test-pretranslated-html.js` - Test pre-translated file rendering
+- `scripts/test-canvas-spacing.js` - Test segment spacing logic
+- Uses `@napi-rs/canvas` with JetBrains Mono font
+- Generates 312 images per story (13 countries × multiple languages × 2 themes × 2 platforms)
+- Shows strikethrough originals before translations
+- Matches website styling exactly with segment-based rendering
+
+**Key implementation details:**
+- Splits text by paragraphs FIRST, then processes markers (matches website translator.ts)
+- No automatic spacing between segments - spacing is in segment text itself
+- Handles pre-translated files with `[[MARKER:...]]` and `{{...}}` formats
+- Date formatting with date-fns locale support
+- Source citations render as `[1]`, `[2]`, etc.
+- Paragraph breaks render with 1.5× line spacing
+
+**Run:** `npm run generate-share-images`
+**Output:** `static/share/twitter/` and `static/share/instagram/`
+**Note:** These are .gitignored and generated during build
+
+### 3. Multi-Language Support
+Stories can be pre-translated to multiple languages for better readability.
+
+**Files:**
+- `src/lib/data/stories/*/story.[lang]-[country].yaml` - Pre-translated versions
+- `src/lib/data/contexts/country-languages.yaml` - Available languages per country
+- Uses `[[MARKER:type:key:original|translated]]` format in pre-translated files
+- Falls back to runtime translation if no pre-translation exists
+
+**Supported languages:**
+- Czech (cs), Danish (da), German (de), Spanish (es), Finnish (fi), French (fr)
+- Italian (it), Dutch (nl), Norwegian (no), Polish (pl), Portuguese (pt), Swedish (sv)
+- All use date-fns for proper date formatting
+
+### 4. Tech Stack
+- **Svelte 5** (upgraded from 4) - Uses new runes syntax (`$props()`, `$state()`, `$derived()`)
+- **SvelteKit 2** - Static site generation with `@sveltejs/adapter-static`
+- **Tailwind CSS** - Utility-first styling
+- **TypeScript (strict mode)** - Full type safety
+- **JetBrains Mono font** - Monospace, loaded from `static/fonts/`
+- **date-fns** - Locale-aware date formatting
+- **Vite** - Build tool with ngrok support for local development
+
+### 5. Color Scheme
+```css
+Dark mode (default):
+- Background: #0a0a0a
+- Primary (red): #ef4444
+- Text: #ffffff
+- Muted: rgba(255, 255, 255, 0.7)
+
+Light mode:
+- Background: #ffffff
+- Primary (red): #dc2626
+- Text: #0a0a0a
+- Muted: rgba(10, 10, 10, 0.7)
+```
+
+### 6. Instagram Sharing Flow
+Special modal-based flow for Instagram Story sharing:
+
+**Files:**
+- `src/lib/components/shared/ShareButtons.svelte` - Share button implementations
+
+**Flow:**
+1. User clicks "Instagram" button → Modal appears
+2. Step 1: Copy link button (stores URL in clipboard)
+3. Step 2: Click "Share to Instagram" button
+4. Attempts Web Share API Level 2 (file sharing) if supported
+5. Falls back to opening image in new tab for manual sharing
+6. Step 3: Create Story with image
+7. Step 4: Add link sticker in Instagram
+
+**Modal text:** "Link in Story" (not "Swipe up to learn more")
+
+### 7. Project Structure
+```
+src/
+├── lib/
+│   ├── components/
+│   │   ├── layout/ - Header, Footer
+│   │   ├── story/ - StoryCard, StoryDetail, StoryGrid
+│   │   ├── context/ - Timeline, CountrySelector
+│   │   ├── action/ - CallToAction, ActionCard
+│   │   ├── shared/ - Button, TranslatedText, ShareButtons
+│   │   └── share/ - Components for image generation (Svelte 5)
+│   ├── data/
+│   │   ├── stories/ - Story YAML files + images
+│   │   ├── contexts/ - Country/name/place mappings
+│   │   ├── timeline/ - Timeline events
+│   │   └── actions/ - Call-to-action content
+│   ├── stores/
+│   │   ├── country.ts - Selected country + translation context
+│   │   └── theme.ts - Dark/light mode
+│   ├── translation/
+│   │   └── translator.ts - Core translation logic
+│   └── types/ - TypeScript interfaces
+├── routes/
+│   ├── +page.svelte - Home (random story)
+│   ├── stories/ - Story list and detail pages
+│   ├── about/ - Context/timeline
+│   └── take-action/ - CTAs
+└── app.css - Global styles + Tailwind
+
+static/
+├── fonts/ - JetBrains Mono
+└── share/ - Generated images (not in git)
+
+scripts/
+└── generate-share-images-improved.js - Build-time image generation
+```
+
+## Common Tasks
+
+### Add a new story
+1. Create folder: `src/lib/data/stories/story-slug/`
+2. Add `story.yaml` with content, markers, and metadata
+3. Include hashtags: `hashtags: "#Iran #HumanRights #Freedom"`
+4. Run `npm run generate-share-images` to create social images
+
+### Add a new country
+1. Add entry to `src/lib/data/contexts/countries.yaml`
+2. Add name mappings to `src/lib/data/contexts/names.yaml`
+3. Add place mappings to `src/lib/data/contexts/places.yaml` (including hospitals and morgues)
+4. Add comparable events to `src/lib/data/contexts/comparable-events.yaml`
+5. Add language configuration to `src/lib/data/contexts/country-languages.yaml`
+6. Add date locale to `src/lib/utils/dateLocales.ts`
+7. Update `COUNTRIES` array in `scripts/generate-share-images-improved.js`
+8. Regenerate images
+
+**Note**: See `docs/ADD_COUNTRY_SUPPORT.md` for detailed instructions.
+
+### Modify translation logic
+Edit `src/lib/translation/translator.ts` - handles all marker types.
+
+### Change styling
+- Components: Edit individual `.svelte` files
+- Global: Edit `src/app.css`
+- Theme colors: Update stores and Tailwind config
+- Share images: Update `scripts/generate-share-images-improved.js` THEMES object
+
+## Build & Deploy
+
+```bash
+npm install          # Install dependencies
+npm run dev          # Start dev server (http://localhost:5173)
+npm run build        # Build for production (runs image generation first)
+npm run preview      # Preview production build
+npm run check        # Type check
+```
+
+**Dev server:**
+- Configured to work with ngrok tunnels
+- Allowed hosts: localhost, .ngrok.io, .ngrok-free.dev, .ngrok.app
+- Listens on all addresses (host: true)
+
+**Build process:**
+1. Generates share images (312 images: 2 stories × 13 countries × languages × 2 themes × 2 platforms)
+2. Runs SvelteKit static build
+3. Outputs to `build/` directory
+
+**Deployment:**
+- Configured for static hosting (GitHub Pages, Netlify, Vercel, GCP Storage)
+- Adapter: `@sveltejs/adapter-static`
+- SPA fallback enabled in `svelte.config.js`
+- Base path: `/relatable_stories` for GitHub Pages
+- GitHub Actions workflow: `.github/workflows/deploy.yml`
+
+## Current Status & TODOs
+
+### ✅ Completed
+- Svelte 5 upgrade with new runes syntax
+- Translation system with 13 countries
+- Multi-language support (14 languages) with pre-translated files
+- Share image generation with proper styling (312 images per build)
+- Instagram sharing modal with step-by-step instructions
+- Date localization with date-fns
+- Timeline and educational content
+- Call-to-action system
+- Dark/light themes
+- Responsive design
+- Paragraph breaks in share images
+- Source citations in images
+- Web Share API Level 2 integration
+- GitHub Pages deployment with GitHub Actions
+- Ngrok support for local development
+- Hospital and morgue place types with 89 cities covered (real facility names in local languages)
+- Romanian language support with comparable events
+- V2 marker system with hierarchical place structure
+
+### 🚧 In Progress / Planned
+- [ ] Store country preference in URL parameters
+- [ ] Add more stories (currently 2)
+- [ ] Additional country contexts
+- [ ] Performance optimizations (image lazy loading)
+
+## Important Notes
+
+### Svelte 5 Syntax
+Components use new runes instead of stores in script tags:
+```svelte
+<!-- OLD (Svelte 4) -->
+<script>
+  export let prop;
+</script>
+
+<!-- NEW (Svelte 5) -->
+<script>
+  let { prop } = $props();
+</script>
+```
+
+### Share Images
+- Generated at BUILD time, not runtime
+- Gitignored - don't commit to repo
+- Use JetBrains Mono font (must be in `static/fonts/`)
+- Show strikethrough originals for empathy
+- Sources render as `[1]` citations
+- **Critical:** No automatic spacing between segments - text is concatenated directly
+- Paragraph breaks handled with 1.5× line spacing
+- Pre-translated files must include original markers object for parsing
+- Date formatting uses date-fns with locale support
+- Handles both `[[MARKER:...]]` (pre-translated) and `{{...}}` (runtime) formats
+
+### Translation Context
+User's country preference is:
+1. Auto-detected from browser locale
+2. Stored in localStorage
+3. Used for all translations
+4. Updates share image URLs dynamically
+
+### Type Safety
+Project uses TypeScript strict mode. Key types:
+- `Story` / `TranslatedStory` - Story content
+- `TranslationContext` - Country + mappings
+- `TranslatedSegment` - Text segment with original/translated
+- `CountryCode` - Two-letter country codes
+- `PlaceMarker` - Place markers with flags (hospital, morgue, university, landmark types)
+- `CityData` - City data including hospitals and morgues arrays
+- `PersonMarker`, `NumberMarker`, `CasualtiesMarker` - V2 marker types
+
+## Troubleshooting
+
+**Build fails:**
+- Check YAML syntax in story files
+- Ensure JetBrains Mono font exists in `static/fonts/`
+- Run `npm run check` for type errors
+- Verify date-fns locales are installed
+
+**Images not generating:**
+- Check `@napi-rs/canvas` is installed
+- Ensure font path is correct: `static/fonts/JetBrainsMono-Regular.ttf`
+- Check console for specific errors
+- Verify pre-translated files have correct marker format
+
+**Images have wrong spacing:**
+- **DO NOT** add automatic spacing between segments
+- Spacing is already in segment text (e.g., `", "` or `"-jarige"`)
+- Match website behavior: segments concatenate directly
+- Use test scripts to verify: `node scripts/test-canvas-spacing.js`
+
+**Pre-translated files not working:**
+- Ensure markers object copied from original story
+- Check both `[[MARKER:...]]` and `{{...}}` formats are parsed
+- Verify paragraph breaks preserved (split by `\n+` first)
+- Test with: `node scripts/test-pretranslated-html.js`
+
+**Translation not working:**
+- Verify marker syntax: `{{type:key}}`
+- Check marker exists in story YAML
+- Ensure context data loaded for country
+- For pre-translated: check `[[MARKER:type:key:original|translated]]` format
+
+**Styling looks wrong:**
+- Tailwind classes may need `light:` prefix for light mode
+- Check `src/app.css` for global styles
+- Font must be JetBrains Mono
+- Share images use inline styles, not Tailwind
+
+**Ngrok not working:**
+- Check `vite.config.ts` has correct allowed hosts
+- Ensure `host: true` is set in server config
+- Try `.ngrok-free.dev` domain if `.ngrok-free.app` doesn't work
+
+## Resources
+
+- **Plan:** `.claude/plans/indexed-wobbling-hinton.md` - Original implementation plan
+- **Share Images:** `SHARE_IMAGES_IMPLEMENTATION.md` - Detailed image system docs
+- **Svelte 5 Docs:** https://svelte-5-preview.vercel.app/docs
+- **SvelteKit:** https://kit.svelte.dev
+- **Tailwind:** https://tailwindcss.com
+
+## Contact & Context
+This is an activist/political tool to raise awareness about Iran's uprisings. Handle with care and respect for the real human stories being told.
