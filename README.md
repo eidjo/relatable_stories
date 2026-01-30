@@ -1,28 +1,31 @@
 # Relatable Stories
 
-A web application that translates stories from Iran's 2022 uprising into your local context, helping you understand and empathize with the human cost of repression.
+A web application that translates stories from Iran's 2022 uprising (and beyond) into your local context, helping you understand and empathize with the human cost of repression by mapping it to your own city, names, and familiar landmarks.
 
 ## Features
 
-- **Contextual Translation**: Stories are adapted to use familiar names, places, and scaled numbers based on your country
-- **Interactive Tooltips**: Hover over any translated text to see the original Iranian details
-- **Country Selection**: Automatically detects your country or lets you choose from 10+ supported countries
-- **Fully Static**: No server required, deployable to GitHub Pages or any static host
-- **Privacy-First**: No tracking, no data collection beyond country preference in localStorage
-- **Accessible**: WCAG AA compliant with keyboard navigation and screen reader support
+- **Contextual Translation**: Stories are adapted to use familiar names, places, and scaled numbers based on your country.
+- **Hierarchical Place Mapping**: Landmarks, universities, and facilities are mapped to the specific cities mentioned in the story for geographic consistency.
+- **Comparable Tragedies**: Casualties are scaled by population and compared to well-known local historical tragedies (e.g., "3x the 9/11 attacks" or "10x the Lidice massacre").
+- **Interactive Tooltips**: Hover over any translated text to see the original Iranian details and the math behind the scaling.
+- **"Original (Iran)" Mode**: View stories with their authentic Iranian context, names, and places.
+- **Automatic Detection**: Detects your country via timezone/locale or lets you choose from 20+ supported countries.
+- **Privacy-First**: No tracking, no data collection. All preferences are stored locally in your browser.
+- **Fully Static**: Built with SvelteKit and optimized for performance. No server required.
 
 ## Tech Stack
 
-- **SvelteKit** with TypeScript
-- **Tailwind CSS** for styling
-- **Vitest** for testing
-- **Static export** via `@sveltejs/adapter-static`
+- **Svelte 5** with SvelteKit
+- **TypeScript** for type safety
+- **Tailwind CSS** for modern styling
+- **Vitest** for comprehensive testing
+- **Vite-Node** for build-time pipelines (translation & image generation)
 
 ## Getting Started
 
 ### Prerequisites
 
-- Node.js 20+ and npm
+- Node.js 24+ and npm 10+
 
 ### Installation
 
@@ -47,11 +50,18 @@ npm run check
 ### Testing
 
 ```bash
-# Run tests once
+# Run all tests
 npm test
 
 # Watch mode
 npm run test:watch
+```
+
+### Data Validation
+
+```bash
+# Validate story formats and context data
+npm run validate
 ```
 
 ### Building for Production
@@ -62,132 +72,84 @@ npm run build
 
 The static site will be generated in the `build/` directory.
 
-### Preview Production Build
-
-```bash
-npm run preview
-```
-
 ## Project Structure
 
 ```
 src/
 ├── lib/
-│   ├── components/       # Svelte components
-│   │   ├── layout/       # Header, Footer
-│   │   ├── story/        # Story cards and detail views
-│   │   ├── context/      # Country selector
-│   │   ├── action/       # Call-to-action components
-│   │   └── shared/       # Reusable UI components
+│   ├── components/       # Svelte components (organized by domain)
 │   ├── data/
-│   │   ├── stories/      # Story YAML files (organized by folder)
-│   │   ├── contexts/     # Country, name, and place mappings
-│   │   ├── timeline/     # Timeline events
+│   │   ├── stories/      # Story YAML files and localized versions
+│   │   ├── contexts/     # V2 hierarchical places, names, and events
+│   │   ├── timeline/     # Historical events data
 │   │   └── actions/      # Call-to-action content
-│   ├── translation/      # Translation engine
-│   ├── stores/           # Svelte stores (country selection)
+│   ├── translation/      # V2 Translation Pipeline & Core engine
+│   ├── stores/           # Svelte stores (country, language, theme)
 │   ├── types/            # TypeScript type definitions
-│   └── utils/            # Utility functions
+│   └── utils/            # Utility functions (date, language detection)
 ├── routes/               # SvelteKit routes
-│   ├── +layout.svelte    # Root layout
-│   ├── +page.svelte      # Home page
-│   ├── stories/          # Stories list and detail pages
-│   ├── about/            # About page
-│   └── take-action/      # Call-to-action page
-└── app.css               # Global styles + Tailwind imports
+└── app.css               # Global styles
 ```
 
 ## Adding New Stories
 
-1. Create a new folder in `src/lib/data/stories/` (e.g., `my-story/`)
-2. Add a `story.yaml` file with the story content and marker definitions
-3. Add any images to the same folder
-4. Import the story YAML in `src/lib/data/stories/index.ts`
+1. Create a new folder in `src/lib/data/stories/` (e.g., `neda-2022/`).
+2. Add a `story.yaml` file using the **V2 Marker Format**.
+3. Add any images referenced in the story to the same folder.
+4. Run `npm run translate -- --story=neda-2022` to generate localized versions using AI.
 
-### Story YAML Format
+### V2 Story Format Example
 
 ```yaml
-id: 'unique-id'
-title: "{{name:person1}}'s Story"
-slug: 'url-slug'
-date: '2022-09-20'
-summary: 'Brief summary with {{markers}}'
+id: 'neda-2022'
+title: "{{person1}}'s Story"
+slug: 'neda-2022'
+date: '2022-06-20'
+summary: 'A story adapted to your context.'
 content: |
-  Full story content with {{name:person1}}, {{place:city}}, 
-  {{number:count}}, {{currency:amount}}, etc.
+  {{person1}} was a student in {{tehran}}. 
+  During a protest near {{square}}, she was shot...
 
 markers:
   person1:
-    type: 'person'
-    gender: 'female' # male, female, or neutral
-    age: 23
-    role: 'protester'
+    person: 'Neda'
+    gender: f
+    age: 26
 
-  city:
-    type: 'place'
-    category: 'city'
-    size: 'medium' # small, medium, or large
+  tehran:
+    place: 'Tehran'
+    city-large: true
+    capital: true
 
-  count:
-    type: 'number'
-    base: 50
-    unit: 'people'
-    scale: true # Scale by population
-    scale-factor: 0.5
+  square:
+    place: 'Azadi Square'
+    landmark-protest: true
+    within: tehran # Links to the city above
 
-  amount:
-    type: 'currency'
-    base: 50000000 # Iranian Rial
-    base-currency: 'IRR'
+  killed:
+    casualties: 1
+    killed: true
+    comparable: any
 
-tags: ['tag1', 'tag2']
-severity: 'high' # low, medium, high, or critical
-verified: true
-source: 'Human rights organization name'
-content-warning: 'Optional warning text'
+sources:
+  - id: ref1
+    number: 1
+    title: 'News Source'
+    url: 'https://example.com'
+
+images:
+  - id: scene1
+    src: '/image.jpg'
+    alt: 'Description'
 ```
-
-## Adding New Countries
-
-Add country data to these files:
-
-1. `src/lib/data/contexts/countries.yaml` - Country metadata
-2. `src/lib/data/contexts/names.yaml` - Common names by gender
-3. `src/lib/data/contexts/places.yaml` - Cities, landmarks, facilities
-
-## Testing
-
-The project includes comprehensive tests:
-
-- **Story validation**: Ensures all YAML files parse correctly and have valid marker definitions
-- **Translation engine**: Tests marker replacement, currency conversion, number scaling
-- **Type safety**: TypeScript strict mode with full type coverage
-
-Run `npm test` to execute all tests.
 
 ## Deployment
 
-### GitHub Pages
-
-1. Enable GitHub Pages in repository settings
-2. Push to `main` branch
-3. GitHub Actions will automatically build and deploy (see `.github/workflows/deploy.yml`)
-
-### GCP Storage
+The `build/` directory contains a fully static site that can be deployed to any host (GitHub Pages, Netlify, Vercel, S3, etc.).
 
 ```bash
 npm run build
-gsutil -m rsync -r -d build/ gs://your-bucket-name/
 ```
-
-### Other Static Hosts
-
-The `build/` directory contains a fully static site that can be deployed to:
-
-- Netlify
-- Vercel
-- Cloudflare Pages
-- Any static file server
 
 ## License
 
@@ -195,11 +157,5 @@ ISC
 
 ## Acknowledgments
 
-Built with solidarity for Mahsa, Nika, and all those who stood for freedom.
-
-Stories based on verified testimonies from:
-
-- Amnesty International
-- Human Rights Watch
-- Iran Human Rights
-- Center for Human Rights in Iran
+Built with solidarity for Mahsa, Nika, and all those who stood for freedom in Iran.
+Special thanks to the human rights organizations providing verified testimonies.
