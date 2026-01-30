@@ -1,0 +1,35 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://relatable-stories.org/schemas/names.schema.json",
+  "title": "Relatable Stories - Names Schema",
+  "description": "Schema for names.yaml configuration",
+  "type": "object",
+  "patternProperties": {
+    "^[A-Z]{2}$": {
+      "type": "object",
+      "required": ["female", "male", "neutral"],
+      "properties": {
+        "female": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "minItems": 1,
+          "description": "List of female names for this country"
+        },
+        "male": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "minItems": 1,
+          "description": "List of male names for this country"
+        },
+        "neutral": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "minItems": 1,
+          "description": "List of gender-neutral names for this country"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

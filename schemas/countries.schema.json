@@ -1,0 +1,70 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://relatable-stories.org/schemas/countries.schema.json",
+  "title": "Relatable Stories - Countries Schema",
+  "description": "Schema for countries.yaml configuration",
+  "type": "object",
+  "required": ["countries"],
+  "properties": {
+    "countries": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/Country" },
+      "minItems": 1
+    }
+  },
+  "additionalProperties": false,
+  "definitions": {
+    "Country": {
+      "type": "object",
+      "required": [
+        "code",
+        "name",
+        "population",
+        "currency",
+        "currency-symbol",
+        "rial-to-local",
+        "timezones"
+      ],
+      "properties": {
+        "code": {
+          "type": "string",
+          "pattern": "^[A-Z]{2}$",
+          "description": "Two-letter country code (ISO 3166-1 alpha-2)"
+        },
+        "name": {
+          "type": "string",
+          "description": "Country name in English"
+        },
+        "population": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Total country population"
+        },
+        "currency": {
+          "type": "string",
+          "pattern": "^[A-Z]{3}$",
+          "description": "Three-letter currency code (ISO 4217)"
+        },
+        "currency-symbol": {
+          "type": "string",
+          "description": "Currency symbol (e.g., $, €, £)"
+        },
+        "rial-to-local": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Conversion rate from Iranian Rial to local currency"
+        },
+        "timezones": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[A-Za-z]+/[A-Za-z_]+(/[A-Za-z_]+)?$"
+          },
+          "minItems": 1,
+          "description": "IANA timezone identifiers for this country"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}
