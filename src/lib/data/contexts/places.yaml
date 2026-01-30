@@ -28,16 +28,16 @@ US:
         - 'Metropolitan Detention Center'
         - 'Federal Plaza'
       hospitals:
-        - 'New York-Presbyterian Hospital'
-        - 'Mount Sinai Hospital'
+        - 'NY-Presbyterian'
+        - 'Mount Sinai'
       prisons:
-        - 'Rikers Island (George Motchan Detention Center)'
-        - 'Sing Sing Correctional Facility (Ossining)'
+        - 'Rikers Island'
+        - 'Sing Sing'
       police-stations:
-        - 'One Police Plaza (NYPD Headquarters)'
+        - '1 Police Plaza (NYPD HQ)'
       morgues:
-        - 'Office of Chief Medical Examiner (OCME)'
-        - 'Bellevue Hospital Mortuary'
+        - 'The OCME (Manhattan Morgue)'
+        - 'Bellevue Morgue'
 
     - id: washington-dc
       name: 'Washington DC'
@@ -61,14 +61,14 @@ US:
         - 'DC Jail'
         - 'Federal Courthouse'
       hospitals:
-        - 'MedStar Washington Hospital Center'
-        - 'George Washington University Hospital'
+        - 'Washington Hospital Center'
+        - 'GW Hospital'
       prisons:
-        - 'Central Detention Facility (DC Jail)'
+        - 'DC Jail'
       police-stations:
-        - 'MPD Headquarters (Henry J. Daly Building)'
+        - 'MPD Headquarters'
       morgues:
-        - 'DC Office of the Chief Medical Examiner'
+        - 'DC Medical Examiner'
 
     - id: los-angeles
       name: 'Los Angeles'
@@ -92,15 +92,15 @@ US:
         - 'Metropolitan Detention Center'
         - 'Federal Courthouse'
       hospitals:
-        - 'Cedars-Sinai Medical Center'
+        - 'Cedars-Sinai'
         - 'UCLA Medical Center'
       prisons:
-        - "Men's Central Jail"
-        - 'Twin Towers Correctional Facility'
+        - 'Twin Towers'
+        - 'Men''s Central'
       police-stations:
-        - 'LAPD Headquarters (LAPD Administration Building)'
+        - 'LAPD Headquarters'
       morgues:
-        - 'Department of Medical Examiner-Coroner'
+        - 'L.A. County Morgue'
 
     - id: chicago
       name: 'Chicago'
@@ -124,16 +124,15 @@ US:
         - 'Metropolitan Correctional Center'
         - 'Federal Building'
       hospitals:
-        - 'Northwestern Memorial Hospital'
-        - 'Rush University Medical Center'
+        - 'Northwestern Memorial'
+        - 'Rush University Med'
       prisons:
         - 'Cook County Jail'
       police-stations:
-        - 'Chicago Police Department Headquarters'
+        - 'CPD Headquarters'
       morgues:
-        - "Cook County Medical Examiner's Office"
+        - 'Cook County Morgue'
 
-  # Generic fallbacks for when no specific city is selected
 
 UK:
   cities:
@@ -160,11 +159,11 @@ UK:
         - 'Belmarsh Prison'
         - "Westminster Magistrates' Court"
       hospitals:
-        - "St Thomas' Hospital"
-        - 'The Royal London Hospital'
+        - 'St Thomas'' Hospital'
+        - 'The Royal London'
       morgues:
-        - 'Westminster Public Mortuary'
-        - "Poplar Coroner's Court & Mortuary"
+        - 'Westminster Morgue'
+        - 'Poplar Morgue'
 
     - id: manchester
       name: 'Manchester'
@@ -187,15 +186,15 @@ UK:
         - 'HMP Manchester'
         - "Manchester Magistrates' Court"
       hospitals:
-        - 'Manchester Royal Infirmary'
+        - 'Manchester Royal Infirmary (MRI)'
         - 'Wythenshawe Hospital'
       prisons:
-        - 'HM Prison Manchester (Strangeways)'
+        - 'Strangeways'
       police-stations:
-        - 'Greater Manchester Police Headquarters (Central Park)'
+        - 'GMP Headquarters'
       morgues:
-        - 'Manchester Royal Infirmary Mortuary'
-        - 'City of Manchester Mortuary'
+        - 'MRI Mortuary'
+        - 'City Morgue'
 
 CZ:
   cities:
@@ -222,16 +221,16 @@ CZ:
         - 'Pankrác Prison'
         - 'Municipal Court'
       hospitals:
-        - 'Fakultní nemocnice v Motole (Motol)'
-        - 'Všeobecná fakultní nemocnice (VFN)'
+        - 'Nemocnice Motol'
+        - 'VFN (U Apolináře)'
       prisons:
-        - 'Vazební věznice Praha-Pankrác'
-        - 'Vazební věznice Praha-Ruzyně'
+        - 'Věznice Pankrác'
+        - 'Věznice Ruzyně'
       police-stations:
-        - 'Krajské ředitelství policie hl. m. Prahy (Kongresová)'
+        - 'Policie Kongresová (HQ)'
       morgues:
-        - 'Ústav soudního lékařství (Na Bulovce)'
-        - 'Ústav soudního lékařství (FN Motol)'
+        - 'Soudní lékařství (Bulovka)'
+        - 'Soudní lékařství (Motol)'
 
     - id: brno
       name: 'Brno'
@@ -253,13 +252,13 @@ CZ:
         - 'Brno Prison'
         - 'Regional Court'
       hospitals:
-        - 'Fakultní nemocnice Brno (Bohunice)'
+        - 'FN Brno (Bohunice)'
       prisons:
-        - 'Vazební věznice Brno (Bohunice)'
+        - 'Věznice Bohunice'
       police-stations:
-        - 'Městské ředitelství policie Brno'
+        - 'Policie Brno-město'
       morgues:
-        - 'Ústav soudního lékařství (FN u sv. Anny)'
+        - 'Soudní lékařství (St. Anne''s)'
 
 CA:
   cities:
@@ -286,14 +285,14 @@ CA:
         - 'Toronto South Detention Centre'
         - 'Old City Hall Courthouse'
       hospitals:
-        - 'Toronto General Hospital'
-        - 'Sunnybrook Health Sciences Centre'
+        - 'Toronto General'
+        - 'Sunnybrook'
       prisons:
-        - 'Toronto South Detention Centre'
+        - 'Toronto South'
       police-stations:
-        - 'Toronto Police Service Headquarters'
+        - 'Toronto Police HQ'
       morgues:
-        - 'Provincial Forensic Pathology Unit'
+        - 'Forensic Pathology Unit (The Morgue)'
 
     - id: montreal
       name: 'Montreal'
@@ -318,10 +317,10 @@ CA:
         - 'Bordeaux Prison'
         - 'Montreal Courthouse'
       hospitals:
-        - "Centre hospitalier de l'Université de Montréal (CHUM)"
-        - 'Hôpital général de Montréal'
+        - 'The CHUM'
+        - 'Montreal General'
       morgues:
-        - 'Laboratoire de sciences judiciaires et de médecine légale'
+        - 'Laboratoire de médecine légale'
 
     - id: vancouver
       name: 'Vancouver'
@@ -345,13 +344,13 @@ CA:
         - 'Vancouver Jail'
         - 'Provincial Court'
       hospitals:
-        - 'Vancouver General Hospital'
+        - 'VGH (Vancouver General)'
       prisons:
-        - 'North Fraser Pretrial Centre'
+        - 'North Fraser Pretrial'
       police-stations:
-        - 'Vancouver Police Department (VPD) Headquarters'
+        - 'VPD Headquarters'
       morgues:
-        - 'Vancouver General Hospital Mortuary'
+        - 'VGH Mortuary'
 
     - id: ottawa
       name: 'Ottawa'
@@ -374,13 +373,13 @@ CA:
         - 'Ottawa-Carleton Detention Centre'
         - 'Supreme Court of Canada'
       hospitals:
-        - 'The Ottawa Hospital (Civic Campus)'
+        - 'The Ottawa (Civic Campus)'
       prisons:
-        - 'Ottawa-Carleton Detention Centre'
+        - 'OCDC (Ottawa-Carleton)'
       police-stations:
-        - 'Ottawa Police Service Headquarters'
+        - 'Ottawa Police HQ'
       morgues:
-        - 'The Ottawa Hospital (Civic Campus) Mortuary'
+        - 'The Ottawa Civic Mortuary'
 
     - id: calgary
       name: 'Calgary'
@@ -405,11 +404,11 @@ CA:
       hospitals:
         - 'Foothills Medical Centre'
       prisons:
-        - 'Calgary Remand Centre'
+        - 'Calgary Remand'
       police-stations:
-        - 'Calgary Police Service Westwinds Campus'
+        - 'CPS Westwinds'
       morgues:
-        - 'Office of the Chief Medical Examiner'
+        - 'Medical Examiner''s Office'
 
     - id: edmonton
       name: 'Edmonton'
@@ -432,13 +431,13 @@ CA:
         - 'Edmonton Remand Centre'
         - 'Law Courts'
       hospitals:
-        - 'University of Alberta Hospital'
+        - 'U of A Hospital'
       prisons:
-        - 'Edmonton Institution (Max Security)'
+        - 'Edmonton Max'
       police-stations:
-        - 'Edmonton Police Service Headquarters'
+        - 'EPS Headquarters'
       morgues:
-        - 'Office of the Chief Medical Examiner'
+        - 'Medical Examiner''s Office'
 
 DE:
   cities:
@@ -465,16 +464,16 @@ DE:
         - 'Moabit Criminal Court'
         - 'Plötzensee Prison'
       hospitals:
-        - 'Charité - Universitätsmedizin Berlin'
-        - 'Vivantes Klinikum Neukölln'
+        - 'Charité'
+        - 'Vivantes Neukölln'
       prisons:
-        - 'Justizvollzugsanstalt Moabit (JVA Moabit)'
-        - 'Justizvollzugsanstalt Tegel'
+        - 'JVA Moabit'
+        - 'JVA Tegel'
       police-stations:
-        - 'Polizeipräsidium Berlin (Platz der Luftbrücke)'
+        - 'Polizeipräsidium (Platz der Luftbrücke)'
       morgues:
-        - 'Landesinstitut für gerichtliche und soziale Medizin'
-        - 'Rechtsmedizin der Charité'
+        - 'Rechtsmedizin (Charité)'
+        - 'Gerichtsmedizin (Moabit)'
 
     - id: hamburg
       name: 'Hamburg'
@@ -497,13 +496,13 @@ DE:
         - 'Hamburg Prison'
         - 'District Court'
       hospitals:
-        - 'Universitätsklinikum Hamburg-Eppendorf (UKE)'
+        - 'The UKE'
       prisons:
-        - 'Justizvollzugsanstalt Fuhlsbüttel (Santa Fu)'
+        - 'Santa Fu'
       police-stations:
         - 'Polizeipräsidium Hamburg'
       morgues:
-        - 'Institut für Rechtsmedizin (UKE)'
+        - 'Rechtsmedizin (UKE)'
 
     - id: munich
       name: 'Munich'
@@ -526,14 +525,14 @@ DE:
         - 'Stadelheim Prison'
         - 'Munich District Court'
       hospitals:
-        - 'Klinikum der Universität München (LMU Klinikum)'
-        - 'Klinikum Rechts der Isar'
+        - 'LMU Klinikum'
+        - 'Rechts der Isar'
       prisons:
-        - 'Justizvollzugsanstalt München (Stadelheim)'
+        - 'Stadelheim'
       police-stations:
-        - 'Polizeipräsidium München (Ettstraße)'
+        - 'Polizeipräsidium (Ettstraße)'
       morgues:
-        - 'Institut für Rechtsmedizin (LMU)'
+        - 'Rechtsmedizin (LMU)'
 
     - id: cologne
       name: 'Cologne'
@@ -558,11 +557,11 @@ DE:
       hospitals:
         - 'Uniklinik Köln'
       prisons:
-        - 'Justizvollzugsanstalt Köln (Klingelpütz)'
+        - 'Klingelpütz'
       police-stations:
-        - 'Polizeipräsidium Köln'
+        - 'Polizeipräsidium Kalk'
       morgues:
-        - 'Institut für Rechtsmedizin (Uniklinik Köln)'
+        - 'Rechtsmedizin Köln'
 
     - id: frankfurt
       name: 'Frankfurt'
@@ -585,13 +584,13 @@ DE:
         - 'Frankfurt Prison'
         - 'Higher Regional Court'
       hospitals:
-        - 'Universitätsklinikum Frankfurt'
+        - 'Uni-Klinik Frankfurt'
       prisons:
-        - 'Justizvollzugsanstalt Frankfurt am Main IV'
+        - 'JVA Preungesheim'
       police-stations:
-        - 'Polizeipräsidium Frankfurt am Main'
+        - 'Polizeipräsidium Frankfurt'
       morgues:
-        - 'Institut für Rechtsmedizin (Universitätsklinikum)'
+        - 'Rechtsmedizin Frankfurt'
 
 AU:
   cities:
@@ -617,15 +616,15 @@ AU:
         - 'Silverwater Correctional Complex'
         - 'Downing Centre Court'
       hospitals:
-        - 'Royal Prince Alfred Hospital (RPA)'
+        - 'The RPA'
         - 'Westmead Hospital'
       prisons:
-        - 'Long Bay Correctional Centre'
-        - 'Silverwater Correctional Complex'
+        - 'Long Bay'
+        - 'Silverwater'
       police-stations:
-        - 'Police Centre Sydney'
+        - 'Sydney Police Centre'
       morgues:
-        - 'Department of Forensic Medicine (Lidcombe)'
+        - 'Glebe Morgue (Lidcombe)'
 
     - id: melbourne
       name: 'Melbourne'
@@ -649,15 +648,15 @@ AU:
         - 'Melbourne Assessment Prison'
         - 'County Court'
       hospitals:
-        - 'The Alfred Hospital'
-        - 'The Royal Melbourne Hospital'
+        - 'The Alfred'
+        - 'The Royal Melbourne'
       prisons:
-        - 'HM Prison Barwon'
-        - 'Metropolitan Remand Centre'
+        - 'Barwon Prison'
+        - 'The MRC (Remand Centre)'
       police-stations:
         - 'Victoria Police Centre'
       morgues:
-        - 'Victorian Institute of Forensic Medicine'
+        - 'The VIFM (Morgue)'
 
     - id: brisbane
       name: 'Brisbane'
@@ -680,7 +679,7 @@ AU:
         - 'Brisbane Correctional Centre'
         - 'Supreme Court'
       hospitals:
-        - "Royal Brisbane and Women's Hospital (RBWH)"
+        - 'The Royal (RBWH)'
       morgues:
         - 'John Tonge Centre'
 
@@ -707,9 +706,9 @@ AU:
       hospitals:
         - 'Canberra Hospital'
       prisons:
-        - 'Alexander Maconochie Centre'
+        - 'The AMC'
       police-stations:
-        - 'ACT Policing Headquarters'
+        - 'ACT Policing HQ'
       morgues:
         - 'Forensic Medicine Centre'
 
@@ -734,11 +733,11 @@ AU:
         - 'Hakea Prison'
         - 'District Court'
       hospitals:
-        - 'Royal Perth Hospital'
+        - 'Royal Perth'
       prisons:
-        - 'Casuarina Prison'
+        - 'Casuarina'
       police-stations:
-        - 'Perth Police Station (Northbridge)'
+        - 'Perth Police Station'
       morgues:
         - 'State Mortuary'
 
@@ -767,15 +766,15 @@ FR:
         - 'La Santé Prison'
         - 'Palais de Justice'
       hospitals:
-        - 'Hôpital de la Pitié-Salpêtrière'
-        - 'Hôpital Européen Georges-Pompidou'
+        - 'La Pitié-Salpêtrière'
+        - 'Hôpital Georges-Pompidou'
       prisons:
-        - "Maison d'arrêt de Fleury-Mérogis"
-        - "Maison d'arrêt de la Santé"
+        - 'Fleury-Mérogis'
+        - 'La Santé'
       police-stations:
-        - 'Préfecture de Police de Paris'
+        - 'Préfecture de Police (Île de la Cité)'
       morgues:
-        - 'Institut Médico-Légal de Paris (IML)'
+        - 'L''IML (Quai de la Rapée)'
 
     - id: marseille
       name: 'Marseille'
@@ -799,11 +798,11 @@ FR:
       hospitals:
         - 'Hôpital de la Timone'
       prisons:
-        - 'Centre pénitentiaire de Marseille-Baumettes'
+        - 'Les Baumettes'
       police-stations:
-        - 'Hôtel de Police (L’Évêché)'
+        - 'L’Évêché (Police HQ)'
       morgues:
-        - 'Service de Médecine Légale (Hôpital de la Timone)'
+        - 'Médecine Légale (La Timone)'
 
     - id: lyon
       name: 'Lyon'
@@ -826,13 +825,13 @@ FR:
         - 'Lyon-Corbas Prison'
         - 'Court of Appeal'
       hospitals:
-        - 'Hôpital Édouard Herriot'
+        - 'Hôpital Édouard-Herriot'
       prisons:
-        - 'Centre de détention de Lyon-Corbas'
+        - 'Corbas Prison'
       police-stations:
-        - 'Hôtel de Police de Lyon (Marius Berliet)'
+        - 'Hôtel de Police (Marius Berliet)'
       morgues:
-        - 'Institut Médico-Légal de Lyon'
+        - 'L''IML de Lyon'
 
     - id: toulouse
       name: 'Toulouse'
@@ -855,13 +854,13 @@ FR:
         - 'Seysses Prison'
         - 'Tribunal de Grande Instance'
       hospitals:
-        - 'Hôpital de Purpan'
+        - 'Hôpital Purpan'
       prisons:
-        - "Maison d'arrêt de Seysses"
+        - 'Seysses'
       police-stations:
-        - 'Commissariat Central de Toulouse (Courtois)'
+        - 'Commissariat Central (Courtois)'
       morgues:
-        - 'Institut Médico-Légal (Hôpital de Rangueil)'
+        - 'L''IML de Rangueil'
 
     - id: nice
       name: 'Nice'
@@ -883,13 +882,13 @@ FR:
         - 'Nice Prison'
         - 'Court of Appeal'
       hospitals:
-        - 'Hôpital Pasteur 2'
+        - 'Hôpital Pasteur'
       prisons:
-        - "Maison d'arrêt de Nice (Variville)"
+        - 'Variville'
       police-stations:
-        - 'Commissariat Central de Nice (Auvare)'
+        - 'Commissariat Auvare'
       morgues:
-        - 'Institut Médico-Légal (Hôpital Pasteur)'
+        - 'L''IML Pasteur'
 
 ES:
   cities:
@@ -915,15 +914,15 @@ ES:
         - 'Soto del Real Prison'
         - 'National Court'
       hospitals:
-        - 'Hospital Universitario La Paz'
-        - 'Hospital General Universitario Gregorio Marañón'
+        - 'Hospital La Paz'
+        - 'Hospital Gregorio Marañón'
       prisons:
-        - 'Centro Penitenciario Madrid VII (Estremera)'
-        - 'Centro Penitenciario Madrid V (Soto del Real)'
+        - 'Estremera'
+        - 'Soto del Real'
       police-stations:
-        - 'Jefatura Superior de Policía de Madrid'
+        - 'Jefatura de Policía (Madrid)'
       morgues:
-        - 'Instituto Anatómico Forense de Madrid'
+        - 'Anatómico Forense'
 
     - id: barcelona
       name: 'Barcelona'
@@ -947,15 +946,15 @@ ES:
         - 'Barcelona Prison'
         - 'Provincial Court'
       hospitals:
-        - 'Hospital Clínic de Barcelona'
+        - 'Hospital Clínic'
+        - 'Hospital Vall d''Hebron'
       prisons:
-        - 'Centre Penitenciari Brians 2'
-        - 'Centre Penitenciari Lledoners'
+        - 'Brians 2'
+        - 'Lledoners'
       police-stations:
-        - "Hospital Universitari Vall d'Hebron"
-        - 'Comissaria General dels Mossos d’Esquadra'
+        - 'Mossos HQ (Les Corts)'
       morgues:
-        - 'Institut de Medicina Legal i Ciències Forenses de Catalunya'
+        - 'Medicina Legal (Ciutat de la Justícia)'
 
     - id: valencia
       name: 'Valencia'
@@ -978,13 +977,13 @@ ES:
         - 'Picassent Prison'
         - 'Provincial Court'
       hospitals:
-        - 'Hospital Universitari i Politècnic La Fe'
+        - 'Hospital La Fe'
       prisons:
-        - 'Centro Penitenciario de Valencia (Picassent)'
+        - 'Picassent'
       police-stations:
-        - 'Jefatura Superior de Policía de la Comunidad Valenciana'
+        - 'Jefatura Superior de Policía'
       morgues:
-        - 'Instituto de Medicina Legal de Valencia'
+        - 'Medicina Legal Valencia'
 
     - id: seville
       name: 'Seville'
@@ -1006,13 +1005,13 @@ ES:
         - 'Seville Prison'
         - 'Provincial Court'
       hospitals:
-        - 'Hospital Universitario Virgen del Rocío'
+        - 'Hospital Virgen del Rocío'
       prisons:
-        - 'Centro Penitenciario Sevilla II'
+        - 'Sevilla II'
       police-stations:
-        - 'Jefatura Superior de Policía de Andalucía Occidental'
+        - 'Jefatura Superior (Sevilla)'
       morgues:
-        - 'Instituto de Medicina Legal de Sevilla'
+        - 'Medicina Legal Sevilla'
 
 IT:
   cities:
@@ -1040,15 +1039,15 @@ IT:
         - 'Palace of Justice'
       hospitals:
         - 'Policlinico Umberto I'
-        - 'Policlinico Universitario Agostino Gemelli'
+        - 'Il Gemelli'
       prisons:
-        - 'Casa Circondariale di Roma Regina Coeli'
-        - 'Casa Circondariale di Roma Rebibbia'
+        - 'Regina Coeli'
+        - 'Rebibbia'
       police-stations:
-        - 'Questura di Roma (Via San Vitale)'
+        - 'Questura di Roma'
       morgues:
-        - 'Obitorio Comunale (Cimitero Verano)'
-        - 'Istituto di Medicina Legale (La Sapienza)'
+        - 'Obitorio del Verano'
+        - 'Medicina Legale (Sapienza)'
 
     - id: milan
       name: 'Milan'
@@ -1072,10 +1071,10 @@ IT:
         - 'San Vittore Prison'
         - 'Palace of Justice'
       hospitals:
-        - "Ospedale Niguarda Ca' Granda"
-        - 'Ospedale San Raffaele'
+        - 'Ospedale Niguarda'
+        - 'San Raffaele'
       morgues:
-        - 'Obitorio Comunale di Milano'
+        - 'Obitorio Civico (Milano)'
 
     - id: naples
       name: 'Naples'
@@ -1098,13 +1097,13 @@ IT:
         - 'Poggioreale Prison'
         - 'Courthouse'
       hospitals:
-        - 'Ospedale Antonio Cardarelli'
+        - 'Ospedale Cardarelli'
       prisons:
-        - 'Casa Circondariale di Napoli Poggioreale'
+        - 'Poggioreale'
       police-stations:
-        - 'Questura di Napoli (Via Medina)'
+        - 'Questura di Napoli'
       morgues:
-        - 'Istituto di Medicina Legale (Policlinico Federico II)'
+        - 'Medicina Legale (Policlinico)'
 
     - id: turin
       name: 'Turin'
@@ -1127,13 +1126,13 @@ IT:
         - 'Le Vallette Prison'
         - 'Court of Appeal'
       hospitals:
-        - 'Ospedale Molinette (Città della Salute)'
+        - 'Le Molinette'
       prisons:
-        - 'Casa Circondariale Lorusso e Cutugno (Le Vallette)'
+        - 'Le Vallette'
       police-stations:
-        - 'Questura di Torino (Via Archibugio)'
+        - 'Questura di Torino'
       morgues:
-        - 'Obitorio Comunale di Torino'
+        - 'Obitorio di Torino'
 
     - id: florence
       name: 'Florence'
@@ -1157,11 +1156,11 @@ IT:
       hospitals:
         - 'Ospedale Careggi'
       prisons:
-        - 'Casa Circondariale di Firenze Sollicciano'
+        - 'Sollicciano'
       police-stations:
-        - 'Questura di Firenze (Via Zara)'
+        - 'Questura di Firenze'
       morgues:
-        - 'Istituto di Medicina Legale (Ospedale Careggi)'
+        - 'Medicina Legale (Careggi)'
 
 NL:
   cities:
@@ -1186,13 +1185,13 @@ NL:
         - 'Amsterdam Detention Centre'
         - 'Palace of Justice'
       hospitals:
-        - 'Amsterdam UMC (Locatie AMC)'
+        - 'Amsterdam UMC (AMC)'
       prisons:
-        - 'Justitiële Inrichting (PI) Amsterdam Overamstel (Bijlmerbajes)'
+        - 'Bijlmerbajes'
       police-stations:
-        - 'Hoofdbureau Politie Amsterdam'
+        - 'Hoofdbureau Politie'
       morgues:
-        - 'Mortuarium Amsterdam UMC'
+        - 'Mortuarium AMC'
 
     - id: rotterdam
       name: 'Rotterdam'
@@ -1217,11 +1216,11 @@ NL:
       hospitals:
         - 'Erasmus MC'
       prisons:
-        - 'Penitentiaire Inrichting (PI) Rotterdam'
+        - 'PI Rotterdam'
       police-stations:
-        - 'Hoofdbureau Politie Rotterdam'
+        - 'Hoofdbureau Rotterdam'
       morgues:
-        - 'Mortuarium Erasmus MC'
+        - 'Mortuarium Erasmus'
 
     - id: the-hague
       name: 'The Hague'
@@ -1246,11 +1245,11 @@ NL:
       hospitals:
         - 'HMC Westeinde'
       prisons:
-        - 'Penitentiaire Inrichting (PI) Haaglanden'
+        - 'Scheveningen (The Bunker)'
       police-stations:
-        - 'Hoofdbureau Politie Den Haag'
+        - 'Hoofdbureau Den Haag'
       morgues:
-        - 'Nederlands Forensisch Instituut (NFI)'
+        - 'The NFI'
 
     - id: utrecht
       name: 'Utrecht'
@@ -1275,11 +1274,11 @@ NL:
       hospitals:
         - 'UMC Utrecht'
       prisons:
-        - 'Penitentiaire Inrichting (PI) Nieuwegein'
+        - 'PI Nieuwegein'
       police-stations:
-        - 'Hoofdbureau Politie Utrecht'
+        - 'Hoofdbureau Utrecht'
       morgues:
-        - 'Mortuarium UMC Utrecht'
+        - 'Mortuarium UMC'
 
 IR:
   cities:
@@ -1305,15 +1304,15 @@ IR:
         - 'Evin Prison'
         - 'Tehran Court'
       hospitals:
-        - 'Bimarestan-e Milad'
-        - 'Bimarestan-e Imam Khomeini'
+        - 'Milad Hospital'
+        - 'Imam Khomeini Hospital'
       prisons:
-        - 'Zendan-e Evin (Evin Prison)'
-        - 'Zendan-e Rajaee Shahr'
+        - 'Evin Prison'
+        - 'Rajaee Shahr'
       police-stations:
-        - 'Setad-e Farandeh-ye Entezami (Tehran)'
+        - 'Agahi Headquarters'
       morgues:
-        - 'Sazman-e Pezeshki Ghanooni (Kahrizak)'
+        - 'Pezeshki Ghanooni (Kahrizak)'
 
     - id: mashhad
       name: 'Mashhad'
@@ -1335,13 +1334,13 @@ IR:
         - 'Mashhad Prison'
         - 'Provincial Court'
       hospitals:
-        - 'Bimarestan-e Imam Reza'
+        - 'Imam Reza Hospital'
       prisons:
-        - 'Zendan-e Vakilabad'
+        - 'Vakilabad'
       police-stations:
-        - 'Farandeh-ye Entezami Khorasan Razavi'
+        - 'Farandeh-ye Entezami'
       morgues:
-        - 'Pezeshki Ghanooni Mashhad'
+        - 'Pezeshki Ghanooni'
 
     - id: isfahan
       name: 'Isfahan'
@@ -1363,13 +1362,13 @@ IR:
         - 'Isfahan Prison'
         - 'Provincial Court'
       hospitals:
-        - 'Bimarestan-e Al-Zahra'
+        - 'Al-Zahra Hospital'
       prisons:
         - 'Zendan-e Isfahan'
       police-stations:
-        - 'Farandeh-ye Entezami Isfahan'
+        - 'Farandeh-ye Entezami'
       morgues:
-        - 'Pezeshki Ghanooni Isfahan'
+        - 'Pezeshki Ghanooni'
 
     - id: shiraz
       name: 'Shiraz'
@@ -1391,13 +1390,13 @@ IR:
         - 'Shiraz Prison'
         - 'Provincial Court'
       hospitals:
-        - 'Bimarestan-e Namazi'
+        - 'Namazi Hospital'
       prisons:
-        - 'Zendan-e Adel-Abad'
+        - 'Adel-Abad'
       police-stations:
-        - 'Farandeh-ye Entezami Fars'
+        - 'Farandeh-ye Entezami'
       morgues:
-        - 'Pezeshki Ghanooni Shiraz'
+        - 'Pezeshki Ghanooni'
 
     - id: zanjan
       name: 'Zanjan'
@@ -1415,13 +1414,9 @@ IR:
       government-facilities:
         - 'Zanjan Court'
       hospitals:
-        - 'Vali-Asr Hospital'
       prisons:
-        - 'Zanjan Central Prison'
       police-stations:
-        - 'Zanjan Police Headquarters'
       morgues:
-        - 'Pezeshki Ghanooni Zanjan'
 
     - id: tabriz
       name: 'Tabriz'
@@ -1443,13 +1438,13 @@ IR:
         - 'Tabriz Prison'
         - 'Provincial Court'
       hospitals:
-        - 'Bimarestan-e Imam Reza'
+        - 'Imam Reza Hospital'
       prisons:
         - 'Zendan-e Tabriz'
       police-stations:
-        - 'Farandeh-ye Entezami Azarbayjan Sharghi'
+        - 'Farandeh-ye Entezami'
       morgues:
-        - 'Pezeshki Ghanooni Tabriz'
+        - 'Pezeshki Ghanooni'
 
 SE:
   cities:
@@ -1475,15 +1470,15 @@ SE:
         - 'Kronoberg Prison'
         - 'Stockholm District Court'
       hospitals:
-        - 'Karolinska Universitetssjukhuset'
-        - 'Södersjukhuset'
+        - 'Karolinska Hospital'
+        - 'SÖS (Södersjukhuset)'
       prisons:
-        - 'Anstalten Hall (Södertälje)'
-        - 'Anstalten Österåker'
+        - 'Hall Anstalten'
+        - 'Österåker Anstalten'
       police-stations:
         - 'Polishuset (Kungsholmen)'
       morgues:
-        - 'Rättsmedicinalverket'
+        - 'Rättsmedicin (Solna)'
 
     - id: gothenburg
       name: 'Gothenburg'
@@ -1505,13 +1500,13 @@ SE:
         - 'Gothenburg Prison'
         - 'District Court'
       hospitals:
-        - 'Sahlgrenska Universitetssjukhuset'
+        - 'Sahlgrenska'
       prisons:
-        - 'Anstalten Kumla (High Security)'
+        - 'Kumla Anstalten'
       police-stations:
-        - 'Polisstationen Göteborg City (Ernst Fontells Plats)'
+        - 'Polisen Ernst Fontells Plats'
       morgues:
-        - 'Rättsmedicinalverket Göteborg'
+        - 'Rättsmedicin Göteborg'
 
     - id: malmo
       name: 'Malmö'
@@ -1532,13 +1527,9 @@ SE:
         - 'Malmö Prison'
         - 'District Court'
       hospitals:
-        - 'Skånes universitetssjukhus (Sus)'
       prisons:
-        - 'Anstalten Fosie'
       police-stations:
-        - 'Rättscentrum Malmö'
       morgues:
-        - 'Rättsmedicinalverket (Rättsmedicin)'
 
     - id: uppsala
       name: 'Uppsala'
@@ -1560,13 +1551,13 @@ SE:
         - 'Uppsala Prison'
         - 'District Court'
       hospitals:
-        - 'Akademiska sjukhuset'
+        - 'Akademiska (Ackis)'
       prisons:
-        - 'Anstalten Salberga'
+        - 'Salberga Anstalten'
       police-stations:
-        - 'Polisstationen Uppsala'
+        - 'Polisen Uppsala'
       morgues:
-        - 'Akademiska sjukhusets bårhus'
+        - 'Akademiska Bårhus'
 
 BE:
   cities:
@@ -1592,15 +1583,15 @@ BE:
         - 'Forest Prison'
         - 'Palace of Justice'
       hospitals:
-        - 'Cliniques Universitaires Saint-Luc'
+        - 'Saint-Luc'
         - 'UZ Brussel'
       prisons:
-        - 'Prison de Saint-Gilles / Gevangenis van Sint-Gillis'
-        - 'Gevangenis van Haren (Prison de Haren)'
+        - 'Prison de Saint-Gilles'
+        - 'Prison de Haren'
       police-stations:
-        - 'Hôtel de Police (Rue du Marché au Charbon)'
+        - 'Hôtel de Police (Marché au Charbon)'
       morgues:
-        - 'Service de Médecine Légale (Cliniques Universitaires Saint-Luc)'
+        - 'Médecine Légale (Saint-Luc)'
 
     - id: antwerp
       name: 'Antwerp'
@@ -1621,11 +1612,11 @@ BE:
         - 'Antwerp Prison'
         - 'Courthouse'
       hospitals:
-        - 'UZA (Universitair Ziekenhuis Antwerpen)'
+        - 'The UZA'
       prisons:
-        - 'Gevangenis van Antwerpen (Begijnenstraat)'
+        - 'Begijnenstraat Prison'
       police-stations:
-        - 'Politiekantoor Noord (PZ Antwerpen)'
+        - 'Politie Antwerpen (HQ)'
       morgues:
         - 'Mortuarium UZA'
 
@@ -1650,9 +1641,9 @@ BE:
       hospitals:
         - 'UZ Gent'
       prisons:
-        - 'Gevangenis van Gent (Nieuwewandeling)'
+        - 'Nieuwewandeling Prison'
       police-stations:
-        - 'Commissariaat Gent (Algemeen Hoofdkwartier)'
+        - 'Politie Gent (HQ)'
       morgues:
         - 'Mortuarium UZ Gent'
 
@@ -1675,13 +1666,9 @@ BE:
         - 'Liège Prison'
         - 'Court of Appeal'
       hospitals:
-        - 'CHU de Liège'
       prisons:
-        - 'Prison de Lantin'
       police-stations:
-        - 'Hôtel de Police de Liège'
       morgues:
-        - 'Institut Médico-Légal (CHU de Liège)'
 
 BR:
   cities:
@@ -1707,15 +1694,9 @@ BR:
         - 'Carandiru Complex'
         - 'Tribunal de Justiça'
       hospitals:
-        - 'Hospital das Clínicas (HC-FMUSP)'
-        - 'Hospital Israelita Albert Einstein'
       prisons:
-        - 'Penitenciária do Estado de São Paulo (Carandiru - historically)'
-        - 'Centro de Detenção Provisória de Pinheiros'
       police-stations:
-        - 'Delegacia Geral de Polícia (Palácio da Polícia)'
       morgues:
-        - 'Instituto Médico Legal (IML Central)'
 
     - id: rio-de-janeiro
       name: 'Rio de Janeiro'
@@ -1738,9 +1719,9 @@ BR:
         - 'Bangu Prison Complex'
         - 'Tribunal de Justiça'
       hospitals:
-        - 'Hospital Municipal Souza Aguiar'
+        - 'Souza Aguiar'
       prisons:
-        - 'Complexo de Gericinó (Bangu)'
+        - 'Bangu Complex'
       police-stations:
         - 'Cidade da Polícia'
       morgues:
@@ -1765,13 +1746,9 @@ BR:
         - 'Papuda Prison Complex'
         - 'Supreme Federal Court'
       hospitals:
-        - 'Hospital de Base (HBDF)'
       prisons:
-        - 'Complexo Penitenciário da Papuda'
       police-stations:
-        - 'Departamento de Polícia Federal (Edifício Sede)'
       morgues:
-        - 'Instituto Médico Legal (IML-DF)'
 
     - id: salvador
       name: 'Salvador'
@@ -1792,11 +1769,11 @@ BR:
         - 'Salvador Prison Complex'
         - 'State Court'
       hospitals:
-        - 'Hospital Geral do Estado (HGE)'
+        - 'HGE (Hospital Geral)'
       prisons:
-        - 'Penitenciária Lemos Brito'
+        - 'Lemos Brito'
       police-stations:
-        - 'Secretaria da Segurança Pública (CAB)'
+        - 'Secretaria de Segurança (CAB)'
       morgues:
         - 'IML Nina Rodrigues'
 
@@ -1819,11 +1796,11 @@ BR:
         - 'Belo Horizonte Prison'
         - 'State Court'
       hospitals:
-        - 'Hospital das Clínicas da UFMG'
+        - 'Hospital das Clínicas'
       prisons:
-        - 'Penitenciária Nelson Hungria'
+        - 'Nelson Hungria'
       police-stations:
-        - 'Delegacia Especializada de Homicídios'
+        - 'Delegacia Especializada'
       morgues:
         - 'IML André Roquette'
 
@@ -1851,15 +1828,15 @@ PT:
         - 'Lisbon Prison'
         - 'Palace of Justice'
       hospitals:
-        - 'Hospital de Santa Maria'
-        - 'Hospital de São José'
+        - 'Hospital Santa Maria'
+        - 'Hospital São José'
       prisons:
-        - 'Estabelecimento Prisional de Lisboa'
-        - 'Estabelecimento Prisional de Monsanto (High Security)'
+        - 'EPL (Lisbon Prison)'
+        - 'Monsanto Security Prison'
       police-stations:
-        - 'Comando Metropolitano de Lisboa (COMETLIS)'
+        - 'COMETLIS (Police HQ)'
       morgues:
-        - 'Instituto Nacional de Medicina Legal (INMLCF - Sul)'
+        - 'Medicina Legal (INML)'
 
     - id: porto
       name: 'Porto'
@@ -1880,13 +1857,13 @@ PT:
         - 'Porto Prison'
         - 'District Court'
       hospitals:
-        - 'Hospital de São João'
+        - 'Hospital São João'
       prisons:
-        - 'Estabelecimento Prisional do Porto'
+        - 'Custóias Prison'
       police-stations:
-        - 'Comando Metropolitano do Porto (COMETPOR)'
+        - 'COMETPOR (Police HQ)'
       morgues:
-        - 'Instituto Nacional de Medicina Legal (INMLCF - Norte)'
+        - 'Medicina Legal (Norte)'
 
     - id: braga
       name: 'Braga'
@@ -1909,11 +1886,11 @@ PT:
       hospitals:
         - 'Hospital de Braga'
       prisons:
-        - 'Estabelecimento Prisional de Braga'
+        - 'Cadeia de Braga'
       police-stations:
-        - 'Comando Distrital da PSP de Braga'
+        - 'PSP de Braga'
       morgues:
-        - 'Gabinete Médico-Legal de Braga'
+        - 'Gabinete Médico-Legal'
 
     - id: coimbra
       name: 'Coimbra'
@@ -1934,13 +1911,13 @@ PT:
         - 'Coimbra Prison'
         - 'Court'
       hospitals:
-        - 'CHUC (Centro Hospitalar e Universitário de Coimbra)'
+        - 'The CHUC'
       prisons:
-        - 'Estabelecimento Prisional de Coimbra'
+        - 'Cadeia de Coimbra'
       police-stations:
-        - 'Comando Distrital da PSP de Coimbra'
+        - 'PSP de Coimbra'
       morgues:
-        - 'Instituto Nacional de Medicina Legal (INMLCF - Centro)'
+        - 'Medicina Legal (Centro)'
 
 NO:
   cities:
@@ -1965,13 +1942,13 @@ NO:
         - 'Oslo Prison'
         - 'Oslo District Court'
       hospitals:
-        - 'Oslo universitetssykehus (Ullevål)'
+        - 'Ullevål Sykehus'
       prisons:
-        - 'Oslo fengsel'
+        - 'Oslo Fengsel'
       police-stations:
         - 'Politihuset (Grønland)'
       morgues:
-        - 'Rettsmedisinsk institutt (Rikshospitalet)'
+        - 'Rettsmedisinsk'
 
     - id: bergen
       name: 'Bergen'
@@ -1993,11 +1970,11 @@ NO:
         - 'Bergen Prison'
         - 'District Court'
       hospitals:
-        - 'Haukeland universitetssjukehus'
+        - 'Haukeland'
       prisons:
-        - 'Bergen fengsel'
+        - 'Bergen Fengsel'
       police-stations:
-        - 'Bergen politistasjon'
+        - 'Bergen Politistasjon'
       morgues:
         - 'Gades Institutt'
 
@@ -2020,13 +1997,13 @@ NO:
         - 'Trondheim Prison'
         - 'District Court'
       hospitals:
-        - 'St. Olavs hospital'
+        - 'St. Olavs'
       prisons:
-        - 'Trondheim fengsel'
+        - 'Trondheim Fengsel'
       police-stations:
-        - 'Trondheim politistasjon'
+        - 'Trondheim Politistasjon'
       morgues:
-        - 'Avdeling for patologi og medisinsk genetikk (St. Olavs)'
+        - 'Patologisk (St. Olavs)'
 
     - id: stavanger
       name: 'Stavanger'
@@ -2047,13 +2024,13 @@ NO:
         - 'Stavanger Prison'
         - 'District Court'
       hospitals:
-        - 'Stavanger universitetssjukehus'
+        - 'SUS (Stavanger Sykehus)'
       prisons:
-        - 'Stavanger fengsel (Åna)'
+        - 'Åna Fengsel'
       police-stations:
-        - 'Stavanger politistasjon'
+        - 'Stavanger Politistasjon'
       morgues:
-        - 'Patologisk avdeling (Stavanger Universitetssjukehus)'
+        - 'Patologisk (SUS)'
 
 DK:
   cities:
@@ -2084,7 +2061,7 @@ DK:
       prisons:
         - 'Vestre Fængsel'
       police-stations:
-        - 'Københavns Politigård'
+        - 'Politigården'
       morgues:
         - 'Retsmedicinsk Institut'
 
@@ -2107,13 +2084,13 @@ DK:
         - 'Aarhus Prison'
         - 'District Court'
       hospitals:
-        - 'Aarhus Universitetshospital (Skejby)'
+        - 'Skejby Sygehus'
       prisons:
-        - 'Arresthuset i Aarhus'
+        - 'Aarhus Arrest'
       police-stations:
         - 'Aarhus Politigård'
       morgues:
-        - 'Institut for Retsmedicin'
+        - 'Retsmedicinsk Institut'
 
     - id: odense
       name: 'Odense'
@@ -2134,13 +2111,13 @@ DK:
         - 'Odense Prison'
         - 'District Court'
       hospitals:
-        - 'Odense Universitetshospital (OUH)'
+        - 'OUH (Odense Universitetshospital)'
       prisons:
-        - 'Arresthuset i Odense'
+        - 'Odense Arrest'
       police-stations:
         - 'Odense Politigård'
       morgues:
-        - 'Retsmedicinsk Institut (Syddansk Universitet)'
+        - 'Retsmedicinsk Institut'
 
     - id: aalborg
       name: 'Aalborg'
@@ -2161,13 +2138,13 @@ DK:
         - 'Aalborg Prison'
         - 'District Court'
       hospitals:
-        - 'Aalborg Universitetshospital'
+        - 'Aalborg Sykehus'
       prisons:
-        - 'Arresthuset i Aalborg'
+        - 'Aalborg Arrest'
       police-stations:
         - 'Aalborg Politigård'
       morgues:
-        - 'Kapellet (Aalborg Universitetshospital)'
+        - 'Kapellet (Aalborg)'
 
 FI:
   cities:
@@ -2193,14 +2170,14 @@ FI:
         - 'Helsinki Prison'
         - 'District Court'
       hospitals:
-        - 'HUS Meilahden sairaala'
+        - 'Meilahden sairaala'
       prisons:
-        - 'Helsingin vankila (Sörkan vankila)'
+        - 'Sörkka (Helsinki Prison)'
       police-stations:
-        - 'Helsingin pääpoliisiasema (Pasilan poliisitalo)'
+        - 'Pasilan poliisitalo (HQ)'
       morgues:
         - 'Oikeuslääketieteen laitos'
-        - 'Malmin bårhus (Morgue)'
+        - 'Malmin bårhus'
 
     - id: espoo
       name: 'Espoo'
@@ -2223,11 +2200,11 @@ FI:
       hospitals:
         - 'Jorvin sairaala'
       prisons:
-        - 'Vantaan vankila'
+        - 'Vantaa Prison'
       police-stations:
-        - 'Espoon pääpoliisiasema'
+        - 'Espoon poliisiasema'
       morgues:
-        - 'Jorvin sairaalan bårhus (Morgue)'
+        - 'Jorvin bårhus'
 
     - id: tampere
       name: 'Tampere'
@@ -2249,13 +2226,13 @@ FI:
         - 'Tampere Prison'
         - 'District Court'
       hospitals:
-        - 'TAYS (Tampereen yliopistollinen sairaala)'
+        - 'TAYS'
       prisons:
-        - 'Kylmäkosken vankila'
+        - 'Kylmäkoski Prison'
       police-stations:
-        - 'Tampereen keskustaipaleen poliisiasema'
+        - 'Tampereen poliisiasema'
       morgues:
-        - 'TAYS oikeuslääketieteen yksikkö'
+        - 'TAYS oikeuslääketiede'
 
     - id: turku
       name: 'Turku'
@@ -2277,13 +2254,13 @@ FI:
         - 'Turku Prison'
         - 'District Court'
       hospitals:
-        - 'TYKS (Turun yliopistollinen keskussairaala)'
+        - 'TYKS'
       prisons:
-        - 'Turun vankila (Kakola - historically)'
+        - 'Sarjamäki Prison'
       police-stations:
-        - 'Turun pääpoliisiasema'
+        - 'Turun poliisiasema'
       morgues:
-        - 'TYKS oikeuslääketieteen yksikkö'
+        - 'TYKS oikeuslääketiede'
 
 PL:
   cities:
@@ -2309,15 +2286,15 @@ PL:
         - 'Warsaw Białołęka Prison'
         - 'District Court'
       hospitals:
-        - 'Centralny Szpital Kliniczny MSWiA'
-        - 'Szpital Kliniczny Dzieciątka Jezus'
+        - 'Szpital MSWiA'
+        - 'Szpital Dzieciątka Jezus'
       prisons:
-        - 'Areszt Śledczy Warszawa-Białołęka'
-        - 'Zakład Karny Warszawa-Służewiec'
+        - 'Białołęka Prison'
+        - 'Służewiec Prison'
       police-stations:
-        - 'Komenda Stołeczna Policji (Pałac Mostowskich)'
+        - 'Pałac Mostowskich (Police HQ)'
       morgues:
-        - 'Zakład Medycyny Sądowej (Warszawski Uniwersytet Medyczny)'
+        - 'ZMS (Medycyna Sądowa)'
 
     - id: krakow
       name: 'Kraków'
@@ -2340,13 +2317,9 @@ PL:
         - 'Kraków Prison'
         - 'District Court'
       hospitals:
-        - 'Szpital Uniwersytecki w Krakowie'
       prisons:
-        - 'Areszt Śledczy w Krakowie'
       police-stations:
-        - 'Komenda Miejska Policji w Krakowie'
       morgues:
-        - 'Katedra i Zakład Medycyny Sądowej (UJ)'
 
     - id: wroclaw
       name: 'Wrocław'
@@ -2368,13 +2341,9 @@ PL:
         - 'Wrocław Prison'
         - 'District Court'
       hospitals:
-        - 'Uniwersytecki Szpital Kliniczny (USK)'
       prisons:
-        - 'Zakład Karny we Wrocławiu'
       police-stations:
-        - 'Komenda Wojewódzka Policji we Wrocławiu'
       morgues:
-        - 'Zakład Medycyny Sądowej (Uniwersytet Medyczny)'
 
     - id: poznan
       name: 'Poznań'
@@ -2396,13 +2365,9 @@ PL:
         - 'Poznań Prison'
         - 'District Court'
       hospitals:
-        - 'Szpital Kliniczny im. Heliodora Święcickiego'
       prisons:
-        - 'Areszt Śledczy w Poznaniu'
       police-stations:
-        - 'Komenda Wojewódzka Policji w Poznaniu'
       morgues:
-        - 'Zakład Medycyny Sądowej (Uniwersytet Medyczny)'
 
     - id: gdansk
       name: 'Gdańsk'
@@ -2424,13 +2389,9 @@ PL:
         - 'Gdańsk Prison'
         - 'District Court'
       hospitals:
-        - 'Uniwersyteckie Centrum Kliniczne (UCK)'
       prisons:
-        - 'Areszt Śledczy w Gdańsku'
       police-stations:
-        - 'Komenda Wojewódzka Policji w Gdańsku'
       morgues:
-        - 'Zakład Medycyny Sądowej (Gdański Uniwersytet Medyczny)'
 
 GR:
   cities:
@@ -2456,14 +2417,14 @@ GR:
         - 'Korydallos Prison'
         - 'Athens Court'
       hospitals:
-        - 'Nosokomeio Evangelismos'
-        - 'Nosokomeio Attikon'
+        - 'Evangelismos Hospital'
+        - 'Attikon Hospital'
       prisons:
-        - 'Fylakes Korydallou (Korydallos Prison)'
+        - 'Korydallos Prison'
       police-stations:
-        - 'GADA (Geniki Astynomiki Diefthinsi Attikis)'
+        - 'The GADA (Police HQ)'
       morgues:
-        - 'Iatrodikastiki Ypiresia Athinon'
+        - 'Iatrodikastiki Athinon'
 
     - id: thessaloniki
       name: 'Thessaloniki'
@@ -2486,13 +2447,13 @@ GR:
         - 'Thessaloniki Prison'
         - 'Court of Appeal'
       hospitals:
-        - 'Nosokomeio AHEPA'
+        - 'AHEPA Hospital'
       prisons:
-        - 'Fylakes Diavaton'
+        - 'Diavata Prison'
       police-stations:
         - 'GADA Thessalonikis'
       morgues:
-        - 'Ergastirio Iatrodikastikis (Aristoteleio Panepistimio)'
+        - 'Iatrodikastiki Thessalonikis'
 
     - id: patras
       name: 'Patras'
@@ -2513,13 +2474,13 @@ GR:
         - 'Patras Prison'
         - 'Court'
       hospitals:
-        - 'Panepistimiako Geniko Nosokomeio Patron'
+        - 'Rio Hospital'
       prisons:
-        - 'Fylakes Agiou Stefanou'
+        - 'Agios Stefanos Prison'
       police-stations:
-        - 'Astynomiko Megaro Patron'
+        - 'Astynomiko Megaro'
       morgues:
-        - 'Iatrodikastiki Ypiresia Patron'
+        - 'Iatrodikastiki Patron'
 
     - id: heraklion
       name: 'Heraklion'
@@ -2540,13 +2501,13 @@ GR:
         - 'Heraklion Prison'
         - 'Court'
       hospitals:
-        - 'Panepistimiako Geniko Nosokomeio Irakleiou (PAGNI)'
+        - 'PAGNI Hospital'
       prisons:
-        - 'Fylakes Alikarnassou'
+        - 'Alikarnassos Prison'
       police-stations:
-        - 'Astynomiko Megaro Irakleiou'
+        - 'Astynomiko Megaro'
       morgues:
-        - 'Iatrodikastiki Ypiresia Kritis'
+        - 'Iatrodikastiki Irakleiou'
 
 RO:
   cities:
@@ -2572,14 +2533,14 @@ RO:
         - 'Rahova Prison'
         - 'Bucharest Court'
       hospitals:
-        - 'Spitalul Universitar de Urgență București'
+        - 'Spitalul Universitar'
       prisons:
         - 'Penitenciarul Rahova'
         - 'Penitenciarul Jilava'
       police-stations:
-        - 'Direcția Generală de Poliție a Municipiului București'
+        - 'Poliția Capitalei'
       morgues:
-        - 'Institutul National de Medicina Legala "Mina Minovici"'
+        - 'Mina Minovici (IML)'
 
     - id: cluj-napoca
       name: 'Cluj-Napoca'
@@ -2601,13 +2562,13 @@ RO:
         - 'Cluj Prison'
         - 'Cluj Court'
       hospitals:
-        - 'Spitalul Clinic Județean de Urgență Cluj'
+        - 'Spitalul Județean'
       prisons:
         - 'Penitenciarul Gherla'
       police-stations:
-        - 'Inspectoratul de Poliție Județean Cluj'
+        - 'IPJ Cluj'
       morgues:
-        - 'Institutul de Medicina Legala Cluj-Napoca'
+        - 'IML Cluj'
 
     - id: timisoara
       name: 'Timișoara'
@@ -2630,13 +2591,9 @@ RO:
         - 'Timișoara Prison'
         - 'Timișoara Court'
       hospitals:
-        - 'Spitalul Clinic Județean de Urgență "Pius Brânzeu"'
       prisons:
-        - 'Penitenciarul Timișoara'
       police-stations:
-        - 'Inspectoratul de Poliție Județean Timiș'
       morgues:
-        - 'Institutul de Medicina Legala Timișoara'
 
     - id: iasi
       name: 'Iași'
@@ -2658,10 +2615,6 @@ RO:
         - 'Iași Prison'
         - 'Iași Court'
       hospitals:
-        - 'Spitalul Clinic Județean de Urgență "Sf. Spiridon"'
       prisons:
-        - 'Penitenciarul Iași'
       police-stations:
-        - 'Inspectoratul de Poliție Județean Iași'
       morgues:
-        - 'Institutul de Medicina Legala Iași'
