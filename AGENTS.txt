@@ -216,6 +216,8 @@ npm run check        # Type check
 - Hospital and morgue place types with 89 cities covered (real facility names in local languages)
 - Romanian language support with comparable events
 - V2 marker system with hierarchical place structure
+- JSON Schema validation system for YAML files with completeness checks
+- Prison and police-station place types (distinct from generic government facilities)
 
 ### 🚧 In Progress / Planned
 - [ ] Store country preference in URL parameters

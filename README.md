@@ -60,9 +60,23 @@ npm run test:watch
 ### Data Validation
 
 ```bash
-# Validate story formats and context data
+# Validate story formats, context data, and schemas
 npm run validate
+
+# Validate only YAML schemas (completeness checks)
+npm run validate:schemas
+
+# Validate only context data (marker references, etc.)
+npm run validate:contexts
 ```
+
+The schema validation system ensures:
+- All YAML files match their JSON schemas
+- Translation scripts handle all place marker types
+- New marker types don't break the translation pipeline
+- IDE integration (VS Code, Zed) provides real-time validation
+
+See [SCHEMA_VALIDATION.md](docs/SCHEMA_VALIDATION.md) for details.
 
 ### Building for Production
 

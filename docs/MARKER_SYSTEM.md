@@ -1,12 +1,26 @@
 # Marker System Reference
 
+## Schema Validation
+
+**All marker definitions are validated against JSON schemas** to ensure correctness:
+- `schemas/story.schema.json` - Validates story files and marker definitions
+- `schemas/places.schema.json` - Validates place data (cities, facilities)
+- `schemas/countries.schema.json` - Validates country configurations
+- `schemas/names.schema.json` - Validates name lists
+
+Run `npm run validate:schemas` to check all YAML files against schemas. The validation system:
+- Catches typos and invalid marker types at build time
+- Ensures all place types have translation handlers
+- Provides IDE autocomplete and inline validation
+- See [SCHEMA_VALIDATION.md](./SCHEMA_VALIDATION.md) for details
+
 ## Philosophy
 
 The marker system is designed to be:
 - **Composable**: Markers can reference and inherit from other markers
 - **Concise**: Common patterns shouldn't require verbose YAML
 - **Extensible**: New marker types are easy to add
-- **Validated**: Structure enforces correctness
+- **Validated**: Structure enforces correctness via JSON schemas
 - **Powerful**: Supports complex relationships without complexity
 
 ---
